@@ -1,4 +1,4 @@
-"# projects_courses_log" 
+# "# projects_courses_log" 
 &amp;
 ## …or create a new repository on the command line
 echo "# projects_courses_log" >> README.md
