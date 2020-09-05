@@ -1,4 +1,6 @@
-# "# projects_courses_log" 
+# "# projects_courses_log"
+&amp;
+Your site is ready to be published at https://dreamecho100.github.io/projects_courses_log/.
 &amp;
 ## …or create a new repository on the command line
 echo "# projects_courses_log" >> README.md
