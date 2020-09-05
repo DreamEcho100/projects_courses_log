@@ -1,0 +1,19 @@
+.gameArea {
+	height: 200px;
+	width: 200px;
+	border: 1px solid black;
+}
+
+.box {
+	height: 50%;
+	color: black;
+	text-align: center;
+	display: inline-block;
+	width: 50%;
+	margin-bottom: -4px;
+}
+
+.active {
+	border: 1px solid red;
+	color: red;
+}

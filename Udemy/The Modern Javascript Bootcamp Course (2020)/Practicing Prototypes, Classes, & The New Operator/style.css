@@ -1,0 +1,36 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+    filter: grayscale(5%) blur(0.1px) brightness(110%) contrast(120%) hue-rotate(180deg) invert(20%) opacity(95%) saturate(3) sepia(15%);
+}
+
+#colorsLisT li {
+	display: flex;
+}
+
+.colorSqOutput {
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    margin: auto 0;
+}
+
+.deletBtn {
+	margin-left: 10px;
+	font-weight: 700;
+	color: red;
+}
+
+
+.boxshadow{ 
+	-moz-box-shadow:4px 4px 4px 4px rgb(232, 232, 232);
+	-webkit-box-shadow:4px 4px 4px 4px rgb(232, 232, 232);
+	box-shadow:4px 4px 4px 4px rgb(232, 232, 232);
+	background-color: hsl(100 29% 92% / 1);
+}

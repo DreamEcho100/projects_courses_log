@@ -1,0 +1,33 @@
+.copyMe{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:15px;
+    border:1px solid black;
+    position: absolute;
+    width:60px;
+    text-align: center;
+    height: 40px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.newb{
+    color:red;
+    width:120px;
+    height: 100px;
+    /*transition: 1s;*/
+}
+.newb img{
+    width:130px;
+    height: 110px;
+}
+
+#garbage {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    left: 500px;
+    top: 300px;
+}

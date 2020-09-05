@@ -1,0 +1,17 @@
+input {
+    display: block;
+    font-size: 1.5em;
+    width: 75%;
+}
+
+button {
+    font-size: 1.5em;
+    padding: 5px;
+}
+
+.cookie,
+.output {
+    padding: 15px;
+    font-size: 1.2em;
+    font-family: fantasy;
+}

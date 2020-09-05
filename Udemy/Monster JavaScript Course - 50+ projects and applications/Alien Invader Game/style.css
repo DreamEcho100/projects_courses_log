@@ -1,0 +1,93 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 80%;
+    height: 80%;
+    margin-left: 10%;
+    background-color: black;
+    overflow: hidden;
+}
+
+.startButton {
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    background-color: red;
+}
+
+.myShip {
+    position: absolute;
+    left: 40%;
+    bottom: 20%;
+    background-color: white;
+    width: 100px;
+    height: 20px;
+}
+
+.fireme {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.hide {
+    display: none;
+}
+
+.alien {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 50px;
+    padding: 5px;
+    color: white;
+    background-color: blue;
+    box-shadow: 0px 1px 8px 0px black;
+    font-size: 1em;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.eye {
+    position: absolute;
+    width: 20px;
+    border-radius: 25%;
+    color: black;
+    height: 20px;
+    background-color: aliceblue;
+}
+
+.eye::after {
+    content: "\2022";
+}
+
+.mouth {
+    position: absolute;
+    width: 70%;
+    height: 2px;
+    bottom: 10px;
+    left: 10%;
+    border: 4px dotted white;
+    background-color: black;
+}
+
+.topBar {
+    height: 50px;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 2em;
+}

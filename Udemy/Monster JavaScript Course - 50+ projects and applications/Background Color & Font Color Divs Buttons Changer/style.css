@@ -1,0 +1,11 @@
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+.div {
+	border: 1px solid black;
+	color: blue;
+	font-weight: 900;
+}

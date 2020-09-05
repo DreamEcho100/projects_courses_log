@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  	<link rel="stylesheet" type="text/css" href="style.css">
+  	<title>Practicing Prototypes, Classes, & The New Operator</title>
+</head>
+
+<body>
+	<select id="fromColorType">
+		<option value="hex">hex</option>
+		<option value="rgb">rgb</option>
+	</select>
+	<div id="colorTxtInp"></div>
+	<select id="toColorType">
+		<option value="hex">hex</option>
+		<option value="rgb">rgb</option>
+		<option value="hsl">hsl</option>
+	</select>
+	<br>
+	<button id="btnConvertAndAddToList" type="button">Convert</button>
+	<ul id="colorsLisT" class="boxshadow">
+		<li><div style="background-color: rgb(255, 255, 255)" class="colorSqOutput"></div><span class="colorTxtOutput">rgb(255, 255, 255)</span></span><span class="deletBtn" onclick="deletFromList(this)">X</span></li>
+		<li><div style="background-color: #000000" class="colorSqOutput"></div><span class="colorTxtOutput">#000000</span></span><span class="deletBtn" onclick="deletFromList(this)">X</span></li>
+	</ul>
+
+    <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>

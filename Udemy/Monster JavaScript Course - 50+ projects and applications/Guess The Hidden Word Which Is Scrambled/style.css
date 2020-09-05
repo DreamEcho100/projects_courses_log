@@ -1,0 +1,12 @@
+.box {
+    display: inline-block;
+    padding: 10px;
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.hidden {
+    visibility: hidden;
+}
