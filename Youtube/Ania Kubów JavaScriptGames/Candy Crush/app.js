@@ -37,18 +37,31 @@ document.addEventListener("DOMContentLoaded", () => {
 	createBoard();
 
 	// Drag the candies
-	squares.forEach((square) =>
-		square.addEventListener("dragstart", dragStart)
-	);
-	squares.forEach((square) => square.addEventListener("dragover", dragOver));
-	squares.forEach((square) =>
-		square.addEventListener("dragenter", dragEnter)
-	);
-	squares.forEach((square) =>
-		square.addEventListener("dragleave", dragLeave)
-	);
-	squares.forEach((square) => square.addEventListener("drop", dragDrop));
-	squares.forEach((square) => square.addEventListener("dragend", dragEnd));
+
+	// squares.forEach((square) => square.addEventListener(, ));
+	// squares.forEach((square) => square.addEventListener(, ));
+	// squares.forEach((square) => square.addEventListener(, ));
+	// squares.forEach((square) => square.addEventListener(, ));
+	// squares.forEach((square) => square.addEventListener(, ));
+	// squares.forEach((square) => square.addEventListener(, ));
+	const squareActions = [
+		{event: "dragstart", function: dragStart}, 
+		{event: "touchstart", function: dragStart}, 
+		{event: "dragover", function: dragOver}, 
+		// {event: "touch", function: }, 
+		{event: "dragenter", function: dragEnter}, 
+		// {event: "touch", function: }, 
+		{event: "dragleave", function: dragLeave}, 
+		// {event: "touch", function: }, 
+		{event: "drop", function: dragDrop}, 
+		{event: "touchmove", function: dragDrop}, 
+		{event: "dragend", function: dragEnd},  
+		{event: "touchend", function: dragEnd}
+	]
+
+	squareActions.forEach(squareAction => {
+		squares.forEach((square) => square.addEventListener(squareAction.event, squareAction.function));
+	});
 
 	let colorBeingDragged,
 		colorBeingReplaced,
