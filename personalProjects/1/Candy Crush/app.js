@@ -29,6 +29,94 @@ document.addEventListener("DOMContentLoaded", () => {
 			square.setAttribute("id", i);
 			let randomNum = Math.floor(Math.random() * candyColors.length);
 			square.style.backgroundImage = candyColors[randomNum];
+
+
+			grid.appendChild(square);
+			squares.push(square);
+		}
+	}
+
+	createBoard();
+
+
+	// peice.addEventListener("pointerdown", pointerDown);
+	// peice.addEventListener("pointerup", pointerUp);
+	// peice.addEventListener("pointerenter", pointerEnter);
+	// peice.addEventListener("pointerover", pointerOver);
+	// peice.addEventListener("pointerleave", pointerLeave);
+
+	function pointerDown(e) {
+		e.preventDefault();
+		console.log("pointer Down", e, this);
+		console.dir(this);
+		this.addEventListener("pointermove", pointerMove);
+	}
+
+	function pointerUp(e) {
+		this.style.top = `${e.clientY}px`;
+		this.style.left = `${e.clientY}px`;
+	}
+
+	function pointerMove(e) {
+		console.log("pointer Move", e);
+		this.removeEventListener("pointermove", pointerMove);
+	}
+
+	function pointerLeave(e) {
+		e.preventDefault();
+	}
+
+	function pointerEnter(e) {
+		e.preventDefault();
+	}
+	function pointerOver(e) {
+		e.preventDefault();
+	}
+/*
+pointerdown: null
+pointerenter: null
+pointerleave: null
+pointermove: null
+pointerout: null
+pointerover: null
+pointerup: null
+pointerwheel: null
+*/
+
+});
+
+/*
+document.addEventListener("DOMContentLoaded", () => {
+	const grid = document.querySelector(".grid");
+	const scoreDisplay = document.getElementById("score");
+	const width = 8;
+	const squares = [];
+	const firstRow = [];
+	for (let i = 0; i < width; i++) {
+		firstRow.push(i);
+	}
+	let score = 0;
+	scoreDisplay.textContent = score;
+
+	const candyColors = [
+		"url(alternative-images/alternative-red.png)",
+		"url(alternative-images/alternative-yellow.png)",
+		"url(alternative-images/alternative-orange.png)",
+		"url(alternative-images/alternative-purple.png)",
+		"url(alternative-images/alternative-green.png)",
+		"url(alternative-images/alternative-blue.png)",
+	];
+
+	// Create Board
+	function createBoard() {
+		const loopLimit = width * width;
+		for (let i = 0; i < loopLimit; i++) {
+			const square = document.createElement("div");
+			square.classList.add("square");
+			square.setAttribute("draggable", "true");
+			square.setAttribute("id", i);
+			let randomNum = Math.floor(Math.random() * candyColors.length);
+			square.style.backgroundImage = candyColors[randomNum];
 			grid.appendChild(square);
 			squares.push(square);
 		}
@@ -81,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		colorBeingReplaced,
 		squareIdBeingDragged,
 		squareIdBeingReplaced;
-	/*replaceSquares*/
+	//replaceSquares
 
 	function dragStart() {
 		colorBeingDragged = this.style.backgroundImage;
@@ -238,3 +326,5 @@ document.addEventListener("DOMContentLoaded", () => {
 		checkColumns();
 	}, 350);
 });
+
+*/

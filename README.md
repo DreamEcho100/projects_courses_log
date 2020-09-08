@@ -15,3 +15,8 @@ git push -u origin master
 git remote add origin https://github.com/DreamEcho100/projects_courses_log.git
 git branch -M master
 git push -u origin master
+
+##
+git add .
+git commit -m "Uplaod&Update"
+git push -u origin master

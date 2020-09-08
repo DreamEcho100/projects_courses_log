@@ -277,12 +277,34 @@ let ContentBuilder = (function () {
   let temp;
   const contentObj = [
     {
-      mainSectionHeader: "!personalProjects",
+      mainSectionHeader: "personalProjects",
       mainSectionHeaderType: "h2",
       mainSectionInfo: "There is nothing at this moment :/",
-      mainSectionClass: "spinningBackground1 main-section",
+      mainSectionClass: "main-section",
       exisist: false,
-      courses: [],
+      courses: [
+        {
+          courseSectionHeader: "1",
+          courseSectionHeaderType: "h3",
+          courseSectionInfo: "1",
+          courseSectionClases: "spinningBackground1",
+          projects: [
+            coursesProjectObjBuilder(
+              "none",
+              "Candy Crush",
+              "index.html",
+              "??",
+              {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+              "Candy Crush"
+            ),
+          ],
+        },
+      ]
     },
     {
       mainSectionHeader: "Developedbyed",
@@ -1442,6 +1464,19 @@ let ContentBuilder = (function () {
                 APIs: [],
               },
               "Candy Crush"
+            ),
+            coursesProjectObjBuilder(
+              "none",
+              "PACMAN",
+              "index.html",
+              "??",
+              {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+              "PACMAN"
             ),
           ],
         },
