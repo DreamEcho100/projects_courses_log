@@ -29,16 +29,18 @@ h1 {
 }
 
 body {
-	background-image: url("candy-crush-background-2.png");
-	display: flex;
-	flex-wrap: wrap;
-	align-content: center;
-	justify-content: space-around;
-	padding: 1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(candy-crush-background-2.png);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-around;
+    padding: 1rem;
 }
 
 .grid {
-    flex: 1 1 25rem;
     height: var(--main-grid-height);
     max-width: var(--main-grid-width);
     display: flex;
