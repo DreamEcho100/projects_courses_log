@@ -36,3 +36,39 @@ body {
 	justify-content: space-around;
 	padding: 1rem;
 }
+
+.grid {
+    flex: 1 1 25rem;
+    height: var(--main-grid-height);
+    max-width: var(--main-grid-width);
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(109, 127, 151, 0.5);
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) inset, 0 1px 0 #fff;
+    color: #85796b;
+}
+
+.grid div {
+    background-position: center;
+    background-size: cover;
+    height: calc(var(--main-grid-height) / 8);
+    min-width: calc(var(--main-grid-width) / 8);
+}
+
+.score-board {
+    height: calc(4rem + 1vw);
+    font-size: 3rem;
+    background-color: pink;
+    border-radius: 10px;
+    width: calc(12rem + 8vw);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: linear-gradient(#FFB6C1, #FFC0CB);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) inset, 0 1px 0 #fff;
+    color: #85796b;
+}
