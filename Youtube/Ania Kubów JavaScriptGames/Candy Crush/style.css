@@ -1,7 +1,7 @@
 :root {
-	font-size: 62.5%;
-	--main-grid-width: calc(16rem + 25vw);
-	--main-grid-height: calc(16rem + 25vw);
+    font-size: calc(30% + 5%);
+    --main-grid-width: calc(16rem + 25vw);
+    --main-grid-height: calc(16rem + 25vw);
 }
 
 html,
@@ -61,7 +61,7 @@ body {
 
 .score-board {
     height: calc(4rem + 1vw);
-    font-size: 3rem;
+    font-size: 1rem;
     background-color: pink;
     border-radius: 10px;
     width: calc(12rem + 8vw);
