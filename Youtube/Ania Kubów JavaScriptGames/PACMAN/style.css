@@ -34,7 +34,8 @@ h1 {
 	flex-wrap: wrap;
 	width: var(--main-grid-width);
 	height: var(--main-grid-height);
-	border: solid black ;
+	border: solid black;
+	background-color: black;
 }
 
 .grid div {
@@ -43,8 +44,9 @@ h1 {
 }
 
 .pac-dot {
-    background-color: green;
-    border: calc(var(--main-grid-height) / 28 / 3.5) solid white;
+    background: white;
+    border: calc(var(--main-grid-height) / 28 / 3.5) solid black;
+    border-radius: 10px;
     box-sizing: border-box;
 }
 
@@ -55,6 +57,11 @@ h1 {
 .power-pellet {
     background-color: green;
     border-radius: 10px;
+}
+
+.ghost {
+	border-width: 0px;
+	border-radius: 0px;
 }
 
 .blinky {
