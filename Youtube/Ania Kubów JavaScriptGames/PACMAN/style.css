@@ -1,0 +1,84 @@
+:root {
+	font-size: 62.5%;
+    --main-grid-width: 56rem;
+    --main-grid-height: 56rem;
+    /*font-size: calc(30% + 5%);
+    --main-grid-width: calc(16rem + 25vw);
+    --main-grid-height: calc(16rem + 25vw);*/
+    font-size: calc(34.1% + 0.5vw);
+    --main-grid-width: calc(30rem + 10vw);
+    --main-grid-height: calc(30rem + 10vw);
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+}
+
+h3 {
+	font-family: "Montserrat", sans-serif;
+	text-transform: uppercase;
+}
+
+h1 {
+	font-family: "Montserrat", sans-serif;
+	text-transform: uppercase;
+}
+
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	width: var(--main-grid-width);
+	height: var(--main-grid-height);
+	border: solid black ;
+}
+
+.grid div {
+    width: calc(var(--main-grid-width) / 28);
+    height: calc(var(--main-grid-height) / 28);
+}
+
+.pac-dot {
+    background-color: green;
+    border: calc(var(--main-grid-height) / 28 / 3.5) solid white;
+    box-sizing: border-box;
+}
+
+.wall {
+    background-color: blue;
+}
+
+.power-pellet {
+    background-color: green;
+    border-radius: 10px;
+}
+
+.blinky {
+    background-color: red;
+}
+
+.pinky {
+    background-color: pink;
+}
+
+.inky {
+    background-color: cyan;
+}
+
+.clyde {
+    background-color: orange;     
+}
+
+.pac-man {
+    background-color: yellow;
+    border-radius: 10px;   
+    border: 0 solid white;
+}
+
+.scared-ghost {
+    background-color: aquamarine;
+}
