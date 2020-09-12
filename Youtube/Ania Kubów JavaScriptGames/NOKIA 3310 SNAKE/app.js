@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		let snakeAndAppleCoordinates = {
 			"0": "snake",
 			"47": "apple",
-		} 
-			console.log(snakeAndAppleCoordinates);
+		}
 		for (let i = 0; i < 100; i++) {
 			const square = document.createElement("div");
 			square.className = (snakeAndAppleCoordinates[i]);
@@ -100,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			"38": -width, // Up
 			"37": -1, // Left
 			"40": width, //Down
-		}[e.keyCode]) || direction;
+		}[e.keyCode] || direction);
 	}
 
 });
