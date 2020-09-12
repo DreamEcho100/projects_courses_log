@@ -1,0 +1,42 @@
+:root {
+	font-size: 62.5%;
+    --main-grid-width: 20rem;
+    --main-grid-height: 20rem;
+    /*font-size: calc(30% + 5%);
+    --main-grid-width: calc(16rem + 25vw);
+    --main-grid-height: calc(16rem + 25vw);*/
+    /*font-size: calc(34.1% + 0.5vw);
+    --main-grid-width: calc(30rem + 10vw);
+    --main-grid-height: calc(30rem + 10vw);*/
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	font-family: "Montserrat", sans-serif;
+}
+
+#grid {
+	width: var(--main-grid-width);
+	height: var(--main-grid-height);
+	display: flex;
+	flex-wrap: wrap;
+	border-style: solid;
+}
+
+#grid div {
+	width: calc(var(--main-grid-width) / 10);
+	height: calc(var(--main-grid-height) / 10);
+}
+
+#grid .snake {
+	background-color: blue;
+}
+
+#grid .apple {
+	background-color: purple;
+}

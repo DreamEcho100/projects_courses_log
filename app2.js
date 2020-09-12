@@ -1785,6 +1785,30 @@ let ContentBuilder = (function () {
             },
             {
               type: "normal-content-project",
+              name: "NOKIA 3310 SNAKE",
+              info: 
+                "A vanilla JavaScript grid-based game | In this tutorial you will learn how to make a fully functional game of Nokia 3310 Snake.\n" +
+                "This is a total BEGINNERS introduction to JavaScript, in which you will cover the following:\n" +
+                  "- project set up\n" +
+                  "- linking your JavaScript and CSS files to your HTML file\n" +
+                  "- event listeners\n" +
+                  "- query Selectors\n" +
+                  "- arrow functions\n" +
+                  "- forEach\n" +
+                  "- setting time intervals and countdowns"
+              ,
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
               name: "PACMAN",
               info: "",
               fileName: "index",
