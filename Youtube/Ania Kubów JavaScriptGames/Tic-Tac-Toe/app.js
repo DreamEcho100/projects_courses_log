@@ -53,8 +53,13 @@ addEventListener("DOMContentLoaded", () => {
 
 		checkForHorizontalCombination(playerXCombo, "playerX");
 		checkForHorizontalCombination(playerYCombo, "playerY");
+		checkForVerticalCombination(playerXCombo, "playerX");
+		checkForVerticalCombination(playerYCombo, "playerY");
+		checkForDiagonalCombination(playerXCombo, "playerX");
+		checkForDiagonalCombination(playerYCombo, "playerY");
 	}
 
+	// Check for horizontal combinations
 	function checkForHorizontalCombination(player, playerName) {
 		const firstCombo = [0, 1, 2];
 		const secondCombo = [3, 4, 5];
@@ -86,4 +91,44 @@ addEventListener("DOMContentLoaded", () => {
 		squares.forEach(square => square.removeEventListener("click", clickOutcome));
 	}
 
+	// Check for vertical combinations
+	function checkForVerticalCombination(player, playerName) {
+		const firstCombo = [0, 3, 6];
+		const secondCombo = [1, 4, 7];
+		const thirdCombo = [2, 5, 8];
+
+		firstCombo.forEach(item => {
+			if (!firstCombo.every(i => player.indexOf(i) !== -1)) return;
+			verticalLineDisplay(squares[firstCombo[0]], playerName);
+		});
+
+		secondCombo.forEach(item => {
+			if (!secondCombo.every(i => player.indexOf(i) !== -1)) return;
+			verticalLineDisplay(squares[secondCombo[0]], playerName);
+		});
+
+		thirdCombo.forEach(item => {
+			if (!thirdCombo.every(i => player.indexOf(i) !== -1)) return;
+			verticalLineDisplay(squares[thirdCombo[0]], playerName);
+		});
+	}
+
+	function verticalLineDisplay(lineStart, playerName) {
+		playerDisplay.innerText = `${playerName} Won!`;
+		line.style.top = `${2.5}px`;
+		line.style.left = `${lineStart.offsetLeft + (lineStart.offsetHeight / 2)}px`;
+		line.style.height = `${lineStart.offsetHeight * 3}px`;
+		line.style.padding = `${lineStart.offsetHeight / 18}px`;
+		line.style.transform = `translateX(-50%)`;
+		squares.forEach(square => square.removeEventListener("click", clickOutcome));
+	}
+
+	// Check for Diagonal combinations
+	function checkForDiagonalCombination(player, playerName) {
+		// body...
+	}
+
+	function diagonalLineDisplay(lineStart, playerName) {
+		// body...
+	}
 });
