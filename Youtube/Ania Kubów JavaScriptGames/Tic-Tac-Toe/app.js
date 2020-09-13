@@ -4,7 +4,6 @@ addEventListener("DOMContentLoaded", () => {
 	const playerDisplay = document.querySelector("#Tic-Tac-Toe-section .player");
 	const line = document.querySelector("#Tic-Tac-Toe-section .line");
 	const width = 3;
-	let score = 0;
 	let squares = [];
 	let horizontalCombination = [];
 	let verticalCombination = [];
@@ -64,7 +63,7 @@ addEventListener("DOMContentLoaded", () => {
 		//const squaresArray = Array.from(squares);
 		const index = squares.indexOf(e.target);
 		if (e.target.classList.contains("choosed")) return;
-		currentPlayer = ({
+		currentPlayer = !squares.some(square => square.classList.contains("choosed")) ? [playerDisplay.innerText] : ({
 			"playerX": "playerO",
 			"playerO": "playerX"
 		}[playerDisplay.innerText]);
