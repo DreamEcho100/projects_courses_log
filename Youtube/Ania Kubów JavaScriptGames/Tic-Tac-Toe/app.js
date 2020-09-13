@@ -204,7 +204,7 @@ addEventListener("DOMContentLoaded", () => {
 		squares.forEach(square => square.removeEventListener("click", clickOutcome));
 	}
 
-	// Check for tie
+	// Check for a tie
 	function checkForTie() {
 		if (!squares.every(square => square.classList.contains("choosed"))) return;
 		squares.forEach(square => square.removeEventListener("click", clickOutcome));
