@@ -1,7 +1,9 @@
 addEventListener("DOMContentLoaded", () => {
 	const grid = document.querySelector("#Tic-Tac-Toe-section .grid");
 	const scoreDisplay = document.querySelector("#Tic-Tac-Toe-section .score");
-	const playerDisplay = document.querySelector("#Tic-Tac-Toe-section .player");
+	const playerDisplay = document.querySelector(
+		"#Tic-Tac-Toe-section .player"
+	);
 	const line = document.querySelector("#Tic-Tac-Toe-section .line");
 	const width = 3;
 	let squares = [];
@@ -30,7 +32,7 @@ addEventListener("DOMContentLoaded", () => {
 			}
 		}
 
-		let	counter2 = 0;
+		let counter2 = 0;
 		for (let i = 0; i < width; i++) {
 			counter2 = i;
 			verticalCombination.push([]);
@@ -40,33 +42,41 @@ addEventListener("DOMContentLoaded", () => {
 			}
 		}
 
-		let	counter3 = 0;
-		let	counter3Direction = -1;
-		let counterIncrement = [4, 2]
+		let counter3 = 0;
+		let counter3Direction = -1;
+		let counterIncrement = [4, 2];
 		for (let i = 0; i < width - 1; i++) {
 			diagonalCombination.push([]);
 			for (let j = 0; j < width; j++) {
 				diagonalCombination[i].push(counter3);
 				counter3 += counterIncrement[i];
 			}
-			counter3 = (counter3 / width) - (width - 1);
+			counter3 = counter3 / width - (width - 1);
 		}
 
-		console.log(horizontalCombination, verticalCombination, diagonalCombination);
+		console.log(
+			horizontalCombination,
+			verticalCombination,
+			diagonalCombination
+		);
 	}
 
 	combinationsArraysBuilder();
 
-	squares.forEach(square => square.addEventListener("click", clickOutcome));
+	squares.forEach((square) => square.addEventListener("click", clickOutcome));
 
 	function clickOutcome(e) {
 		//const squaresArray = Array.from(squares);
 		const index = squares.indexOf(e.target);
 		if (e.target.classList.contains("choosed")) return;
-		currentPlayer = !squares.some(square => square.classList.contains("choosed")) ? [playerDisplay.innerText] : ({
-			"playerX": "playerO",
-			"playerO": "playerX"
-		}[playerDisplay.innerText]);
+		currentPlayer = !squares.some((square) =>
+			square.classList.contains("choosed")
+		)
+			? [playerDisplay.innerText]
+			: {
+					playerX: "playerO",
+					playerO: "playerX",
+			  }[playerDisplay.innerText];
 		playerDisplay.innerText = currentPlayer;
 		squares[index].classList.add(currentPlayer, "choosed");
 
@@ -76,8 +86,8 @@ addEventListener("DOMContentLoaded", () => {
 	function checkForPossibleCombination() {
 		let playerXCombo = [];
 		let playerOCombo = [];
-		squares.forEach(square => {
-			if (!square.classList.contains("choosed")) return
+		squares.forEach((square) => {
+			if (!square.classList.contains("choosed")) return;
 
 			if (square.classList.contains("playerX")) {
 				return playerXCombo.push(square.number);
@@ -87,8 +97,6 @@ addEventListener("DOMContentLoaded", () => {
 		});
 
 		console.log(playerXCombo, playerOCombo);
-
-		
 
 		checkForHorizontalCombination(playerXCombo, "playerX");
 		checkForHorizontalCombination(playerOCombo, "playerO");
@@ -108,30 +116,32 @@ addEventListener("DOMContentLoaded", () => {
 		const secondCombo = horizontalCombination[1];
 		const thirdCombo = horizontalCombination[2];
 
-		firstCombo.forEach(item => {
-			if (!firstCombo.every(i => player.indexOf(i) !== -1)) return;
+		firstCombo.forEach((item) => {
+			if (!firstCombo.every((i) => player.indexOf(i) !== -1)) return;
 			horizontalLineDisplay(squares[firstCombo[0]], playerName);
 		});
 
-		secondCombo.forEach(item => {
-			if (!secondCombo.every(i => player.indexOf(i) !== -1)) return;
+		secondCombo.forEach((item) => {
+			if (!secondCombo.every((i) => player.indexOf(i) !== -1)) return;
 			horizontalLineDisplay(squares[secondCombo[0]], playerName);
 		});
 
-		thirdCombo.forEach(item => {
-			if (!thirdCombo.every(i => player.indexOf(i) !== -1)) return;
+		thirdCombo.forEach((item) => {
+			if (!thirdCombo.every((i) => player.indexOf(i) !== -1)) return;
 			horizontalLineDisplay(squares[thirdCombo[0]], playerName);
 		});
 	}
 
 	function horizontalLineDisplay(lineStart, playerName) {
 		playerDisplay.innerText = `${playerName} Won!`;
-		line.style.top = `${lineStart.offsetTop + (lineStart.offsetWidth / 2)}px`;
+		line.style.top = `${lineStart.offsetTop + lineStart.offsetWidth / 2}px`;
 		line.style.left = `${lineStart.offsetLeft + 1.5}px`;
 		line.style.width = `${lineStart.offsetWidth * 3}px`;
 		line.style.padding = `${lineStart.offsetWidth / 18}px`;
 		line.style.transform = `translateY(-50%)`;
-		squares.forEach(square => square.removeEventListener("click", clickOutcome));
+		squares.forEach((square) =>
+			square.removeEventListener("click", clickOutcome)
+		);
 	}
 
 	// Check for vertical combinations
@@ -143,18 +153,18 @@ addEventListener("DOMContentLoaded", () => {
 		const secondCombo = verticalCombination[1];
 		const thirdCombo = verticalCombination[2];
 
-		firstCombo.forEach(item => {
-			if (!firstCombo.every(i => player.indexOf(i) !== -1)) return;
+		firstCombo.forEach((item) => {
+			if (!firstCombo.every((i) => player.indexOf(i) !== -1)) return;
 			verticalLineDisplay(squares[firstCombo[0]], playerName);
 		});
 
-		secondCombo.forEach(item => {
-			if (!secondCombo.every(i => player.indexOf(i) !== -1)) return;
+		secondCombo.forEach((item) => {
+			if (!secondCombo.every((i) => player.indexOf(i) !== -1)) return;
 			verticalLineDisplay(squares[secondCombo[0]], playerName);
 		});
 
-		thirdCombo.forEach(item => {
-			if (!thirdCombo.every(i => player.indexOf(i) !== -1)) return;
+		thirdCombo.forEach((item) => {
+			if (!thirdCombo.every((i) => player.indexOf(i) !== -1)) return;
 			verticalLineDisplay(squares[thirdCombo[0]], playerName);
 		});
 	}
@@ -162,11 +172,15 @@ addEventListener("DOMContentLoaded", () => {
 	function verticalLineDisplay(lineStart, playerName) {
 		playerDisplay.innerText = `${playerName} Won!`;
 		line.style.top = `${2.5}px`;
-		line.style.left = `${lineStart.offsetLeft + (lineStart.offsetHeight / 2)}px`;
+		line.style.left = `${
+			lineStart.offsetLeft + lineStart.offsetHeight / 2
+		}px`;
 		line.style.height = `${lineStart.offsetHeight * 3}px`;
 		line.style.padding = `${lineStart.offsetHeight / 18}px`;
 		line.style.transform = `translateX(-50%)`;
-		squares.forEach(square => square.removeEventListener("click", clickOutcome));
+		squares.forEach((square) =>
+			square.removeEventListener("click", clickOutcome)
+		);
 	}
 
 	// Check for Diagonal combinations
@@ -177,14 +191,14 @@ addEventListener("DOMContentLoaded", () => {
 		const secondCombo = diagonalCombination[1];
 		let direction;
 
-		firstCombo.forEach(item => {
-			if (!firstCombo.every(i => player.indexOf(i) !== -1)) return;
+		firstCombo.forEach((item) => {
+			if (!firstCombo.every((i) => player.indexOf(i) !== -1)) return;
 			direction = 1;
 			diagonalLineDisplay(squares[firstCombo[0]], playerName, direction);
 		});
 
-		secondCombo.forEach(item => {
-			if (!secondCombo.every(i => player.indexOf(i) !== -1)) return;
+		secondCombo.forEach((item) => {
+			if (!secondCombo.every((i) => player.indexOf(i) !== -1)) return;
 			direction = -1;
 			diagonalLineDisplay(squares[secondCombo[0]], playerName, direction);
 		});
@@ -194,20 +208,28 @@ addEventListener("DOMContentLoaded", () => {
 		playerDisplay.innerText = `${playerName} Won!`;
 		line.style.top = `${lineStart.offsetTop + 1.5}px`;
 		if (direction === 1) {
-			line.style.transform = `translateX(${lineStart.offsetWidth * 1.5}px) rotate(${-45 * direction}deg)`;
+			line.style.transform = `translateX(${
+				lineStart.offsetWidth * 1.5
+			}px) rotate(${-45 * direction}deg)`;
 		} else if (direction === -1) {
-			line.style.transform = `translateX(${lineStart.offsetWidth * 1.5}px) rotate(${-45 * direction}deg)`;
+			line.style.transform = `translateX(${
+				lineStart.offsetWidth * 1.5
+			}px) rotate(${-45 * direction}deg)`;
 		}
 		line.style.height = `${lineStart.offsetHeight * 3}px`;
 		line.style.padding = `${lineStart.offsetHeight / 18}px`;
-		squares.forEach(square => square.removeEventListener("click", clickOutcome));
+		squares.forEach((square) =>
+			square.removeEventListener("click", clickOutcome)
+		);
 	}
 
 	// Check for a tie
 	function checkForTie() {
-		if (!squares.every(square => square.classList.contains("choosed"))) return;
-		squares.forEach(square => square.removeEventListener("click", clickOutcome));
+		if (!squares.every((square) => square.classList.contains("choosed")))
+			return;
+		squares.forEach((square) =>
+			square.removeEventListener("click", clickOutcome)
+		);
 		playerDisplay.innerText = `Tie between playerX&playerO!`;
 	}
-
 });
