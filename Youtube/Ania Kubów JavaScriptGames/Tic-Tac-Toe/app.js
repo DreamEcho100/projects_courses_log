@@ -97,6 +97,7 @@ addEventListener("DOMContentLoaded", () => {
 		checkForVerticalCombination(playerOCombo, "playerO");
 		checkForDiagonalCombination(playerXCombo, "playerX");
 		checkForDiagonalCombination(playerOCombo, "playerO");
+		checkForTie();
 	}
 
 	// Check for horizontal combinations
@@ -202,6 +203,14 @@ addEventListener("DOMContentLoaded", () => {
 		line.style.padding = `${lineStart.offsetHeight / 18}px`;
 		// line.style.transform = `translateX(-50%)`;
 		squares.forEach(square => square.removeEventListener("click", clickOutcome));
+	}
+
+	// Check for tie
+	function checkForTie() {
+		if (!squares.every(square => square.classList.contains("choosed"))) return;
+		squares.forEach(square => square.removeEventListener("click", clickOutcome));
+		playerDisplay.innerText = `Tie between playerX&playerO!`;
+
 	}
 
 });
