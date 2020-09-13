@@ -175,10 +175,33 @@ addEventListener("DOMContentLoaded", () => {
 		// const secondCombo = [2, 4, 6];
 		const firstCombo = diagonalCombination[0];
 		const secondCombo = diagonalCombination[1];
+		let direction;
+
+		firstCombo.forEach(item => {
+			if (!firstCombo.every(i => player.indexOf(i) !== -1)) return;
+			direction = 1;
+			diagonalLineDisplay(squares[firstCombo[0]], playerName, direction);
+		});
+
+		secondCombo.forEach(item => {
+			if (!secondCombo.every(i => player.indexOf(i) !== -1)) return;
+			direction = -1;
+			diagonalLineDisplay(squares[secondCombo[0]], playerName, direction);
+		});
 	}
 
-	function diagonalLineDisplay(lineStart, playerName) {
-		// body...
+	function diagonalLineDisplay(lineStart, playerName, direction) {
+		playerDisplay.innerText = `${playerName} Won!`;
+		line.style.top = `${lineStart.offsetTop + 1.5}px`;
+		if (direction === 1) {
+			line.style.transform = `translateX(${lineStart.offsetWidth * 1.5}px) rotate(${-45 * direction}deg)`;
+		} else if (direction === -1) {
+			line.style.transform = `translateX(${lineStart.offsetWidth * 1.5}px) rotate(${-45 * direction}deg)`;
+		}
+		line.style.height = `${lineStart.offsetHeight * 3}px`;
+		line.style.padding = `${lineStart.offsetHeight / 18}px`;
+		// line.style.transform = `translateX(-50%)`;
+		squares.forEach(square => square.removeEventListener("click", clickOutcome));
 	}
 
 });
