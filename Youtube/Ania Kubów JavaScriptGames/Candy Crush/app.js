@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const grid = document.querySelector(".grid");
-	const scoreDisplay = document.getElementById("score");
+	const grid = document.querySelector("#Candy-Crush-section .grid");
+	const scoreDisplay = document.querySelector("#Candy-Crush-section .score");
 	const width = 8;
 	const squares = [];
 	const firstRow = [];

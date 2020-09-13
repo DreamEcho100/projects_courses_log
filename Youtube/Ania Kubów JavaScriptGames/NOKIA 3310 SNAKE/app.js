@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const grid = document.getElementById('grid');
-	const startBtn = document.getElementById('start');
-	const scoreDisplay = document.getElementById('score');
+	const grid = document.querySelector('#NOKIA-3310-SNAKE-section .grid');
+	const startBtn = document.querySelector('#NOKIA-3310-SNAKE-section .start');
+	const scoreDisplay = document.querySelector('#NOKIA-3310-SNAKE-section .score');
 	let squares = [];
 
 	function buildBoard() {

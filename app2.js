@@ -1822,6 +1822,20 @@ let ContentBuilder = (function () {
               },
             },
             {
+              type: "normal-content-project",
+              name: "Tic-Tac-Toe",
+              info: "This is a a tic-tac-toe walkthrough for those who have never, I mean NEVER touched code before in their life. I decided to do so as I realise my videos are for those who already have an understanding of JavaScript, and would like to practice and get better by making games, or learning different approaches to solving problems. I am going to go super slow on this one and try to explain as much as I can. Obviously, I’m sure there will be things I miss out, so if you want to ask me anything please comment below and I will get back to you. Remember this video is for you to learn and have an awesome game to show for it by the end.",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
               type: "no-content-project",
               name: "",
               info: "",
