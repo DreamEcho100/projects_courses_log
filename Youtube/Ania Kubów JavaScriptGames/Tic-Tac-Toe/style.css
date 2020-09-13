@@ -41,4 +41,19 @@ body {
     background-color: #007bff;
     width: calc(var(--main-grid-width) / 3);
     height: calc(var(--main-grid-height) / 3);
+    background-position: center;
+    background-size: cover;
+}
+
+.playerX {
+    background-image: url(./images/cross.png);
+}
+
+.playerO {
+    background-image: url(./images/circle.png);
+}
+
+.line {
+    position: absolute;
+    background: black;
 }
