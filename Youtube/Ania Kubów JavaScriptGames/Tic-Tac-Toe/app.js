@@ -201,7 +201,6 @@ addEventListener("DOMContentLoaded", () => {
 		}
 		line.style.height = `${lineStart.offsetHeight * 3}px`;
 		line.style.padding = `${lineStart.offsetHeight / 18}px`;
-		// line.style.transform = `translateX(-50%)`;
 		squares.forEach(square => square.removeEventListener("click", clickOutcome));
 	}
 
@@ -210,7 +209,6 @@ addEventListener("DOMContentLoaded", () => {
 		if (!squares.every(square => square.classList.contains("choosed"))) return;
 		squares.forEach(square => square.removeEventListener("click", clickOutcome));
 		playerDisplay.innerText = `Tie between playerX&playerO!`;
-
 	}
 
 });
