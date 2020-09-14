@@ -1,9 +1,12 @@
 import React, { Component } from "react";
-import Tutorial1 from "./Tutorial1";
+// import Tutorial1 from "./Tutorial1/Tutorial1";
+import MyBurger1 from "./The Burger Builder (Basic Version)/MyBurger1";
 
 class App extends React.Component {
   render() {
-    return <Tutorial1 />;
+    return (
+    	<MyBurger1 />
+    );
   }
 }
 

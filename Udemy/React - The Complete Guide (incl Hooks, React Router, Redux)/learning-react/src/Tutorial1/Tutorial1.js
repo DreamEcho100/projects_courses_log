@@ -8,6 +8,7 @@ import TogglingDivWithBtnClassBased from "./Components/TogglingDivWithBtnClassBa
 import TogglingDivWithBtnFunctionBased from "./Components/TogglingDivWithBtnFunctionBased";
 import WithClass from "./hoc/WithClass";
 import SimpleValidationForm from "./Components/SimpleValidationForm";
+import AuthContextT  from "./context-T/auth-context-T"
 
 class Tutorial1 extends React.Component {
   constructor(props) {
