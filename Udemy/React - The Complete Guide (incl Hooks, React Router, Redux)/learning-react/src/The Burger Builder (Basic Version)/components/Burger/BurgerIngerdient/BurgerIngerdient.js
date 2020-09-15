@@ -15,7 +15,7 @@ class BurgerIngerdient extends Component {
 			'meat': <div className={classes.Meat}></div>,
 			'cheese': <div className={classes.Cheese}></div>,
 			'salad': <div className={classes.Salad}></div>,
-			'Bacon': <div className={classes.Bacon}></div>
+			'bacon': <div className={classes.Bacon}></div>
 		}[this.props.type] || null);
 		/*
 		let ingerdient = null;
@@ -40,7 +40,7 @@ class BurgerIngerdient extends Component {
 			case ('salad'):
 				ingerdient = <div className={classes.Salad}></div>
 				break;
-			case ('Bacon'):
+			case ('bacon'):
 				ingerdient = <div className={classes.Bacon}></div>
 				break;
 			default:
