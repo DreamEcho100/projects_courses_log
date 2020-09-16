@@ -6,15 +6,16 @@
 }
 
 .BurgerControl button {
-	display: block;
-	font: inherit;
-	padding: 0.5rem;
-	margin: 0 0.5rem;
-	width: 8rem;
-	border: 1px solid #AA6817;
-	cursor: pointer;
-	outline-width: 0.01rem;
-	outline-color: #AA6817;
+    display: block;
+    font: inherit;
+    padding: calc(0.5rem + 0.5vw);
+    font-size: calc(1rem + 0.5vw);
+    margin: 0 0.5rem;
+    min-width: calc(6rem + 8vw);
+    border: 1px solid #AA6817;
+    cursor: pointer;
+    outline-width: 0.01rem;
+    outline-color: #AA6817;
 }
 
 .BurgerControl button:disabled {
@@ -31,9 +32,10 @@
 }
 
 .Label {
-    padding: 10px;
+    padding: 1rem;
+    font-size: calc(1rem + 0.5vw);
     font-weight: bold;
-    width: 80px;
+    max-width: 8rem;
 }
 
 .BurgerControl .Less {  
