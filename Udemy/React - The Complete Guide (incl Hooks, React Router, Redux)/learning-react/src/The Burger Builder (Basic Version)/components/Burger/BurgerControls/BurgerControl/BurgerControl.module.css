@@ -8,8 +8,8 @@
 .BurgerControl button {
     display: block;
     font: inherit;
-    padding: calc(0.5rem + 0.5vw);
-    font-size: calc(1rem + 0.5vw);
+    padding: calc(0.5rem + 0.4vw);
+    font-size: calc(1rem + 0.4vw);
     margin: 0 0.5rem;
     min-width: calc(6rem + 8vw);
     border: 1px solid #AA6817;
@@ -33,7 +33,7 @@
 
 .Label {
     padding: 1rem;
-    font-size: calc(1rem + 0.5vw);
+    font-size: calc(1rem + 0.4vw);
     font-weight: bold;
     max-width: 8rem;
 }
