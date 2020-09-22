@@ -1,107 +1,3 @@
-/*
-const section = document.querySelectorAll("section");
-
-let modelObj = {};
-init(modelObj);
-let randomTime = randomNum(100, 100);
-let maxDeg = 720;
-let minDeg = -720;
-
-const range = (function (max, min) {
-  if (minDeg < 0) {
-    return Math.floor(maxDeg + Math.abs(minDeg)) * 2;
-  }
-  if (minDeg >= 0) {
-    return Math.floor(maxDeg - Math.abs(minDeg)) * 2;
-  } 
-})(maxDeg, minDeg)
-
-let collectionObj = {
-  currentIdx: 0,
-  continue1: true,
-  continue2Negatively: true,
-  collection: []
-}
-
-section.forEach((item) => {
-  //init(item);
-  item.color1 = modelObj.color1;
-  item.color2 = modelObj.color2;
-  item.color3 = modelObj.color3;
-  item.deg = modelObj.deg;
-  
-  changeBGColor(item, randomTime, collectionObj);
-})
-
-function changeBGColor(item, time, objCollector) {
-  setInterval(function() {
-    if (objCollector.continue1) {
-      let valColor1 = action("rgbColor", item.color1, randomNum(1, 0), 0, 256);
-      let valColor2 = action("rgbColor", item.color2, randomNum(10, 0), 0, 256);
-      let valColor3 = action("rgbColor", item.color3, randomNum(1, 0), 0, 256);
-      let valDeg = action("deg", item.deg, randomNum(5, 1), minDeg, maxDeg);
-      randomTime = randomNum(25, 50);
-
-      objCollector.collection.push({
-        id: objCollector.currentIdx,
-        color1: valColor1,
-        color2: valColor2,
-        color3: valColor3,
-        deg: valDeg,
-        timeForThis: randomTime
-      })
-      objCollector.currentIdx += 1;
-      if (objCollector.currentIdx >= range) {
-        objCollector.continue1 = false;
-      }
-
-      let val = `linear-gradient(${valDeg}deg,
-            rgb(${valColor1}, ${valColor2}, ${valColor3}),
-            rgb(${valColor3}, ${valColor1}, ${valColor2}),
-            rgb(${valColor2}, ${valColor3}, ${valColor1}))`;
-      item.style.backgroundImage = val;
-    } else {
-      let currentItem;
-      if (objCollector.continue2Negatively) {
-        if (objCollector.currentIdx === range) {
-          currentItem =  objCollector.collection[range - 1];
-          objCollector.currentIdx -= 1;
-        } else {
-          currentItem =  objCollector.collection[objCollector.currentIdx - 1];
-          objCollector.currentIdx -= 1;
-          if ((objCollector.currentIdx - 1) < 0) {
-            objCollector.continue2Negatively = false;
-          }         
-        }
-      } else {
-        if ((objCollector.currentIdx) === 0) {
-          currentItem =  objCollector.collection[0];
-          objCollector.currentIdx += 1;
-        } else {
-          currentItem =  objCollector.collection[objCollector.currentIdx + 1];
-          objCollector.currentIdx += 1;
-          if ((objCollector.currentIdx + 1) === range) {
-            objCollector.continue2Negatively = true;
-          } 
-        }
-          
-      }
-
-      let val = `linear-gradient(${currentItem.deg}deg,
-            rgb(${currentItem.color1}, ${currentItem.color2}, ${currentItem.color3}),
-            rgb(${currentItem.color3}, ${currentItem.color1}, ${currentItem.color2}),
-            rgb(${currentItem.color2}, ${currentItem.color3}, ${currentItem.color1}))`;
-      item.style.backgroundImage = val;
-      randomTime = currentItem.timeForThis;
-    }
-
-  }, randomTime)
-
-    
-
-  }
-*/
-
 let UIController = (function () {
   const variablesString = {
     spinningBackground1: ".spinningBackground1",
@@ -274,7 +170,6 @@ let calculationsMaker = (function () {
 })();
 
 let ContentBuilder = (function () {
-  let temp;
   const contentData = [
     {
       type: "no-content-section",
@@ -283,13 +178,13 @@ let ContentBuilder = (function () {
       classes: "main-section Site",
       list: [
         {
-          type: "normal-content-course",
+          type: "no-content-course",
           name: "1",
           info: "",
           classes: "spinningBackground1",
           list: [
             {
-              type: "normal-content-project",
+              type: "no-content-project",
               name: "Candy Crush",
               info: "",
               fileName: "index",
@@ -460,7 +355,7 @@ let ContentBuilder = (function () {
           classes: "spinningBackground1",
           list: [
             {
-              type: "normal-content-project",
+              type: "no-content-project",
               name: "",
               info: "",
               fileName: "index",
@@ -491,13 +386,13 @@ let ContentBuilder = (function () {
       classes: "main-section Site",
       list: [
         {
-          type: "normal-content-course",
+          type: "no-content-course",
           name: "",
           info: "",
           classes: "spinningBackground1",
           list: [
             {
-              type: "normal-content-project",
+              type: "no-content-project",
               name: "",
               info: "",
               fileName: "index",
@@ -528,13 +423,13 @@ let ContentBuilder = (function () {
       classes: "main-section Site",
       list: [
         {
-          type: "normal-content-course",
+          type: "no-content-course",
           name: "",
           info: "",
           classes: "spinningBackground1",
           list: [
             {
-              type: "normal-content-project",
+              type: "no-content-project",
               name: "",
               info: "",
               fileName: "index",
@@ -1629,7 +1524,7 @@ let ContentBuilder = (function () {
           classes: "spinningBackground1",
           list: [
             {
-              type: "normal-content-project",
+              type: "no-content-project",
               name: "",
               info: "",
               fileName: "index",
@@ -1733,7 +1628,7 @@ let ContentBuilder = (function () {
           classes: "spinningBackground1",
           list: [
             {
-              type: "normal-content-project",
+              type: "no-content-project",
               name: "",
               info: "",
               fileName: "index",
@@ -1786,17 +1681,16 @@ let ContentBuilder = (function () {
             {
               type: "normal-content-project",
               name: "NOKIA 3310 SNAKE",
-              info: 
+              info:
                 "A vanilla JavaScript grid-based game | In this tutorial you will learn how to make a fully functional game of Nokia 3310 Snake.\n" +
                 "This is a total BEGINNERS introduction to JavaScript, in which you will cover the following:\n" +
-                  "- project set up\n" +
-                  "- linking your JavaScript and CSS files to your HTML file\n" +
-                  "- event listeners\n" +
-                  "- query Selectors\n" +
-                  "- arrow functions\n" +
-                  "- forEach\n" +
-                  "- setting time intervals and countdowns"
-              ,
+                "- project set up\n" +
+                "- linking your JavaScript and CSS files to your HTML file\n" +
+                "- event listeners\n" +
+                "- query Selectors\n" +
+                "- arrow functions\n" +
+                "- forEach\n" +
+                "- setting time intervals and countdowns",
               fileName: "index",
               fileExtension: "html",
               difficulty: "",
@@ -1824,7 +1718,8 @@ let ContentBuilder = (function () {
             {
               type: "normal-content-project",
               name: "Tic-Tac-Toe",
-              info: "This is a a tic-tac-toe walkthrough for those who have never, I mean NEVER touched code before in their life. I decided to do so as I realise my videos are for those who already have an understanding of JavaScript, and would like to practice and get better by making games, or learning different approaches to solving problems. I am going to go super slow on this one and try to explain as much as I can. Obviously, I’m sure there will be things I miss out, so if you want to ask me anything please comment below and I will get back to you. Remember this video is for you to learn and have an awesome game to show for it by the end.",
+              info:
+                "This is a a tic-tac-toe walkthrough for those who have never, I mean NEVER touched code before in their life. I decided to do so as I realise my videos are for those who already have an understanding of JavaScript, and would like to practice and get better by making games, or learning different approaches to solving problems. I am going to go super slow on this one and try to explain as much as I can. Obviously, I’m sure there will be things I miss out, so if you want to ask me anything please comment below and I will get back to you. Remember this video is for you to learn and have an awesome game to show for it by the end.",
               fileName: "index",
               fileExtension: "html",
               difficulty: "",
@@ -2111,7 +2006,7 @@ let ContentBuilder = (function () {
           classes: "spinningBackground1",
           list: [
             {
-              type: "normal-content-project",
+              type: "no-content-project",
               name: "",
               info: "",
               fileName: "index",
@@ -2142,13 +2037,13 @@ let ContentBuilder = (function () {
       classes: "main-section Site",
       list: [
         {
-          type: "normal-content-course",
+          type: "no-content-course",
           name: "",
           info: "",
           classes: "spinningBackground1",
           list: [
             {
-              type: "normal-content-project",
+              type: "no-content-project",
               name: "",
               info: "",
               fileName: "index",
@@ -2178,14 +2073,34 @@ let ContentBuilder = (function () {
   function sectionBuilding() {
     let content = "";
 
-    contentData.forEach(section => {
-      if (section.type === "normal-content-section") {
+    contentData.forEach((section) => {
+      if (section.type === "no-content-section") {
+        content += `
+    <section class="${section.classes}">
+      <h2>
+        ${section.name} 
+        <button class="subElemContainngInfo tooltip-section" data-section-content="${
+          section.info || "??"
+        }" data-section-content-show-on-until-click="show">i</button>
+        <div class="tooltip-output"></div><ol>
+      </h2>
+          
+        `;
+
+        content += sectionContentBuilder(section.list);
+
+        content += `
+    </ol></section>
+        `;
+      } else if (section.type === "normal-content-section") {
         let tempUrl = section.name;
         content += `
     <section class="${section.classes}">
       <h2>
         ${section.name} 
-        <button class="subElemContainngInfo tooltip-section" data-section-content="${section.info || "??"}" data-section-content-show-on-until-click="show">i</button>
+        <button class="subElemContainngInfo tooltip-section" data-section-content="${
+          section.info || "??"
+        }" data-section-content-show-on-until-click="show">i</button>
         <div class="tooltip-output"></div><ol>
       </h2>
           
@@ -2193,17 +2108,7 @@ let ContentBuilder = (function () {
 
         content += sectionContentBuilder(section.list, tempUrl);
 
-        content += 
-        `
-    </ol></section>
-        `;
-      } else if (section.type === "no-content-section") {
         content += `
-    <section class="${section.classes}">
-        `;
-
-        content +=
-        `
     </ol></section>
         `;
       }
@@ -2218,16 +2123,39 @@ let ContentBuilder = (function () {
         <ol>
         `;
 
-    items.forEach( item => {//debugger;
+    items.forEach((item) => {
       let tempUrl = `${url}/${item.name}`;
-      if (item.type === "normal-content-course") {
+      
+      if (item.type === "no-content-course") {
         sectionContent += `
 
             <li>
             <section class="${item.classes}">
             <h3>
                 ${item.name}
-                <button class="subElemContainngInfo tooltip-section" data-section-content="${item.info || "??"}" data-section-content-show-on-until-click="show">i</button>
+                <button class="subElemContainngInfo tooltip-section" data-section-content="${
+                  item.info || "??"
+                }" data-section-content-show-on-until-click="show">i</button>
+                <div class="tooltip-output"></div>
+            </h3>
+        `;
+
+        sectionContent += itemListContentBuilder(item.list);
+
+        sectionContent += `
+          </section>
+          </li>
+        `;
+      } else if (item.type === "normal-content-course") {
+        sectionContent += `
+
+            <li>
+            <section class="${item.classes}">
+            <h3>
+                ${item.name}
+                <button class="subElemContainngInfo tooltip-section" data-section-content="${
+                  item.info || "??"
+                }" data-section-content-show-on-until-click="show">i</button>
                 <div class="tooltip-output"></div>
             </h3>
         `;
@@ -2238,44 +2166,56 @@ let ContentBuilder = (function () {
           </section>
           </li>
         `;
-      } else {}
+      }
     });
 
     sectionContent += `
                </ol>
         `;
-
-        return sectionContent;
+    return sectionContent;
   }
 
   function itemListContentBuilder(list, url) {
     let listContent = "";
-
     listContent += `
                 <ol>
     `;
 
-    list.forEach(item => {
-      if (item.type === "normal-content-project") {
+    list.forEach((item) => {
+      if (item.type === "deep-list-content-files") {
+        listContent += `
+                    <li>
+                      <h3>${item.name}</h3>
+                      <ol>
+        `;
+        let tempUrl = `${url}/${item.name}`;
+        listContent += deepListContentFilesItemsHandler(item.list, tempUrl);
+        
+        listContent += `
+                      </ol>
+                    </li>
+        `;
+
+      } else if (item.type === "no-content-project") {
+        listContent += `
+                    <li>
+                      Nothing Yet :/
+                    </li>
+            `;
+      } else if (item.type === "normal-content-project") {
         let tempUrl = `${url}/${item.name}/${item.fileName}.${item.fileExtension}`;
         listContent += `
                     <li>
                         <a href="${tempUrl}"  target="_blank">
                             ${item.name}
-                            <button class="subElemContainngInfo tooltip-section" data-section-content="${item.info || "??"}" data-section-content-show-on-until-click="show">i</button>
+                            <button class="subElemContainngInfo tooltip-section" data-section-content="${
+                              item.info || "??"
+                            }" data-section-content-show-on-until-click="show">i</button>
                             <div class="tooltip-output"></div>
                         </a>
                     </li>
         `;
-        /*
-          <li>
-              <a href="${url}/${project.projectName}/${project.projectFileType}"  target="_blank">
-                ${project.projectName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${project.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                <div class="tooltip-output"></div>
-              </a>
-              </li>`;
-        */
-      } else {}
+      }
     });
 
     listContent += `
@@ -2285,103 +2225,33 @@ let ContentBuilder = (function () {
     return listContent;
   }
 
-  /*
-  function projectsContentHTMLBuilder(projects, url) {
-    let deepInnerContent = "";
+  function deepListContentFilesItemsHandler(items, tempUrl) {
+    let deepListContent = "";
 
-    projects.forEach((project) => {
-      if (project.type === "none") {
-        deepInnerContent += `<li>
-              <a href="${url}/${project.projectName}/${project.projectFileType}"  target="_blank">
-                ${project.projectName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${project.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                <div class="tooltip-output"></div>
-              </a>
-              </li>`;
-      } else if (project.type === "specialCharsChange") {
-        url = `${url}/${project.projectName.replace(/[|]/g, "-")}/${
-          project.projectFileType
-        }`;
-        deepInnerContent += `<li>
-              <a href="${url}"  target="_blank">
-                ${project.projectName}
-              </a>
-              </li>`;
-      } else if (project.type === "innerSubCourse") {
-        deepInnerContent += `
-            <ol>
-              <li>
-                <${project.innerCourseProjectsHeadType}>
-                  ${project.projectName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${project.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                <div class="tooltip-output"></div>
-                </${project.innerCourseProjectsHeadType}>
-                <ol>
+    
+    items.forEach(item => {
+      if (item.type === "normal-deep-list-content-files-item") {
+        deepListContent += `
+                        <li>
+							<a href="${tempUrl}/${item.title}/${item.filename}.${item.fileExtension}"  target="_blank">
+	                            ${item.title}
+	                            <button class="subElemContainngInfo tooltip-section" data-section-content="${
+	                              item.info || "??"
+	                            }" data-section-content-show-on-until-click="show">i</button>
+	                            <div class="tooltip-output"></div>
+	                        </a>
+                        </li>
         `;
-        project.innerCourseProjects.forEach((subCourse) => {
-          if (subCourse.type === "none" || subCourse.type === undefined) {
-            deepInnerContent += `
-                  <li>
-                    <a
-                      href="${url}/${project.projectName}/${subCourse.projectName}/${subCourse.projectFileType}"
-                      target="_blank"
-                    >
-                      ${subCourse.projectName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${subCourse.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                      <div class="tooltip-output"></div>
-                    </a>
-                  </li>
-          `;
-          } else if (subCourse.type === "innerSubContent") {
-            deepInnerContent += `<li><${project.innerCourseProjectsHeadType}>
-              ${subCourse.projectName}   <button class="subElemContainngInfo tooltip-section" data-section-content="${subCourse.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                      <div class="tooltip-output"></div>
-            </${project.innerCourseProjectsHeadType}><ol>`;
-            subCourse.innerSubContentProjects.forEach((item, idx) => {
-              deepInnerContent += `<li>`;
-              deepInnerContent += `
-                    <a
-                      href="${url}/${project.projectName}/${subCourse.projectName}/${item.projectName}/${item.projectFileType}"
-                      target="_blank"
-                    >
-                      ${item.projectName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${item.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                      <div class="tooltip-output"></div>
-                    </a>
-              `;
-              deepInnerContent += `</li>`;
-            });
-              deepInnerContent += `</ol></li>`;
-          }
-        });
-        deepInnerContent += `
-                  <ol>
-                  </li>
-                </ol>
+      } else if (item.type === "no-deep-list-content-files-item") {
+        deepListContent += `
+                        <li>
+                          Nothing Yet :/
+                        </li>
         `;
-      } else if (project.type === "innerSubContent") {
-        deepInnerContent += `
-        <li><ol>
-        <${project.innerSubContentProjectsHeadType}>
-          ${project.projectName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${project.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-          <div class="tooltip-output"></div>
-        </${project.innerSubContentProjectsHeadType}>`;
-        project.innerSubContentProjects.forEach((sub) => {
-          deepInnerContent += `
-                  <li>
-                    <a
-                      href="${url}/${project.projectName}/${sub.fileName}/${sub.fileType}"
-                      target="_blank"
-                    >
-                      ${sub.fileName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${project.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                      <div class="tooltip-output"></div>
-                    </a>
-                  </li>
-                `;
-        });
-        deepInnerContent += `</ol></li>`;
       }
     });
-
-    return deepInnerContent;
+    return deepListContent;
   }
-  */
 
   function tooltipBuilder() {
     const tooltipSection = document.querySelectorAll(".tooltip-section");
@@ -2437,13 +2307,11 @@ let ContentBuilder = (function () {
     contentData,
     HTMLContent: sectionBuilding,
     tooltipBuilder,
-    temp,
   };
 })();
 
 let controller = (function (contentBuilder, UICtrl, calcsMaker) {
   let init = function () {
-    console.log(contentBuilder.contentData);
     let HTMLContent = contentBuilder.HTMLContent();
     document.body.innerHTML = HTMLContent + "\n" + document.body.innerHTML;
     contentBuilder.tooltipBuilder();
@@ -2463,9 +2331,7 @@ let controller = (function (contentBuilder, UICtrl, calcsMaker) {
 
   return {
     init: init,
-    t: contentBuilder.temp,
   };
 })(ContentBuilder, UIController, calculationsMaker);
 
 controller.init();
-console.log(controller.t);
