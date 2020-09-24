@@ -1577,7 +1577,7 @@ let ContentBuilder = (function () {
             },
             {
               type: "normal-content-project",
-              name: "Movie Feight",
+              name: "Movies Fight",
               info: "",
               fileName: "index",
               fileExtension: "html",
