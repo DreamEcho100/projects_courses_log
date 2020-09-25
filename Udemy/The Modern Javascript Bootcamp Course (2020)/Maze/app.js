@@ -1,9 +1,13 @@
-const { Engine, Render, Runner, World, Bodies, Body } = Matter;
-const width = 600;
-const height = 600;
-const cells = 15;
+const { Engine, Render, Runner, World, Bodies, Body, Events, Mouse, MouseConstraint } = Matter;
+const width = document.body.clientWidth - (document.body.clientWidth * 0.01);
+const height = document.body.clientHeight - (document.body.clientHeight * 0.01);
+// const cells = 6;
+const cellsHorizontal = 15;
+const cellsVertical = 20;
 
-const unitLength = width / cells;
+// const unitLength = width / cells;
+const unitLengthX = width / cellsHorizontal;
+const unitLengthY = height / cellsVertical;
 
 const engine = Engine.create();
 engine.world.gravity.y = 0;
@@ -12,13 +16,18 @@ const render = Render.create({
 	element: document.body,
 	engine: engine,
 	options: {
-		wireframes: true,
+		wireframes: false,
 		width,
 		height
 	}
 });
 Render.run(render);
 Runner.run(Runner.create(), engine);
+
+// Enabling mouse drag movement for none static bodies
+World.add(world, MouseConstraint.create(engine, {
+	mouse: Mouse.create(render.canvas)
+}));
 
 // Walls
 
@@ -37,12 +46,12 @@ function arrayBuilder(size, innerSize, fillWith) {
 	return Array(size).fill(null).map(() => Array(innerSize).fill(fillWith));
 }
 
-const grid = arrayBuilder(cells, cells, false);
-const verticals = arrayBuilder(cells, (cells - 1), false);
-const horizontals = arrayBuilder((cells - 1), cells, false);
+const grid = arrayBuilder(cellsVertical, cellsHorizontal, false);
+const verticals = arrayBuilder(cellsVertical, (cellsHorizontal - 1), false);
+const horizontals = arrayBuilder((cellsVertical - 1), cellsHorizontal, false);
 
-const startRow = Math.floor(Math.random() * cells);
-const startColumn = Math.floor(Math.random() * cells);
+const startRow = Math.floor(Math.random() * cellsVertical);
+const startColumn = Math.floor(Math.random() * cellsHorizontal);
 
 const shuffleArray = (array) => {
 	const newArray = array.slice();
@@ -53,10 +62,10 @@ const shuffleArray = (array) => {
 
 		counter--;
 
-		// [ newArray[counter], newArray[randomIndex] ] = [ newArray[randomIndex], newArray[counter] ];
-    const temp = newArray[counter];
-    newArray[counter] = newArray[randomIndex];
-    newArray[randomIndex] = temp;
+		[ newArray[counter], newArray[randomIndex] ] = [ newArray[randomIndex], newArray[counter] ];
+    // const temp = newArray[counter];
+    // newArray[counter] = newArray[randomIndex];
+    // newArray[randomIndex] = temp;
 	}
 
 	return newArray;
@@ -85,9 +94,9 @@ const stepThroughCells = (row, column) => {
 		// See if that neighbor is out of bounds
 		if (
 			nextRow < 0 ||
-			nextRow >= cells ||
+			nextRow >= cellsVertical ||
 			nextColumn < 0 ||
-			nextColumn >= cells
+			nextColumn >= cellsHorizontal
 		) {
 			continue;
 		}
@@ -117,19 +126,23 @@ const stepThroughCells = (row, column) => {
 
 stepThroughCells(startRow, startColumn);
 
-const wallWidth = 10;
+const wallWidth = 5;
 
 horizontals.forEach((row, rowIndex) => {
 	row.forEach((open, columnIndex) => {
 		if (open) return;
 
 		const walls = Bodies.rectangle(
-			(columnIndex * unitLength) + (unitLength / 2),
-			(rowIndex * unitLength) + unitLength,
-			unitLength,
+			(columnIndex * unitLengthX) + (unitLengthX / 2),
+			(rowIndex * unitLengthY) + unitLengthY,
+			unitLengthX,
 			wallWidth,
 			{
-				isStatic: true
+				label: 'wall',
+				isStatic: true,
+				render: {
+					fillStyle: "orange"
+				}
 			}
 		);
 		World.add(world, walls);
@@ -141,12 +154,16 @@ verticals.forEach((row, rowIndex) => {
 		if (open) return;
 
 		const walls = Bodies.rectangle(
-			(columnIndex * unitLength) + unitLength,
-			(rowIndex * unitLength) + (unitLength / 2),
+			(columnIndex * unitLengthX) + unitLengthX,
+			(rowIndex * unitLengthY) + (unitLengthY / 2),
 			wallWidth,
-			unitLength,
+			unitLengthY,
 			{
-				isStatic: true
+				label: 'wall',
+				isStatic: true,
+				render: {
+					fillStyle: "orange"
+				}
 			}
 		);
 		World.add(world, walls);
@@ -154,43 +171,83 @@ verticals.forEach((row, rowIndex) => {
 });
 
 const goal = Bodies.rectangle(
-	width - (unitLength / 2),
-	height - (unitLength / 2),
-	unitLength * 0.7,
-	unitLength * 0.7,
+	width - (unitLengthX / 2),
+	height - (unitLengthY / 2),
+	unitLengthX * 0.7,
+	unitLengthY * 0.7,
 	{
-		isStatic: true
+		label: 'goal',
+		isStatic: true,
+		render: {
+			fillStyle: "lightgreen"
+		}
 	}
 );
 World.add(world, goal);
 
 const ball = Bodies.circle(
-	unitLength / 2,
-	unitLength / 2,
-	unitLength / 4,
+	unitLengthX / 2,
+	unitLengthY / 2,
+	Math.min(unitLengthX, unitLengthY) / 4,
 	{
-		isStatic: false
+		label: 'ball',
+		isStatic: false,
+		render: {
+			fillStyle: "lightblue"
+		}
 	}
 );
 World.add(world, ball);
 
 const ballSpeed = 3;
 
+function returnUndefined() {
+	return undefined;
+}
+
 document.addEventListener("keydown", (event) => {
 	const { x, y } = ball.velocity;
-	if (event.keyCode === 87) { // w
-		Body.setVelocity(ball, { x, y: y - ballSpeed });
-	} else if (event.keyCode === 68) { // d
-		Body.setVelocity(ball, { x: x + ballSpeed, y });
-	} else if (event.keyCode === 83) { // s
-		Body.setVelocity(ball, { x, y: y + ballSpeed });		
-	} else if (event.keyCode === 65) { // a
-		Body.setVelocity(ball, { x: x - ballSpeed, y });		
-	}
+	// if (event.keyCode === 87) { // w
+	// 	Body.setVelocity(ball, { x, y: y - ballSpeed });
+	// } else if (event.keyCode === 68) { // d
+	// 	Body.setVelocity(ball, { x: x + ballSpeed, y });
+	// } else if (event.keyCode === 83) { // s
+	// 	Body.setVelocity(ball, { x, y: y + ballSpeed });		
+	// } else if (event.keyCode === 65) { // a
+	// 	Body.setVelocity(ball, { x: x - ballSpeed, y });		
+	// }
+	({
+		87: () => Body.setVelocity(ball, { x, y: y - ballSpeed }),
+		38: () => Body.setVelocity(ball, { x, y: y - ballSpeed }),
+		68: () => Body.setVelocity(ball, { x: x + ballSpeed, y }),
+		39: () => Body.setVelocity(ball, { x: x + ballSpeed, y }),
+		83: () => Body.setVelocity(ball, { x, y: y + ballSpeed }),
+		40: () => Body.setVelocity(ball, { x, y: y + ballSpeed }),
+		65: () => Body.setVelocity(ball, { x: x - ballSpeed, y }),
+		37: () => Body.setVelocity(ball, { x: x - ballSpeed, y })
+	}[event.keyCode] || returnUndefined)();
 });
 
 // Win Condation
+Events.on(engine, 'collisionStart', event => {
+	event.pairs.forEach(collision => {
+		const labels = ['ball', 'goal'];
 
+		if (
+			labels.includes(collision.bodyA.label) &&
+			labels.includes(collision.bodyB.label)
+		) {
+			console.log('User Won!');
+			setTimeout(() => {
+				document.querySelector('.winner').classList.remove('hidden');
+			}, 3000);
+			world.gravity.y = (Math.random() > 0.5) ? 0 : 1;
+			world.bodies.forEach(body => {
+				if (body.label === 'wall') Body.setStatic(body, false);
+			})
+		}
+	});
+});
 
 // console.table({
 // 	"lol": "bruh",

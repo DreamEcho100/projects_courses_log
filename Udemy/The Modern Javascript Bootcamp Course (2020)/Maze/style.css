@@ -13,3 +13,23 @@ body {
 	width: 100%;
 	height: 100%;
 }
+
+.winner {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	background-color: transparent;
+	align-items: center;
+	z-index: 5;
+	height: 100%;
+	width: 100%;
+}
+
+.winner h1 {
+    color: white;
+    font-size: 3.2rem;
+}
+
+.hidden {
+	display: none;
+}
