@@ -1,5 +1,32 @@
+:root {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+h1 {
+  font-size: calc(1.5rem + 5vw);
+}
+
+label,
+input,
+p,
+.input,
+.dropdown-content {
+    font-size: calc(1rem + 1vw);
+}
+
 .tutorial {
-  width: 600px;
+  width: 60rem;
   text-align: center;
   margin: auto;
 }
@@ -11,24 +38,24 @@ figure.image {
 }
 
 figure .image img {
-  width: 128px;
+  width: 12.8rem;
 }
 
 .notification {
-  margin-top: 20px !important;
+  margin-top: 2rem !important;
 }
 
 .results {
-  max-height: 500px;
+  max-height: 50rem;
   overflow-y: scroll;
 }
 
 .title .icon {
-  margin-left: 15px;
+  margin-left: 1.5rem;
 }
 
 .hero {
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 .forms {
@@ -39,10 +66,27 @@ figure .image img {
 .dropdown-item {
   display: flex;
   align-items: center;
-  height: 60px;
+  height: 6rem;
 }
 
 .dropdown-item img {
-  height: 50px;
-  margin-right: 10px;
+    height: 5rem;
+    margin-right: 1rem;
+    width: calc(3rem + 1%);
+}
+
+.title {
+  font-size: calc(2rem + 2vw);
+}
+
+.dropdown-menu {
+    width: min(45rem, calc(15rem + 40vw));
+}
+
+.autocomplete {
+    padding: 0 1rem;
+}
+
+.input {
+  display: block;
 }
