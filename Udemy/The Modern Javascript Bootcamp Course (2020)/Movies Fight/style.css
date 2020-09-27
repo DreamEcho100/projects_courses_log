@@ -89,6 +89,7 @@ figure .image img {
 
 .input {
   display: block;
+  width: calc(5rem + 75%);
 }
 
 .movie-info {
@@ -105,3 +106,55 @@ figure .image img {
     font-size: calc(1rem + 0.5vw);
     font-weight: 903;
 }
+
+.column.is-half.notification.is-primary.tutorial {
+  /*width: min(60rem , 100%);*/
+  width: 100%;
+  max-width: 60rem;
+}
+
+/*
+.tutorial {
+  width: 600px;
+  text-align: center;
+  margin: auto;
+}
+
+figure.image {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+figure .image img {
+  width: 128px;
+}
+
+.notification {
+  margin-top: 20px !important;
+}
+
+.title .icon {
+  margin-left: 15px;
+}
+
+.hero {
+  margin-bottom: 20px;
+}
+
+.forms {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.dropdown-item img {
+  height: 50px;
+  margin-right: 10px;
+}
+*/
