@@ -1619,6 +1619,20 @@ let ContentBuilder = (function () {
             },
             {
               type: "normal-content-project",
+              name: "Secret Message Sharing App",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
               name: "Timer",
               info: "",
               fileName: "index",
