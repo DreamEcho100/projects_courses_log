@@ -100,12 +100,12 @@ function runComparison() {
 			}
 		}
 
-		if (leftSideValue > rightSideValue) {
+		if (leftSideValue > rightSideValue && rightSideValue !== 0) {
 			leftStat.classList.remove("is-warning");
 			leftStat.classList.add("is-primary");
 			rightStat.classList.remove("is-primary");
 			rightStat.classList.add("is-warning");
-		} else if (rightSideValue > leftSideValue) {
+		} else if (rightSideValue > leftSideValue && leftSideValue !== 0) {
 			rightStat.classList.remove("is-warning");
 			rightStat.classList.add("is-primary");
 			leftStat.classList.remove("is-primary");
