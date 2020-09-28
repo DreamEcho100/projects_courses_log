@@ -1,26 +1,103 @@
- :root {
-  font-size: 62.5%;
+:root {
+	font-size: 62.5%;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html,
 body {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
 h1 {
-  font-size: calc(1.5rem + 5vw);
+	font-size: calc(1.5rem + 5vw);
 }
 
 label,
 input,
-p,
-.input,
-.dropdown-content {
-    font-size: calc(1rem + 1vw);
+p {
+	font-size: calc(1rem + 1vw);
+}
+
+/*-------------------------------*/
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.row {
+	width: 100%;
+	height: 10rem;
+}
+
+.col.s8.offset-s2 {
+  width: 90%;
+  max-width: calc(60rem + 8vw);
+  margin: 0 auto;
+  height: calc(100% + 8vw);
+}
+
+.card-panel {
+	width: 100%;
+	border: 1px gray solid;
+	height: 100%;
+	box-shadow: 5px 5px 5px 0px gray;
+}
+
+.card-panel form {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: space-around;
+	padding: 1rem;
+}
+
+.card-panel input {
+	border: transparent;
+	border-bottom: 1px gray solid;
+	transition: all 0.2s ease-in-out;
+}
+
+.card-panel input:hover,
+.card-panel input:focus,
+.card-panel input:focus-within,
+.card-panel input:active {
+	border-bottom: 2px #4f0 solid;
+	font-size: calc(1.8rem + 1vw);
+}
+
+.card-panel input {
+	border: transparent;
+	border-bottom: 1px gray solid;
+	transition: all 0.2s ease-in-out;
+}
+
+.card-panel input:hover,
+.card-panel input:focus,
+.card-panel input:focus-within,
+.card-panel input:active {
+	border-bottom: 2px #5add8c solid;
+	font-size: calc(1.8rem + 1vw);
+}
+
+.card-panel .btn {
+	width: max-content;
+	background-color: #5add8c;
+	color: white;
+	font-weight: 600;
+	border-color: transparent;
+	font-size: calc(1rem + 1vw);
+	padding: 0.5em 1.5em;
+}
+
+.card-panel .btn:focus,
+.card-panel .btn:active,
+.card-panel .btn:hover {
+	background-color: #46b06f;
 }
