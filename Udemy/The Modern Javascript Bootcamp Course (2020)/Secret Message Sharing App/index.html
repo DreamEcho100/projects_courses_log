@@ -15,17 +15,28 @@
 </head>
 
 <body>
-	<div class="row">
-		<div class="col s8 offset-s2">
-			<div class="card-panel">
-				<form>
-					<label>Enter a Secret Message</label>
-					<input type="text" />
-					<button class="btn">Create</button>
-				</form>
+
+	<section class="card-panel-1">
+		<div id="message-show" class="card-type-1 isHidden">
+			<h2></h2>
+			<div>
+				<a href="./index.html">Create your own secret message</a>
 			</div>
 		</div>
-	</div>
+
+		<div id="message-form" class="card-type-1">
+			<form>
+					<label>Enter a Secret Message</label>
+					<input type="text" id="message-input" class="input-primary" />
+					<button class="btn">Create</button>
+				</form>
+		</div>
+
+		<div id="link-form" class="card-type-1 isHidden">
+			<p>Share this link with a friend</p>
+			<input type="text" id="link-input" class="input-primary" />
+		</div>
+	</section>
 
     <script type="text/javascript" src="app.js"></script>
 </body>

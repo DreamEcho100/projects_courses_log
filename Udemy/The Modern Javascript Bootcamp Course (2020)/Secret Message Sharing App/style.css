@@ -24,80 +24,71 @@ p {
 }
 
 /*-------------------------------*/
-
-body {
+.card-panel-1 {
+	width: 100%;
+	height: 50vh;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+    justify-content: space-evenly;
 	align-items: center;
 }
 
-.row {
-	width: 100%;
-	height: 10rem;
+.card-type-1 {
+    border: 1px gray solid;
+    box-shadow: 5px 5px 5px 0px gray;
+    width: 90%;
+    max-width: calc(60rem + 8vw);
+    margin: 0 auto;
+    height: calc(8rem + 10vw);
+    min-height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.col.s8.offset-s2 {
-  width: 90%;
-  max-width: calc(60rem + 8vw);
-  margin: 0 auto;
-  height: calc(100% + 8vw);
-}
-
-.card-panel {
-	width: 100%;
-	border: 1px gray solid;
-	height: 100%;
-	box-shadow: 5px 5px 5px 0px gray;
-}
-
-.card-panel form {
+.card-type-1 form,
+.card-type-1 {
 	display: flex;
 	flex-direction: column;
-	height: 100%;
 	justify-content: space-around;
 	padding: 1rem;
+	align-items: stretch;
 }
 
-.card-panel input {
+.card-type-1 form {
+	height: 100%;
+}
+.input-primary {
 	border: transparent;
 	border-bottom: 1px gray solid;
 	transition: all 0.2s ease-in-out;
 }
 
-.card-panel input:hover,
-.card-panel input:focus,
-.card-panel input:focus-within,
-.card-panel input:active {
-	border-bottom: 2px #4f0 solid;
-	font-size: calc(1.8rem + 1vw);
-}
-
-.card-panel input {
-	border: transparent;
-	border-bottom: 1px gray solid;
-	transition: all 0.2s ease-in-out;
-}
-
-.card-panel input:hover,
-.card-panel input:focus,
-.card-panel input:focus-within,
-.card-panel input:active {
+.input-primary:hover,
+.input-primary:focus,
+.input-primary:focus-within,
+.input-primary:active {
 	border-bottom: 2px #5add8c solid;
 	font-size: calc(1.8rem + 1vw);
 }
 
-.card-panel .btn {
-	width: max-content;
-	background-color: #5add8c;
-	color: white;
-	font-weight: 600;
-	border-color: transparent;
-	font-size: calc(1rem + 1vw);
-	padding: 0.5em 1.5em;
+.card-type-1 button {
+    width: max-content;
+    background-color: #5add8c;
+    color: white;
+    font-weight: 600;
+    border-color: transparent;
+    font-size: calc(1rem + 1vw);
+    padding: 0.3em 1em;
+    margin: 0.1rem 0;
+    cursor: pointer;
 }
 
-.card-panel .btn:focus,
-.card-panel .btn:active,
-.card-panel .btn:hover {
+.card-type-1 button:focus,
+.card-type-1 button:hover {
 	background-color: #46b06f;
+}
+
+.isHidden {
+	display: none;
 }
