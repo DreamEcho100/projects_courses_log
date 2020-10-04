@@ -1,16 +1,17 @@
+const messageForm = document.getElementById('message-form');
+const linkForm = document.getElementById('link-form');
+const secretMessageForm = document.querySelector('.card-panel-1 form');
+
 const { hash } = window.location;
 const message = atob(hash.replace("#", ""));
 
 if (message) {
+	document.querySelector('.card-panel-1').style.justifyContent = "normal";
 	const secretMessageShow = document.getElementById('message-show');
-	document.getElementById('message-form').classList.add("isHidden");
+	messageForm.classList.add("isHidden");
 	secretMessageShow.classList.remove("isHidden");
 	secretMessageShow.querySelector('h2').innerText = message;
-
-
 }
-
-const secretMessageForm = document.querySelector('.card-panel-1 form');
 
 secretMessageForm.addEventListener("submit", event => {
 	event.preventDefault();
@@ -21,11 +22,10 @@ secretMessageForm.addEventListener("submit", event => {
 	const linkInput = document.getElementById("link-input");
 	linkInput.value = `${window.location}#${encrypted}`;
 
-	document.getElementById('message-form').classList.add("isHidden");
-	document.getElementById('link-form').classList.remove("isHidden");
-	document.querySelector('.btn.copy-btn').addEventListener("click", () => {
+	messageForm.classList.add("isHidden");
+	linkForm.classList.remove("isHidden");
+	linkForm.querySelector('.copy-btn').addEventListener("click", () => {
 		linkInput.select();
 		document.execCommand("copy");
 	});
-
 });
