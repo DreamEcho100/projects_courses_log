@@ -1,8 +1,8 @@
 {
-  "name": "list",
+  "name": "Create-Node-JS-Command-Line-Tools",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "nls": "index.js"
+    "nls": "app.js"
   },
   "dependencies": {
-    "chalk": "^2.4.2"
+    "chalk": "^4.1.0"
   }
 }
