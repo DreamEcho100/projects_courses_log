@@ -41,6 +41,7 @@ p {
 	flex-direction: column;
 	justify-content: space-evenly;
 	align-items: center;
+	padding: 1rem;
 }
 
 .card-type-1 {
@@ -107,4 +108,5 @@ p {
 	max-width: none;
 	min-height: unset;
 	height: auto;
+	margin: auto;
 }
