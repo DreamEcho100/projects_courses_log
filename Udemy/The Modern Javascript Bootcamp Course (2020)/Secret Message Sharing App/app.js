@@ -20,10 +20,12 @@ secretMessageForm.addEventListener("submit", event => {
 
 	const linkInput = document.getElementById("link-input");
 	linkInput.value = `${window.location}#${encrypted}`;
-	linkInput.select();
-	//document.execCommand("copy");
 
 	document.getElementById('message-form').classList.add("isHidden");
 	document.getElementById('link-form').classList.remove("isHidden");
+	document.querySelector('.btn.copy-btn').addEventListener("click", () => {
+		linkInput.select();
+		document.execCommand("copy");
+	});
 
 });
