@@ -172,20 +172,20 @@ let calculationsMaker = (function () {
 let ContentBuilder = (function () {
   const contentData = [
     {
-      type: "no-content-section",
+      type: "normal-content-section",
       name: "personalProjects",
       info: "",
       classes: "main-section Site",
       list: [
         {
-          type: "no-content-course",
+          type: "normal-content-course",
           name: "1",
           info: "",
           classes: "spinningBackground1",
           list: [
             {
-              type: "no-content-project",
-              name: "Candy Crush",
+              type: "normal-content-project",
+              name: "HTML-CSS-JavaScript Demos",
               info: "",
               fileName: "index",
               fileExtension: "html",
@@ -2167,7 +2167,7 @@ let ContentBuilder = (function () {
 
     items.forEach((item) => {
       let tempUrl = `${url}/${item.name}`;
-      
+
       if (item.type === "no-content-course") {
         sectionContent += `
 
@@ -2232,12 +2232,11 @@ let ContentBuilder = (function () {
         `;
         let tempUrl = `${url}/${item.name}`;
         listContent += deepListContentFilesItemsHandler(item.list, tempUrl);
-        
+
         listContent += `
                       </ol>
                     </li>
         `;
-
       } else if (item.type === "no-content-project") {
         listContent += `
                     <li>
@@ -2270,16 +2269,17 @@ let ContentBuilder = (function () {
   function deepListContentFilesItemsHandler(items, tempUrl) {
     let deepListContent = "";
 
-    
-    items.forEach(item => {
+    items.forEach((item) => {
       if (item.type === "normal-deep-list-content-files-item") {
         deepListContent += `
                         <li>
-							<a href="${tempUrl}/${item.title}/${item.filename}.${item.fileExtension}"  target="_blank">
+							<a href="${tempUrl}/${item.title}/${item.filename}.${
+          item.fileExtension
+        }"  target="_blank">
 	                            ${item.title}
 	                            <button class="subElemContainngInfo tooltip-section" data-section-content="${
-	                              item.info || "??"
-	                            }" data-section-content-show-on-until-click="show">i</button>
+                                item.info || "??"
+                              }" data-section-content-show-on-until-click="show">i</button>
 	                            <div class="tooltip-output"></div>
 	                        </a>
                         </li>
