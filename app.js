@@ -1,107 +1,3 @@
-/*
-const section = document.querySelectorAll("section");
-
-let modelObj = {};
-init(modelObj);
-let randomTime = randomNum(100, 100);
-let maxDeg = 720;
-let minDeg = -720;
-
-const range = (function (max, min) {
-  if (minDeg < 0) {
-    return Math.floor(maxDeg + Math.abs(minDeg)) * 2;
-  }
-  if (minDeg >= 0) {
-    return Math.floor(maxDeg - Math.abs(minDeg)) * 2;
-  } 
-})(maxDeg, minDeg)
-
-let collectionObj = {
-  currentIdx: 0,
-  continue1: true,
-  continue2Negatively: true,
-  collection: []
-}
-
-section.forEach((item) => {
-  //init(item);
-  item.color1 = modelObj.color1;
-  item.color2 = modelObj.color2;
-  item.color3 = modelObj.color3;
-  item.deg = modelObj.deg;
-  
-  changeBGColor(item, randomTime, collectionObj);
-})
-
-function changeBGColor(item, time, objCollector) {
-  setInterval(function() {
-    if (objCollector.continue1) {
-      let valColor1 = action("rgbColor", item.color1, randomNum(1, 0), 0, 256);
-      let valColor2 = action("rgbColor", item.color2, randomNum(10, 0), 0, 256);
-      let valColor3 = action("rgbColor", item.color3, randomNum(1, 0), 0, 256);
-      let valDeg = action("deg", item.deg, randomNum(5, 1), minDeg, maxDeg);
-      randomTime = randomNum(25, 50);
-
-      objCollector.collection.push({
-        id: objCollector.currentIdx,
-        color1: valColor1,
-        color2: valColor2,
-        color3: valColor3,
-        deg: valDeg,
-        timeForThis: randomTime
-      })
-      objCollector.currentIdx += 1;
-      if (objCollector.currentIdx >= range) {
-        objCollector.continue1 = false;
-      }
-
-      let val = `linear-gradient(${valDeg}deg,
-            rgb(${valColor1}, ${valColor2}, ${valColor3}),
-            rgb(${valColor3}, ${valColor1}, ${valColor2}),
-            rgb(${valColor2}, ${valColor3}, ${valColor1}))`;
-      item.style.backgroundImage = val;
-    } else {
-      let currentItem;
-      if (objCollector.continue2Negatively) {
-        if (objCollector.currentIdx === range) {
-          currentItem =  objCollector.collection[range - 1];
-          objCollector.currentIdx -= 1;
-        } else {
-          currentItem =  objCollector.collection[objCollector.currentIdx - 1];
-          objCollector.currentIdx -= 1;
-          if ((objCollector.currentIdx - 1) < 0) {
-            objCollector.continue2Negatively = false;
-          }         
-        }
-      } else {
-        if ((objCollector.currentIdx) === 0) {
-          currentItem =  objCollector.collection[0];
-          objCollector.currentIdx += 1;
-        } else {
-          currentItem =  objCollector.collection[objCollector.currentIdx + 1];
-          objCollector.currentIdx += 1;
-          if ((objCollector.currentIdx + 1) === range) {
-            objCollector.continue2Negatively = true;
-          } 
-        }
-          
-      }
-
-      let val = `linear-gradient(${currentItem.deg}deg,
-            rgb(${currentItem.color1}, ${currentItem.color2}, ${currentItem.color3}),
-            rgb(${currentItem.color3}, ${currentItem.color1}, ${currentItem.color2}),
-            rgb(${currentItem.color2}, ${currentItem.color3}, ${currentItem.color1}))`;
-      item.style.backgroundImage = val;
-      randomTime = currentItem.timeForThis;
-    }
-
-  }, randomTime)
-
-    
-
-  }
-*/
-
 let UIController = (function () {
   const variablesString = {
     spinningBackground1: ".spinningBackground1",
@@ -274,930 +170,1160 @@ let calculationsMaker = (function () {
 })();
 
 let ContentBuilder = (function () {
-  let temp;
-  const contentObj = [
+  const contentData = [
     {
-      mainSectionHeader: "personalProjects",
-      mainSectionHeaderType: "h2",
-      mainSectionInfo: "There is nothing at this moment :/",
-      mainSectionClass: "main-section",
-      exisist: false,
-      courses: [
+      type: "normal-content-section",
+      name: "personalProjects",
+      info: "",
+      classes: "main-section Site",
+      list: [
         {
-          courseSectionHeader: "1",
-          courseSectionHeaderType: "h3",
-          courseSectionInfo: "1",
-          courseSectionClases: "spinningBackground1",
-          projects: [
-            coursesProjectObjBuilder(
-              "none",
-              "Candy Crush",
-              "index.html",
-              "??",
-              {
+          type: "normal-content-course",
+          name: "1",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "normal-content-project",
+              name: "HTML-CSS-JavaScript Demos",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "Candy Crush"
-            ),
+            },
+
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
           ],
         },
-      ]
-    },
-    {
-      mainSectionHeader: "Developedbyed",
-      mainSectionHeaderType: "h2",
-      mainSectionInfo: "Developedbyed",
-      mainSectionClass: "main-section Site",
-      exisist: true,
-      courses: [
-        {
-          courseSectionHeader: "The Creative Front End Development Bundle",
-          courseSectionHeaderType: "h3",
-          courseSectionInfo:
-            "This course main focus is in practicing JavaScript",
-          courseSectionClases: "spinningBackground1",
-          projects: [
-            coursesProjectObjBuilder(
-              "none",
-              "Beatmaker",
-              "index.html",
-              2.5,
-              {
-                languages: ["HTML", "CSS", "JavaScript"],
-                libraries: [],
-                frameworks: [],
-                APIs: [],
-              },
-              "Building a Beatmaker."
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Coloors",
-              "index.html",
-              2.5,
-              {
-                languages: ["HTML", "CSS", "JavaScript"],
-                libraries: [],
-                frameworks: [],
-                APIs: [],
-              },
-              "Building a colors library picker."
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Photon",
-              "index.html",
-              2,
-              {
-                languages: ["HTML", "CSS", "JavaScript"],
-                libraries: [],
-                frameworks: [],
-                APIs: [],
-              },
-              "Building a Photo search using pexels API."
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Todo List",
-              "index.html",
-              2.25,
-              {
-                languages: ["HTML", "CSS", "JavaScript"],
-                libraries: [],
-                frameworks: [],
-                APIs: [],
-              },
-              "Building a Todo List that have the functionality of saving, removing and filtering items."
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Travel Website",
-              "index.html",
-              2.75,
-              {
-                languages: ["HTML", "CSS", "JavaScript"],
-                libraries: [],
-                frameworks: [],
-                APIs: [],
-              },
-              "Building a Travel Website using some cool scrolling animations and page transitions."
-            ),
-          ],
-        },
-        {
-          courseSectionHeader: "The Creative HTML5 & CSS3 Course",
-          courseSectionHeaderType: "h3",
-          courseSectionInfo: "This course main focus is in practicing HTML&CSS",
-          courseSectionClases: "spinningBackground1",
-          projects: [
-            coursesProjectObjBuilder(
-              "specialCharsChange",
-              "Travelly | Travelling Agency",
-              "index.html",
-              2.75,
-              {
-                languages: ["HTML", "CSS"],
-                libraries: [],
-                frameworks: [],
-                APIs: [],
-              },
-              "Building a Travelly | Travelling Agency website."
-            ),
-          ],
-        },
+
+        // List End
       ],
+
+      // Section End
     },
+
     {
-      mainSectionHeader: "GitHub",
-      mainSectionHeaderType: "h2",
-      mainSectionInfo: "There is nothing at this moment :/",
-      mainSectionClass: "spinningBackground1 main-section",
-      exisist: false,
-      courses: [],
-    },
-    {
-      mainSectionHeader: "Khan Academy",
-      mainSectionHeaderType: "h2",
-      mainSectionInfo: "Khan Academy",
-      mainSectionClass: "main-section Site",
-      exisist: true,
-      courses: [
+      type: "normal-content-section",
+      name: "Developedbyed",
+      info: "",
+      classes: "main-section Site",
+      list: [
         {
-          courseSectionHeader: "JS",
-          courseSectionHeaderType: "h3",
-          courseSectionInfo:
-            "This course main focus is practicing drawing and visualize in JavaScript",
-          courseSectionClases: "spinningBackground1",
-          projects: [
-            coursesProjectObjBuilder(
-              "none",
-              "Draw With JS",
-              "Draw With JS 1.js",
-              1,
-              {
-                languages: ["JavaScript"],
+          type: "normal-content-course",
+          name: "The Creative Front End Development Bundle",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "normal-content-project",
+              name: "Beatmaker",
+              info: "Building a Beatmaker.",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: 2.5,
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "Draw With JS on Khan Academy, In document what I learned In this."
-            ),
+            },
+            {
+              type: "normal-content-project",
+              name: "Coloors",
+              info: "Building a colors library picker.",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: 2.5,
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Photon",
+              info: "Building a Photo search using pexels API.",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: 2,
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Todo List",
+              info:
+                "Building a Todo List that have the functionality of saving, removing and filtering items.",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: 2.25,
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Travel Website",
+              info:
+                "Building a Travel Website using some cool scrolling animations and page transitions.",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: 2.75,
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
           ],
         },
-      ],
-    },
-    {
-      mainSectionHeader: "Udacity",
-      mainSectionHeaderType: "h2",
-      mainSectionInfo: "Udacity",
-      mainSectionClass: "main-section Site",
-      exisist: true,
-      courses: [
         {
-          courseSectionHeader:
-            "Web Development Professional Nanodegree Program",
-          courseSectionHeaderType: "h3",
-          courseSectionInfo:
-            "Udacity Web Development Professional Nanodegree Program, This course main focus is practicing JavaScript",
-          courseSectionClases: "spinningBackground1",
-          projects: [
-            coursesProjectObjBuilder(
-              "none",
-              "Landing Page",
-              "index.html",
-              1,
-              {
+          type: "normal-content-course",
+          name: "",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "normal-content-project",
+              name: "Travelly | Travelling Agency",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: 2.75,
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "Building a Landing Page with a JavaScript generated navigation bar, smooth scrolling to the specified sections on the navigation bar and some animations when scrolling near to every section."
-            ),
+            },
+            {
+              type: "normal-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
           ],
         },
-      ],
-    },
-    {
-      mainSectionHeader: "Udemy",
-      mainSectionHeaderType: "h2",
-      mainSectionInfo: "Udemy",
-      mainSectionClass: "main-section Site",
-      exisist: true,
-      courses: [
         {
-          courseSectionHeader:
-            "Monster JavaScript Course - 50+ projects and applications",
-          courseSectionHeaderType: "h3",
-          courseSectionInfo:
-            "Monster JavaScript Course - 50+ projects and applications",
-          courseSectionClases: "spinningBackground1",
-          projects: [
-            coursesProjectObjBuilder(
-              "none",
-              "Accordion Component",
-              "index.html",
-              "??",
-              {
+          type: "no-content-course",
+          name: "",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Alien Invader Game",
-              "index.html",
-              "??",
-              {
+            },
+
+            // Inner List End
+          ],
+        },
+
+        // List End
+      ],
+
+      // Section End
+    },
+
+    {
+      type: "no-content-section",
+      name: "GitHub",
+      info: "",
+      classes: "main-section Site",
+      list: [
+        {
+          type: "no-content-course",
+          name: "",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Audio Button Player",
-              "index.html",
-              "??",
-              {
+            },
+
+            // Inner List End
+          ],
+        },
+
+        // List End
+      ],
+
+      // Section End
+    },
+
+    {
+      type: "no-content-section",
+      name: "Khan Academy",
+      info: "",
+      classes: "main-section Site",
+      list: [
+        {
+          type: "no-content-course",
+          name: "",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Background Color & Font Color Divs Buttons Changer",
-              "index.html",
-              "??",
-              {
+            },
+
+            // Inner List End
+          ],
+        },
+
+        // List End
+      ],
+
+      // Section End
+    },
+
+    {
+      type: "normal-content-section",
+      name: "Udacity",
+      info: "",
+      classes: "main-section Site",
+      list: [
+        {
+          type: "normal-content-course",
+          name: "Web Development Professional Nanodegree Program",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "normal-content-project",
+              name: "Landing Page",
+              info:
+                "Building a Landing Page with a JavaScript generated navigation bar, smooth scrolling to the specified sections on the navigation bar and some animations when scrolling near to every section.",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: 1,
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Background Color & Font Color Divs Buttons Changer2",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "link-content-project",
+              name: "",
+              info: "",
+              link: "",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Background Color Body Buttons Changer",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Building A Flying Bird Game From Scratch",
-              "index.html",
-              "??",
-              {
+            },
+
+            // Inner List End
+          ],
+        },
+        {
+          type: "no",
+          name: "",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "normal-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Calculator Mini Web Application",
-              "index.html",
-              "??",
-              {
+            },
+
+            // Inner List End
+          ],
+        },
+
+        // List End
+      ],
+
+      // Section End
+    },
+
+    {
+      type: "normal-content-section",
+      name: "Udemy",
+      info: "",
+      classes: "main-section Site",
+      list: [
+        {
+          type: "normal-content-course",
+          name: "Monster JavaScript Course - 50+ projects and applications",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "normal-content-project",
+              name: "Accordion Component",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Car Driving Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Alien Invader Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Card War Project",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Audio Button Player",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Catch Element Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Background Color & Font Color Divs Buttons Changer",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Click Popper Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Background Color & Font Color Divs Buttons Changer2",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Click Reaction Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Background Color Body Buttons Changer",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Clipboard - Copy And Move Text",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Building A Flying Bird Game From Scratch",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Coin Toss Game Code",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Calculator Mini Web Application",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Combination Guessr Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Car Driving Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Countdown Timer",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Card War Project",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Create Form Validation Using JavaScript",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Catch Element Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Creating A Tooltip Popup With JavaScript",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Click Popper Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Creating An Image Popup Window On Image Elements",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Click Reaction Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Current Date(Eastern European Standard Time)",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Clipboard - Copy And Move Text",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Document Object Model",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Coin Toss Game Code",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Document Object Model Element Manipulation With JS",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Combination Guessr Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Dom Content Loaded",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Countdown Timer",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Dynamic Editable Shopping List",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Create Form Validation Using JavaScript",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "DOM Interaction Application DOMinator",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Creating A Tooltip Popup With JavaScript",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Dynamic welcome message",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Creating An Image Popup Window On Image Elements",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Element Catcher Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Current Date(Eastern European Standard Time)",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Element Mouse And Click Events",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Document Object Model",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Element Scrolling Content",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Document Object Model Element Manipulation With JS",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Email Extractor Application",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Dom Content Loaded",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Explore JavaScript Cookies While Building Cookie Get Set Tester Web Application",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Dynamic Editable Shopping List",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "From Ten To Zero",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "DOM Interaction Application DOMinator",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Functionator JavaScript Function practice Code",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Dynamic welcome message",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Guess The Hidden Word Which Is Scrambled",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Element Catcher Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "High Low Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Element Mouse And Click Events",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Image Carousel Animated Slideshow Application",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Element Scrolling Content",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Input Field Character Counter",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Email Extractor Application",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "JavaScript Application To Create Files - Google Sheet Data To CSV File",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name:
+                "Explore JavaScript Cookies While Building Cookie Get Set Tester Web Application",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Just JavaScript Click Counter",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "From Ten To Zero",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Keyboard Div Mover",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Functionator JavaScript Function practice Code",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Keyboard Events Tracker",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Guess The Hidden Word Which Is Scrambled",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Magic Eight Ball",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "High Low Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Modal Popup Example",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Image Carousel Animated Slideshow Application",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Number Guessing Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Input Field Character Counter",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Pattern Matching Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name:
+                "JavaScript Application To Create Files - Google Sheet Data To CSV File",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Placeholder Image Path Generator",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Just JavaScript Click Counter",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Plane Bomber Game Simple JavaScript DOM Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Keyboard Div Mover",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Popup Message",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Keyboard Events Tracker",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Random Array Message",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Magic Eight Ball",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Random Background Color Button Generator",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Modal Popup Example",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Rock Paper Scissors Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Number Guessing Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Simple List",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Pattern Matching Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "innerSubContent",
-              "Some Js Code",
-              "none",
-              "none",
-              "none",
-              "??",
-              [
+            },
+            {
+              type: "normal-content-project",
+              name: "Placeholder Image Path Generator",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Plane Bomber Game Simple JavaScript DOM Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Popup Message",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Random Array Message",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Random Background Color Button Generator",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Rock Paper Scissors Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Simple List",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "deep-list-content-files",
+              name: "Some Js Code",
+              info: "",
+              list: [
                 {
-                  fileName: "Bubbling & Capturing",
-                  fileType: "index.html",
-                  difficulty: "??",
-                  fileInfo: "??",
+                  type: "normal-deep-list-content-files-item",
+                  title: "Bubbling & Capturing",
+                  info: "",
+                  filename: "index",
+                  fileExtension: "html",
                   tech: {
                     languages: ["HTML", "CSS", "JavaScript"],
                     libraries: [],
@@ -1206,11 +1332,12 @@ let ContentBuilder = (function () {
                   },
                 },
                 {
-                  fileName:
+                  type: "normal-deep-list-content-files-item",
+                  title:
                     "Generating A Random Numbers In A Range That Doesn't Exist In From an Array",
-                  fileType: "app.js",
-                  difficulty: "??",
-                  fileInfo: "??",
+                  info: "",
+                  filename: "app",
+                  fileExtension: "js",
                   tech: {
                     languages: ["HTML", "CSS", "JavaScript"],
                     libraries: [],
@@ -1219,10 +1346,11 @@ let ContentBuilder = (function () {
                   },
                 },
                 {
-                  fileName: "JS Local Strorage",
-                  fileType: "index.html",
-                  difficulty: "??",
-                  fileInfo: "??",
+                  type: "normal-deep-list-content-files-item",
+                  title: "JS Local Strorage",
+                  info: "",
+                  filename: "index",
+                  fileExtension: "html",
                   tech: {
                     languages: ["HTML", "CSS", "JavaScript"],
                     libraries: [],
@@ -1231,10 +1359,11 @@ let ContentBuilder = (function () {
                   },
                 },
                 {
-                  fileName: "ProtoType in JS",
-                  fileType: "app.js",
-                  difficulty: "??",
-                  fileInfo: "??",
+                  type: "normal-deep-list-content-files-item",
+                  title: "ProtoType in JS",
+                  info: "",
+                  filename: "app",
+                  fileExtension: "js",
                   tech: {
                     languages: ["HTML", "CSS", "JavaScript"],
                     libraries: [],
@@ -1242,311 +1371,530 @@ let ContentBuilder = (function () {
                     APIs: [],
                   },
                 },
+                {
+                  type: "no-deep-list-content-files-item",
+                  title: "",
+                  info: "",
+                  filename: "app",
+                  fileExtension: "js",
+                  tech: {
+                    languages: ["HTML", "CSS", "JavaScript"],
+                    libraries: [],
+                    frameworks: [],
+                    APIs: [],
+                  },
+                },
+
+                // Deep Inner List End
               ],
-              "h4"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Some Mouse Events",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Some Mouse Events",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Star Rating Project Click And Hover Events",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Star Rating Project Click And Hover Events",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Tip Calculater",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Tip Calculater",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Try & Catch",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Try & Catch",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Typing Test Mini Application",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Typing Test Mini Application",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Ultimate Dice Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Ultimate Dice Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Word Guessing Hangman Game",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Word Guessing Hangman Game",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Word Scrumble",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Word Scrumble",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "xHR & Fetch",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "xHR & Fetch",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
+            },
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
           ],
         },
         {
-          courseSectionHeader: "The Modern Javascript Bootcamp Course (2020)",
-          courseSectionHeaderType: "h3",
-          courseSectionInfo: "The Modern Javascript Bootcamp Course (2020)",
-          courseSectionClases: "spinningBackground1",
-          projects: [
-            coursesProjectObjBuilder(
-              "none",
-              "Coin Chaser",
-              "index.html",
-              "??",
-              {
+          type: "no-content-course",
+          name: "React - The Complete Guide (incl Hooks, React Router, Redux)",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Coin Chaser",
-              "index.html",
-              "??",
-              {
-                languages: ["HTML", "CSS", "JavaScript"],
-                libraries: [],
-                frameworks: [],
-                APIs: [],
-              },
-              "??"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Practicing Promise, Async& Await",
-              "index.html",
-              "??",
-              {
-                languages: ["HTML", "CSS", "JavaScript"],
-                libraries: [],
-                frameworks: [],
-                APIs: [],
-              },
-              "Practicing Promise, Async& Await through a multi choose question application"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Practicing Prototypes, Classes, & The New Operator",
-              "index.html",
-              "??",
-              {
-                languages: ["HTML", "CSS", "JavaScript"],
-                libraries: [],
-                frameworks: [],
-                APIs: [],
-              },
-              "Practicing Prototypes, Classes, & The New Operator through a multi choose question application"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Timer",
-              "index.html",
-              "??",
-              {
-                languages: ["HTML", "CSS", "JavaScript"],
-                libraries: [],
-                frameworks: [],
-                APIs: [],
-              },
-              "Timer"
-            ),
+            },
+
+            // Inner List End
           ],
         },
+        {
+          type: "normal-content-course",
+          name: "The Modern Javascript Bootcamp Course (2020)",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "normal-content-project",
+              name: "Coin Chaser",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Maze",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Movies Fight",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Practicing Promise, Async& Await",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Practicing Prototypes, Classes, & The New Operator",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Secret Message Sharing App",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Timer",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
+          ],
+        },
+        {
+          type: "no-content-course",
+          name: "",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
+          ],
+        },
+
+        // List End
       ],
+
+      // Section End
     },
+
     {
-      mainSectionHeader: "Youtube",
-      mainSectionHeaderType: "h2",
-      mainSectionInfo: "Youtube",
-      mainSectionClass: "main-section Site",
-      exisist: true,
-      courses: [
+      type: "normal-content-section",
+      name: "Youtube",
+      info: "",
+      classes: "main-section Site",
+      list: [
         {
-          courseSectionHeader: "Ania Kubów JavaScriptGames",
-          courseSectionHeaderType: "h3",
-          courseSectionInfo: "Ania Kubów JavaScriptGames",
-          courseSectionClases: "spinningBackground1",
-          projects: [
-            coursesProjectObjBuilder(
-              "none",
-              "Candy Crush",
-              "index.html",
-              "??",
-              {
+          type: "normal-content-course",
+          name: "Ania Kubów JavaScriptGames",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "normal-content-project",
+              name: "Candy Crush",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "Candy Crush"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "PACMAN",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "NOKIA 3310 SNAKE",
+              info:
+                "A vanilla JavaScript grid-based game | In this tutorial you will learn how to make a fully functional game of Nokia 3310 Snake.\n" +
+                "This is a total BEGINNERS introduction to JavaScript, in which you will cover the following:\n" +
+                "- project set up\n" +
+                "- linking your JavaScript and CSS files to your HTML file\n" +
+                "- event listeners\n" +
+                "- query Selectors\n" +
+                "- arrow functions\n" +
+                "- forEach\n" +
+                "- setting time intervals and countdowns",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "PACMAN"
-            ),
+            },
+            {
+              type: "normal-content-project",
+              name: "PACMAN",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "normal-content-project",
+              name: "Tic-Tac-Toe",
+              info:
+                "This is a a tic-tac-toe walkthrough for those who have never, I mean NEVER touched code before in their life. I decided to do so as I realise my videos are for those who already have an understanding of JavaScript, and would like to practice and get better by making games, or learning different approaches to solving problems. I am going to go super slow on this one and try to explain as much as I can. Obviously, I’m sure there will be things I miss out, so if you want to ask me anything please comment below and I will get back to you. Remember this video is for you to learn and have an awesome game to show for it by the end.",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
           ],
         },
         {
-          courseSectionHeader: "Fireship",
-          courseSectionHeaderType: "h3",
-          courseSectionInfo: "Fireship",
-          courseSectionClases: "spinningBackground1",
-          projects: [
-            coursesProjectObjBuilder(
-              "none",
-              "Animated Responsive Navbar With CSS",
-              "index.html",
-              "??",
-              {
+          type: "normal-content-course",
+          name: "Fireship",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "no-content-project",
+              name: "advance-dropdown-menu",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "??"
-            ),
+            },
+            {
+              type: "normal-content-project",
+              name: "Animated Responsive Navbar With CSS",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: 1.25,
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
           ],
         },
         {
-          courseSectionHeader: "Ghost Tech",
-          courseSectionHeaderType: "h3",
-          courseSectionInfo: "Ghost Tech",
-          courseSectionClases: "spinningBackground1",
-          projects: [
-            coursesProjectObjBuilder(
-              "innerSubCourse",
-              "JavaScript Complete Course 2019- Build Real Projects! __ FOR BEGINNERS",
-              "index.html",
-              3,
-              {
-                languages: ["HTML", "CSS", "JavaScript"],
-                libraries: [],
-                frameworks: [],
-                APIs: [],
-              },
-              "JavaScript Complete Course 2019- Build Real Projects! __ FOR BEGINNERS",
-              [
-                [
-                  "none",
-                  "Budgety",
-                  "index.html",
-                  3,
-                  {
+          type: "normal-content-multi-courses",
+          name: "Ghost Tech",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "normal-content-multi-courses-course",
+              name:
+                "JavaScript Complete Course 2019- Build Real Projects! __ FOR BEGINNERS",
+              list: [
+                {
+                  type: "normal-content-multi-courses-course-project",
+                  name: "",
+                  info: "",
+                  fileName: "index",
+                  fileExtension: "html",
+                  difficulty: "",
+                  tech: {
                     languages: ["HTML", "CSS", "JavaScript"],
                     libraries: [],
                     frameworks: [],
                     APIs: [],
                   },
-                  "Budgety",
-                ],
-                [
-                  "innerSubContent",
-                  "Displaying A Question",
-                  "none",
-                  "none",
-                  "none",
-                  "??",
-                  [
+                },
+                {
+                  type: "deep-list-content-multi-courses-course-projects",
+                  name: "",
+                  info: "",
+                  list: [
                     {
-                      type: "none",
-                      projectName: "(1)[Using Function&Prototypal Inheritance]",
-                      projectFileType: "index.html",
-                      difficulty: "??",
-                      projectInfo: "(1)[Using Function&Prototypal Inheritance]",
+                      type:
+                        "normal-deep-list-content-multi-courses-course-projects-item",
+                      name: "(1)[Using Function&Prototypal Inheritance]",
+                      info: "",
+                      fileName: "index",
+                      fileExtension: "html",
+                      difficulty: "",
                       tech: {
                         languages: ["HTML", "CSS", "JavaScript"],
                         libraries: [],
@@ -1555,11 +1903,13 @@ let ContentBuilder = (function () {
                       },
                     },
                     {
-                      type: "none",
-                      projectName: "(2)[Using Maps&Classes]",
-                      projectFileType: "index.html",
-                      difficulty: "??",
-                      projectInfo: "(2)[Using Maps&Classes]",
+                      type:
+                        "normal-deep-list-content-multi-courses-course-projects-item",
+                      name: "(2)[Using Maps&Classes]",
+                      info: "",
+                      fileName: "index",
+                      fileExtension: "html",
+                      difficulty: "",
                       tech: {
                         languages: ["HTML", "CSS", "JavaScript"],
                         libraries: [],
@@ -1567,269 +1917,397 @@ let ContentBuilder = (function () {
                         APIs: [],
                       },
                     },
+                    {
+                      type:
+                        "no-deep-list-content-multi-courses-course-projects-item",
+                      name: "",
+                      info: "",
+                      fileName: "index",
+                      fileExtension: "html",
+                      difficulty: "",
+                      tech: {
+                        languages: ["HTML", "CSS", "JavaScript"],
+                        libraries: [],
+                        frameworks: [],
+                        APIs: [],
+                      },
+                    },
+
+                    // Deep Inner List End
                   ],
-                ],
-                [
-                  "none",
-                  "Pig Game",
-                  "index.html",
-                  3,
-                  {
+                },
+                {
+                  type: "normal-content-multi-courses-course-project",
+                  name: "Pig Game",
+                  info: "",
+                  fileName: "index",
+                  fileExtension: "html",
+                  difficulty: "",
+                  tech: {
                     languages: ["HTML", "CSS", "JavaScript"],
                     libraries: [],
                     frameworks: [],
                     APIs: [],
                   },
-                  "Pig Game",
-                ],
+                },
+                {
+                  type: "no-content-multi-courses-course-project",
+                  name: "",
+                  info: "",
+                  fileName: "index",
+                  fileExtension: "html",
+                  difficulty: "",
+                  tech: {
+                    languages: ["HTML", "CSS", "JavaScript"],
+                    libraries: [],
+                    frameworks: [],
+                    APIs: [],
+                  },
+                },
               ],
-              "h4"
-            ),
+            },
+            {
+              type: "no-content-multi-courses-course",
+              name: "",
+              list: [
+                {
+                  type: "normal-content-multi-courses-course-project",
+                  name: "",
+                  info: "",
+                  fileName: "index",
+                  fileExtension: "html",
+                  difficulty: "",
+                  tech: {
+                    languages: ["HTML", "CSS", "JavaScript"],
+                    libraries: [],
+                    frameworks: [],
+                    APIs: [],
+                  },
+                },
+              ],
+            },
+
+            // Inner List End
           ],
         },
         {
-          courseSectionHeader: "Traversy Media",
-          courseSectionHeaderType: "h3",
-          courseSectionInfo: "Traversy Media",
-          courseSectionClases: "spinningBackground1",
-          projects: [
-            coursesProjectObjBuilder(
-              "none",
-              "Bookmarker Application",
-              "index.html",
-              "??",
-              {
+          type: "normal-content-course",
+          name: "Traversy Media",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "normal-content-project",
+              name: "Bookmarker Application",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "Bookmarker Application"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Full screen Image Slider",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Full screen Image Slider",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "Full screen Image Slider"
-            ),
-            coursesProjectObjBuilder(
-              "none",
-              "Full Screen Responsive Image Slider",
-              "index.html",
-              "??",
-              {
+            },
+            {
+              type: "normal-content-project",
+              name: "Full Screen Responsive Image Slider",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
                 frameworks: [],
                 APIs: [],
               },
-              "Full Screen Responsive Image Slider"
-            ),
+            },
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
           ],
         },
+        {
+          type: "no-content-course",
+          name: "",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
+          ],
+        },
+
+        // List End
       ],
+
+      // Section End
     },
+
+    {
+      type: "no-content-section",
+      name: "",
+      info: "",
+      classes: "main-section Site",
+      list: [
+        {
+          type: "no-content-course",
+          name: "",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              type: "no-content-project",
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
+          ],
+        },
+
+        // List End
+      ],
+
+      // Section End
+    },
+
+    // End
   ];
-
-  function coursesProjectObjBuilder(
-    type,
-    projectName,
-    projectFileType,
-    difficulty,
-    tech,
-    projectInfo,
-    inner,
-    innerHeadType
-  ) {
-    if (type === "innerSubCourse") {
-      //debugger;
-       temp = {
-        type,
-        projectName,
-        projectFileType,
-        difficulty,
-        tech,
-        projectInfo,
-        innerCourseProjects: inner.map((i) => coursesProjectObjBuilder(...i)),
-        innerCourseProjectsHeadType: innerHeadType,
-      };
-      console.log(temp);
-      return temp;
-    }
-    if (type === "deepInnerSubCourse") {
-    }
-
-    if (type === "innerSubContent") {
-      return {
-        type,
-        projectName,
-        projectFileType,
-        difficulty,
-        tech,
-        projectInfo,
-        innerSubContentProjects: inner,
-        innerSubContentProjectsHeadType: innerHeadType,
-      };
-    }
-
-    return {
-      type,
-      projectName,
-      projectFileType,
-      difficulty,
-      tech,
-      projectInfo,
-    };
-  }
 
   function sectionBuilding() {
     let content = "";
-    contentObj.forEach((section) => {
-      if (!section.exisist) {
-        return (content += `
-    <section class="${section.mainSectionClass}">
-      <${section.mainSectionHeaderType}>${section.mainSectionHeader} <button class="subElemContainngInfo tooltip-section" data-section-content="${section.mainSectionInfo}" data-section-content-show-on-until-click="show">i</button></${section.mainSectionHeaderType}>
-    <div class="tooltip-output"></div>      
-    <${section.mainSectionHeaderType}>${section.mainSectionInfo}</${section.mainSectionHeaderType}>
-      <ol>
-        <li>
-          ${section.mainSectionInfo}
-        </li>
-      </ol>
-    </section>
-        `);
-      }
-      content += `<section class="${section.mainSectionClass}">`;
-      content += `<${section.mainSectionHeaderType}>${section.mainSectionHeader} <button class="subElemContainngInfo tooltip-section" data-section-content="${section.mainSectionInfo}" data-section-content-show-on-until-click="show">i</button></${section.mainSectionHeaderType}>
-      <div class="tooltip-output"></div><ol>`;
-      content += innerContentHTMLBuilder(
-        section.courses,
-        section.mainSectionHeader
-      );
 
-      content += `</ol></section>`;
+    contentData.forEach((section) => {
+      if (section.type === "no-content-section") {
+        content += `
+    <section class="${section.classes}">
+      <h2>
+        ${section.name} 
+        <button class="subElemContainngInfo tooltip-section" data-section-content="${
+          section.info || "??"
+        }" data-section-content-show-on-until-click="show">i</button>
+        <div class="tooltip-output"></div><ol>
+      </h2>
+          
+        `;
+
+        content += sectionContentBuilder(section.list);
+
+        content += `
+    </ol></section>
+        `;
+      } else if (section.type === "normal-content-section") {
+        let tempUrl = section.name;
+        content += `
+    <section class="${section.classes}">
+      <h2>
+        ${section.name} 
+        <button class="subElemContainngInfo tooltip-section" data-section-content="${
+          section.info || "??"
+        }" data-section-content-show-on-until-click="show">i</button>
+        <div class="tooltip-output"></div><ol>
+      </h2>
+          
+        `;
+
+        content += sectionContentBuilder(section.list, tempUrl);
+
+        content += `
+    </ol></section>
+        `;
+      }
     });
+
     return content;
   }
 
-  function innerContentHTMLBuilder(courses, urlStart) {
-    let urlCont;
-    let innerContent = "";
-    courses.forEach((course) => {
-      innerContent += `<li><section class="${course.courseSectionClases}">
-          <${course.courseSectionHeaderType}>${course.courseSectionHeader} <button class="subElemContainngInfo tooltip-section" data-section-content="${course.courseSectionInfo}" data-section-content-show-on-until-click="show">i</button></${course.courseSectionHeaderType}>
-          <div class="tooltip-output"></div>
-          <ol>`;
-      urlCont = `${urlStart}/${course.courseSectionHeader}`;
-      innerContent += projectsContentHTMLBuilder(course.projects, urlCont);
-
-      innerContent += ` </ol>
-                </section></li>`;
-    });
-    return innerContent;
-  }
-
-  function projectsContentHTMLBuilder(projects, url) {
-    let deepInnerContent = "";
-
-    projects.forEach((project) => {
-      if (project.type === "none") {
-        deepInnerContent += `<li>
-              <a href="${url}/${project.projectName}/${project.projectFileType}"  target="_blank">
-                ${project.projectName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${project.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                <div class="tooltip-output"></div>
-              </a>
-              </li>`;
-      } else if (project.type === "specialCharsChange") {
-        url = `${url}/${project.projectName.replace(/[|]/g, "-")}/${
-          project.projectFileType
-        }`;
-        deepInnerContent += `<li>
-              <a href="${url}"  target="_blank">
-                ${project.projectName}
-              </a>
-              </li>`;
-      } else if (project.type === "innerSubCourse") {
-        deepInnerContent += `
-            <ol>
-              <li>
-                <${project.innerCourseProjectsHeadType}>
-                  ${project.projectName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${project.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                <div class="tooltip-output"></div>
-                </${project.innerCourseProjectsHeadType}>
-                <ol>
+  function sectionContentBuilder(items, url) {
+    let sectionContent = "";
+    sectionContent += `
+        <ol>
         `;
-        project.innerCourseProjects.forEach((subCourse) => {
-          if (subCourse.type === "none" || subCourse.type === undefined) {
-            deepInnerContent += `
-                  <li>
-                    <a
-                      href="${url}/${project.projectName}/${subCourse.projectName}/${subCourse.projectFileType}"
-                      target="_blank"
-                    >
-                      ${subCourse.projectName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${subCourse.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                      <div class="tooltip-output"></div>
-                    </a>
-                  </li>
-          `;
-          } else if (subCourse.type === "innerSubContent") {
-            deepInnerContent += `<li><${project.innerCourseProjectsHeadType}>
-              ${subCourse.projectName}   <button class="subElemContainngInfo tooltip-section" data-section-content="${subCourse.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                      <div class="tooltip-output"></div>
-            </${project.innerCourseProjectsHeadType}><ol>`;
-            subCourse.innerSubContentProjects.forEach((item, idx) => {
-              deepInnerContent += `<li>`;
-              deepInnerContent += `
-                    <a
-                      href="${url}/${project.projectName}/${subCourse.projectName}/${item.projectName}/${item.projectFileType}"
-                      target="_blank"
-                    >
-                      ${item.projectName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${item.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                      <div class="tooltip-output"></div>
-                    </a>
-              `;
-              deepInnerContent += `</li>`;
-            });
-              deepInnerContent += `</ol></li>`;
-          }
-        });
-        deepInnerContent += `
-                  <ol>
-                  </li>
-                </ol>
+
+    items.forEach((item) => {
+      let tempUrl = `${url}/${item.name}`;
+
+      if (item.type === "no-content-course") {
+        sectionContent += `
+
+            <li>
+            <section class="${item.classes}">
+            <h3>
+                ${item.name}
+                <button class="subElemContainngInfo tooltip-section" data-section-content="${
+                  item.info || "??"
+                }" data-section-content-show-on-until-click="show">i</button>
+                <div class="tooltip-output"></div>
+            </h3>
         `;
-      } else if (project.type === "innerSubContent") {
-        deepInnerContent += `
-        <li><ol>
-        <${project.innerSubContentProjectsHeadType}>
-          ${project.projectName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${project.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-          <div class="tooltip-output"></div>
-        </${project.innerSubContentProjectsHeadType}>`;
-        project.innerSubContentProjects.forEach((sub) => {
-          deepInnerContent += `
-                  <li>
-                    <a
-                      href="${url}/${project.projectName}/${sub.fileName}/${sub.fileType}"
-                      target="_blank"
-                    >
-                      ${sub.fileName}  <button class="subElemContainngInfo tooltip-section" data-section-content="${project.projectInfo}" data-section-content-show-on-until-click="show">i</button>
-                      <div class="tooltip-output"></div>
-                    </a>
-                  </li>
-                `;
-        });
-        deepInnerContent += `</ol></li>`;
+
+        sectionContent += itemListContentBuilder(item.list);
+
+        sectionContent += `
+          </section>
+          </li>
+        `;
+      } else if (item.type === "normal-content-course") {
+        sectionContent += `
+
+            <li>
+            <section class="${item.classes}">
+            <h3>
+                ${item.name}
+                <button class="subElemContainngInfo tooltip-section" data-section-content="${
+                  item.info || "??"
+                }" data-section-content-show-on-until-click="show">i</button>
+                <div class="tooltip-output"></div>
+            </h3>
+        `;
+
+        sectionContent += itemListContentBuilder(item.list, tempUrl);
+
+        sectionContent += `
+          </section>
+          </li>
+        `;
       }
     });
 
-    return deepInnerContent;
+    sectionContent += `
+               </ol>
+        `;
+    return sectionContent;
+  }
+
+  function itemListContentBuilder(list, url) {
+    let listContent = "";
+    listContent += `
+                <ol>
+    `;
+
+    list.forEach((item) => {
+      if (item.type === "deep-list-content-files") {
+        listContent += `
+                    <li>
+                      <h3>${item.name}</h3>
+                      <ol>
+        `;
+        let tempUrl = `${url}/${item.name}`;
+        listContent += deepListContentFilesItemsHandler(item.list, tempUrl);
+
+        listContent += `
+                      </ol>
+                    </li>
+        `;
+      } else if (item.type === "no-content-project") {
+        listContent += `
+                    <li>
+                      Nothing Yet :/
+                    </li>
+            `;
+      } else if (item.type === "normal-content-project") {
+        let tempUrl = `${url}/${item.name}/${item.fileName}.${item.fileExtension}`;
+        listContent += `
+                    <li>
+                        <a href="${tempUrl}"  target="_blank">
+                            ${item.name}
+                            <button class="subElemContainngInfo tooltip-section" data-section-content="${
+                              item.info || "??"
+                            }" data-section-content-show-on-until-click="show">i</button>
+                            <div class="tooltip-output"></div>
+                        </a>
+                    </li>
+        `;
+      }
+    });
+
+    listContent += `
+                </ol>
+    `;
+
+    return listContent;
+  }
+
+  function deepListContentFilesItemsHandler(items, tempUrl) {
+    let deepListContent = "";
+
+    items.forEach((item) => {
+      if (item.type === "normal-deep-list-content-files-item") {
+        deepListContent += `
+                        <li>
+							<a href="${tempUrl}/${item.title}/${item.filename}.${
+          item.fileExtension
+        }"  target="_blank">
+	                            ${item.title}
+	                            <button class="subElemContainngInfo tooltip-section" data-section-content="${
+                                item.info || "??"
+                              }" data-section-content-show-on-until-click="show">i</button>
+	                            <div class="tooltip-output"></div>
+	                        </a>
+                        </li>
+        `;
+      } else if (item.type === "no-deep-list-content-files-item") {
+        deepListContent += `
+                        <li>
+                          Nothing Yet :/
+                        </li>
+        `;
+      }
+    });
+    return deepListContent;
   }
 
   function tooltipBuilder() {
@@ -1883,9 +2361,9 @@ let ContentBuilder = (function () {
   }
 
   return {
+    contentData,
     HTMLContent: sectionBuilding,
     tooltipBuilder,
-    temp
   };
 })();
 
@@ -1910,9 +2388,7 @@ let controller = (function (contentBuilder, UICtrl, calcsMaker) {
 
   return {
     init: init,
-    t: contentBuilder.temp
   };
 })(ContentBuilder, UIController, calculationsMaker);
 
 controller.init();
-console.log(controller.t)
