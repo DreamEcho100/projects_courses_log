@@ -1,30 +1,13 @@
-const Dragon = require("./dragon");
+const Generation = require("./generation");
 
-const fooey = new Dragon({
-  birthdate: new Date(),
-  nickname: "fooey",
-});
-const baloo = new Dragon({
-  birthdate: new Date(),
-  nickname: "baloo",
-  traits: [{ traitType: "backgroundColor", traitValue: "green" }],
-});
-const mimar = new Dragon({});
-
-setTimeout(() => {
-  const gooby = new Dragon({});
-  // console.table({
-  //   gooby,
-  // });
-  // console.table(gooby.traits.map((i) => i));
-}, 1500);
+const generation = new Generation();
 
 console.table({
-  fooey,
-  baloo,
-  mimar,
+  generation,
 });
 
-// console.table(fooey.traits.map((i) => i));
-// console.table(baloo.traits.map((i) => i));
-// console.table(mimar.traits.map((i) => i));
+const gooby = generation.newDragon();
+
+console.table({
+  gooby,
+});
