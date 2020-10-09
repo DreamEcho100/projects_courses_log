@@ -1,5 +1,6 @@
 .Toolbar {
 	height: 10vh;
+	min-height: 4rem;
 	width: 100%;
 	position: fixed;
 	top: 0;

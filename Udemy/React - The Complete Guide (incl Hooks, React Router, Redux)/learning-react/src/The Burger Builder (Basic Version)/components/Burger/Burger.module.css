@@ -1,7 +1,9 @@
 .Burger {
 	width: calc(15rem + (15vw * 2));
+	max-width: 40rem;	
 	margin: auto;
 	height: 40vh;
+	min-height: 15rem;
 	overflow: scroll;
 	text-align: center;
 	font-weight: bold;

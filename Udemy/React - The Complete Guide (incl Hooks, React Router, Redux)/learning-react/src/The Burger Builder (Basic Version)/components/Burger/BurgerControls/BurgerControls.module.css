@@ -11,6 +11,8 @@
     padding: 1rem 0;
     font-size: calc(1rem + 0.5vw);
     height: 50vh;
+    max-width: 60rem;
+    min-height: 26rem;
 }
 
 .OrderButton {
@@ -19,8 +21,8 @@
     border: 1px solid #966909;
     color: #966909;
     font-family: inherit;
-    font-size: 1.2em;
-    padding: 1rem 2.4rem;
+    font-size: calc(1rem + 0.1vw);
+    padding: 1em 1.5em;
     box-shadow: 2px 2px 2px #966909;
 }
 
