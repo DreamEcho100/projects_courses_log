@@ -1,6 +1,6 @@
 const { Engine, Render, Runner, World, Bodies, Body, Events, Mouse, MouseConstraint } = Matter;
-const width = document.body.clientWidth - (document.body.clientWidth * 0.01);
-const height = document.body.clientHeight - (document.body.clientHeight * 0.01);
+const width = document.body.clientWidth - (document.body.clientWidth * 0.02);
+const height = document.body.clientHeight - (document.body.clientHeight * 0.02);
 // const cells = 6;
 const cellsHorizontal = 15;
 const cellsVertical = 20;
@@ -126,7 +126,7 @@ const stepThroughCells = (row, column) => {
 
 stepThroughCells(startRow, startColumn);
 
-const wallWidth = 5;
+const wallWidth = 10;
 
 horizontals.forEach((row, rowIndex) => {
 	row.forEach((open, columnIndex) => {
@@ -188,7 +188,7 @@ World.add(world, goal);
 const ball = Bodies.circle(
 	unitLengthX / 2,
 	unitLengthY / 2,
-	Math.min(unitLengthX, unitLengthY) / 4,
+	Math.min(unitLengthX, unitLengthY) / 3,
 	{
 		label: 'ball',
 		isStatic: false,

@@ -171,7 +171,7 @@ let calculationsMaker = (function () {
 
 let ContentBuilder = (function () {
   const contentData = [
-    {
+    /*{
       types: ["normal-content-section"],
       name: "personalProjects",
       info: "",
@@ -221,7 +221,7 @@ let ContentBuilder = (function () {
       ],
 
       // Section End
-    },
+    },*/
 
     {
       types: ["normal-content-section"],
@@ -229,7 +229,7 @@ let ContentBuilder = (function () {
       info: "",
       classes: "main-section Site",
       list: [
-        {
+        /*{
           types: ["normal-content-course"],
           name: "The Creative Front End Development Bundle",
           info: "",
@@ -324,15 +324,18 @@ let ContentBuilder = (function () {
 
             // Inner List End
           ],
-        },
+        },*/
         {
           types: ["normal-content-course"],
-          name: "",
+          name: "The Creative HTML5 & CSS3 Course",
           info: "",
           classes: "spinningBackground1",
           list: [
             {
-              types: ["normal-content-project"],
+              types: ["normal-content-project", "special-characters-type-1"],
+              specialCharactersType1: {
+                "|": "-"
+              },
               name: "Travelly | Travelling Agency",
               info: "",
               fileName: "index",
@@ -2127,6 +2130,20 @@ let ContentBuilder = (function () {
     // End
   ];
 
+  function specialCharactersType1(text, swapingCharacters) {
+    const specialCharactersToRemove = Object.keys(swapingCharacters);
+    const specialCharactersToAdd = Object.values(swapingCharacters);
+  
+    let newText = text;
+  
+    specialCharactersToRemove.forEach((character, index) => {
+      console.log(newText.replace(character, specialCharactersToAdd[index]));
+      newText = newText.replace(character, specialCharactersToAdd[index]);
+    });
+  
+    return newText;
+  }  
+
   function sectionBuilding() {
     let content = "";
 
@@ -2239,13 +2256,18 @@ let ContentBuilder = (function () {
     `;
 
     list.forEach((item) => {
+      
       if (item.types.includes("deep-list-content-files")) {
+        let tempUrl = `${url}/${item.name}`;
+/*        let tempUrl = item.types.includes("special-characters-type-1") ?
+          `${url}/${specialCharactersType1(item.name, item.specialCharactersType1)}/${item.fileName}.${item.fileExtension}` :
+          `${url}/${item.name}/${item.fileName}.${item.fileExtension}`;*/
         listContent += `
                     <li>
                       <h3>${item.name}</h3>
                       <ol>
         `;
-        let tempUrl = `${url}/${item.name}`;
+        
         listContent += deepListContentFilesItemsHandler(item.list, tempUrl);
 
         listContent += `
@@ -2259,7 +2281,9 @@ let ContentBuilder = (function () {
                     </li>
             `;
       } else if (item.types.includes("normal-content-project")) {
-        let tempUrl = `${url}/${item.name}/${item.fileName}.${item.fileExtension}`;
+        let tempUrl = item.types.includes("special-characters-type-1") ?
+          `${url}/${specialCharactersType1(item.name, item.specialCharactersType1)}/${specialCharactersType1(item.fileName, item.specialCharactersType1)}.${item.fileExtension}` :
+          `${url}/${item.name}/${item.fileName}.${item.fileExtension}`;
         listContent += `
                     <li>
                         <a href="${tempUrl}"  target="_blank">
@@ -2281,16 +2305,17 @@ let ContentBuilder = (function () {
     return listContent;
   }
 
-  function deepListContentFilesItemsHandler(items, tempUrl) {
+  function deepListContentFilesItemsHandler(items, url) {
     let deepListContent = "";
 
     items.forEach((item) => {
+      let tempUrl = item.types.includes("special-characters-type-1") ?
+        `${url}/${specialCharactersType1(item.title, specialCharactersType1)}/${specialCharactersType1(item.filename, specialCharactersType1)}.${item.fileExtension}` :
+        `${url}/${item.title}/${item.filename}.${item.fileExtension}`;
       if (item.types.includes("normal-deep-list-content-files-item")) {
         deepListContent += `
                         <li>
-							<a href="${tempUrl}/${item.title}/${item.filename}.${
-          item.fileExtension
-        }"  target="_blank">
+							<a href="${tempUrl}"  target="_blank">
 	                            ${item.title}
 	                            <button class="subElemContainngInfo tooltip-section" data-section-content="${
                                 item.info || "??"
