@@ -1,4 +1,4 @@
-# "# projects_courses_log"
+# "projects_courses_log"
 
 &amp;
 The site is ready at https://dreamecho100.github.io/projects_courses_log/.
