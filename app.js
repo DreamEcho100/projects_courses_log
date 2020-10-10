@@ -171,7 +171,7 @@ let calculationsMaker = (function () {
 
 let ContentBuilder = (function () {
   const contentData = [
-    /*{
+    {
       types: ["normal-content-section"],
       name: "personalProjects",
       info: "",
@@ -221,7 +221,7 @@ let ContentBuilder = (function () {
       ],
 
       // Section End
-    },*/
+    },
 
     {
       types: ["normal-content-section"],
@@ -229,7 +229,7 @@ let ContentBuilder = (function () {
       info: "",
       classes: "main-section Site",
       list: [
-        /*{
+        {
           types: ["normal-content-course"],
           name: "The Creative Front End Development Bundle",
           info: "",
@@ -324,7 +324,7 @@ let ContentBuilder = (function () {
 
             // Inner List End
           ],
-        },*/
+        },
         {
           types: ["normal-content-course"],
           name: "The Creative HTML5 & CSS3 Course",
@@ -1727,6 +1727,20 @@ let ContentBuilder = (function () {
             {
               types: ["normal-content-project"],
               name: "Candy Crush",
+              info: "Doodle Jump",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              types: ["normal-content-project"],
+              name: "Doodle Jump",
               info: "",
               fileName: "index",
               fileExtension: "html",
