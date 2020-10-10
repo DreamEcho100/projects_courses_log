@@ -1,3 +1,6 @@
+/*----------------------------*/
+/**/
+/*----------------------------*/
 :root {
     font-size: 62.5%;
 }
@@ -22,9 +25,37 @@ p,
       font-size: calc(1rem + 1vw);
 }
 
+/*----------------------------*/
+/**/
+/*----------------------------*/
 .grid {
     width: 40rem;
     height: 60rem;
     background-color: yellow;
     position: relative;
+    overflow: hidden;
+}
+
+.doodler {
+    width: 6rem;
+    height: 8.5rem;
+    background-color: red;
+    position: absolute;
+}
+
+#platform-proto,
+.platform {
+    width: 8.5rem;
+    height: 1.5rem;
+    background-color: green;
+    position: absolute;
+}
+
+#platform-proto {
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
 }
