@@ -31,7 +31,7 @@ p,
 .grid {
     width: 40rem;
     height: 60rem;
-    background-color: yellow;
+    background-image: url("./background.png");
     position: relative;
     overflow: hidden;
 }
@@ -39,15 +39,18 @@ p,
 .doodler {
     width: 6rem;
     height: 8.5rem;
-    background-color: red;
-    position: absolute;
+    background-image: url("./doodler-guy.png");
+    position: absolute;    
+    /*background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;*/
 }
 
 #platform-proto,
 .platform {
     width: 8.5rem;
     height: 1.5rem;
-    background-color: green;
+    background-image: url("./platform.png");
     position: absolute;
 }
 
