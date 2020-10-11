@@ -2,7 +2,9 @@
   font-size: 62.5%;
 }
 
-* {
+*,
+*::before,
+*::after  {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -38,7 +40,8 @@ input,
 p,
 ul,
 ol,
-li {
+li,
+div {
   font-size: calc(1.5rem + 0.5vw);
 }
 
