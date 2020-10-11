@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
             newPlatform.appendTo(grid);
             platforms.push(newPlatform);
         }
-        console.log(platforms);
     }
 
     function movePlatforms() {
@@ -87,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
         grid.appendChild(doodler);
         doodler.classList.add("doodler");
         doodlerLeftSpace = platforms[0].left;
-        console.log(platforms[0].left, doodlerLeftSpace);
         doodler.style.left = `${doodlerLeftSpace / HTMLFONTSIZE}rem`;
         doodler.style.bottom = `${doodlerBottomSpace / HTMLFONTSIZE}rem`;
     }
@@ -122,7 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
             ) {
                 isDoodlerJumping = true;
                 isDoodlerFalling = false;
-                console.log('landed');
                 startPoint = doodlerBottomSpace;
                 score++;
             }
@@ -183,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const gameOver = () => {
-        console.log("Game Over");
         isGameOver = true;
         document.removeEventListener("keydown", controls);
         while (grid.firstChild) {
