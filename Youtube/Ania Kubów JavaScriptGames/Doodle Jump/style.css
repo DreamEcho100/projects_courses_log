@@ -17,6 +17,9 @@ body {
 h1 {
     font-size: calc(1.5rem + 5vw);
 }
+h2 {
+    font-size: calc(1.5rem + 4vw);
+}
 label,
 input,
 p,
@@ -61,4 +64,13 @@ p,
     left: 0;
     top: 0;
     z-index: -1;
+}
+
+.score-plate {
+    text-align: center;
+    width: 40rem;
+}
+
+.isHidden {
+    display: none;
 }

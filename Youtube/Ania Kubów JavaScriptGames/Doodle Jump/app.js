@@ -1,22 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const HTMLFONTSIZE = 10;
+
     const grid = document.querySelector(".grid");
     const doodler = document.createElement("div");
     const platformProto = document.getElementById("platform-proto");
-    const HTMLFONTSIZE = 10;
-    let doodlerLeftSpace = 50;
-    let startPoint = 150
-    let doodlerBottomSpace = startPoint;
+    
+    let score = 0;
     let isGameOver = false;
-    let platformCount = 5;
+
     let platforms = [];
-    let upTimerId;
-    let downTimerId;
-    let isDoodlerJumping = true;
+    let platformCount = 5;
+
+    let doodlerLeftSpace = 50;
+    let startPoint = 150;
+    let doodlerBottomSpace = startPoint;
     let isDoodlerGoingLeft = false;
     let isDoodlerGoingRight = false;
     let leftTimerId;
     let rightTimerId;
-    let score = 0;
 
     function createDoodler() {
         grid.appendChild(doodler);
@@ -78,6 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
         window.requestAnimationFrame(movePlatforms);
     }
 
+    
+    let upTimerId;
+    let downTimerId;
+    let isDoodlerJumping = true;
     function jump() {
         clearInterval(downTimerId);
         isDoodlerJumping = true;
@@ -172,10 +177,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function moveStraightUp() {
-        clearInterval(downTimerId);
-        clearInterval(upTimerId);
         clearInterval(rightTimerId);
         clearInterval(leftTimerId);
+        leftTimerId = false;
+        rightTimerId = false;
     }
 
     function start() {
