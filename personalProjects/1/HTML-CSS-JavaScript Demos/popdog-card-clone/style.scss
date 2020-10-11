@@ -1,0 +1,133 @@
+#popdog-card-clone {
+    --clr-dark: rgb(13, 17, 19);
+    --clr-light: #fff;
+    --clr-accent: rgb(222, 52, 0);
+    --clr-accent-dark: rgb(163, 38, 0);
+    --clr-secondary: rgb(0, 62, 163);
+    --br: 0.5em;
+    font-family: sans-serif;
+    min-height: 100vh;
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+    background: var(--clr-dark);
+    color: var(--clr-light);
+
+    .game {
+        position: relative;
+        width: 20rem;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .rank {
+        font-size: 1.8rem;
+        position: absolute;
+        top: 0;
+        right: 1.6rem;
+        font-weight: bold;
+        background: rgba(0, 0, 0, 0.75);
+        padding: 0.5em 0.5em 0.75em;
+        clip-path: polygon(100% 0%, 100% 100%, 50% 85%, 0 100%, 0 0);
+    }
+
+      
+    /*---------------------------*/
+    /* FRONT */
+    /*---------------------------*/
+    .front {
+        transition-delay: 150ms;
+        position: relative;
+        z-index: 2;
+        transition: 250ms;
+
+        .thumbnail {
+            border-radius: var(--br);
+            z-index: 2;
+        }
+
+        .streamers {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+
+            img {
+                width: 3.2rem;
+                height: 3.2rem;
+                border-radius: 50%;
+                border: 1px solid var(--clr-dark);
+
+                &:nth-of-type(1) {
+                    transform: translate(50%);
+                    z-index: 1;
+                }
+                &:nth-of-type(2) {
+                    transform: translate(25%);
+                }
+            }
+
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .name {
+            font-size: 2rem;
+            margin: 0.75em 0;
+        }
+
+    }
+
+    /*---------------------------*/
+    /* BACK */
+    /*---------------------------*/
+    .back {
+        display: none;
+    }
+
+    /*---------------------------*/
+    /* BACKGROUND */
+    /*---------------------------*/
+    .background {
+        background: #234;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        transform: scale(0.2, 0.9);
+        transition: 250ms;
+        
+        transition: transform 200ms /*cubic-bezier(.07,1.57,1,-0.06)*/cubic-bezier(.21, 1.00, .81, 1.00),
+          opacity 100ms linear;
+        transition-delay: 50ms;
+        opacity: 0;
+        border-radius: var(--br);
+        
+
+    }
+
+    .game:hover  {
+        .front:hover {
+            transform: translateY(-30%) scale(0.8);
+
+        }
+
+        .stats {
+            opacity: 0;
+        }
+
+        .background {
+            transform: scale(1.4, 1.2);
+            opacity: 1;
+        }
+    }
+
+
+}
