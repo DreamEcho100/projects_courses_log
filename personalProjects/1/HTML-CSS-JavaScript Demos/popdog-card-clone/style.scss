@@ -10,8 +10,9 @@
     font-family: sans-serif;
     min-height: 100vh;
     display: -ms-grid;
-    display: grid;
+    display: flex;
     place-items: center;
+    place-content: center;
     background: var(--clr-dark);
     color: var(--clr-light);
 
@@ -24,11 +25,13 @@
         max-width: 100%;
     }
 
+    
+
     .streamers{
         
         img {
-            width: 3.2rem;
-            height: 3.2rem;
+            width: calc(3.2rem + 0.4vw);
+            height: calc(3.2rem + 0.4vw);
             border-radius: 50%;
             border: 1px solid var(--clr-dark);
         }
@@ -36,10 +39,9 @@
 
     .rank {
         z-index: 3;
-        font-size: 1.8rem;
         position: absolute;
         top: 0;
-        right: 1.6rem;
+        right: 10%;
         font-weight: bold;
         background: rgba(0, 0, 0, 0.75);
         padding: 0.5em 0.5em 0.75em;
@@ -95,7 +97,7 @@
     /* BACK */
     /*---------------------------*/
     .back {
-        font-size: 1.5rem;
+        font-size: calc(1rem + 0.3vw);
         opacity: 0;
         position: absolute;
         top: 60%;
@@ -105,6 +107,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
+        transform: translateY(35%);
 
         .streaming-info {
             columns: 2;
@@ -145,7 +148,7 @@
         border-radius: 100vh;
         color: var(--clr-light);
         font-weight: bold;
-        padding: 0.5em 1.5em;
+        padding: 0.3em 1.2em;
         margin: 1em 0;
     }
 
@@ -174,32 +177,42 @@
 
     .game:hover  {
         .rank {
-            transform: translate(150%, -68%) scale(1.2);
+            top: -10.3%;
+            right: -14%;
+            /*transform: translate(150%, -80%) scale(1.2);*/
+            z-index: 5;
         }
 
         .front {
             transform: translateY(-30%) scale(0.8);
 
+            .name/*:not(.no-gameName-animation)*/ {
+                animation: gameName 250ms forwards;
+            }
+
+            .stats {
+                display: none;
+            }
+            z-index: 5;
         }
 
-        .name:not(.no-gameName-animation) {
-            animation: gameName 250ms forwards;
-        }
-
-        .stats {
-            /*opacity: 0;*/
-            display: none;
-        }
-
-        .background {
-            transform: scale(1.4, 1.2);
-            opacity: 1;
-        }
 
         .back {
             opacity: 1;
             margin: 0em 0 -0.5em 0;
+            transform: translateY(0);
+            transition: transform 250ms ease, opacity 150ms linear;
+            z-index: 5;
         }
+
+
+        .background {
+            transition: tansform var(--transition-smooth-in-fast-out), opacity 100ms linear;
+            transform: scale(1.4, 1.2);
+            opacity: 1;
+            z-index: 4;
+        }
+
     }
 
 
@@ -226,5 +239,75 @@
         text-align: center;
         opacity: 1;
         transform: scale(1.2);
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    #popdog-card-clone {
+        font-size: 1.2rem;
+
+        .btn {
+            padding: 0.3em 0.5em;
+            margin: 0.5em 0;
+            width: 14rem;
+        }
+        
+        .front {
+            .name {
+                font-size: 1.5rem;
+            }
+        }
+
+        .back {
+            font-size: calc(1rem + 0.5vw);
+            top: 45%;
+            span {
+                font-size: 1rem;
+            }
+        }
+        .game:hover  {
+            
+            .rank {
+                top: -20%;
+            }
+
+            .front {
+                transform: translateY(-45%) scale(0.8);
+            }
+            .background {
+                transform: scale(1.6, 1.4);
+            }
+
+        }
+    }
+}
+@media only screen and (max-width: 400px) {
+    #popdog-card-clone {
+        font-size: 1rem;
+        .front {
+            .streamers {
+                img {
+                        width: 2.2rem;
+                        height: 2.2rem;
+                }
+            }
+        }
+        .back {
+            font-size: calc(1rem + 0.4vw);
+            top: 40%;
+        }
+        .game:hover  {
+            
+            .rank {
+                top: -30%;
+            }
+            .front {
+                transform: translateY(-55%) scale(0.8);
+            }
+            .background {
+                transform: scale(1.8, 1.6);
+            }
+
+        }
     }
 }

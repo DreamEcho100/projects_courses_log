@@ -175,7 +175,7 @@ main {
 	.navbar:hover .link-text {
 		display: block;
 		display: inline;
-		transition: opacity: var(--transition-speed);
+		transition: opacity var(--transition-speed);
 	}
 }
 
