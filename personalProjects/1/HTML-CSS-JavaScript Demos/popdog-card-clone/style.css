@@ -3,8 +3,10 @@
   --clr-light: #fff;
   --clr-accent: rgb(222, 52, 0);
   --clr-accent-dark: rgb(163, 38, 0);
-  --clr-secondary: rgb(0, 62, 163);
+  --clr-secondary: rgb(0, 76, 199);
   --br: 0.5em;
+  --transition-smooth-in-fast-out: 200ms cubic-bezier(.21, 1.00, .81, 1.00);
+  font-size: 1.6rem;
   font-family: sans-serif;
   min-height: 100vh;
   display: -ms-grid;
@@ -32,7 +34,15 @@
   max-width: 100%;
 }
 
+#popdog-card-clone .streamers img {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  border: 1px solid var(--clr-dark);
+}
+
 #popdog-card-clone .rank {
+  z-index: 3;
   font-size: 1.8rem;
   position: absolute;
   top: 0;
@@ -42,6 +52,10 @@
   padding: 0.5em 0.5em 0.75em;
   -webkit-clip-path: polygon(100% 0%, 100% 100%, 50% 85%, 0 100%, 0 0);
           clip-path: polygon(100% 0%, 100% 100%, 50% 85%, 0 100%, 0 0);
+  -webkit-transition: -webkit-transform var(--transition-smooth-in-fast-out);
+  transition: -webkit-transform var(--transition-smooth-in-fast-out);
+  transition: transform var(--transition-smooth-in-fast-out);
+  transition: transform var(--transition-smooth-in-fast-out), -webkit-transform var(--transition-smooth-in-fast-out);
 }
 
 #popdog-card-clone .front {
@@ -62,13 +76,6 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-#popdog-card-clone .front .streamers img {
-  width: 3.2rem;
-  height: 3.2rem;
-  border-radius: 50%;
-  border: 1px solid var(--clr-dark);
 }
 
 #popdog-card-clone .front .streamers img:nth-of-type(1) {
@@ -100,11 +107,80 @@
 }
 
 #popdog-card-clone .back {
-  display: none;
+  font-size: 1.5rem;
+  opacity: 0;
+  position: absolute;
+  top: 60%;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#popdog-card-clone .back .streaming-info {
+  -webkit-columns: 2;
+          columns: 2;
+  -webkit-column-rule: 1px solid rgba(255, 255, 255, 0.25);
+          column-rule: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#popdog-card-clone .back .streaming-info .game-stat {
+  text-align: center;
+}
+
+#popdog-card-clone .back .streaming-info .game-stat span {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: block;
+}
+
+#popdog-card-clone .back .streamers {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+}
+
+#popdog-card-clone .back .streamers .name {
+  font-weight: bold;
+}
+
+#popdog-card-clone .back .streamers .streamer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#popdog-card-clone .btn {
+  cursor: pointer;
+  border: 0;
+  background: var(--clr-secondary);
+  border-radius: 100vh;
+  color: var(--clr-light);
+  font-weight: bold;
+  padding: 0.5em 1.5em;
+  margin: 1em 0;
 }
 
 #popdog-card-clone .background {
-  background: #234;
+  background: #282e36;
   position: absolute;
   top: 0;
   left: 0;
@@ -115,28 +191,90 @@
           transform: scale(0.2, 0.9);
   -webkit-transition: 250ms;
   transition: 250ms;
-  -webkit-transition: opacity 100ms linear, -webkit-transform 200ms cubic-bezier(0.21, 1, 0.81, 1);
-  transition: opacity 100ms linear, -webkit-transform 200ms cubic-bezier(0.21, 1, 0.81, 1);
-  transition: transform 200ms cubic-bezier(0.21, 1, 0.81, 1), opacity 100ms linear;
-  transition: transform 200ms cubic-bezier(0.21, 1, 0.81, 1), opacity 100ms linear, -webkit-transform 200ms cubic-bezier(0.21, 1, 0.81, 1);
+  -webkit-transition: opacity 100ms linear, -webkit-transform var(--transition-smooth-in-fast-out);
+  transition: opacity 100ms linear, -webkit-transform var(--transition-smooth-in-fast-out);
+  transition: transform var(--transition-smooth-in-fast-out), opacity 100ms linear;
+  transition: transform var(--transition-smooth-in-fast-out), opacity 100ms linear, -webkit-transform var(--transition-smooth-in-fast-out);
   -webkit-transition-delay: 50ms;
           transition-delay: 50ms;
   opacity: 0;
   border-radius: var(--br);
 }
 
-#popdog-card-clone .game:hover .front:hover {
+#popdog-card-clone .game:hover .rank {
+  -webkit-transform: translate(150%, -68%) scale(1.2);
+          transform: translate(150%, -68%) scale(1.2);
+}
+
+#popdog-card-clone .game:hover .front {
   -webkit-transform: translateY(-30%) scale(0.8);
           transform: translateY(-30%) scale(0.8);
 }
 
+#popdog-card-clone .game:hover .name:not(.no-gameName-animation) {
+  -webkit-animation: gameName 250ms forwards;
+          animation: gameName 250ms forwards;
+}
+
 #popdog-card-clone .game:hover .stats {
-  opacity: 0;
+  /*opacity: 0;*/
+  display: none;
 }
 
 #popdog-card-clone .game:hover .background {
   -webkit-transform: scale(1.4, 1.2);
           transform: scale(1.4, 1.2);
   opacity: 1;
+}
+
+#popdog-card-clone .game:hover .back {
+  opacity: 1;
+  margin: 0em 0 -0.5em 0;
+}
+
+@-webkit-keyframes gameName {
+  0% {
+    text-align: left;
+    opacity: 1;
+  }
+  30% {
+    text-align: left;
+    opacity: 0;
+  }
+  60% {
+    text-align: center;
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    text-align: center;
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+}
+
+@keyframes gameName {
+  0% {
+    text-align: left;
+    opacity: 1;
+  }
+  30% {
+    text-align: left;
+    opacity: 0;
+  }
+  60% {
+    text-align: center;
+    opacity: 0;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    text-align: center;
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
 }
 /*# sourceMappingURL=style.css.map */
