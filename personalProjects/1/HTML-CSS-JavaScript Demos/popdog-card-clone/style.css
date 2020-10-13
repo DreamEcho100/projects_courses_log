@@ -6,17 +6,23 @@
   --clr-secondary: rgb(0, 76, 199);
   --br: 0.5em;
   --transition-smooth-in-fast-out: 200ms cubic-bezier(.21, 1.00, .81, 1.00);
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-family: sans-serif;
   min-height: 100vh;
   display: -ms-grid;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  place-items: center;
-  place-content: center;
   background: var(--clr-dark);
   color: var(--clr-light);
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   /*---------------------------*/
   /* FRONT */
   /*---------------------------*/
@@ -31,23 +37,36 @@
 #popdog-card-clone .game {
   position: relative;
   width: 20rem;
+  padding: 1em 1em;
 }
 
 #popdog-card-clone img {
   max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+#popdog-card-clone .streamers {
+  text-align: center;
+}
+
+#popdog-card-clone .streamers .icon {
+  text-align: center;
 }
 
 #popdog-card-clone .streamers img {
-  width: calc(3.2rem + 0.4vw);
-  height: calc(3.2rem + 0.4vw);
+  margin: auto;
+  width: calc(2.2rem + 0.4vw);
+  height: calc(2.2rem + 0.4vw);
   border-radius: 50%;
   border: 1px solid var(--clr-dark);
 }
 
 #popdog-card-clone .rank {
   z-index: 3;
+  font-size: 1.3rem;
   position: absolute;
-  top: 0;
+  top: 3%;
   right: 10%;
   font-weight: bold;
   background: rgba(0, 0, 0, 0.75);
@@ -70,8 +89,8 @@
 }
 
 #popdog-card-clone .front .thumbnail {
+  position: relative;
   border-radius: var(--br);
-  z-index: 2;
 }
 
 #popdog-card-clone .front .streamers {
@@ -83,7 +102,7 @@
 #popdog-card-clone .front .streamers img:nth-of-type(1) {
   -webkit-transform: translate(50%);
           transform: translate(50%);
-  z-index: 1;
+  z-index: 2;
 }
 
 #popdog-card-clone .front .streamers img:nth-of-type(2) {
@@ -104,15 +123,15 @@
 }
 
 #popdog-card-clone .front .name {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin: 0.75em 0;
 }
 
 #popdog-card-clone .back {
-  font-size: calc(1rem + 0.3vw);
+  font-size: 1.3rem;
   opacity: 0;
   position: absolute;
-  top: 60%;
+  top: 56%;
   left: 0;
   right: 0;
   z-index: 2;
@@ -180,7 +199,7 @@
   color: var(--clr-light);
   font-weight: bold;
   padding: 0.3em 1.2em;
-  margin: 1em 0;
+  margin: 0.8em 0;
 }
 
 #popdog-card-clone .background {
@@ -190,9 +209,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1;
-  -webkit-transform: scale(0.2, 0.9);
-          transform: scale(0.2, 0.9);
+  z-index: -1;
+  -webkit-transform: scale(0.2, 0.8);
+          transform: scale(0.2, 0.8);
   -webkit-transition: 250ms;
   transition: 250ms;
   -webkit-transition: opacity 100ms linear, -webkit-transform var(--transition-smooth-in-fast-out);
@@ -205,17 +224,18 @@
   border-radius: var(--br);
 }
 
+#popdog-card-clone .game:hover {
+  z-index: 3;
+}
+
 #popdog-card-clone .game:hover .rank {
-  top: -9.8%;
-  right: -14%;
-  /*transform: translate(150%, -80%) scale(1.2);*/
-  z-index: 5;
+  top: 0%;
+  right: -5%;
 }
 
 #popdog-card-clone .game:hover .front {
-  -webkit-transform: translateY(-30%) scale(0.8);
-          transform: translateY(-30%) scale(0.8);
-  z-index: 5;
+  -webkit-transform: translateY(-28%) scale(0.7);
+          transform: translateY(-28%) scale(0.7);
 }
 
 #popdog-card-clone .game:hover .front .name {
@@ -236,16 +256,15 @@
   transition: opacity 150ms linear, -webkit-transform 250ms ease;
   transition: transform 250ms ease, opacity 150ms linear;
   transition: transform 250ms ease, opacity 150ms linear, -webkit-transform 250ms ease;
-  z-index: 5;
 }
 
 #popdog-card-clone .game:hover .background {
   -webkit-transition: tansform var(--transition-smooth-in-fast-out), opacity 100ms linear;
   transition: tansform var(--transition-smooth-in-fast-out), opacity 100ms linear;
-  -webkit-transform: scale(1.4, 1.2);
-          transform: scale(1.4, 1.2);
+  -webkit-transform: scale(1.2, 1);
+          transform: scale(1.2, 1);
   opacity: 1;
-  z-index: 4;
+  z-index: 1;
 }
 
 @-webkit-keyframes gameName {
@@ -294,60 +313,77 @@
   }
 }
 
+/*
 @media only screen and (max-width: 670px) {
-  #popdog-card-clone {
-    font-size: 1.2rem;
-  }
-  #popdog-card-clone .btn {
-    padding: 0.3em 0.5em;
-    margin: 0.5em 0;
-    width: 14rem;
-  }
-  #popdog-card-clone .front .name {
-    font-size: 1.5rem;
-  }
-  #popdog-card-clone .back {
-    font-size: calc(1rem + 0.5vw);
-    top: 45%;
-  }
-  #popdog-card-clone .back span {
-    font-size: 1rem;
-  }
-  #popdog-card-clone .game:hover .rank {
-    top: -20%;
-  }
-  #popdog-card-clone .game:hover .front {
-    -webkit-transform: translateY(-45%) scale(0.8);
-            transform: translateY(-45%) scale(0.8);
-  }
-  #popdog-card-clone .game:hover .background {
-    -webkit-transform: scale(1.6, 1.4);
-            transform: scale(1.6, 1.4);
-  }
-}
+    #popdog-card-clone {
+        font-size: 1.2rem;
 
-@media only screen and (max-width: 400px) {
-  #popdog-card-clone {
-    font-size: 1rem;
-  }
-  #popdog-card-clone .front .streamers img {
-    width: 2.2rem;
-    height: 2.2rem;
-  }
-  #popdog-card-clone .back {
-    font-size: calc(1rem + 0.4vw);
-    top: 40%;
-  }
-  #popdog-card-clone .game:hover .rank {
-    top: -30%;
-  }
-  #popdog-card-clone .game:hover .front {
-    -webkit-transform: translateY(-55%) scale(0.8);
-            transform: translateY(-55%) scale(0.8);
-  }
-  #popdog-card-clone .game:hover .background {
-    -webkit-transform: scale(1.8, 1.6);
-            transform: scale(1.8, 1.6);
-  }
+        .btn {
+            padding: 0.3em 0.5em;
+            margin: 0.5em 0;
+            width: 14rem;
+        }
+        
+        .front {
+            .name {
+                font-size: 1.5rem;
+            }
+        }
+
+        .back {
+            font-size: calc(1rem + 0.5vw);
+            span {
+                font-size: 1rem;
+            }
+        }
+        .game:hover  {
+            
+            .rank {
+                top: 0%;
+                right: -5%;
+            }
+
+            .front {
+                transform: translateY(-20%) scale(0.8);
+            }
+            .background {
+                transform: translateY(0%) scale(1.2, 1);
+            }
+
+        }
+    }
 }
+*/
+/*
+@media only screen and (max-width: 400px) {
+    #popdog-card-clone {
+        font-size: 1rem;
+        .front {
+            .streamers {
+                img {
+                        width: 2.2rem;
+                        height: 2.2rem;
+                }
+            }
+        }
+        .back {
+            font-size: calc(1rem + 0.4vw);
+            top: 40%;
+        }
+        .game:hover  {
+            
+            .rank {
+                top: -30%;
+            }
+            .front {
+                transform: translateY(-55%) scale(0.8);
+            }
+            .background {
+                transform: scale(1.8, 1.6);
+            }
+
+        }
+    }
+}
+*/
 /*# sourceMappingURL=style.css.map */
