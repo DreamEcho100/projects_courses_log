@@ -127,12 +127,20 @@ const animate = () => {
                 projectile.x - enemy.x,
                 projectile.y - enemy.y
             );
+            // When projectile touches an enemy
             if (dist - enemy.radius - projectile.radius <= 0) {
                 // To prevent enemies from flashing when been hit by waiting for the next frame to remove it
-                setTimeout(() => {
-                    enemies.splice(index, 1);
-                    projectiles.splice(projectileIndex, 1);
-                }, 0);
+                if (enemy.radius - 10 > 10) {
+                    enemy.radius -= 10;
+                    setTimeout(() => {
+                        projectiles.splice(projectileIndex, 1);
+                    }, 0);
+                } else {
+                    setTimeout(() => {
+                        enemies.splice(index, 1);
+                        projectiles.splice(projectileIndex, 1);
+                    }, 0);
+                }
             }
         });
     });
