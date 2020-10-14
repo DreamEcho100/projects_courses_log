@@ -40,12 +40,38 @@ class Enemy extends Projectile {
     }
 }
 
+class Particale extends Enemy {
+    constructor(x, y, radius, color, velocity) {
+        super(x, y, radius, color, velocity);
+        this.alpha = 1;
+    }
+
+    draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        const { x, y, radius, color } = this;
+        ctx.beginPath();
+        ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.restore();
+    }
+
+    update() {
+        this.draw();
+        this.x = this.x + this.velocity.x;
+        this.y = this.y + this.velocity.y;
+        this.alpha -= 0.01;
+    }
+}
+
 const x = canvas.width / 2;
 const y = canvas.height / 2;
 const player = new Player(x, y, 10, "white");
 
 const projectiles = [];
 const enemies = [];
+const particales = [];
 
 const spawnEnemies = () => {
     setInterval(() => {
@@ -70,7 +96,7 @@ const spawnEnemies = () => {
         }
         */
        
-        const randomNum = Math.floor(Math.random() * 3) + 1;
+        const randomNum = (Math.random() * 1) + 1;
         const velocity = {
             x: Math.cos(angle) * randomNum,
             y: Math.sin(angle) * randomNum
@@ -95,6 +121,16 @@ const animate = () => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     player.draw();
 
+    if (particales.length !== 0) {
+        particales.forEach((particale, index) => {
+            particale.update();
+            if (particale.alpha <= 0) {
+                particales.splice(index, 1);
+            }
+            console.log(particale.alpha)
+        })
+    }
+
     if (projectiles.length !== 0) {
         projectiles.forEach((projectile, index) => {
             projectile.update();
@@ -113,6 +149,7 @@ const animate = () => {
         });
     }
     enemies.forEach((enemy, index) => {
+        if (enemy.radius < 10) enemies.splice(index, 1);
         enemy.update();
         const dist = Math.hypot(
             player.x - enemy.x,
@@ -129,9 +166,28 @@ const animate = () => {
             );
             // When projectile touches an enemy
             if (dist - enemy.radius - projectile.radius <= 0) {
-                // To prevent enemies from flashing when been hit by waiting for the next frame to remove it
+                // To prevent enemies from flashing when been hit 
+                // by waiting for the next frame to remove it 
+                // use sitTimeout(() => {}, 0);
+                for (let i = 0; i < 8; i++) {
+                    particales.push(
+                        new Particale(
+                            projectile.x,
+                            projectile.y,
+                            3,
+                            enemy.color,
+                            {
+                                x: Math.random() - 0.5,
+                                y: Math.random() - 0.5,
+                            }
+                        )
+                    );
+                }
+
                 if (enemy.radius - 10 > 10) {
-                    enemy.radius -= 10;
+                    gsap.to(enemy, {
+                        radius: enemy.radius - ((Math.random() * 10) + 5)
+                    })
                     setTimeout(() => {
                         projectiles.splice(projectileIndex, 1);
                     }, 0);
