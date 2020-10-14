@@ -46,27 +46,102 @@
   display: block;
 }
 
+#popdog-card-clone .FA-icon::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
 #popdog-card-clone .streamers {
   text-align: center;
 }
 
-#popdog-card-clone .streamers .icon {
+#popdog-card-clone .streamers .streamer {
+  position: relative;
+}
+
+#popdog-card-clone .streamers .FA-icon {
+  display: inline-block;
   text-align: center;
+  position: relative;
+  -webkit-transition: -webkit-transform var(--transition-smooth-in-fast-out);
+  transition: -webkit-transform var(--transition-smooth-in-fast-out);
+  transition: transform var(--transition-smooth-in-fast-out);
+  transition: transform var(--transition-smooth-in-fast-out), -webkit-transform var(--transition-smooth-in-fast-out);
+}
+
+#popdog-card-clone .streamers .FA-icon::before,
+#popdog-card-clone .streamers .FA-icon::after {
+  content: "";
+  width: 3.2rem;
+  height: 3.2rem;
+  -webkit-transform: translateX(35%);
+          transform: translateX(35%);
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border-radius: 50%;
+}
+
+#popdog-card-clone .streamers .FA-icon::before {
+  content: "\f04b";
+  background: #f00;
+  font-size: 1.8remem;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  z-index: 10;
+  -webkit-transition: opacity 75ms linear, background-color 100ms linear;
+  transition: opacity 75ms linear, background-color 100ms linear;
+}
+
+#popdog-card-clone .streamers .FA-icon:hover::after {
+  background: lightblue;
+  -webkit-transform: translateX(35%);
+          transform: translateX(35%);
+  z-index: 1;
+  -webkit-animation: playBtnPulse 1250ms infinite;
+          animation: playBtnPulse 1250ms infinite;
+}
+
+#popdog-card-clone .streamers .streamer .FA-icon:hover {
+  -webkit-transform: translateY(-20%) scale(1.05);
+          transform: translateY(-20%) scale(1.05);
+}
+
+#popdog-card-clone .streamers .streamer .FA-icon:hover::before {
+  background: #cc0202;
 }
 
 #popdog-card-clone .streamers img {
   margin: auto;
-  width: calc(2.2rem + 0.4vw);
-  height: calc(2.2rem + 0.4vw);
+  width: 3.2rem;
+  height: 3.2rem;
   border-radius: 50%;
   border: 1px solid var(--clr-dark);
+}
+
+#popdog-card-clone .streamer:hover .FA-icon {
+  -webkit-transform: translateY(-20%);
+          transform: translateY(-20%);
+}
+
+#popdog-card-clone .streamer:hover .FA-icon::before {
+  opacity: 1;
 }
 
 #popdog-card-clone .rank {
   z-index: 3;
   font-size: 1.3rem;
   position: absolute;
-  top: 4.5%;
+  top: 4.2%;
   right: 10%;
   font-weight: bold;
   background: rgba(0, 0, 0, 0.75);
@@ -120,6 +195,21 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#popdog-card-clone .front .viewers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+#popdog-card-clone .front .viewers::before {
+  content: "\f007";
+  font-size: 1.3rem;
+  color: rgba(225, 225, 225, 0.75);
+  margin-right: 0.5em;
 }
 
 #popdog-card-clone .front .name {
@@ -313,77 +403,29 @@
   }
 }
 
-/*
-@media only screen and (max-width: 670px) {
-    #popdog-card-clone {
-        font-size: 1.2rem;
-
-        .btn {
-            padding: 0.3em 0.5em;
-            margin: 0.5em 0;
-            width: 14rem;
-        }
-        
-        .front {
-            .name {
-                font-size: 1.5rem;
-            }
-        }
-
-        .back {
-            font-size: calc(1rem + 0.5vw);
-            span {
-                font-size: 1rem;
-            }
-        }
-        .game:hover  {
-            
-            .rank {
-                top: 0%;
-                right: -5%;
-            }
-
-            .front {
-                transform: translateY(-20%) scale(0.8);
-            }
-            .background {
-                transform: translateY(0%) scale(1.2, 1);
-            }
-
-        }
-    }
+@-webkit-keyframes playBtnPulse {
+  0% {
+    -webkit-transform: translateX(35%) scale(0.75);
+            transform: translateX(35%) scale(0.75);
+    opacity: 0.9;
+  }
+  100% {
+    -webkit-transform: translateX(35%) scale(1.4);
+            transform: translateX(35%) scale(1.4);
+    opacity: 0;
+  }
 }
-*/
-/*
-@media only screen and (max-width: 400px) {
-    #popdog-card-clone {
-        font-size: 1rem;
-        .front {
-            .streamers {
-                img {
-                        width: 2.2rem;
-                        height: 2.2rem;
-                }
-            }
-        }
-        .back {
-            font-size: calc(1rem + 0.4vw);
-            top: 40%;
-        }
-        .game:hover  {
-            
-            .rank {
-                top: -30%;
-            }
-            .front {
-                transform: translateY(-55%) scale(0.8);
-            }
-            .background {
-                transform: scale(1.8, 1.6);
-            }
 
-        }
-    }
+@keyframes playBtnPulse {
+  0% {
+    -webkit-transform: translateX(35%) scale(0.75);
+            transform: translateX(35%) scale(0.75);
+    opacity: 0.9;
+  }
+  100% {
+    -webkit-transform: translateX(35%) scale(1.4);
+            transform: translateX(35%) scale(1.4);
+    opacity: 0;
+  }
 }
-*/
 /*# sourceMappingURL=style.css.map */
