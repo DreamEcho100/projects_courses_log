@@ -40,6 +40,7 @@ class Enemy extends Projectile {
     }
 }
 
+const FRICTION = 0.99;
 class Particale extends Enemy {
     constructor(x, y, radius, color, velocity) {
         super(x, y, radius, color, velocity);
@@ -59,6 +60,8 @@ class Particale extends Enemy {
 
     update() {
         this.draw();
+        this.velocity.x *= FRICTION;
+        this.velocity.y *= FRICTION;
         this.x = this.x + this.velocity.x;
         this.y = this.y + this.velocity.y;
         this.alpha -= 0.01;
@@ -127,7 +130,6 @@ const animate = () => {
             if (particale.alpha <= 0) {
                 particales.splice(index, 1);
             }
-            console.log(particale.alpha)
         })
     }
 
@@ -169,16 +171,18 @@ const animate = () => {
                 // To prevent enemies from flashing when been hit 
                 // by waiting for the next frame to remove it 
                 // use sitTimeout(() => {}, 0);
-                for (let i = 0; i < 8; i++) {
+
+                // Create explosions
+                for (let i = 0; i < enemy.radius * 2; i++) {
                     particales.push(
                         new Particale(
                             projectile.x,
                             projectile.y,
-                            3,
+                            Math.random() * 2,
                             enemy.color,
                             {
-                                x: Math.random() - 0.5,
-                                y: Math.random() - 0.5,
+                                x: (Math.random() - 0.5) * (Math.random() * 6),
+                                y: (Math.random() - 0.5) * (Math.random() * 6),
                             }
                         )
                     );
