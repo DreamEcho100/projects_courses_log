@@ -1712,7 +1712,7 @@ let ContentBuilder = (function () {
       // Section End
     },
 
-    {
+    {//Chris Courses\canvas-game-1
       types: ["normal-content-section"],
       name: "Youtube",
       info: "",
@@ -1797,6 +1797,44 @@ let ContentBuilder = (function () {
               fileName: "index",
               fileExtension: "html",
               difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              types: ["no-content-project"],
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
+          ],
+        },
+        {
+          types: ["normal-content-course"],
+          name: "Chris Courses",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              types: ["normal-content-project"],
+              name: "canvas-game-1",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: 4,
               tech: {
                 languages: ["HTML", "CSS", "JavaScript"],
                 libraries: [],
