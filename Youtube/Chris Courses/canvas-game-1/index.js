@@ -42,7 +42,7 @@ class Enemy extends Projectile {
 
 const x = canvas.width / 2;
 const y = canvas.height / 2;
-const player = new Player(x, y, 30, "blue");
+const player = new Player(x, y, 10, "white");
 
 const projectiles = [];
 const enemies = [];
@@ -51,7 +51,7 @@ const spawnEnemies = () => {
     setInterval(() => {
         let x, y;
         const radius = (Math.random() * (30 - 10)) + 10;
-        const color = `#${Math.random().toString(16).substr(-6)}`;
+        const color = `hsl(${Math.random() * 360}, 50%, 50%)`;// `#${Math.random().toString(16).substr(-6)}`;
         if (Math.random() < 0.5) {
             x = Math.random() < 0.5 ? 0 - radius : canvas.width + radius;
             y = Math.random() * canvas.height;
@@ -63,9 +63,17 @@ const spawnEnemies = () => {
             /*(canvas.height / 2)*/player.y - y,
             /*(canvas.width / 2)*/player.x - x,
         )
+        /*
         const velocity = {
-            x: Math.cos(angle),
-            y: Math.sin(angle)
+            x: Math.cos(angle) * (Math.floor(Math.random() * 3) + 1),
+            y: Math.sin(angle) * (Math.floor(Math.random() * 3) + 1)
+        }
+        */
+       
+        const randomNum = Math.floor(Math.random() * 3) + 1;
+        const velocity = {
+            x: Math.cos(angle) * randomNum,
+            y: Math.sin(angle) * randomNum
         }
         enemies.push(
             new Enemy(
@@ -79,17 +87,55 @@ const spawnEnemies = () => {
     }, 1000);
 }
 
+let animationId;
+
 const animate = () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    animationId = requestAnimationFrame(animate);
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     player.draw();
 
-    projectiles.forEach(projectile => {
-        projectile.update();
+    if (projectiles.length !== 0) {
+        projectiles.forEach((projectile, index) => {
+            projectile.update();
+            if(
+                projectile.x - projectile.radius < 0 ||
+                projectile.x - projectile.radius > canvas.width ||
+                projectile.y - projectile.radius < 0 ||
+                projectile.y - projectile.radius > canvas.height
+            ) {
+                // To prevent enemies from flashing when been hit by waiting for the next frame to remove it
+                setTimeout(() => {
+                    projectiles.splice(index, 1);
+                    // ctx.fillStyle = "rgba(0, 0, 0)";
+                }, 0);            
+            }
+        });
+    }
+    enemies.forEach((enemy, index) => {
+        enemy.update();
+        const dist = Math.hypot(
+            player.x - enemy.x,
+            player.y - enemy.y
+        );
+        
+        if(dist - enemy.radius - player.radius < 0) {
+            cancelAnimationFrame(animationId);
+        }
+        projectiles.forEach((projectile, projectileIndex) => {
+            const dist = Math.hypot(
+                projectile.x - enemy.x,
+                projectile.y - enemy.y
+            );
+            if (dist - enemy.radius - projectile.radius <= 0) {
+                // To prevent enemies from flashing when been hit by waiting for the next frame to remove it
+                setTimeout(() => {
+                    enemies.splice(index, 1);
+                    projectiles.splice(projectileIndex, 1);
+                }, 0);
+            }
+        });
     });
-    enemies.forEach(enemie => {
-        enemie.update();
-    });
-    requestAnimationFrame(animate);
 }
 
 canvas.addEventListener("click", (event) => {
@@ -98,15 +144,15 @@ canvas.addEventListener("click", (event) => {
         event.clientX - (canvas.width / 2),
     )
     const radius = {
-        x: Math.cos(angle),
-        y: Math.sin(angle)
+        x: Math.cos(angle) * 5,
+        y: Math.sin(angle) * 5
     }
     projectiles.push(
         new Projectile(
             player.x,
             player.y,
             5,
-            "red",
+            "white",
             radius
         )
     );
