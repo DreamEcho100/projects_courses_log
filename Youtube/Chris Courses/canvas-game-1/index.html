@@ -7,8 +7,22 @@
     <title>canvas-game-1</title>
 </head>
 <body>
-    <section class="game-container">
-        <div class="score-board">Score: <span class="score-points">0</div>
+    <section id="game-container">
+        <div id="score-board">Score: <span class="score-points">0</div>
+        <div class="stats-board">
+            <section>
+                <div class="stats-card">
+                    <h1 class="score-points">0</h1>
+                    <p>Points</p>
+                    <div class="current-stat">sTaRt `Wo~oW` ????</div>
+                    <div class="btns">
+                        <button class="btn isHidden" id="restart-btn">Restart</button>
+                        <button class="btn isHidden" id="resume-btn">Resume</button>
+                        <button class="btn" id="start-btn">Start</button>
+                    </div>
+                </div>
+            </section>
+        </div>
         <canvas></canvas>
     </section>
     

@@ -1,9 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
+///document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.querySelector("canvas");
     canvas.width = innerWidth;
     canvas.height = innerHeight;
 
-    const scorePoint = document.querySelector(".game-container .score-board .score-points");
+    const scorePoint = document.querySelectorAll(".score-points");
+    const statsBoard = document.querySelector(".stats-board");
+    const startBtn = document.getElementById("start-btn");
+    const resumeBtn = document.getElementById("resume-btn");
+    const restartBtn = document.getElementById("restart-btn");
+    const pauseOrGameOverState = statsBoard.querySelector(".current-stat")
 
     const ctx = canvas.getContext("2d");
 
@@ -129,21 +134,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-
-
-    document.addEventListener("keydown", pressOn);
-    document.addEventListener("keyup", pressOff);
-
-    function pressOn(event) {
-        // event.preventDefault();
-        playerControls[event.key.toLowerCase()] = true;
-    }
-
-    function pressOff(event) {
-        // event.preventDefault();
-        playerControls[event.key.toLowerCase()] = false;
-    }
-
     const playerControls = {
         "arrowup": false,
         "w": false,
@@ -160,13 +150,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const player = new Player(x, y, 10, "white", 5);
     const ENEMYSIZELIMIT = 5;
 
-    const projectiles = [];
-    const enemies = [];
-    const particales = [];
+    let projectiles = [];
+    let enemies = [];
+    let particales = [];
 
+    let enemiesMoving;
     const spawnEnemies = () => {
-        setInterval(() => {
-            if (enemies.length > 15) {
+        enemiesMoving = setInterval(() => {
+            if (enemies.length > 10) {
                 enemies.forEach((enemy, index) => {
                     if (outOfTheCanvasByNumber(enemy, 0)) {
                         enemies.splice(index, 1)
@@ -199,18 +190,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             } else if (randomNumber >= 0.40 && randomNumber < 0.6) {
                 velocity = {
-                    x: Math.cos(angle) + Math.random(),
+                    x: Math.cos(angle) + (Math.random() * 2),
                     y: Math.sin(angle)
                 }
             } else if (randomNumber >= 0.6 && randomNumber < 0.8) {
                 velocity = {
                     x: Math.cos(angle),
-                    y: Math.sin(angle) + Math.random()
+                    y: Math.sin(angle) + (Math.random() * 2)
                 }
             } else if (randomNumber > 0.8) {
                 velocity = {
-                    x: Math.cos(angle) + Math.random(),
-                    y: Math.sin(angle) + Math.random()
+                    x: Math.cos(angle) + (Math.random() * 2),
+                    y: Math.sin(angle) + (Math.random() * 2)
                 }
             }
                     
@@ -335,7 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
             
             if(dist - enemy.radius - player.radius < 0) {
-                cancelAnimationFrame(animationId);
+                gameOver();
             }
             projectiles.forEach((projectile, projectileIndex) => {
                 const dist = Math.hypot(
@@ -411,7 +402,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const scoreIncrease = (number) => {
         score += number;
-        scorePoint.innerText = score;
+        scorePoint.forEach(scorePallete => scorePallete.innerText = score);
     }
 
     canvas.addEventListener("click", playerShootFire);
@@ -436,6 +427,72 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     }
 
-    animate();
-    spawnEnemies();
-});
+    document.addEventListener("keydown", pressOn);
+    document.addEventListener("keyup", pressOff);
+
+    function pressOn(event) {
+        // event.preventDefault();
+        if (event.key.toLowerCase() === "p") {
+            pauseGame();            
+        }
+        playerControls[event.key.toLowerCase()] = true;
+    }
+
+    function pressOff(event) {
+        // event.preventDefault();
+        playerControls[event.key.toLowerCase()] = false;
+    }
+
+    restartBtn.addEventListener("click", () => {
+        reset();
+        animate();
+        spawnEnemies();
+    });
+    resumeBtn.addEventListener("click", () => {
+        statsBoard.classList.add("isHidden");
+        startBtn.classList.add("isHidden");
+        animate();
+        spawnEnemies();
+    });
+    startBtn.addEventListener("click", () => {
+        reset();
+        animate();
+        spawnEnemies();
+        statsBoard.classList.add("isHidden");
+        startBtn.classList.add("isHidden");
+        resumeBtn.classList.remove("isHidden");
+        restartBtn.classList.remove("isHidden");
+    });
+
+    const gameOver = () => {
+        reset();
+        pauseOrGameOverState.innerText = "Game Over :(. || ReStArT :-`)";
+        statsBoard.classList.remove("isHidden");
+        startBtn.classList.add("isHidden");
+        resumeBtn.classList.add("isHidden");
+        restartBtn.classList.remove("isHidden");
+    }
+
+    const reset = () => {
+        pauseOrGameOverState.innerText = "";
+        clearInterval(enemiesMoving);
+        cancelAnimationFrame(animationId);
+        projectiles = [];
+        enemies = [];
+        particales = [];
+        ctx.fillStyle = "rgb(0, 0, 0)";
+        player.x = canvas.width / 2;
+        player.x = canvas.height / 2;
+        statsBoard.classList.add("isHidden");
+    }
+
+    const pauseGame = () => {
+        pauseOrGameOverState.innerText = "Paused :/";
+        statsBoard.classList.remove("isHidden");
+        startBtn.classList.add("isHidden");
+        resumeBtn.classList.remove("isHidden");
+        restartBtn.classList.remove("isHidden");
+        clearInterval(enemiesMoving);
+        cancelAnimationFrame(animationId);
+    }
+///});
