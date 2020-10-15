@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let enemiesMoving;
     const spawnEnemies = () => {
         enemiesMoving = setInterval(() => {
-            if (enemies.length > 10) {
+            if (enemies.length > Math.floor((window.innerHeight % 10) * 2) + ((window.innerWidth % 10) * 2)) {
                 enemies.forEach((enemy, index) => {
                     if (outOfTheCanvasByNumber(enemy, 0)) {
                         enemies.splice(index, 1)
@@ -444,6 +444,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     restartBtn.addEventListener("click", () => {
+        resetScore();
         reset();
         animate();
         spawnEnemies();
@@ -455,6 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
         spawnEnemies();
     });
     startBtn.addEventListener("click", () => {
+        resetScore();
         reset();
         animate();
         spawnEnemies();
@@ -473,6 +475,11 @@ document.addEventListener("DOMContentLoaded", () => {
         restartBtn.classList.remove("isHidden");
     }
 
+    const resetScore = () => {
+        score = 0;
+        scoreIncrease(0);
+    }
+
     const reset = () => {
         pauseOrGameOverState.innerText = "";
         clearInterval(enemiesMoving);
@@ -480,11 +487,9 @@ document.addEventListener("DOMContentLoaded", () => {
         projectiles = [];
         enemies = [];
         particales = [];
-        score = 0;
-        scoreIncrease(0);
         ctx.fillStyle = "rgb(0, 0, 0)";
         player.x = canvas.width / 2;
-        player.x = canvas.height / 2;
+        player.y = canvas.height / 2;
         statsBoard.classList.add("isHidden");
     }
 
