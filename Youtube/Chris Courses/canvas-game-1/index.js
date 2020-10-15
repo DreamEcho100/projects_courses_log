@@ -2,6 +2,8 @@ const canvas = document.querySelector("canvas");
 canvas.width = innerWidth;/*document.body.getBoundingClientRect().width;*/
 canvas.height = innerHeight;/*document.body.getBoundingClientRect().height;*/
 
+const scorePoint = document.querySelector(".game-container .score-board .score-points");
+
 const ctx = canvas.getContext("2d");
 
 class Player {
@@ -44,6 +46,8 @@ const FRICTION = 0.99;
 class Particale extends Enemy {
     constructor(x, y, radius, color, velocity) {
         super(x, y, radius, color, velocity);
+        this.baseX = x;
+        this.baseY = y;
         this.alpha = 1;
     }
 
@@ -58,19 +62,40 @@ class Particale extends Enemy {
         ctx.restore();
     }
 
+    smallExplosion = () => {
+        return this.baseX < canvas.width / 0.25 &&
+        this.baseX > (canvas.width * 0.75) &&
+        this.baseY < canvas.height / 0.25 &&
+        this.baseY > (canvas.height * 0.75)
+    }
+
     update() {
         this.draw();
         this.velocity.x *= FRICTION;
         this.velocity.y *= FRICTION;
-        this.x = this.x + this.velocity.x;
-        this.y = this.y + this.velocity.y;
-        this.alpha -= 0.01;
+        this.x = this.x + this.velocity.x * 1.1;
+        this.y = this.y + this.velocity.y * 1.1;
+        /*if (
+            this.baseX < canvas.width / 0.25 ||
+            this.baseX > (canvas.width * 0.75) ||
+            this.baseY < canvas.height / 0.25 ||
+            this.baseY > (canvas.height * 0.75)
+        ) {
+            this.alpha -= 0.02;
+        } else {
+            this.alpha -= 0.01;
+        }*/
+        this.alpha -= ({
+            true: 0.02,
+            false: 0.01
+        }[this.smallExplosion()]);
     }
 }
 
 const x = canvas.width / 2;
 const y = canvas.height / 2;
 const player = new Player(x, y, 10, "white");
+const ENEMYSIZELIMIT = 5;
 
 const projectiles = [];
 const enemies = [];
@@ -79,7 +104,8 @@ const particales = [];
 const spawnEnemies = () => {
     setInterval(() => {
         let x, y;
-        const radius = (Math.random() * (30 - 10)) + 10;
+        let radius = (Math.random() * (30 - (ENEMYSIZELIMIT))) + (ENEMYSIZELIMIT * 2);
+
         const color = `hsl(${Math.random() * 360}, 50%, 50%)`;// `#${Math.random().toString(16).substr(-6)}`;
         if (Math.random() < 0.5) {
             x = Math.random() < 0.5 ? 0 - radius : canvas.width + radius;
@@ -89,21 +115,20 @@ const spawnEnemies = () => {
             y = Math.random() < 0.5 ? 0 - radius : canvas.height + radius;
         }
         const angle = Math.atan2(
-            /*(canvas.height / 2)*/player.y - y,
-            /*(canvas.width / 2)*/player.x - x,
+            player.y - y,
+            player.x - x,
         )
-        /*
-        const velocity = {
-            x: Math.cos(angle) * (Math.floor(Math.random() * 3) + 1),
-            y: Math.sin(angle) * (Math.floor(Math.random() * 3) + 1)
-        }
-        */
        
-        const randomNum = (Math.random() * 1) + 1;
+        /*const randomNum = (Math.random() * 1) + 1;*/
         const velocity = {
-            x: Math.cos(angle) * randomNum,
-            y: Math.sin(angle) * randomNum
+            x: Math.cos(angle),
+            y: Math.sin(angle)
         }
+       
+        /*const velocity = {
+            x: Math.cos(angle) + (Math.random()),
+            y: Math.sin(angle)
+        }*/
         enemies.push(
             new Enemy(
                 x,
@@ -117,12 +142,34 @@ const spawnEnemies = () => {
 }
 
 let animationId;
+let score = 0;
+
+let backgroundCorrection = false;
+setInterval(() => {
+    backgroundCorrection = true
+    setTimeout(() => backgroundCorrection = false, 50);
+}, 60000);
 
 const animate = () => {
     animationId = requestAnimationFrame(animate);
-    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+    ctx.fillStyle = ({
+        true: "rgba(0, 0, 0)",
+        false: "rgba(0, 0, 0, 0.1)"
+    }[backgroundCorrection]);
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     player.draw();
+
+    if (projectiles.length !== 0) {
+        projectiles.forEach((projectile, index) => {
+            projectile.update()
+            if(outOfTheCanvas(projectile)) {
+                // To prevent enemies from flashing when been hit by waiting for the next frame to remove it
+                setTimeout(() => {
+                    projectiles.splice(index, 1);
+                }, 0);            
+            }
+        });
+    }
 
     if (particales.length !== 0) {
         particales.forEach((particale, index) => {
@@ -132,26 +179,17 @@ const animate = () => {
             }
         })
     }
-
-    if (projectiles.length !== 0) {
-        projectiles.forEach((projectile, index) => {
-            projectile.update();
-            if(
-                projectile.x - projectile.radius < 0 ||
-                projectile.x - projectile.radius > canvas.width ||
-                projectile.y - projectile.radius < 0 ||
-                projectile.y - projectile.radius > canvas.height
-            ) {
-                // To prevent enemies from flashing when been hit by waiting for the next frame to remove it
-                setTimeout(() => {
-                    projectiles.splice(index, 1);
-                    // ctx.fillStyle = "rgba(0, 0, 0)";
-                }, 0);            
-            }
-        });
-    }
+    
     enemies.forEach((enemy, index) => {
-        if (enemy.radius < 10) enemies.splice(index, 1);
+        if (enemy.radius - ENEMYSIZELIMIT * 2 < ENEMYSIZELIMIT) {
+            setTimeout(() => {
+                enemies.splice(index, 1);
+
+                // Increase score
+                scoreIncrease(25); 
+            }, 0);           
+        }
+        
         enemy.update();
         const dist = Math.hypot(
             player.x - enemy.x,
@@ -172,38 +210,70 @@ const animate = () => {
                 // by waiting for the next frame to remove it 
                 // use sitTimeout(() => {}, 0);
 
-                // Create explosions
-                for (let i = 0; i < enemy.radius * 2; i++) {
-                    particales.push(
-                        new Particale(
-                            projectile.x,
-                            projectile.y,
-                            Math.random() * 2,
-                            enemy.color,
-                            {
-                                x: (Math.random() - 0.5) * (Math.random() * 6),
-                                y: (Math.random() - 0.5) * (Math.random() * 6),
-                            }
-                        )
-                    );
-                }
+                // Increase score
+                scoreIncrease(100);
 
-                if (enemy.radius - 10 > 10) {
+                // Create explosions
+                
+                particalesExplosion(enemy.radius * 1.5, projectile.x, projectile.y, enemy.color);
+
+                if (enemy.radius - ENEMYSIZELIMIT * 2 < ENEMYSIZELIMIT) {
+                    setTimeout(() => {
+                        enemies.splice(index, 1);
+                        projectiles.splice(projectileIndex, 1);
+
+                        particalesExplosion(enemy.radius * 1.5, enemy.x, enemy.y, enemy.color);
+                        // Increase score
+                        scoreIncrease(250);
+                    }, 0);
+                    return;
+                } else {
                     gsap.to(enemy, {
                         radius: enemy.radius - ((Math.random() * 10) + 5)
                     })
                     setTimeout(() => {
                         projectiles.splice(projectileIndex, 1);
+
+                        // Increase score
+                        scoreIncrease(50);
                     }, 0);
-                } else {
-                    setTimeout(() => {
-                        enemies.splice(index, 1);
-                        projectiles.splice(projectileIndex, 1);
-                    }, 0);
+                    return;
                 }
             }
         });
     });
+}
+
+const particalesExplosion = (iterateNumber, x, y, color) => {
+    for (let i = 0; i < iterateNumber; i++) {
+        particales.push(
+            new Particale(
+                x,
+                y,
+                Math.random() * 2,
+                color,
+                {
+                    x: (Math.random() - 0.5) * (Math.random() * 6),
+                    y: (Math.random() - 0.5) * (Math.random() * 6),
+                }
+            )
+        );
+    }
+
+}
+
+const outOfTheCanvas = (obj) => {
+    return (
+        obj.x - obj.radius < 0 ||
+        obj.x - obj.radius > canvas.width ||
+        obj.y - obj.radius < 0 ||
+        obj.y - obj.radius > canvas.height
+    )
+}
+
+const scoreIncrease = (number) => {
+    score += number;
+    scorePoint.innerText = score;
 }
 
 canvas.addEventListener("click", (event) => {
