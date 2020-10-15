@@ -1,4 +1,4 @@
-///document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.querySelector("canvas");
     canvas.width = innerWidth;
     canvas.height = innerHeight;
@@ -315,7 +315,7 @@
                     enemies.splice(index, 1);
 
                     // Increase score
-                    scoreIncrease(25); 
+                    scoreIncrease(25);
                 }, 0);           
             }
             
@@ -480,6 +480,8 @@
         projectiles = [];
         enemies = [];
         particales = [];
+        score = 0;
+        scoreIncrease(0);
         ctx.fillStyle = "rgb(0, 0, 0)";
         player.x = canvas.width / 2;
         player.x = canvas.height / 2;
@@ -495,4 +497,4 @@
         clearInterval(enemiesMoving);
         cancelAnimationFrame(animationId);
     }
-///});
+});
