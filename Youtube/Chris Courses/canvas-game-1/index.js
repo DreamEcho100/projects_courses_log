@@ -466,7 +466,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const gameOver = () => {
         reset();
-        pauseOrGameOverState.innerText = "Game Over :(. || ReStArT :-`)";
+        pauseOrGameOverState.innerText = "Game Over :(. ReStArT :-`)";
         statsBoard.classList.remove("isHidden");
         startBtn.classList.add("isHidden");
         resumeBtn.classList.add("isHidden");
