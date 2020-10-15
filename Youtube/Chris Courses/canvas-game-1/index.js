@@ -144,18 +144,46 @@ const spawnEnemies = () => {
 let animationId;
 let score = 0;
 
+/*
 let backgroundCorrection = false;
 setInterval(() => {
     backgroundCorrection = true
     setTimeout(() => backgroundCorrection = false, 50);
 }, 60000);
 
-const animate = () => {
-    animationId = requestAnimationFrame(animate);
     ctx.fillStyle = ({
         true: "rgba(0, 0, 0)",
         false: "rgba(0, 0, 0, 0.1)"
     }[backgroundCorrection]);
+*/
+let backgroundsCorrection = [
+    {
+        color: () => "rgba(0, 0, 0)",
+        duration: 1000,
+    }, {
+        color: () => `rgba(0, 0, 0, ${Math.random()})`,
+        duration: 10000,
+    }, {
+        color: () => "rgba(0, 0, 0, 0.1)",
+        duration: 30000,
+    }, {
+        color: () => "rgba(0, 0, 0, 0.05)",
+        duration: 15000,
+    }, {
+        color: () => "rgba(0, 0, 0, 0.01)",
+        duration: 10000,
+    },, {
+        color: () => "rgba(0, 0, 0, 0.005)",
+        duration: 5000,
+    },, {
+        color: () => "rgba(0, 0, 0, 0.001)",
+        duration: 5000,
+    },
+]
+
+const animate = () => {
+    animationId = requestAnimationFrame(animate);
+    ctx.fillStyle = "rgba(0, 0, 0, 0.1)";//;`rgba(0, 0, 0, ${Math.random()})`;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     player.draw();
 
