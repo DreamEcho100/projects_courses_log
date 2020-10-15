@@ -166,6 +166,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const spawnEnemies = () => {
         setInterval(() => {
+            if (enemies.length > 15) {
+                enemies.forEach((enemy, index) => {
+                    if (outOfTheCanvasByNumber(enemy, 0)) {
+                        enemies.splice(index, 1)
+                    }
+                });
+                return;
+            }
             let x, y;
             let radius = (Math.random() * (30 - (ENEMYSIZELIMIT))) + (ENEMYSIZELIMIT * 2);
 
@@ -184,22 +192,22 @@ document.addEventListener("DOMContentLoaded", () => {
         
             let randomNumber = Math.random();
             let velocity;
-            if (randomNumber < 0.25) {
+            if (randomNumber < 0.40) {
                 velocity = {
                     x: Math.cos(angle),
                     y: Math.sin(angle)
                 }
-            } else if (randomNumber > 0.25 && randomNumber < 0.5) {
+            } else if (randomNumber >= 0.40 && randomNumber < 0.6) {
                 velocity = {
                     x: Math.cos(angle) + Math.random(),
                     y: Math.sin(angle)
                 }
-            } else if (randomNumber > 0.5 && randomNumber < 0.75) {
+            } else if (randomNumber >= 0.6 && randomNumber < 0.8) {
                 velocity = {
                     x: Math.cos(angle),
                     y: Math.sin(angle) + Math.random()
                 }
-            } else if (randomNumber > 0.75) {
+            } else if (randomNumber > 0.8) {
                 velocity = {
                     x: Math.cos(angle) + Math.random(),
                     y: Math.sin(angle) + Math.random()
@@ -216,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     (Math.random() * 2) + 1
                 )
             );
-        }, 1000);
+        }, 500);
     }
 
     let animationId;
@@ -305,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
         enemies.forEach((enemy, index) => {
-            if (outOfTheCanvasByNumber(enemy, 100)) {
+            if (outOfTheCanvasByNumber(enemy, enemy.radius * 2)) {
                 setTimeout(() => {
                     enemies.splice(index, 1);                
                 }, 0);
