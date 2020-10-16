@@ -473,6 +473,43 @@ let ContentBuilder = (function () {
 
     {
       types: ["normal-content-section"],
+      name: "MDN Web Docs",
+      info: "",
+      classes: "main-section Site",
+      list: [
+        {
+          types: ["normal-content-course"],
+          name: "Game Development",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              types: ["normal-content-project"],
+              name: "2D Breakout Game Using Pure JavaScript",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
+          ],
+        },
+
+        // List End
+      ],
+
+      // Section End
+    },
+
+    {
+      types: ["normal-content-section"],
       name: "Udacity",
       info: "",
       classes: "main-section Site",

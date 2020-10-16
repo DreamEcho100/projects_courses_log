@@ -35,3 +35,20 @@ npm init -y
 chmod +x index.js
 #!/usr/bin/env node
 npm link
+
+## Creating a new file in Windows
+[type nul >> your_file.txt]
+[echo.>> your_file.txt]
+->-Creates a new file
+->>-Preserves content of the file
+
+[fsutil file createnew filename  requiredSize]
+The parameters info as followed:
+fsutil - File system utility ( the executable you are running )
+file - triggers a file action
+createnew - the action to perform (create a new file)
+filename - would be literally the name of the file
+requiredSize - would allocate a file size in bytes in the created file
+
+[copy NUL FileName.FileExtension]
+[$>>filename]
