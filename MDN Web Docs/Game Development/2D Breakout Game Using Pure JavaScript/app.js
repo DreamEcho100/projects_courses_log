@@ -76,7 +76,7 @@ class Ball {
             this.velocityDirY = -this.velocityDirY;
         } else if (this.y + this.velocityDirY > borders.bottom - this.radius) {
             setTimeout(() => lives--, 0);
-            if (!lives) {
+            if (lives === 0) {
                 window.cancelAnimationFrame(animateId);
                 alert("Game Over!");
                 document.location.reload();
@@ -224,18 +224,20 @@ function collisionDetection(obj) {
                 obj.y - obj.radius < b.y + bricksDetails.height
             ) {
                 obj.velocityDirY = -obj.velocityDirY;
-                b.status--;
                 blockDetroyed++;
                 score++;
                 drawScore();
                 drawLives();
-                if(score === winScore) {
-                    setInterval(() => {
-                        window.cancelAnimationFrame(animateId);
-                        alert("YOU WIN, CONGRATULATIONS!");
-                        document.location.reload();
-                    }, 0);
-                }
+                setTimeout(() => {
+                    b.status--;
+                    if(score === winScore) {
+                        setInterval(() => {
+                            window.cancelAnimationFrame(animateId);
+                            alert("YOU WIN, CONGRATULATIONS!");
+                            document.location.reload();
+                        }, 0);
+                    }
+                }, 0);
             }
         }
     }
