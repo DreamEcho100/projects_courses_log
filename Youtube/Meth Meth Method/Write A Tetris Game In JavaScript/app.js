@@ -31,7 +31,7 @@ function drawMatrix(matrix, offset) {
     matrix.forEach((row, y) => {
         row.forEach((value, x) => {
             if (value !== 0) {
-                ctx.fillStyle = "red";
+                ctx.fillStyle = colors[value];
                 ctx.fillRect(
                     x + offset.x,
                     y + offset.y,
@@ -76,38 +76,39 @@ function createPiece(type) {
         ];
     } else if (type === "O") {        
         return [
-            [1, 1],
-            [1, 1],
+            [2, 2],
+            [2, 2],
         ];
     } else if (type === "L") {        
         return [
-            [1, 0, 0],
-            [1, 0, 0],
-            [1, 1, 1]
+            [0, 3, 0],
+            [0, 3, 0],
+            [0, 3, 3]
         ];
     } else if (type === "J") {        
         return [
-            [0, 0, 1],
-            [0, 0, 1],
-            [1, 1, 1]
+            [0, 4, 0],
+            [0, 4, 0],
+            [4, 4, 0]
         ];
     } else if (type === "I") {        
         return [
-            [0, 1, 0, 0],
-            [0, 1, 0, 0],
-            [0, 1, 0, 0],
-            [0, 1, 0, 0]
+            [0, 0, 5, 0, 0],
+            [0, 0, 5, 0, 0],
+            [0, 0, 5, 0, 0],
+            [0, 0, 5, 0, 0],
+            [0, 0, 5, 0, 0]
         ];
     } else if (type === "S") {        
         return [
-            [0, 1, 1],
-            [1, 1, 0],
+            [0, 6, 6],
+            [6, 6, 0],
             [0, 0, 0]
         ];
     } else if (type === "Z") {        
         return [
-            [1, 1, 0],
-            [0, 1, 1],
+            [7, 7, 0],
+            [0, 7, 7],
             [0, 0, 0]
         ];
     }
@@ -136,6 +137,17 @@ function update(time = 0) {
     requestAnimationFrame(update);
 }
 
+const colors = [
+    null,
+    "#FF0D72",
+    "#0DC2FF",
+    "#0DFF72",
+    "#F538FF",
+    "#FF8E0D",
+    "#FFE138",
+    "#3877FF"
+]
+
 document.addEventListener("keydown", event => {
     if (event.keyCode === 37) {  // arrowleft
         playerMove(-1);
@@ -162,6 +174,9 @@ function playerReset() {
     player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
     player.pos.y = 0;
     player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
+    if (collide(arena, player)) {
+        arena.forEach(row => row.fill(0));
+    }
 }
 
 function playerRotate(dir) {
@@ -222,7 +237,6 @@ function playerDrop() {
         player.pos.y--;
         merge(arena, player);
         playerReset();
-        player.pos.y = 0;
     }
     dropCounter = 0;
 }
