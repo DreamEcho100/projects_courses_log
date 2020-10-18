@@ -2112,6 +2112,44 @@ let ContentBuilder = (function () {
         },
         {
           types: ["normal-content-course"],
+          name: "Meth Meth Method",
+          info: "",
+          classes: "spinningBackground1",
+          list: [
+            {
+              types: ["normal-content-project"],
+              name: "Write A Tetris Game In JavaScript",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
+              types: ["no-content-project"],
+              name: "",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+
+            // Inner List End
+          ],
+        },
+        {
+          types: ["normal-content-course"],
           name: "Traversy Media",
           info: "",
           classes: "spinningBackground1",
