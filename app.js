@@ -2131,6 +2131,20 @@ let ContentBuilder = (function () {
               },
             },
             {
+              types: ["normal-content-project"],
+              name: "Writing A 2-Player Tetris In JavaScript",
+              info: "",
+              fileName: "index",
+              fileExtension: "html",
+              difficulty: "",
+              tech: {
+                languages: ["HTML", "CSS", "JavaScript"],
+                libraries: [],
+                frameworks: [],
+                APIs: [],
+              },
+            },
+            {
               types: ["no-content-project"],
               name: "",
               info: "",
