@@ -21,7 +21,7 @@ body {
 /*----------------------------*/
 /**/
 /*----------------------------*/
-.game {
+/*.game {
     background: #202020;
     color: #fff;
     font-family: sans-serif;
@@ -47,7 +47,7 @@ body {
     text-align: center;
     font-size: 3rem;
     font-weight: bold;
-}
+}*/
 
 canvas {
     background: #eee;

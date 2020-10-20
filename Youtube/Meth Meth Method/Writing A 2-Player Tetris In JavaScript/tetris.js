@@ -1,11 +1,11 @@
 class Tetris {
-    constructor(canvas) {
+    constructor(canvas, scoreHolder) {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
         this.ctx.scale(20, 20);
 
         this.arena = new Arena(12, 20);
-        this.player = new Player(this);
+        this.player = new Player(this, scoreHolder);
 
         this.colors = [
             null,

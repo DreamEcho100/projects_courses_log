@@ -3,7 +3,7 @@
     const scoreHolder = scoreBoard.querySelector("span");
 
     const canvas = document.getElementById("tetris");
-    const tetris = new Tetris(canvas);
+    const tetris = new Tetris(canvas, scoreHolder);
 
     function createPiece(type) {
         if (type === "T") {
