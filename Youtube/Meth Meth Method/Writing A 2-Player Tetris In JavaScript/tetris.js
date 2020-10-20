@@ -1,11 +1,13 @@
 class Tetris {
-    constructor(canvas, scoreHolder) {
-        this.canvas = canvas;
-        this.ctx = canvas.getContext("2d");
+    constructor(element) {
+        this.canvas = element.querySelector(".tetris");
+        this.scoreBoard = element.querySelector(".tetris-score-board");
+        this.scoreHolder = this.scoreBoard.querySelector("span");
+        this.ctx = this.canvas.getContext("2d");
         this.ctx.scale(20, 20);
 
         this.arena = new Arena(12, 20);
-        this.player = new Player(this, scoreHolder);
+        this.player = new Player(this);
 
         this.colors = [
             null,
@@ -28,7 +30,8 @@ class Tetris {
             this.draw();
             requestAnimationFrame(update);
         }
-
+        
+        this.updateScore(this.player.score);
         update();
     }
 
@@ -100,5 +103,9 @@ class Tetris {
                 }
             });
         });
+    }
+    
+    updateScore(score) {
+        this.scoreHolder.innerText = score;
     }
 }

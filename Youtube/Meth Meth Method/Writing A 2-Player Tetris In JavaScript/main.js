@@ -1,30 +1,11 @@
-/// document.addEventListener("DOMContentLoaded", () => {
-    
-
-
-    //
-
-    /*function updateScore() {
-        scoreHolder.innerText = player.score;
-    }
-
-
-
-    updateScore();*/
-/// });
 const playerElements = Array.from(document.querySelectorAll('.player'));
 
 const tetri = [];
 
 playerElements.forEach(element => {
-    const canvas = element.querySelector(".tetris");
-    const scoreBoard = element.querySelector(".tetris-score-board");
-    const scoreHolder = scoreBoard.querySelector("span");
-    const tetris = new Tetris(canvas, scoreHolder);
+    const tetris = new Tetris(element);
     
     tetri.push(tetris);
-
-    console.log(element);
 });
 
 document.addEventListener("keydown", event => {
@@ -45,7 +26,14 @@ document.addEventListener("keydown", event => {
             }
         }
         if (event.keyCode === key[4]) {  // down s, j
-            player.drop();
+            if (event.type === "keydown") {
+                if (player.dropInterval !== player.DROP_FAST) {
+                    player.drop();
+                    player.dropInterval = player.DROP_FAST;
+                } else {
+                    player.dropInterval = player.DROP_SLOW;
+                }
+            }
         }
     });
 });

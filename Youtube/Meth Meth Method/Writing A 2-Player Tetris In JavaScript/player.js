@@ -1,11 +1,13 @@
 class Player  {
-    constructor(tetris, scoreHolder) {
+    constructor(tetris) {
+        this.DROP_SLOW = 1000;
+        this.DROP_FAST = 50;
+
         this.tetris = tetris;
-        this.scoreHolder = scoreHolder;
         this.arena = tetris.arena;
 
         this.dropCounter = 0;
-        this.dropInterval = 1000;
+        this.dropInterval = this.DROP_SLOW;
 
         this.pos = {x: 0, y: 0};
         this.matrix = null;
@@ -20,8 +22,9 @@ class Player  {
             this.pos.y--;
             this.arena.merge(this);
             this.reset();
-            this.arena.sweep();
-            this.updateScore();
+            this.score += this.arena.sweep();
+            this.tetris.updateScore(this.score);
+            this.dropInterval = this.DROP_SLOW;
         }
         this.dropCounter = 0;
     }
@@ -42,7 +45,7 @@ class Player  {
             this.arena.clear()
             // this.arena.forEach(row => row.fill(0));
             this.score = 0;
-            this.updateScore();
+            this.tetris.updateScore(this.score);
         }
     }
 
@@ -103,9 +106,5 @@ class Player  {
         if (this.dropCounter > this.dropInterval) {
             this.drop();
         }
-    }
-    
-    updateScore() {
-        this.scoreHolder.innerText = this.score;
     }
 }
