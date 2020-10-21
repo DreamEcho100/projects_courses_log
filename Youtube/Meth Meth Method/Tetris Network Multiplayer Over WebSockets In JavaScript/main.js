@@ -1,11 +1,12 @@
 const tetrisManager = new TetrisManager(document);
+const localTetris = tetrisManager.createPlayer();
 
 const keyListeners = (event) => {
     [
         [65, 68, 81, 69, 83], // a, d, q, e, s
         [72, 75, 89, 73, 74] // h, k, y, i, j
     ].forEach((key, index) => {
-        const player = tetrisManager.instances[index].player;
+        const player = localTetris.player;
         if (event.type === "keydown") {
             if (event.keyCode === key[0]) {  // left a, h
                 player.move(-1);

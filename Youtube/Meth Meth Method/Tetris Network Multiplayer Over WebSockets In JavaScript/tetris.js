@@ -1,7 +1,8 @@
 class Tetris {
     constructor(element) {
-        this.canvas = element.querySelector(".tetris");
-        this.scoreBoard = element.querySelector(".tetris-score-board");
+        this.element = element;
+        this.canvas = this.element.querySelector(".tetris");
+        this.scoreBoard = this.element.querySelector(".tetris-score-board");
         this.scoreHolder = this.scoreBoard.querySelector("span");
         this.ctx = this.canvas.getContext("2d");
         this.ctx.scale(20, 20);
