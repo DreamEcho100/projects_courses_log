@@ -52,3 +52,7 @@ requiredSize - would allocate a file size in bytes in the created file
 
 [copy NUL FileName.FileExtension]
 [$>>filename]
+
+## Moving Files In Wndows
+mkdir client
+MOVE *.js client
