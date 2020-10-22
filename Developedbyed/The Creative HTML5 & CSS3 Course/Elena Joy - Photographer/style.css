@@ -1,0 +1,70 @@
+/*----------------------------*/
+/**/
+/*----------------------------*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root {
+	font-size: 62.5%;
+    scroll-behavior: smooth;
+    --header1: calc(2rem + 1vw);
+    --header2: calc(3.5rem + 1vw);
+    --header3: calc(3rem + 1vw);
+    --header4: calc(2.4rem + 1vw);
+    --text: calc(1.5rem + 1vw);
+    --big-text: calc(1.5rem + 1vw);
+    --special-color: #906272;
+    --background-color: #414141;
+    --gray-text: #525252;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	font-family: 'Poppins', sans-serif;
+	background: #131c27;
+}
+
+h1 {
+	font-size: var(--header1);
+}
+h2 {
+	font-size: var(--header2);
+}
+h3 {
+	font-size: var(--header3);
+}
+h4,
+h5 {
+	font-size: var(--header4);
+}
+
+li,
+button,
+label,
+input,
+a,
+p {
+	font-size: var(--text);
+}
+
+.flex-column-x-center-y-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+/*----------------------------*/
+/**/
+/*----------------------------*/
