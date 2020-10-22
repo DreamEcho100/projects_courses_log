@@ -29,6 +29,23 @@ git push -u origin master
 
 &amp;
 
+## Deply To heroku First Time
+heroku login
+git init
+git add .
+git commit -m "Uplaod&Update..."
+heroku create
+--see your heroku dashbord -> your new repos -> deploy -> follow insturaction
+
+cd my-project/
+git init
+heroku git:remote -a ..................
+heroku buildpacks:set heroku/nodejs
+git add .
+git commit -am "make it better"
+git push heroku master
+
+
 ## Running JS through command line
 
 npm init -y
