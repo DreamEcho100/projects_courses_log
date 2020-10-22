@@ -1,10 +1,22 @@
 /*----------------------------*/
-/**/
+/* GLOBAL STYLES */
 /*----------------------------*/
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+@font-face {
+    font-family: "Ruhl";
+    src: url("fonts/FrankRuhlLibre-Regular.ttf");
+}
+@font-face {
+    font-family: "Ruhl Meium";
+    src: url("fonts/FrankRuhlLibre-Medium.ttf");
+}
+@font-face {
+    font-family: "Great Vibes";
+    src: url("fonts/GreatVibes-Regular.ttf");
 }
 :root {
 	font-size: 62.5%;
@@ -18,16 +30,13 @@
     --special-color: #906272;
     --background-color: #414141;
     --gray-text: #525252;
+    --normal-color: black;
 }
-
 html,
 body {
 	width: 100%;
 	height: 100%;
-	font-family: 'Poppins', sans-serif;
-	background: #131c27;
 }
-
 h1 {
 	font-size: var(--header1);
 }
@@ -41,7 +50,6 @@ h4,
 h5 {
 	font-size: var(--header4);
 }
-
 li,
 button,
 label,
@@ -50,21 +58,139 @@ a,
 p {
 	font-size: var(--text);
 }
-
-.flex-column-x-center-y-center {
+ul {
+	list-style: none;
+}
+a {
+    text-decoration: none;
+    color: var(--normal-color);
+}
+.flex-column-xy-center {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-
-ul {
-	list-style: none;
+body {
+    font-family: "Ruhl", sans-serif;
 }
-
-a {
-	text-decoration: none;
+h1 {
+    font-family: "Great Vibes", sans-serif;
 }
 /*----------------------------*/
 /**/
+/*----------------------------*/
+
+
+
+/*----------------------------*/
+/* NAV SECTION HERO */
+/*----------------------------*/
+.main-head {
+    height: 10vh;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+nav {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    min-height: 10vh;
+}
+
+#logo,
+.nav-links {
+    flex: 1 1 20rem;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 0;
+}
+
+.hero {
+    min-height: 85vh;
+    /*width: 95%;
+    margin: 0 0 0 auto;*/
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.hero-introduction {
+    flex: 5 1 40rem;
+    text-align: center;
+    height: 100%;
+    padding: 2rem 0;
+    margin: auto 0;
+}
+
+/*.hero-introduction h2 {
+    padding-top: 2rem;
+}*/
+
+.hero-introduction p {
+    padding: 2rem 10rem;
+}
+
+.hero-introduction a {
+    padding: 2rem 8rem;
+    border: 3px solid black;
+    /**/margin-bottom: 2rem;
+}
+
+.hero-images {
+    flex: 2 1 40rem;
+    height: 100%;
+    align-self: flex-end;
+    background: linear-gradient(#dad8dd, #dad1d4);
+    position: relative;
+    z-index: 1;
+    /**/margin-top: -16px;
+}
+
+.hero-elena {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: -3px;
+}
+
+.planet {
+    position: absolute;
+    bottom: 0;
+    left: -13%;
+    z-index: -1;
+    height: 70%;
+}
+
+.planet2 {
+    left: 50%;
+}
+
+/*----------------------------*/
+/* LOCATIONS SECTION */
+/*----------------------------*/
+
+
+
+/*----------------------------*/
+/* BENEFITS SECTION */
+/*----------------------------*/
+
+
+
+/*----------------------------*/
+/* CONTACT SECTION */
+/*----------------------------*/
+
+
+
+/*----------------------------*/
+/* FOOTER */
 /*----------------------------*/
