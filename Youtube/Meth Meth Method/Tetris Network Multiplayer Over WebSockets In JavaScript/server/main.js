@@ -9,4 +9,4 @@ server.on("connection", conn => {
         
     console.log("Connection closed");
     })
-})
+});

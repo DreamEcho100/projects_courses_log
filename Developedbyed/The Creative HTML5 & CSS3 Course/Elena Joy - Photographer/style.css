@@ -73,10 +73,51 @@ a {
 }
 body {
     font-family: "Ruhl", sans-serif;
+    animation: opening 1s ease-in-out;
 }
 h1 {
     font-family: "Great Vibes", sans-serif;
 }
+/*----------------------------*/
+/* ANIMATIONS */
+/*----------------------------*/
+@keyframes opening {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes planet-entrance {
+    from {
+        transform: translateY(10%) rotateZ(-10deg)  rotateX(-90deg);
+    }
+    to {
+        transform: translateY(0%) rotateZ(0deg)  rotateX(0deg);
+    }
+}
+
+@keyframes elena-entrance {
+    from {
+        transform: translateY(10%) rotateY(-90deg);
+    }
+    to {
+        transform: translateY(0%) rotateY(0deg);
+    }
+}
+
+
+@keyframes planet-shake {
+    from {
+        transform: rotateZ(-5deg);
+    }
+    to {
+        transform: rotateZ(0deg);
+    }
+}
+
 /*----------------------------*/
 /**/
 /*----------------------------*/
@@ -159,14 +200,19 @@ nav {
     height: 100%;
     object-fit: cover;
     margin-bottom: -3px;
+    animation: elena-entrance 1.2s ease-in-out 0.5s forwards;
+    transform-origin: right;
 }
 
 .planet {
     position: absolute;
-    bottom: 0;
+    bottom: -10px;
     left: -13%;
     z-index: -1;
     height: 70%;
+    animation: planet-entrance 1.5s ease-in-out 0.5s forwards,
+      planet-shake 1.5s ease infinite alternate-reverse 2s;
+    transform-origin: bottom;
 }
 
 .planet2 {
@@ -194,3 +240,32 @@ nav {
 /*----------------------------*/
 /* FOOTER */
 /*----------------------------*/
+
+
+
+/*----------------------------*/
+/* MEDIA QUERIES */
+/*----------------------------*/
+@media screen and (max-width: 842px) {
+  .burger span {
+    padding: 0.2rem 2rem;
+    background: var(--gray-text);
+    margin: 0.5rem 0rem;
+    display: block;
+  }
+  .nav-links a {
+    color: white;
+    font-size: var(--header3);
+    text-decoration: underline;
+  }
+  .nav-links {
+    background: var(--background-color);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
