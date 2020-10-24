@@ -7,30 +7,30 @@
 	box-sizing: border-box;
 }
 @font-face {
-    font-family: "Ruhl";
-    src: url("fonts/FrankRuhlLibre-Regular.ttf");
+  font-family: "Ruhl";
+  src: url("fonts/FrankRuhlLibre-Regular.ttf");
 }
 @font-face {
-    font-family: "Ruhl Medium";
-    src: url("fonts/FrankRuhlLibre-Medium.ttf");
+  font-family: "Ruhl Medium";
+  src: url("fonts/FrankRuhlLibre-Medium.ttf");
 }
 @font-face {
-    font-family: "Great Vibes";
-    src: url("fonts/GreatVibes-Regular.ttf");
+  font-family: "Great Vibes";
+  src: url("fonts/GreatVibes-Regular.ttf");
 }
 :root {
 	font-size: 62.5%;
-    scroll-behavior: smooth;
-    --header1: calc(2rem + 1vw);
-    --header2: calc(3.5rem + 1vw);
-    --header3: calc(3rem + 1vw);
-    --header4: calc(2.4rem + 1vw);
-    --text: calc(1.5rem + 1vw);
-    --big-text: calc(1.5rem + 1vw);
-    --special-color: #906272;
-    --background-color: #414141;
-    --gray-text: #525252;
-    --normal-color: black;
+  scroll-behavior: smooth;
+  --header1: calc(2rem + 1vw);
+  --header2: calc(3.5rem + 1vw);
+  --header3: calc(3rem + 1vw);
+  --header4: calc(2.4rem + 1vw);
+  --text: calc(1.5rem + 1vw);
+  --big-text: calc(1.5rem + 1vw);
+  --special-color: #906272;
+  --background-color: #414141;
+  --gray-text: #525252;
+  --normal-color: black;
 }
 html,
 body {
@@ -62,60 +62,60 @@ ul {
 	list-style: none;
 }
 a {
-    text-decoration: none;
-    color: var(--normal-color);
+  text-decoration: none;
+  color: var(--normal-color);
 }
 .flex-column-xy-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 body {
-    font-family: "Ruhl", sans-serif;
-    animation: opening 1s ease-in-out;
+  font-family: "Ruhl", sans-serif;
+  animation: opening 1s ease-in-out;
 }
 h1 {
-    font-family: "Great Vibes", sans-serif;
+  font-family: "Great Vibes", sans-serif;
 }
 /*----------------------------*/
 /* ANIMATIONS */
 /*----------------------------*/
 @keyframes opening {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }
 
 @keyframes planet-entrance {
-    from {
-        transform: translateY(10%) rotateZ(-10deg)  rotateX(-90deg);
-    }
-    to {
-        transform: translateY(0%) rotateZ(0deg)  rotateX(0deg);
-    }
+  from {
+    transform: translateY(10%) rotateZ(-10deg)  rotateX(-90deg);
+  }
+  to {
+    transform: translateY(0%) rotateZ(0deg)  rotateX(0deg);
+  }
 }
 
 @keyframes elena-entrance {
-    from {
-        transform: translateY(10%) rotateY(-90deg);
-    }
-    to {
-        transform: translateY(0%) rotateY(0deg);
-    }
+  from {
+    transform: translateY(10%) rotateY(-90deg);
+  }
+  to {
+    transform: translateY(0%) rotateY(0deg);
+  }
 }
 
 
 @keyframes planet-shake {
-    from {
-        transform: rotateZ(-5deg);
-    }
-    to {
-        transform: rotateZ(0deg);
-    }
+  from {
+    transform: rotateZ(-5deg);
+  }
+  to {
+    transform: rotateZ(0deg);
+  }
 }
 
 /*----------------------------*/
@@ -149,39 +149,38 @@ main {
 }
 
 nav {
-    width: 90%;
-    height: 100%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    min-height: 10vh;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  min-height: 10vh;
 }
 
 #logo,
 .nav-links {
-    flex: 1 1 20rem;
+  flex: 1 1 20rem;
 }
 
 .nav-links {
-    display: flex;
-    justify-content: space-around;
-    padding: 2rem 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem 0;
 }
 
 .hero {
-    /*width: 95%;
-    margin: 0 0 0 auto;*/
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 
 .hero-introduction {
-    flex: 5 1 40rem;
-    text-align: center;
-    height: 100%;
-    padding: 2em 0;
-    margin: auto 0;
+  flex: 5 1 40rem;
+  text-align: center;
+  height: 100%;
+  padding: 2em 0;
+  margin: auto 0;
 }
 
 /*.hero-introduction h2 {
@@ -189,49 +188,49 @@ nav {
 }*/
 
 .hero-introduction p {
-    padding: 2em 0.5em;
-    color: var(--gray-text);
+  padding: 2em 0.5em;
+  color: var(--gray-text);
 }
 
 .hero-introduction a {
-    padding: 1em 2em;
-    border: 3px solid black;
-    /**/margin-bottom: 2em;
-    color: var(--gray-text);
+  padding: 1em 2em;
+  border: 3px solid black;
+  margin-bottom: 2em;
+  color: var(--gray-text);
 }
 
 .hero-images {
-    flex: 2 1 40rem;
-    height: 100%;
-    align-self: flex-end;
-    background: linear-gradient(#dad8dd, #dad1d4);
-    position: relative;
-    z-index: 1;
-    /**/margin-top: -16px;
+  flex: 2 1 40rem;
+  height: 100%;
+  align-self: flex-end;
+  background: linear-gradient(#dad8dd, #dad1d4);
+  position: relative;
+  z-index: 1;
+  margin-top: -16px;
 }
 
 .hero-elena {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    margin-bottom: -3px;
-    animation: elena-entrance 1.2s ease-in-out 0.5s forwards;
-    transform-origin: right;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: -3px;
+  animation: elena-entrance 1.2s ease-in-out 0.5s forwards;
+  transform-origin: right;
 }
 
 .planet {
-    position: absolute;
-    bottom: -10px;
-    left: -13%;
-    z-index: -1;
-    height: 70%;
-    animation: planet-entrance 1.5s ease-in-out 0.5s forwards,
-      planet-shake 1.5s ease infinite alternate-reverse 2s;
-    transform-origin: bottom;
+  position: absolute;
+  bottom: -10px;
+  left: -13%;
+  z-index: -1;
+  height: 70%;
+  animation: planet-entrance 1.5s ease-in-out 0.5s forwards,
+    planet-shake 1.5s ease infinite alternate-reverse 2s;
+  transform-origin: bottom;
 }
 
 .planet2 {
-    left: 50%;
+  left: 50%;
 }
 
 /*----------------------------*/
