@@ -26,7 +26,7 @@
   --header3: calc(3rem + 1vw);
   --header4: calc(2.4rem + 1vw);
   --text: calc(1.5rem + 1vw);
-  --big-text: calc(1.5rem + 1vw);
+  --big-text: calc(6rem + 1vw);
   --special-color: #906272;
   --background-color: #414141;
   --gray-text: #525252;
@@ -78,6 +78,13 @@ body {
 h1 {
   font-family: "Great Vibes", sans-serif;
 }
+main {
+  margin-top: 7rem;
+  width: 100%;
+  height: 100%
+  background: white;
+}
+
 /*----------------------------*/
 /* ANIMATIONS */
 /*----------------------------*/
@@ -119,13 +126,7 @@ h1 {
 }
 
 /*----------------------------*/
-/**/
-/*----------------------------*/
-
-
-
-/*----------------------------*/
-/* NAV SECTION HERO */
+/* HEADER SECTION */
 /*----------------------------*/
 .main-head {
   height: 7rem;
@@ -142,13 +143,8 @@ h1 {
   width: 100%;
   background: white;
 }
-main {
-  margin-top: 7rem;
-  width: 100%;
-  height: 100%
-}
 
-nav {
+.main-head nav {
   width: 90%;
   height: 100%;
   margin: auto;
@@ -168,11 +164,16 @@ nav {
   padding: 2rem 0;
 }
 
+/*----------------------------*/
+/* HERO SECTION */
+/*----------------------------*/
+
 .hero {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
+  background: white;
 }
 
 .hero-introduction {
@@ -297,6 +298,7 @@ nav {
 }
 
 .gallery header {
+  pointer-events: none;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -339,21 +341,78 @@ nav {
 }
 
 /*----------------------------*/
-/* BENEFITS SECTION */
-/*----------------------------*/
-
-
-
-/*----------------------------*/
 /* CONTACT SECTION */
 /*----------------------------*/
+.contact {
+  min-height: 90vh;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
 
+.form-wrapper {
+  flex: 3 1 40rem;
+  margin: 1em;
+}
 
+.form-wrapper h2 {
+  line-height: 5rem;
+  margin: 1em 0em;
+}
+
+.form-wrapper h2 span {
+  font-size: var(--big-text);
+  color: var(--special-color);
+}
+
+.form-wrapper label {
+  display: block;
+}
+
+.form-wrapper input {
+  display: block;
+  margin: 3rem 0rem;
+  background: var(--background-color);
+  color: white;
+  border: none;
+  padding: 0.25em;
+}
+
+.form-wrapper button {
+  padding: 0.5em 1em;
+  background: var(--special-color);
+  color: white;
+  border: none;
+  width: 100%;
+}
+
+.contact img {
+  flex: 1 1 40rem;
+}
 
 /*----------------------------*/
-/* FOOTER */
+/* FOOTER SECTION */
 /*----------------------------*/
+footer {
+  background: var(--background-color);
+  color: white;
+  display: flex;
+  padding: 3em 5%;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
+footer h4 {
+  flex: 3 1 40rem;
+  font-size: var(--text);
+}
+
+footer ul {
+  display: flex;
+  flex: 1 1 40rem;
+  justify-content: space-between;
+  align-items: center;
+}
 
 
 /*----------------------------*/
@@ -364,6 +423,9 @@ nav {
   display: none;
 }
 @media screen and (max-width: 820px) {
+  /*----------------------------*/
+  /* HEADER QUERIES */
+  /*----------------------------*/
   .burger {
     display: block;
   }
@@ -374,7 +436,6 @@ nav {
     margin: 0.5rem 0rem;
     display: block;
     transition: all 0.5s ease;
-    /*transform-origin: bottom;*/
   }
   .nav-links a {
     color: white;
@@ -430,6 +491,13 @@ nav {
   }
 
   /*----------------------------*/
+  /* HERO QUERIES */
+  /*----------------------------*/
+  .hero {
+    height: auto;
+  }
+
+  /*----------------------------*/
   /* GALLERY SECTION */
   /*----------------------------*/
   .gallery img {
@@ -440,6 +508,20 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   }
   .gallery header {
-    display: none;
+    opacity: 0.4;
+  }
+
+  /*----------------------------*/
+  /* FOOTER SECTION */
+  /*----------------------------*/
+  footer {
+    text-align: center;
+  }
+  footer h4 {
+    order: 2;
+  }
+  footer ul {
+    margin-bottom: 2em;
+    order: 1;
   }
 }
