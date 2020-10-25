@@ -212,6 +212,33 @@ YotubeContent.list.push(
 
 YotubeContent.list.push(
   {
+    types: ["normal-content-course"],
+    name: "Franks Laboratory",
+    info: "",
+    classes: "spinningBackground1",
+    list: [
+      {
+	      types: ["normal-content-project"],
+        name: "Vanilla JavaScript Flappy Bird With Particle Effects & Sprites",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+
+      // Inner List End
+    ],
+  }
+);
+
+YotubeContent.list.push(
+  {
     types: ["normal-content-multi-courses"],
     name: "Ghost Tech",
     info: "",
