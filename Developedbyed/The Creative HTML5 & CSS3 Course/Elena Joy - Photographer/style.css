@@ -525,3 +525,15 @@ footer ul {
     order: 1;
   }
 }
+
+
+@media screen and (min-width: 1700px) {
+  :root {
+    --header1: 3rem;
+    --header2: 5rem;
+    --header3: 4rem;
+    --header4: 3rem;
+    --text: 3rem;
+    --big-text: 8rem;
+  } 
+}
