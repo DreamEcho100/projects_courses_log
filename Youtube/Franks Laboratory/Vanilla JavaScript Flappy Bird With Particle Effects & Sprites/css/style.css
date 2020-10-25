@@ -54,12 +54,6 @@ a {
   text-decoration: none;
   color: var(--color-1);
 }
-.flex-column-xy-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 body {
   animation: opening 1s ease-in-out;
 }
@@ -79,3 +73,17 @@ body {
 /*----------------------------*/
 /*  */
 /*----------------------------*/
+#flappy-bird-with-particle-effects-and-sprites-game {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#canvas1 {
+  position: absolute;
+  width: 60rem;
+  height: 40rem;
+  border: 2px solid black;
+}
