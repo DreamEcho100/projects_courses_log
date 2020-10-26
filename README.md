@@ -1,7 +1,7 @@
 # "projects_courses_log"
 
 &amp;
-The site is ready at https://dreamecho100.github.io/projects_courses_log/.
+The site is ready at <https://dreamecho100.github.io/projects_courses_log/>.
 &amp;
 
 ## �or create a new repository on the command line
@@ -11,13 +11,13 @@ git init
 git add README.md
 git commit -m "first commit"
 git branch -M master
-git remote add origin https://github.com/DreamEcho100/projects_courses_log.git
+git remote add origin <https://github.com/DreamEcho100/projects_courses_log.git>
 git push -u origin master
 &amp;
 
 ## �or push an existing repository from the command line
 
-git remote add origin https://github.com/DreamEcho100/projects_courses_log.git
+git remote add origin <https://github.com/DreamEcho100/projects_courses_log.git>
 git branch -M master
 git push -u origin master
 
@@ -30,6 +30,7 @@ git push -u origin master
 &amp;
 
 ## Deply To heroku First Time
+
 heroku login
 git init
 git add .
@@ -45,15 +46,15 @@ git add .
 git commit -am "make it better"
 git push heroku master
 
-
 ## Running JS through command line
 
 npm init -y
 chmod +x index.js
-#!/usr/bin/env node
+<#!/usr/bin/env node>
 npm link
 
 ## Creating a new file in Windows
+
 [type nul >> your_file.txt]
 [echo.>> your_file.txt]
 ->-Creates a new file
@@ -71,5 +72,6 @@ requiredSize - would allocate a file size in bytes in the created file
 [$>>filename]
 
 ## Moving Files In Wndows
+
 mkdir client
 MOVE *.js client
