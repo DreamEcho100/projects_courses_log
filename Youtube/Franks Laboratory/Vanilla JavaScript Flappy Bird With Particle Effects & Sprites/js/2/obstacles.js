@@ -24,9 +24,9 @@ class Obstacle {
         ctx.closePath();*/
     }
 
-    update() {
+    update(player) {
         this.x -= gameSpeed;
-        if (!this.counted && this.x < bird.x) {
+        if (!this.counted && this.x < player.x) {
             score++;
             this.counted = true;
         }
@@ -34,7 +34,7 @@ class Obstacle {
     }
 }
 
-function handleObstacles() {
+function handleObstacles(player) {
     if (frame % 50 === 0) {
         obstaclesArray.unshift(new Obstacle);
     }
@@ -44,7 +44,7 @@ function handleObstacles() {
             // obstaclesArray.splice(i, 1);
             obstaclesArray.pop();
         } else {
-            obstaclesArray[i].update();
+            obstaclesArray[i].update(player);
         }
     }
     /*if (obstaclesArray.length > 20) {
@@ -54,21 +54,21 @@ function handleObstacles() {
 
 const bang = new Image();
 bang.src = "images/collisions/bang1.png";
-function handleCollision() {
+function handleCollision(player) {
     let i;
     for (i = 0; i < obstaclesArray.length; i++) {
         if (
-            bird.x < obstaclesArray[i].x + obstaclesArray[i].width &&
-            bird.x + bird.width * 1.3 > obstaclesArray[i].x &&
+            player.x < obstaclesArray[i].x + obstaclesArray[i].width &&
+            player.x + player.width * 1.3 > obstaclesArray[i].x &&
             (
-                (bird.y < 0 + obstaclesArray[i].top &&
-                    bird.y + bird.height > 0) ||
-                (bird.y + bird.height > canvas.height - obstaclesArray[i].bottom &&
-                    bird.y + bird.height < canvas.height)
+                (player.y < 0 + obstaclesArray[i].top &&
+                    player.y + player.height > 0) ||
+                (player.y + player.height > canvas.height - obstaclesArray[i].bottom &&
+                    player.y + player.height < canvas.height)
 
             )
         ) {
-            ctx.drawImage(bang, bird.x, bird.y, 50, 50);
+            ctx.drawImage(bang, player.x, player.y, 50, 50);
             ctx.font = "25px Georgia";
             ctx.fillStyle = "white";
             ctx.fillText(`Game Over, your score is ${score}`, canvas.width / 4, canvas.height / 2 - 10);

@@ -37,19 +37,20 @@ function handlebackground() {
     ctx.drawImage(background, BG.x2, BG.y, BG.width, BG.height);
 }
 
+let animateId;
 function animate() {
+    animateId = requestAnimationFrame(animate);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     handlebackground();
-    handleObstacles();
+    handleObstacles(bird);
     bird.update();
     bird.draw();
     ctx.font = "90px Georgia";
     ctx.fillStyle = gradient;
     ctx.strokeText(score, 450, 70);
     ctx.fillText(score, 450, 70);
-    if (handleCollision()) return;
+    if (handleCollision(bird)) cancelAnimationFrame(animateId);;
     handleParticales();
-    requestAnimationFrame(animate);
     angle += 0.12;
     hue++;
     frame++;

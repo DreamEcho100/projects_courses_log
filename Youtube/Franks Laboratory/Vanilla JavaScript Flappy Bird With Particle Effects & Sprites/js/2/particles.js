@@ -1,9 +1,10 @@
 const particalesArray = [];
 
 class Particale {
-    constructor() {
-        this.x = bird.x;
-        this.y = bird.y;
+    constructor(player) {
+        this.player = player;
+        this.x = this.player.x;
+        this.y = this.player.y;
         this.size = Math.random() * 7 + 3;
         this.speedY = (Math.random() * 1) - 0.5;
         this.color = `hsla(${hue}, 100%, 50%, 0.8)`;
@@ -24,7 +25,7 @@ class Particale {
 }
 
 function handleParticales() {
-    particalesArray.unshift(new Particale);
+    particalesArray.unshift(new Particale(bird));
     let i;
     for (i = 0; i < particalesArray.length; i++) {
         if (particalesArray[i].x + particalesArray[i].size < 0) {
