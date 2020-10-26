@@ -43,7 +43,7 @@ class Particale {
         /*context.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);*/
         context.rect(this.x, this.y, this.size, this.size);
         context.fillStyle = this.color;
-        context.strokeStyle='white';
+        context.strokeStyle = 'white';
         context.stroke();
         context.fill();
         context.closePath();
