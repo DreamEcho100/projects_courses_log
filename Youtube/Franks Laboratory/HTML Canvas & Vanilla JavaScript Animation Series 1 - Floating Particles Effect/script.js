@@ -61,7 +61,7 @@ function init() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     let i;
-    particalesNumber = Math.floor(Math.random() * 200) + 50;
+    particalesNumber = Math.floor(Math.random() * 200) + 20;
     for (i = 0; i < particalesNumber; i++) {
         const size = (Math.random() * 20) + 5;
         let x;
@@ -74,7 +74,7 @@ function init() {
         } while(y + (size * 2) > canvas.height && y - (size * 2) < 0)
         const dirextionX = (Math.random() * 0.8) - 0.1;
         const dirextionY = (Math.random() * 0.8) - 0.1;
-        const color = "white";
+        const color = "black";
 
         particaleArray.push(new Particale(x, y, dirextionX, dirextionY, size, color))
     }
