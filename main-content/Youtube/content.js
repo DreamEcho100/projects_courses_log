@@ -247,6 +247,20 @@ YotubeContent.list.push(
       },
       {
 	      types: ["normal-content-project"],
+        name: "Particles JS Effect with Pure Vanilla JavaScript - Animated Background",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+	      types: ["normal-content-project"],
         name: "Vanilla JavaScript Flappy Bird With Particle Effects & Sprites",
         info: "",
         fileName: "index",
