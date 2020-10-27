@@ -84,5 +84,5 @@ body {
     /*position: absolute;
     top: 0;
     left: 0;*/
-    background: linear-gradient(#ffc38c, #ff9b40);
+    background: "black";/*linear-gradient(#ffc38c, #ff9b40);*/
 }

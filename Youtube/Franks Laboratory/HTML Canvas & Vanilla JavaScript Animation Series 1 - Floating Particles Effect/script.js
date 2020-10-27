@@ -45,9 +45,15 @@ class Particale {
     update() {
         if (this.x + this.size > canvas.width || this.x - this.size < 0) {
             this.dirextionX = -this.dirextionX;
+            if (Math.random() <= 0.5) {
+                this.dirextionY = -this.dirextionY
+            }
         }
         if (this.y + this.size > canvas.height || this.y - this.size < 0) {
             this.dirextionY = -this.dirextionY;
+            if (Math.random() <= 0.5) {
+                this.dirextionX = -this.dirextionX
+            }
         }
         this.x += this.dirextionX;
         this.y += this.dirextionY;
@@ -61,22 +67,16 @@ function init() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     let i;
-    particalesNumber = Math.floor(Math.random() * 200) + 20;
+    particalesNumber = Math.floor(Math.random() * 100) + 100;
     for (i = 0; i < particalesNumber; i++) {
         const size = (Math.random() * 20) + 5;
-        let x;
-        do {
-            x = Math.random() * (canvas.width - size * 2);
-        } while(x + (size * 2) > canvas.width && x - (size * 2) < 0)
-        let y;
-        do {
-            y = Math.random() * (canvas.height - size * 2);
-        } while(y + (size * 2) > canvas.height && y - (size * 2) < 0)
-        const dirextionX = (Math.random() * 0.8) - 0.1;
-        const dirextionY = (Math.random() * 0.8) - 0.1;
+        const x = Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2;
+        const y = Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2;
+        const dirextionX = Math.sin(Math.random()) * 10;// (Math.random() * 0.8) - 0.1;
+        const dirextionY = 10;// (Math.random() * 0.8) - 0.1;
         const color = "black";
 
-        particaleArray.push(new Particale(x, y, dirextionX, dirextionY, size, color))
+        particaleArray.push(new Particale(x, y, dirextionX, dirextionY, size, color));
     }
 }
 

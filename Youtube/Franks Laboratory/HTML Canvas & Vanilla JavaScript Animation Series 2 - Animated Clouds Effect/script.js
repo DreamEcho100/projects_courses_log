@@ -6,10 +6,10 @@ canvas.height = window.innerHeight;
 let particaleArray = [];
 
 const colors = [
-    "rgb(255, 255, 255, 0.9)",
+    "rgb(255, 255, 255, 0.9)",/*
     "rgb(255, 255, 255, 0.3)",
     "rgb(173, 216, 230, 0.8)",
-    "rgb(211, 211, 211, 0.8)"
+    "rgb(211, 211, 211, 0.8)"*/
 ]
 
 const maxSize = 40;
@@ -40,10 +40,10 @@ class Particale {
 
     draw() {
         context.beginPath();
-        /*context.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);*/
-        context.rect(this.x, this.y, this.size, this.size);
+        context.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+        // context.rect(this.x, this.y, this.size, this.size);
         context.fillStyle = this.color;
-        context.strokeStyle = 'white';
+        context.strokeStyle = 'gray';
         context.stroke();
         context.fill();
         context.closePath();
@@ -86,7 +86,7 @@ function init(canvas) {
     canvas.height = window.innerHeight;
     let i;
     for (i = 0; i < 1000; i++) {
-        const size = 0;
+        const size = 10;
         const x = Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2;
         const y = Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2;
         const dirextionX = (Math.random() * 0.4) - 0.2;
