@@ -39,9 +39,6 @@ class Particale {
             context.stroke();
             context.closePath();
         }
-
-        
-
         
         context.fill();
     }
