@@ -1,6 +1,6 @@
 const canvas = document.getElementById("canvas1");
 const context = canvas.getContext('2d');
-//context.imageSmoothingEnabled = false;
+context.imageSmoothingEnabled = false;
 /*context.webkitImageSmoothingEnabled = false;
 context.mozImageSmoothingEnabled = false;
 context.msImageSmoothingEnabled = false;
@@ -29,7 +29,9 @@ class Particale {
             Math.PI * 2,
             false
         );
-        context.fillStyle = "white"; // this.color;
+        // context.fillStyle = "rgba(255, 255, 255, 1)"; // this.color;
+        context.strokeStyle='rgba(255, 255, 255, 0.9)';
+        context.stroke();        
         context.closePath();
         context.fill();
     }
@@ -44,13 +46,13 @@ function init(canvas) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     particalesArray = [];
-    const numberOfParticales = Math.ceil((canvas.height * canvas.width) / 9000) * 4// 500;
+    const numberOfParticales = Math.ceil((canvas.height * canvas.width) / 9000) * 6// 500;
     let i;
     for (i = 0; i < numberOfParticales; i++) {
         const moveRadius = Math.random() * canvas.width;
         const step = (Math.random() * 0.002) + 0.002;
         const position = Math.random() * (Math.PI * 2);
-        const size = (Math.random() * 8) + 0.5;
+        const size = (Math.random() * 15) + 0.5;
         
         particalesArray.push(new Particale(moveRadius, step, position, size));
     }
