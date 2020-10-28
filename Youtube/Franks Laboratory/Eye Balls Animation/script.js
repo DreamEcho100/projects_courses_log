@@ -8,11 +8,11 @@ let eyes = [];
 let theta;
 
 const mouse = {
-    x: undefined,
-    y: undefined
+    x: 0,
+    y: 0
 };
 
-canvas.addEventListener("mouseover", (event) => {
+canvas.addEventListener("mousemove", (event) => {
     mouse.x = event.x;
     mouse.y = event.y;
 })
@@ -32,12 +32,42 @@ class Eye {
         context.fillStyle = "red"; // this.color;
         context.fill();
         context.closePath();
-        // Draw mouse
+
+        // Get angle
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        theta = Math.atan2(dy, dx);
+
+
+        // Draw Iris
+        const iris_x = this.x + Math.cos(theta) * this.radius / 10;
+        const iris_y = this.y + Math.sin(theta) * this.radius / 10;
+        const iris_radius = this.radius / 1.2;
         context.beginPath();
-        context.arc(mouse.x, mouse.y, 25, 0, Math.PI * 2, false);
-        context.fillStyle = "gold"; // this.color;
+        context.arc(iris_x, iris_y, iris_radius, 0, Math.PI * 2, true);
+        context.fillStyle = "white"; // this.color;
         context.fill();
         context.closePath();
+
+        // Draw Pupil
+        const pupil_x = this.x + Math.cos(theta) * this.radius / 1.9;
+        const pupil_y = this.y + Math.sin(theta) * this.radius / 1.9;
+        const pupil_radius = this.radius / 2.5;
+        context.beginPath();
+        context.arc(pupil_x, pupil_y, pupil_radius, 0, Math.PI * 2, true);
+        context.fillStyle = "black"; // this.color;
+        context.fill();
+        context.closePath();
+
+        // Draw pupil refliction
+        context.beginPath();
+        context.arc(pupil_x - pupil_radius / 3, pupil_y - pupil_radius / 3, pupil_radius / 2, 0, Math.PI * 2, true);
+        context.fillStyle = "rgba(255, 255, 255, 0.1)"; // this.color;
+        context.fill();
+        context.closePath();
+
+
+        
     }
 
     update(canvas) {
@@ -51,7 +81,7 @@ function init(canvas) {
     eyes = [];
 
     let overlapping = false;
-    const numberOfEyes = Math.ceil((canvas.height * canvas.width) / 9000) * 1.1;// 500;
+    const numberOfEyes = Math.ceil((canvas.height * canvas.width) / 9000) * 1.5;;
     const protection = 10000;
     let counter = 0;
     /*eyes.push(new Eye(
@@ -82,13 +112,14 @@ function init(canvas) {
                 };
             }
             distance = Math.sqrt(directionX**2 + directionY**2);
-            if (distance < (eye.radius + previousEye.radius)) {
+            if (distance < (eye.radius + previousEye.radius + 1)) {
                 overlapping = true;
             }
         }
         if (!overlapping) {
             eyes.push(new Eye(eye.x, eye.y, eye.radius));
         }
+        counter++;
     }
 }
 
@@ -99,7 +130,14 @@ function animate() {
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.closePath();
     
-    eyes.forEach(eye => eye.draw(canvas));
+    eyes.forEach(eye => eye.draw(mouse));
+    
+    // Draw mouse
+    context.beginPath();
+    context.arc(mouse.x, mouse.y, 25, 0, Math.PI * 2, false);
+    context.fillStyle = "gold";
+    context.fill();
+    context.closePath();
 }
 
 init(canvas);

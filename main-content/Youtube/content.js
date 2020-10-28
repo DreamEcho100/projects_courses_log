@@ -232,6 +232,20 @@ YotubeContent.list.push(
         },
       },
       {
+        types: ["normal-content-project"],
+        name: "Image into Interactive Particles",
+        info: "Image into Interactive Particles - HTML Canvas Animation Tutorial - Advanced Pure Vanilla JavaScript",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
 	      types: ["normal-content-project"],
         name: "Interactive Animated Background",
         info: "HTML5 Canvas Vanilla JavaScript Animation - Interactive Animated Background",
