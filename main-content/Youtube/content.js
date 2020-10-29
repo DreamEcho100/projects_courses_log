@@ -219,6 +219,20 @@ YotubeContent.list.push(
     list: [
       {
         types: ["normal-content-project"],
+        name: "Drawing Fractal Trees Animation - 1",
+        info: "Drawing Fractal Trees HTML5 Canvas & Vanilla JavaScript Animation",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+        types: ["normal-content-project"],
         name: "Eye Balls Animation",
         info: "Eye Balls Animation - JavaScript HTML5 Canvas Effect Tutorial Trigonometry & Circles With No Overlap",
         fileName: "index",
