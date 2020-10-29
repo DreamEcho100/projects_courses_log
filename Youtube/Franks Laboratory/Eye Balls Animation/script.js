@@ -65,13 +65,7 @@ class Eye {
         context.fillStyle = "rgba(255, 255, 255, 0.1)"; // this.color;
         context.fill();
         context.closePath();
-
-
         
-    }
-
-    update(canvas) {
-        this.draw(mouse);
     }
 }
 
