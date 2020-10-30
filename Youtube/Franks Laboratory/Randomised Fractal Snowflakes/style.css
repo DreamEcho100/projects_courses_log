@@ -111,20 +111,18 @@ body {
   background: black;
 }
 
-/*#generate-tree-btn {
+#generate-btn {
   cursor: pointer;
   outline-color: transparent;
   border: none;
   position: absolute;
-  left: 50%;
+  left: 5%;
   top: 5%;
   z-index: 10;
-  transform: translate(-50%, 0);
-  padding: 1em 1.5em;
+  padding: 0.25em 0.25em;
   border-radius: 5em;
   background: brown;
   color: black;
   font-size: 2rem;
-  width: 30rem;
-  overflow: hidden;
-}*/
+  width: 11rem;
+}

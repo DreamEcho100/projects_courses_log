@@ -1,18 +1,28 @@
 const canvas = document.getElementById('canvas1');
+const generateBtn = document.getElementById('generate-btn');
 const context = canvas.getContext('2d');
 context.imageSmoothingEnabled = false;
+let maxLevel, branches, sides, color, angle;
 
-canvas.width = innerWidth;
-canvas.height = innerHeight;
+function generate() {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+    context.clearRect(0, 0, canvas.width, canvas.height);
 
-const maxLevel = Math.floor(Math.random() * 2) + 2; // Branches of the branches of the main branch
-const branches = Math.floor(Math.random() * 2) + 2; // Branches of the main branch
-const sides = Math.floor(Math.random() * 10) + 3;
-const color = `#${Math.random().toString(16).substr(-6)}`;
+    maxLevel = Math.floor(Math.random() * 2) + 2; // Branches of the branches of the main branch
+    branches = Math.floor(Math.random() * 2) + 2; // Branches of the main branch
+    sides = Math.floor(Math.random() * 10) + 3;
+    color = `#${Math.random().toString(16).substr(-6)}`;
 
-context.translate(canvas.width / 2, canvas.height / 2);
+    context.translate(canvas.width / 2, canvas.height / 2);
 
-const angle = Math.PI * 2 * ((Math.random() * 0.48) + 0.51);
+    angle = Math.PI * 2 * ((Math.random() * 0.48) + 0.51);
+
+    for (let i = 0; i < sides; i++) { // How many times
+        drawLine(0);
+        context.rotate(Math.PI * 2 / sides); // How many sides    
+    }    
+}
 
 function drawLine(level) {
     if (level > maxLevel) return;
@@ -45,7 +55,6 @@ function drawLine(level) {
     
 }
 
-for (let i = 0; i < sides; i++) { // How many times
-    drawLine(0);
-    context.rotate(Math.PI * 2 / sides); // How many sides    
-}
+generate();
+
+generateBtn.addEventListener("click", generate);
