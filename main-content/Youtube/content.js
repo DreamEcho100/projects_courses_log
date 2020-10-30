@@ -219,7 +219,7 @@ YotubeContent.list.push(
     list: [
       {
         types: ["normal-content-project"],
-        name: "Drawing Fractal Trees Animation - 1",
+        name: "Drawing Fractal Trees Animation",
         info: "Drawing Fractal Trees HTML5 Canvas & Vanilla JavaScript Animation",
         fileName: "index",
         fileExtension: "html",
