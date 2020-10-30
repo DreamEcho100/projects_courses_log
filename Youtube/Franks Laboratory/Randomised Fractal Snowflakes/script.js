@@ -7,7 +7,8 @@ canvas.height = innerHeight;
 
 const maxLevel = Math.floor(Math.random() * 2) + 2; // Branches of the branches of the main branch
 const branches = Math.floor(Math.random() * 2) + 2; // Branches of the main branch
-let sides = Math.floor(Math.random() * 10) + 3;
+const sides = Math.floor(Math.random() * 10) + 3;
+const color = `#${Math.random().toString(16).substr(-6)}`;
 
 context.translate(canvas.width / 2, canvas.height / 2);
 
@@ -16,7 +17,7 @@ const angle = Math.PI * 2 * ((Math.random() * 0.48) + 0.51);
 function drawLine(level) {
     if (level > maxLevel) return;
 
-    context.strokeStyle = `#${Math.random().toString(16).substr(-6)}`;
+    context.strokeStyle = color;
     context.lineWidth = 2;
     context.beginPath();
     context.moveTo(0, 0);
