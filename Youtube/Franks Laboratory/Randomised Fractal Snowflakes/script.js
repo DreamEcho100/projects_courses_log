@@ -4,19 +4,19 @@ const context = canvas.getContext('2d');
 context.imageSmoothingEnabled = false;
 let maxLevel, branches, sides, color, angle;
 
-function generate() {
+function generate(maxLevelOldCopy, branchesOldCopy, sidesOldCopy, colorOldCopy, angleOldCopy) {
     canvas.width = innerWidth;
     canvas.height = innerHeight;
     context.clearRect(0, 0, canvas.width, canvas.height);
 
-    maxLevel = Math.floor(Math.random() * 3) + 2; // Branches of the branches of the main branch
-    branches = Math.floor(Math.random() * 3) + 2; // Branches of the main branch
-    sides = Math.floor(Math.random() * 10) + 3;
-    color = `${Math.random().toString(16).substr(-6)}`;
+    maxLevel = maxLevelOldCopy || Math.floor(Math.random() * 3) + 2; // Branches of the branches of the main branch
+    branches = branchesOldCopy || Math.floor(Math.random() * 3) + 2; // Branches of the main branch
+    sides = sidesOldCopy || Math.floor(Math.random() * 10) + 3;
+    color = colorOldCopy || `${Math.random().toString(16).substr(-6)}`;
 
     context.translate(canvas.width / 2, canvas.height / 2);
 
-    angle = Math.PI * 2 * ((Math.random() * 0.48) + 0.51);
+    angle = angleOldCopy || Math.PI * 2 * ((Math.random() * 0.48) + 0.51);
 
     generateBtn.style.background = `#${color}`;
     generateBtn.style.color = `#${color.split("").reverse().join("")}`;
@@ -60,5 +60,5 @@ function drawLine(level) {
 
 generate();
 
-generateBtn.addEventListener("click", generate);
-window.addEventListener("resize", generate);
+generateBtn.addEventListener("click", () => generate());
+window.addEventListener("resize", () => generate(maxLevel, branches, sides, color, angle));
