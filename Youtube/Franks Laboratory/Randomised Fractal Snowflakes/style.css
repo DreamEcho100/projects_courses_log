@@ -116,8 +116,8 @@ body {
   outline-color: transparent;
   border: none;
   position: absolute;
-  left: 5%;
-  top: 5%;
+  left: 1%;
+  top: 1%;
   z-index: 10;
   padding: 0.25em 0.25em;
   border-radius: 5em;

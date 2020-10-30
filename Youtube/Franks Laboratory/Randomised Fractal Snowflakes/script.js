@@ -9,14 +9,17 @@ function generate() {
     canvas.height = innerHeight;
     context.clearRect(0, 0, canvas.width, canvas.height);
 
-    maxLevel = Math.floor(Math.random() * 2) + 2; // Branches of the branches of the main branch
-    branches = Math.floor(Math.random() * 2) + 2; // Branches of the main branch
+    maxLevel = Math.floor(Math.random() * 3) + 2; // Branches of the branches of the main branch
+    branches = Math.floor(Math.random() * 3) + 2; // Branches of the main branch
     sides = Math.floor(Math.random() * 10) + 3;
-    color = `#${Math.random().toString(16).substr(-6)}`;
+    color = `${Math.random().toString(16).substr(-6)}`;
 
     context.translate(canvas.width / 2, canvas.height / 2);
 
     angle = Math.PI * 2 * ((Math.random() * 0.48) + 0.51);
+
+    generateBtn.style.background = `#${color}`;
+    generateBtn.style.color = `#${color.split("").reverse().join("")}`;
 
     for (let i = 0; i < sides; i++) { // How many times
         drawLine(0);
@@ -27,7 +30,7 @@ function generate() {
 function drawLine(level) {
     if (level > maxLevel) return;
 
-    context.strokeStyle = color;
+    context.strokeStyle = `#${color}`;
     context.lineWidth = 2;
     context.beginPath();
     context.moveTo(0, 0);
