@@ -61,3 +61,4 @@ function drawLine(level) {
 generate();
 
 generateBtn.addEventListener("click", generate);
+window.addEventListener("resize", generate);

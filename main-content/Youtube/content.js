@@ -275,6 +275,20 @@ YotubeContent.list.push(
       },
       {
 	      types: ["normal-content-project"],
+        name: "Liquid Particle Effect Around Any Element",
+        info: "Liquid Particle Effect Around any Element, Vanilla JavaScript & HTML Canvas & SVG Animation",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+	      types: ["normal-content-project"],
         name: "Particles JS Effect with Pure Vanilla JavaScript - Animated Background",
         info: "Particles JS Effect with Pure Vanilla JavaScript - Animated Background",
         fileName: "index",
