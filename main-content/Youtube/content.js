@@ -289,6 +289,20 @@ YotubeContent.list.push(
       },
       {
         types: ["normal-content-project"],
+        name: "Randomised Fractal Snowflakes",
+        info: "Randomised Fractal Snowflakes - Drawing Programmatic Snow JavaScript & HTML Canvas Element",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+        types: ["normal-content-project"],
         name: "Series 1 - Floating Particles Effect",
         info: "HTML Canvas & Vanilla JavaScript Animation Series 1 - Floating Particles Effect",
         fileName: "index",
