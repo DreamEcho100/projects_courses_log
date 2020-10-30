@@ -1,6 +1,7 @@
 const canvasContainer = document.getElementById("flappy-bird-with-particle-effects-and-sprites-game");
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
+ctx.imageSmoothingEnabled = false;
 
 canvas.width = 600;
 canvas.height = 400;
