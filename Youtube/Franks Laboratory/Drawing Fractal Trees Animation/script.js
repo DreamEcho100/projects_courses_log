@@ -47,9 +47,11 @@ function drawTree(startX, startY, length, angle, branchWidth, color1,  color2) {
 }
 
 // drawTree(canvas.width / 2, canvas.height - 80, 120, 0, 25, "brown", "green");
-generateRandomTree()
+setTimeout(() => generateRandomTree(), 10);
 
-generateRandomTreeBtn.addEventListener("click", generateRandomTree);
+generateRandomTreeBtn.addEventListener("click", () => {
+    setTimeout(() => generateRandomTree(), 10);
+});
 
 function generateRandomTree() {
     const randomNumber = Math.random() * 0.5 + 1
@@ -75,5 +77,5 @@ function generateRandomTree() {
 }
 
 window.addEventListener("resize", () => {
-    generateRandomTree();
+    setTimeout(() => generateRandomTree(), 10);
 });
