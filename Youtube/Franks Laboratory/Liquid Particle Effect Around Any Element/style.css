@@ -74,16 +74,193 @@ body {
 /*  */
 /*----------------------------*/
 #liquid-particle-effect-around-any-element {
-    width: 100%;
-    height: 100%;
-    position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: whitesmoke;
+}
+
+.content {
+  /*padding-top: 15em;*/
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+nav {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  height: max-content;
+  margin-right: 0.25em;
+}
+
+.mainBlock {
+  width: 65%;
+  min-width: 45rem;
+  height: 27rem;
+  border: 3px solid black;
+  padding: 1em 1em;
+  background: black;
+  color: white;
+  font-size: 1.4rem;
+  position: relative;
+  z-index: 5;
+  margin: 0 0.5em 0 0.25em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.topBlock,
+.bottomBlock {
+  width: 80%;
+  border: 2px solid black;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+
+  color: black;
+  height: 7rem;
+  left: 13%;
+  line-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  text-align: center;
+}
+
+.topBlock {
+  top: 0;
+}
+
+.bottomBlock {
+  bottom: 0;
+  height: 12rem;
+}
+
+.mainBlock:hover .topBlock,
+.mainBlock:hover .bottomBlock {
+  opacity: 1;
+}
+.mainBlock:hover .topBlock {
+  transform: translateY(-100%);
+}
+.mainBlock:hover .bottomBlock {
+  transform: translateY(100%);
+}
+
+.bottomBlock:hover ~ .topBlock {
+  transform: translateY(100%);
+  opacity: 0;
+}
+.topBlock:hover ~ .bottomBlock {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.content button {
+  width: 20rem;
+  height: 4rem;
+  border: 1px solid black;
+  position: relative;
+  color: white;
+  margin-bottom: 1em;
+  font-size: 1.4rem;
+  
+  outline-color: transparent;
+  background: none;
+}
+
+.content button::before {
+  content: "";
+  width: 100%;
+  height: 4rem;
+  position: absolute;
+  background: black;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content button:nth-child(1)::before {
+  content: "HOME";
+}
+.content button:nth-child(2)::before {
+  content: "PROJECTS";
+}
+.content button:nth-child(3)::before {
+  content: "CONTACT";
+}
+.content button:nth-child(4)::before {
+  content: "ABOUT";
+}
+.content button:nth-child(5)::before {
+  content: "HIRE ME";
+}
+.content button:hover::before {
+  transform: translateX(-5rem);
 }
 
 #canvas1 {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: black;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .content {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .content nav {
+    align-items: center;
+    margin-top: 2em;
+  }
+
+  .content .mainBlock {
+    width: 75%;
+    min-width: 0rem;
+    height: 20rem;
+    margin-top: 8rem;
+  }
+  .topBlock {
+    height: 5rem;
+  }
+  .bottomBlock {
+    height: 7rem;
+  }
+  .mainBlock .topBlock,
+  .mainBlock .bottomBlock {
+    opacity: 1;
+  }
+  .mainBlock .topBlock {
+    transform: translateY(-100%);
+  }
+  .mainBlock .bottomBlock {
+    transform: translateY(100%);
+  }
+  .bottomBlock:hover ~ .topBlock {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  .topBlock:hover ~ .bottomBlock {
+    transform: translateY(100%);
+    opacity: 1;
+  }
 }
