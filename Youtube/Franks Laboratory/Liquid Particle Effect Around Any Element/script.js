@@ -35,7 +35,7 @@ class Button {
     draw() {
         context.beginPath();
         context.rect(this.x, this.y, this.width, this.height);
-        context.fillStyle = "blue";
+        context.fillStyle = "rgba(0, 0, 0, 0.9)"; // "transparent";
         context.closePath();
         context.fill();
     }
@@ -100,6 +100,7 @@ class Particale {
         this.size = size;
         this.weight = weight;
         this.color = color;
+        this.flowRight = false;
     }
 
     draw() {
@@ -111,23 +112,41 @@ class Particale {
     }
 
     update() {
+        // Collision detection particale/mouse
+        if (
+            this.x > mouse.x - 50 &&
+            this.x < mouse.x + 50 &&
+            this.y > mouse.y - 5 &&
+            this.y < mouse.y + 5
+        ) {
+            this.x -= this.weight;
+            this.y += this.weight;
+            this.flowRight = true;
+        }
+
+        // Collision detection particale/button
         buttons.forEach(button => {
             if (
-                this.x < button.x + button.width &&
-                this.x > button.x &&
-                this.y < button.y + button.height &&
-                this.y > button.y
+                this.x - (this.size * 0.5) < button.x + button.width &&
+                this.x + (this.size * 0.5) > button.x &&
+                this.y - (this.size * 0.25) < button.y + button.height &&
+                this.y + (this.size * 0.25) > button.y
             ) {
                 this.weight = 0;
-                this.x -= 4;
+                if (!this.flowRight) {
+                    this.x -= 4;
+                } else {
+                    this.x += 4;
+                }
             } else {
                 this.weight += 0.03
             }
         });
         if (this.y > canvas.height) {
             this.y = 0 - this.size;
-            this.x = (Math.random() * buttons[0].x) + (buttons[0].width / 2);// (Math.random() * 60) + 200;
+            this.x = buttons[0].x + (Math.random() * (buttons[0].width * 0.65));// (Math.random() * 60) + 200;
             this.weight = (Math.random() * 0.5) + 1;
+            this.flowRight = false;
         }
         this.y += this.weight;
         this.draw();
@@ -135,14 +154,14 @@ class Particale {
 }
 
 let particaleArray = [];
-const numberOfParticals = 80;
+const numberOfParticals = 90;
 function createParticals() {
     particaleArray = [];
     let i, color = 360;
     for (i = 0; i < numberOfParticals; i++) {
-        color -= 1 // 360 / numberOfParticals;
+        color -= 0.1 // 360 / numberOfParticals;
         particaleArray.push(new Particale(
-            (Math.random() * buttons[0].x) + buttons[0].width,// (Math.random() * 60) + 200
+            buttons[0].x + (Math.random() * (buttons[0].width * 0.65)),// (Math.random() * 60) + 200
             (Math.random() * canvas.height),
             (Math.random() * 20) + 5,
             (Math.random() * 0.5) + 1,
@@ -159,8 +178,8 @@ function draw(array) {
 function animate() {
     requestAnimationFrame(animate);
     context.clearRect(0, 0, canvas.width, canvas.height);
-    draw(buttons);
     draw(particaleArray);
+    draw(buttons);
 }
 
 animate();
