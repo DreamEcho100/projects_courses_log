@@ -93,32 +93,74 @@ function createButtons() {
 
 createButtons();
 
-function drawButtons() {
-    buttons.forEach(button => button.update());
-}
-
 class Particale {
-    constructor(x, y, size, weight) {
+    constructor(x, y, size, weight, color) {
         this.x = x;
         this.y = y;
         this.size = size;
         this.weight = weight;
+        this.color = color;
     }
 
     draw() {
-
+        context.beginPath();
+        context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        context.fillStyle = this.color; // "rgba(128, 197, 222, 1)";
+        context.fill();
+        context.closePath();
     }
 
     update() {
-        // 22:30
+        buttons.forEach(button => {
+            if (
+                this.x < button.x + button.width &&
+                this.x > button.x &&
+                this.y < button.y + button.height &&
+                this.y > button.y
+            ) {
+                this.weight = 0;
+                this.x -= 4;
+            } else {
+                this.weight += 0.03
+            }
+        });
+        if (this.y > canvas.height) {
+            this.y = 0 - this.size;
+            this.x = (Math.random() * buttons[0].x) + (buttons[0].width / 2);// (Math.random() * 60) + 200;
+            this.weight = (Math.random() * 0.5) + 1;
+        }
+        this.y += this.weight;
         this.draw();
     }
+}
+
+let particaleArray = [];
+const numberOfParticals = 80;
+function createParticals() {
+    particaleArray = [];
+    let i, color = 360;
+    for (i = 0; i < numberOfParticals; i++) {
+        color -= 1 // 360 / numberOfParticals;
+        particaleArray.push(new Particale(
+            (Math.random() * buttons[0].x) + buttons[0].width,// (Math.random() * 60) + 200
+            (Math.random() * canvas.height),
+            (Math.random() * 20) + 5,
+            (Math.random() * 0.5) + 1,
+            `hsl(${color}, 50%, 50%)`
+        ));
+    }
+}
+createParticals();
+
+function draw(array) {
+    array.forEach(item => item.update());
 }
 
 function animate() {
     requestAnimationFrame(animate);
     context.clearRect(0, 0, canvas.width, canvas.height);
-    drawButtons();
+    draw(buttons);
+    draw(particaleArray);
 }
 
 animate();
@@ -126,5 +168,6 @@ animate();
 window.addEventListener("resize", () => {
     canvas.width = innerWidth;
     canvas.height = innerHeight;
+    createParticals();
     createButtons();
 });

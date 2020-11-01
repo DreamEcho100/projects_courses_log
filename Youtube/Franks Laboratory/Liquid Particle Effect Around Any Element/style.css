@@ -98,13 +98,13 @@ nav {
   justify-content: center;
   text-align: center;
   height: max-content;
-  margin-right: 0.25em;
+  margin-right: 0.5em;
 }
 
 .mainBlock {
   width: 65%;
-  min-width: 45rem;
-  height: 27rem;
+  min-width: 40rem;
+  height: 25rem;
   border: 3px solid black;
   padding: 1em 1em;
   background: black;
@@ -112,7 +112,7 @@ nav {
   font-size: 1.4rem;
   position: relative;
   z-index: 5;
-  margin: 0 0.5em 0 0.25em;
+  margin: 0 0.5em 0 0.5em;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -171,15 +171,19 @@ nav {
 
 .content button {
   width: 20rem;
-  height: 4rem;
+  height: 3.9rem;
   border: 1px solid black;
   position: relative;
   color: white;
   margin-bottom: 1em;
   font-size: 1.4rem;
-  
+
   outline-color: transparent;
   background: none;
+}
+
+.content button:nth-child(5) {
+  margin-bottom: 0;
 }
 
 .content button::before {
