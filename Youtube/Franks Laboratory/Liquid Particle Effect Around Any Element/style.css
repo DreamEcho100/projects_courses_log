@@ -212,7 +212,7 @@ nav {
   content: "HIRE ME";
 }
 .content button:hover::before {
-  transform: translateX(-5rem);
+  transform: translateX(-25%);
 }
 
 #canvas1 {
