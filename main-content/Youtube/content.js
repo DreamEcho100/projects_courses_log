@@ -219,6 +219,20 @@ YotubeContent.list.push(
     list: [
       {
         types: ["normal-content-project"],
+        name: "Bouncing Particle Effects",
+        info: "Bouncing Particle Effects - Vanilla JavaScript & HTML Canvas Animation Tutorial with ES6 Classes",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+        types: ["normal-content-project"],
         name: "Drawing Fractal Trees Animation",
         info: "Drawing Fractal Trees HTML5 Canvas & Vanilla JavaScript Animation",
         fileName: "index",
