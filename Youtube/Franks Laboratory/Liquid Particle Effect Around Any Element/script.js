@@ -157,15 +157,14 @@ let particaleArray = [];
 const numberOfParticals = 90;
 function createParticals() {
     particaleArray = [];
-    let i, color = 360;
+    let i;
     for (i = 0; i < numberOfParticals; i++) {
-        color -= 0.1 // 360 / numberOfParticals;
         particaleArray.push(new Particale(
             buttons[0].x + (Math.random() * (buttons[0].width * 0.65)),// (Math.random() * 60) + 200
             (Math.random() * canvas.height),
             (Math.random() * 20) + 5,
             (Math.random() * 0.5) + 1,
-            `hsl(${color}, 50%, 50%)`
+            "#ff00bf"
         ));
     }
 }
