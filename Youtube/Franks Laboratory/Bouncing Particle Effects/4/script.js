@@ -12,30 +12,20 @@ const mouseCoor = {
 }
 
 let particalesArray = [];
-let numberOfParticales = 400;
-
-
-document.querySelector("svg").innerHTML = `
-<svg class="isHidden">
-<defs>
-    <filter id="goo">
-        <feGaussianBlur in="SourceGraphic"
-        stdDeviation="10" result="blur" />
-        <feColorMatrix in="blur" mode="matrix"
-        values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 19 -9" result="goo" />
-        <feComposite in="SourceGraphic" in2="goo" oparator="atop" />
-    </filter>
-</defs>
-</svg>
-`
+let numberOfParticales = 150;
 
 bouncingParticleEffectsSection.addEventListener("mouseover", (event) => {
     if (particalesArray.some(particale => particale.size > 0)) return;
+    
     particalesArray.forEach(particale => {
         if (!mouseCoor.x && !mouseCoor.y) {
-            particale.x = event.x + (Math.random() * (canvas.width - event.x));
-            particale.y = event.y + (Math.random() * (canvas.height - event.x));
-            particale.size = (Math.random() * 12) + 10;
+            particale.x = Math.random() * canvas.width;
+            particale.y =  event.y + (canvas.width * 0.25) >= canvas.height && (event.y - (canvas.width * 0.25) > 0) ?
+            event.y - (Math.random() * (canvas.width * 0.25)) :
+            event.y - (canvas.width * 0.25) < 0 ?
+            event.y + (Math.random() * (canvas.width * 0.25)) :
+            event.y - (Math.random() * (canvas.width * 0.25));
+            particale.size = (Math.random() * 5) + 5;
             particale.weight = 1;
         } else {
             return;
@@ -77,7 +67,7 @@ class Particale {
             if (mouseCoor.x && mouseCoor.y) {
                 this.x = (mouseCoor.x + ((Math.random() * 20) - 10));
                 this.y = (mouseCoor.y + ((Math.random() * 20) - 10));
-                this.size = (Math.random() * 12) + 10;
+                this.size = (Math.random() * 5) + 5;
                 this.weight = (Math.random() * 2) - 0.5;
             } else {
                 this.size = 0;
@@ -87,10 +77,10 @@ class Particale {
         this.weight += 0.2;
 
         if (this.y > canvas.height - this.size) {
-            this.weight *= -0.2;
+            this.weight *= -0.5;
         }
 
-        this.draw();
+        // this.draw();
     }
 }
 
@@ -103,7 +93,7 @@ function init() {
         particalesArray.push(new Particale(
             Math.random() * canvas.width,
             Math.random() * canvas.height,
-            (Math.random() * 12) + 10,
+            (Math.random() * 5) + 5,
             "pink",
             1
         ));
@@ -119,8 +109,31 @@ function animate() {
     // context.closePath();
     
     particalesArray.forEach(particale => particale.update());
+    connect()
     requestAnimationFrame(animate);
 }
 
 init();
 animate();
+
+function connect() {
+    let opacityValue = 1, a, b, distance;
+    for (a = 0; a < particalesArray.length; a++) {
+        for (b = a; b < particalesArray.length; b++) {
+            distance = ((particalesArray[a].x - particalesArray[b].x)**2)
+            +
+            ((particalesArray[a].y - particalesArray[b].y)**2);
+            if (distance < 1800 && distance > 100) {
+                opacityValue = 1 - (distance / 10000);
+                context.strokeStyle = `rgba(255, 255, 255, ${opacityValue})`;
+                context.beginPath();
+                context.lineWidth = 1;
+                context.moveTo(particalesArray[a].x, particalesArray[a].y);
+                context.lineTo(particalesArray[b].x, particalesArray[b].y);
+                context.stroke();
+                context.closePath();
+            }
+        }
+    }
+
+}
