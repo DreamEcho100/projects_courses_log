@@ -359,6 +359,20 @@ YotubeContent.list.push(
       },
       {
 	      types: ["normal-content-project"],
+        name: "Sticky Bubbles Animation",
+        info: "Sticky Bubbles Vanilla JavaScript Animation Tutorial - SVG Filters & ES6 Classes and HTML Canvas",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+	      types: ["normal-content-project"],
         name: "Vanilla JavaScript Flappy Bird With Particle Effects & Sprites",
         info: "Vanilla JavaScript Flappy Bird With Particle Effects & Sprites",
         fileName: "index",
