@@ -260,6 +260,20 @@ YotubeContent.list.push(
         },
       },
       {
+	      types: ["normal-content-project"],
+        name: "Flappy Bird With Particle Effects & Sprites",
+        info: "Vanilla JavaScript Flappy Bird With Particle Effects & Sprites",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
         types: ["normal-content-project"],
         name: "Image into Interactive Particles",
         info: "Image into Interactive Particles - HTML Canvas Animation Tutorial - Advanced Pure Vanilla JavaScript",
@@ -359,8 +373,8 @@ YotubeContent.list.push(
       },
       {
 	      types: ["normal-content-project"],
-        name: "Sticky Bubbles Animation",
-        info: "Sticky Bubbles Vanilla JavaScript Animation Tutorial - SVG Filters & ES6 Classes and HTML Canvas",
+        name: "Space Shooter",
+        info: "Vanilla JavaScript Gamedev - Sprite Animation - Make games from scratch with JS & HTML Canvas",
         fileName: "index",
         fileExtension: "html",
         difficulty: "",
@@ -373,8 +387,8 @@ YotubeContent.list.push(
       },
       {
 	      types: ["normal-content-project"],
-        name: "Vanilla JavaScript Flappy Bird With Particle Effects & Sprites",
-        info: "Vanilla JavaScript Flappy Bird With Particle Effects & Sprites",
+        name: "Sticky Bubbles Animation",
+        info: "Sticky Bubbles Vanilla JavaScript Animation Tutorial - SVG Filters & ES6 Classes and HTML Canvas",
         fileName: "index",
         fileExtension: "html",
         difficulty: "",

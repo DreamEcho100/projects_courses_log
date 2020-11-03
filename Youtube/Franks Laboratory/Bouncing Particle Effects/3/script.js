@@ -16,7 +16,6 @@ let numberOfParticales = 400;
 
 
 document.querySelector("svg").innerHTML = `
-<svg class="isHidden">
 <defs>
     <filter id="goo">
         <feGaussianBlur in="SourceGraphic"
@@ -26,7 +25,6 @@ document.querySelector("svg").innerHTML = `
         <feComposite in="SourceGraphic" in2="goo" oparator="atop" />
     </filter>
 </defs>
-</svg>
 `
 
 bouncingParticleEffectsSection.addEventListener("mouseover", (event) => {
