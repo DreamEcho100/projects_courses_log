@@ -77,11 +77,24 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
-  background: black;
+  overflow: hidden;
 }
 
-#canvas1{
+.floor,
+#canvas {
   position: absolute;
+}
+
+.floor {
+  background: url("./images/floors/Brick_01.png");
+  transform: rotate3d(1, 0, 1, 50deg);
+  top: -200%;
+  left: -200%;
+  width: 500%;
+  height: 500%;
+}
+
+#canvas{
   top: 0;
   left: 0;
   width: 100%;
