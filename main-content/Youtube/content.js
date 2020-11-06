@@ -373,7 +373,7 @@ YotubeContent.list.push(
       },
       {
 	      types: ["normal-content-project"],
-        name: "Space Shooter",
+        name: "Sprite Animation",
         info: "Vanilla JavaScript Gamedev - Sprite Animation - Make games from scratch with JS & HTML Canvas",
         fileName: "index",
         fileExtension: "html",
