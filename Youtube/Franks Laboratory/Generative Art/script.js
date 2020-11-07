@@ -93,12 +93,7 @@ canvas.addEventListener("mouseup", (event) => {
         drawing = false;
     }
 });
-canvas.addEventListener("click", (event) => {
-    console.log(event);
-    if (event.button === 2) {
-        console.log(true)
-    }
-});
+
 let dbRightMouseClick = 0;
 canvas.addEventListener("contextmenu", (event) => {
     if (event.which === 3 || event.button === 3) {
