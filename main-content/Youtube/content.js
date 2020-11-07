@@ -274,6 +274,20 @@ YotubeContent.list.push(
         },
       },
       {
+	      types: ["normal-content-project"],
+        name: "Generative Art",
+        info: "Generative Art for Beginners - Particle System Algorithm with Vanilla JavaScript and HTML Canvas",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
         types: ["normal-content-project"],
         name: "Image into Interactive Particles",
         info: "Image into Interactive Particles - HTML Canvas Animation Tutorial - Advanced Pure Vanilla JavaScript",
