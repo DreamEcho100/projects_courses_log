@@ -87,6 +87,15 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  border: 1px solid black;
+  background: #d79c50;
+  
+  /*width: 800px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
 }
 
 .isHidden {

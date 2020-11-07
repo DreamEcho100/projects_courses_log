@@ -387,6 +387,20 @@ YotubeContent.list.push(
       },
       {
 	      types: ["normal-content-project"],
+        name: "Simple Game & Sprite Animation",
+        info: "Making a Game with JavaScript and HTML Canvas - Keyboard Input & Sprite Animation [Vanilla JS]",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+	      types: ["normal-content-project"],
         name: "Sprite Animation",
         info: "Vanilla JavaScript Gamedev - Sprite Animation - Make games from scratch with JS & HTML Canvas",
         fileName: "index",
