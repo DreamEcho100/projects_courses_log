@@ -99,6 +99,7 @@ canvas.addEventListener("contextmenu", (event) => {
     if (event.which === 3 || event.button === 3) {
         dbRightMouseClick++;
         if (dbRightMouseClick === 2) {
+            event.preventDefault();
             context.clearRect(0, 0, canvas.width, canvas.height);
             return false;
         } else {
