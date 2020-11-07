@@ -11,26 +11,7 @@ const enemy1 = {};
 enemy1.character = new Image();
 enemy1.character.src = "./images/characters/PC Computer - Cuphead Dont Deal With the Devil - Cuphead Overworld.png";
 
-/*
-const playerWidth = 103.0625;
-const playerHeight = 113.125;
-
-// From the sprite sheet
-let playerFrameX = 3;
-let playerFrameY = 3;
-
-// On the canvas
-let playerX = 0;
-let playerY = 0;
-
-let playerSpeed = 6; // HOW MUCH TO MOVE PER TIME
-let counterLimit = 1.5; // WHEN TO MOVE
-let playerCounter = 0;
-let playerCounterAdd = 0.5;
-*/
-// const characterAction = ["up", "top right", "right", "down right", "down", "jump"];
-
-const characterAction = ["up", "right", "jump", "down right"];
+const characterAction = ["up", "top right", "right", "jump", "down right", "down"];
 const characters = [];
 const numberOfCharacters = 10;
 class Characters {
@@ -49,6 +30,10 @@ class Characters {
             this.frameY = 0;
             this.frameXLimit = 15;
             this.frameXBase = 4;
+        } else if (this.movement.action === "top right") {
+            this.frameY = 1;
+            this.frameXLimit = 12;
+            this.frameXBase = 3;
         } else if (this.movement.action === "right") {
             this.frameY = 3;
             this.frameXLimit = 13;
@@ -61,6 +46,10 @@ class Characters {
             this.frameY = 4;
             this.frameXLimit = 15;
             this.frameXBase = 4;
+        } else if (this.movement.action === "down") {
+            this.frameY = 6;
+            this.frameXLimit = 12;
+            this.frameXBase = 0;
         }
     }
 
@@ -82,36 +71,61 @@ class Characters {
     }
 
     update() {
-        // Animate sprite
-        // if (this.movement.action !== "up") {
-            if (this.frameX < this.frameXLimit) this.frameX++;
-            else  this.frameX = this.frameXBase;
-        // }
+        if (this.frameX < this.frameXLimit) this.frameX++;
+        else  this.frameX = this.frameXBase;
 
-        if (this.movement.action === "right") {
+        if (this.movement.action === "up") {
+            if (this.y < (0 - this.height)) {
+                    this.y = canvas.height + this.height;
+                    this.x = Math.random() * (canvas.width - this.width);
+            } else {
+                this.y -= this.movement.speedPerTime;
+            }
+        } else if (this.movement.action === "top right") {
+            if (
+                this.y < (0 - this.height) &&
+                this.x > canvas.width + this.width
+            ) {
+                if (Math.random() > 0.5) {
+                    this.y = canvas.height + this.height;
+                    this.x = Math.random() * (canvas.width - this.width);
+                } else {
+                    this.y = Math.random() * (canvas.height - this.height);
+                    this.x = -this.width;
+                }
+            } else {
+                this.y -= this.movement.speedPerTime;
+                this.x += this.movement.speedPerTime
+            }
+        } else if (this.movement.action === "right") {
             // Move character
             if (this.x > canvas.width + this.width) {
                 this.x = 0 - this.width;
                 this.y = Math.random() * (canvas.height - this.height);
             }
             else this.x += this.movement.speedPerTime;
-        } else if (this.movement.action === "up") {
-            if (this.y < (0 - this.height)) {
-                this.y = canvas.height + this.height;
-                this.x = Math.random() * (canvas.width - this.width);
-            } else {
-                this.y -= this.movement.speedPerTime;
-            }
         } else if (this.movement.action === "down right") {
             if (
                 this.y > canvas.height + this.height &&
                 this.x > this.width + canvas.width
             ) {
-                this.y = -this.width;
-                this.x = Math.random() * (canvas.width - this.width);
+                if (Math.random() > 0.5) {
+                    this.y = -this.height;
+                    this.x = Math.random() * (canvas.width - this.width);
+                } else {
+                    this.y = Math.random() * (canvas.height - this.height);
+                    this.x = -this.width;
+                }
             } else {
                 this.y += this.movement.speedPerTime;
                 this.x += this.movement.speedPerTime;
+            }
+        } else if (this.movement.action === "down") {
+            if (this.y > canvas.height + this.height) {
+                this.y = -this.height;
+                this.x = Math.random() * (canvas.width - this.width);
+            } else {
+                this.y += this.movement.speedPerTime;
             }
         }
     }
@@ -129,8 +143,8 @@ for (let i = 0; i < numberOfCharacters; i++) {
         Math.random() * canvas.height,
         {
             action: characterAction[Math.floor(Math.random() * characterAction.length)],
-            speedPerTime: 6,
-            limitToMove: 1.5,
+            speedPerTime: 6, // HOW MUCH TO MOVE PER TIME
+            limitToMove: 1.5, // WHEN TO MOVE
             counter: 0,
             counterAdd: 0.5
         }
