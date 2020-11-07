@@ -65,7 +65,7 @@ function branchOut() {
     if (drawing) {
         const centerX = mouseCoor.x;
         const centerY = mouseCoor.y
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 5; i++) {
             const root = new Root(mouseCoor.x, mouseCoor.y, "red", centerX, centerY);
             root.draw();
         }
@@ -93,15 +93,21 @@ canvas.addEventListener("mouseup", (event) => {
         drawing = false;
     }
 });
-canvas.addEventListener("contextmenu", (event) =>{
-    // console.log(event);
-    if (event.which === 3 || event.button === 3) {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        /*context.clearRect(0, 0, canvas.width, canvas.height);
-        context.beginPath();
-        context.fillRect(0, 0, canvas.width, canvas.height);
-        context.fillStyle = "rgba(255, 255, 255)";
-        context.closePath();*/
+canvas.addEventListener("click", (event) => {
+    console.log(event);
+    if (event.button === 2) {
+        console.log(true)
     }
-    return false;
+});
+let dbRightMouseClick = 0;
+canvas.addEventListener("contextmenu", (event) => {
+    if (event.which === 3 || event.button === 3) {
+        dbRightMouseClick++;
+        if (dbRightMouseClick === 2) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            return false;
+        } else {
+            setTimeout(() => dbRightMouseClick = 0, 250);
+        }
+    }
 });
