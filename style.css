@@ -50,7 +50,7 @@ section {
     margin: 1%;
     padding: 2%;
     border: 5px solid black;
-    background-image: linear-gradient(-90deg, red, yellow);
+    background-image: linear-gradient(-90deg, red, black, yellow);
     transition: all 3s;
 }
 
@@ -63,7 +63,7 @@ ol {
 }
 
 .subElemContainngInfo {
-    background-image: linear-gradient(-90deg, red, yellow);
+    background-image: linear-gradient(-90deg, black, red, black, yellow, black);
 	cursor: help;
     color: blue;
     background-color: #ddd;
