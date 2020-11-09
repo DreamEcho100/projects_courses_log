@@ -41,13 +41,12 @@ class Enemy extends Character {
                 this.x + this.width > player.x &&
                 this.y > player.y - (player.height * 0.5) &&
                 this.y < player.y + (player.height * 0.5) &&
-                this.y - this.speed > (canvas.height / 8)
+                this.y - this.speed > (canvas.height * 0.25)
         ) {
             this.y -= this.speed;
             this.pos["up"] = true;
             this.handleEnemyFrame("up");
-        }
-        if (
+        } else if (
                 this.x - this.width  < player.x + player.width &&
                 this.x + this.width > player.x &&
                 this.y > player.y + (player.height * 0.5) &&
@@ -113,13 +112,14 @@ const enemies = [];
 function addEnemy(limit) {
     for (let i = 0; i < limit; i++) {
         const character = enemeInfoHolder[Math.floor(Math.random() * enemeInfoHolder.length)];
+        const spriteSheetMovement = Object.assign({}, spriteSheetMovement1)/*{...spriteSheetMovement1}*/;
         enemies.push(new Enemy(
             character.src,
-            canvas.width + character.width + (Math.random() * canvas.width * 1.25),
-            (canvas.height * 0.11) + ((Math.random() * canvas.height) * 0.7),
+            canvas.width + character.width + (Math.random() * canvas.width * 0.75),
+            (canvas.height * 0.25) + ((Math.random() * canvas.height) * 0.5),
             character.width,
             character.height,
-            spriteSheetMovement1,
+            /*spriteSheetMovement*/JSON.parse(JSON.stringify(spriteSheetMovement1)),
             {
                 "left": true,
             },

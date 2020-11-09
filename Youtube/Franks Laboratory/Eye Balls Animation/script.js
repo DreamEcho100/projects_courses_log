@@ -75,7 +75,7 @@ function init(canvas) {
     eyes = [];
 
     let overlapping = false;
-    const numberOfEyes = Math.ceil((canvas.height * canvas.width) / 9000) * 1.5;;
+    const numberOfEyes = Math.ceil((canvas.height * canvas.width) / 9000) * 1.5;
     const protection = 10000;
     let counter = 0;
     /*eyes.push(new Eye(

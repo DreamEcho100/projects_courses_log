@@ -55,7 +55,7 @@ const player = new Player(
     canvas.width / 3,
     40,
     72,
-    spriteSheetMovement1,
+    /*Object.assign({}, spriteSheetMovement1)*/JSON.parse(JSON.stringify(spriteSheetMovement1))/*{...spriteSheetMovement1}*/,
     "down",
     9,
     false,

@@ -1,5 +1,6 @@
 let counter = 0;
 let limit = 3;
+const enemiesLimit = Math.ceil((canvas.height * canvas.width) / 9000 * .35);
 function animate() {
     if(counter % limit === 0) {
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -8,7 +9,7 @@ function animate() {
         player.drawSprite();
         player.movePlayer();
         
-        if (enemies.length > 15) setTimeout(() => enemies.pop(), 0);
+        if (enemies.length > enemiesLimit) setTimeout(() => enemies.pop(), 0);
         setTimeout(() =>player.moving = false, 0);
         enemies.forEach((enemy, index) => {
             if (
