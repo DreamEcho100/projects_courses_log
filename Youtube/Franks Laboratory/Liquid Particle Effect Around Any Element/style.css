@@ -1,0 +1,279 @@
+/*----------------------------*/
+/* GLOBAL STYLES */
+/*----------------------------*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  --header1: calc(2rem + 1vw);
+  --header2: calc(3.5rem + 1vw);
+  --header3: calc(3rem + 1vw);
+  --header4: calc(2.4rem + 1vw);
+  --text: calc(1.5rem + 1vw);
+  --big-text: calc(6rem + 1vw);
+  --bg-color: #414141;
+  --color-special: #906272;
+  --color-1: #000;
+  --color-2: #525252;
+  --color-2: #fff;
+}
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+h1 {
+	font-size: var(--header1);
+}
+h2 {
+	font-size: var(--header2);
+}
+h3 {
+	font-size: var(--header3);
+}
+h4,
+h5 {
+	font-size: var(--header4);
+}
+li,
+button,
+label,
+input,
+a,
+p {
+	font-size: var(--text);
+}
+ul {
+	list-style: none;
+}
+a {
+  text-decoration: none;
+  color: var(--color-1);
+}
+body {
+  animation: opening 1s ease-in-out;
+}
+
+/*----------------------------*/
+/* ANIMATIONS */
+/*----------------------------*/
+@keyframes opening {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/*----------------------------*/
+/*  */
+/*----------------------------*/
+#liquid-particle-effect-around-any-element {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: whitesmoke;
+}
+
+.content {
+  /*padding-top: 15em;*/
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+nav {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  height: max-content;
+  margin-right: 0.5em;
+}
+
+.mainBlock {
+  width: 65%;
+  min-width: 40rem;
+  height: 25rem;
+  border: 3px solid black;
+  padding: 1em 1em;
+  background: black;
+  color: white;
+  font-size: 1.4rem;
+  position: relative;
+  z-index: 5;
+  margin: 0 0.5em 0 0.5em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.topBlock,
+.bottomBlock {
+  width: 80%;
+  border: 2px solid black;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+
+  color: black;
+  height: 7rem;
+  left: 13%;
+  line-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  text-align: center;
+}
+
+.topBlock {
+  top: 0;
+}
+
+.bottomBlock {
+  bottom: 0;
+  height: 12rem;
+}
+
+.mainBlock:hover .topBlock,
+.mainBlock:hover .bottomBlock {
+  opacity: 1;
+}
+.mainBlock:hover .topBlock {
+  transform: translateY(-100%);
+}
+.mainBlock:hover .bottomBlock {
+  transform: translateY(100%);
+}
+
+.bottomBlock:hover ~ .topBlock {
+  transform: translateY(100%);
+  opacity: 0;
+}
+.topBlock:hover ~ .bottomBlock {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.content button {
+  width: 20rem;
+  height: 3.9rem;
+  border: 1px solid black;
+  position: relative;
+  color: white;
+  margin-bottom: 1em;
+  font-size: 1.4rem;
+
+  outline-color: transparent;
+  background: none;
+}
+
+.content button:nth-child(5) {
+  margin-bottom: 0;
+}
+
+.content button::before {
+  content: "";
+  width: 100%;
+  height: 4rem;
+  position: absolute;
+  background: black;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content button:nth-child(1)::before {
+  content: "HOME";
+}
+.content button:nth-child(2)::before {
+  content: "PROJECTS";
+}
+.content button:nth-child(3)::before {
+  content: "CONTACT";
+}
+.content button:nth-child(4)::before {
+  content: "ABOUT";
+}
+.content button:nth-child(5)::before {
+  content: "HIRE ME";
+}
+.content button:hover::before {
+  transform: translateX(-25%);
+}
+
+#canvas1 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: url(#goo);
+}
+
+.isHidden {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 700px) {
+  .content {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .content nav {
+    align-items: center;
+    margin-top: 2em;
+  }
+
+  .content .mainBlock {
+    width: 75%;
+    min-width: 0rem;
+    height: 20rem;
+    margin-top: 8rem;
+  }
+  .topBlock {
+    height: 5rem;
+  }
+  .bottomBlock {
+    height: 7rem;
+  }
+  .mainBlock .topBlock,
+  .mainBlock .bottomBlock {
+    opacity: 1;
+  }
+  .mainBlock .topBlock {
+    transform: translateY(-100%);
+  }
+  .mainBlock .bottomBlock {
+    transform: translateY(100%);
+  }
+  .bottomBlock:hover ~ .topBlock {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  .topBlock:hover ~ .bottomBlock {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css" />
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+
+    <title>Pig Game</title>
+</head>
+
+<body>
+    <section class="wrapper clearfix">
+        <div class="player-0-panel active">
+            <div class="player-name" id="name-0">Player 1</div>
+            <div class="player-score" id="score-0">43</div>
+            <div class="player-current-box">
+                <div class="player-current-label">Current</div>
+                <div class="player-current-score" id="current-0">11</div>
+            </div>
+        </div>
+
+        <div class="player-1-panel">
+            <div class="player-name" id="name-1">Player 2</div>
+            <div class="player-score" id="score-1">72</div>
+            <div class="player-current-box">
+                <div class="player-current-label">Current</div>
+                <div class="player-current-score" id="current-1">0</div>
+            </div>
+        </div>
+        <div class="someControlsAndDice">
+            <button class="btn-new SCADbox"><i class="ion-ios-plus-outline btn-icon"></i><span class="btn-speech">New
+                    game</span></button>
+            <button class="btn-help SCADbox"><i class="ion-ios-help-outline btn-icon"></i><span
+                    class="btn-speech">Help</span></button>
+
+            <img src="dice-5.png" alt="Dice" class="dice SCADbox" id="dice1">
+            <img src="dice-5.png" alt="Dice" class="dice SCADbox" id="dice2">
+
+            <button class="btn-roll SCADbox"><i class="ion-ios-loop btn-icon"></i><span class="btn-speech">Roll
+                    dice</span></button>
+            <button class="btn-hold SCADbox"><i class="ion-ios-download-outline btn-icon"></i><span
+                    class="btn-speech">Hold</span></button>
+
+            <input type="text SCADbox" placeholder="Final score" class="final-score" />
+
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

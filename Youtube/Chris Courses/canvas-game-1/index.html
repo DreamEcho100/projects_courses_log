@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>canvas-game-1</title>
+</head>
+<body>
+    <section id="game-container">
+        <div id="score-board">Score: <span class="score-points">0</div>
+        <div class="stats-board">
+            <section>
+                <div class="stats-card">
+                    <h1 class="score-points">0</h1>
+                    <p>Points</p>
+                    <div class="current-stat">sTaRt `o~o` ????</div>
+                    <div class="btns">
+                        <button class="btn isHidden" id="restart-btn">Restart</button>
+                        <button class="btn isHidden" id="resume-btn">Resume</button>
+                        <button class="btn" id="start-btn">Start</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <canvas></canvas>
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js" integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ==" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>

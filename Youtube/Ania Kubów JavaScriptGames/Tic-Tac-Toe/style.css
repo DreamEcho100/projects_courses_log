@@ -1,0 +1,59 @@
+:root {
+	font-size: 62.5%;
+    --main-grid-width: calc(15rem + 20vw);
+    --main-grid-height: calc(15rem + 20vw);
+    /*font-size: calc(30% + 5%);
+    --main-grid-width: calc(16rem + 25vw);
+    --main-grid-height: calc(16rem + 25vw);*/
+    /*font-size: calc(34.1% + 0.5vw);
+    --main-grid-width: calc(30rem + 10vw);
+    --main-grid-height: calc(30rem + 10vw);*/
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
+}
+
+#Tic-Tac-Toe-section {
+    height: 100%;
+}
+
+#Tic-Tac-Toe-section .grid {
+    background-color: black;
+    width: calc(var(--main-grid-width) + 5px);
+    height: calc(var(--main-grid-height) + 5px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#Tic-Tac-Toe-section .grid div{
+    background-color: #007bff;
+    width: calc(var(--main-grid-width) / 3);
+    height: calc(var(--main-grid-height) / 3);
+    background-position: center;
+    background-size: cover;
+}
+
+.playerX {
+    background-image: url(./images/cross.png);
+}
+
+.playerO {
+    background-image: url(./images/circle.png);
+}
+
+.line {
+    position: absolute;
+    background: black;
+}

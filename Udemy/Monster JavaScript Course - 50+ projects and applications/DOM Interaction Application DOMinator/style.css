@@ -1,0 +1,16 @@
+.bigger {
+    font-size: 3em;
+    font-family: cursive;
+}
+
+.padded {
+    padding: 20px;
+}
+
+.borderAdd {
+    border: 3px dotted blue;
+}
+
+#main >* {
+    border: 1px solid #ddd;
+}

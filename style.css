@@ -1,0 +1,93 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+html {
+	font-size: calc(50% + 0.25vw);
+}
+body {
+	display: flex;
+	flex-direction: column;
+    align-items: center;
+    background-color: black;
+    color: black;
+}
+body::-webkit-scrollbar {
+	width: calc(1.5rem + 0.2vw);
+}
+
+body::-webkit-scrollbar-track {
+	background: #1e1e24;
+}
+body::-webkit-scrollbar-thumb {
+	background: #6649b8;
+}
+h2 {
+	font-size: 2.4rem
+}
+h3 {
+	font-size: 1.872rem
+}
+p,
+li,
+a {
+	font-size: 1.6rem
+}
+a,
+a:visited,
+a:active {
+	color: black;
+	text-decoration: none;
+}
+
+section {
+    margin: 1%;
+    padding: 2%;
+    border: 5px solid black;
+    background-image: linear-gradient(-90deg, red, yellow);
+    transition: all 3s;
+}
+
+.main-section {
+	width: 80vw
+}
+
+ol {
+    padding: 5%;
+}
+
+.subElemContainngInfo {
+    background-image: linear-gradient(-90deg, red, yellow);
+	cursor: help;
+    color: blue;
+    background-color: #ddd;
+    padding: 0.25rem 1rem;
+    border-radius: 20rem;
+}
+
+.tooltip-output {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    border: 1px solid red;
+    background-color: black;
+    color: white;
+    padding: 0.5rem;
+    font-size: 2rem;
+    top: 100px;
+    left: 50px;
+}
+
+.spinningBackground1 {
+    /*animation: spinningBackground1Animation 10s infinite alternate;*/
+}
+
+@keyframes spinningBackground1Animation {
+    
+}

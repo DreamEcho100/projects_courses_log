@@ -1,0 +1,59 @@
+.BurgerControl {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0.5rem 0;
+}
+
+.BurgerControl button {
+    display: block;
+    font: inherit;
+    padding: calc(0.5em + 0.1vw);
+    font-size: calc(1rem + 0.1vw);
+    margin: 0 0.5em;
+    min-width: calc(4rem + 8vw);
+    border: 1px solid #AA6817;
+    cursor: pointer;
+    outline-width: 0.01rem;
+    outline-color: #AA6817;
+}
+
+.BurgerControl button:disabled {
+    background-color: #AC9980;
+    border: 1px solid #7E7365;
+    color: #ccc;
+    cursor: default;
+}
+
+.BurgerControl button:hover:disabled {
+    background-color: #AC9980;
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.Label {
+    padding: 1em;
+    font-size: calc(1rem + 0.1vw);
+    font-weight: bold;
+    max-width: 8rem;
+}
+
+.BurgerControl .Less {  
+    background-color: #D39952;
+    color: white;
+}
+
+.BurgerControl .More {
+    background-color: #8F5E1E;
+    color: white;
+}
+
+.BurgerControl .Less:hover, .BurgerControl .Less:active {  
+    background-color: #DAA972;
+    color: white;
+}
+
+.BurgerControl .More:hover,.BurgerControl .More:active {
+    background-color: #99703F;
+    color: white;
+}

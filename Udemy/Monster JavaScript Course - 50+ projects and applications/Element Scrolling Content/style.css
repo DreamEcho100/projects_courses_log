@@ -1,0 +1,15 @@
+#cElement{
+    background-color: #c9c9c9;
+    width: 400px;
+    font-size: 1em;
+    position: relative;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+#cElement #sElement{
+    position: absolute;
+    left:0px;
+    top:0px;
+    width:100%;
+}

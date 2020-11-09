@@ -1,0 +1,17 @@
+.hide {
+    display: none;
+}
+
+.error {
+    color: red;
+    font-size: 0.8em;
+    font-family: sans-serif;
+    font-style: italic;
+}
+
+input {
+    border-color: #ddd;
+    width: 400px;
+    display: block;
+    font-size: 1.5em;
+}

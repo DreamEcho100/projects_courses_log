@@ -1,0 +1,82 @@
+:root {
+    font-size: calc(34.1% + 0.5vw);
+    --main-grid-width: calc(30rem + 10vw);
+    --main-grid-height: calc(30rem + 10vw);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+    font-family: "Montserrat", sans-serif;
+}
+
+#PACMAN-section {
+    height: 100%;
+}
+
+#PACMAN-section .grid {
+	display: flex;
+	flex-wrap: wrap;
+	width: var(--main-grid-width);
+	height: var(--main-grid-height);
+	background-color: black;
+}
+
+#PACMAN-section .grid div {
+    width: calc(var(--main-grid-width) / 28);
+    height: calc(var(--main-grid-height) / 28);
+}
+
+.pac-dot {
+    background: white;
+    border: calc(var(--main-grid-height) / 28 / 3.5) solid black;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.wall {
+    background-color: blue;
+}
+
+.power-pellet {
+    background-color: green;
+    border-radius: 10px;
+}
+
+.ghost {
+	border-width: 0px;
+	border-radius: 0px;
+}
+
+.blinky {
+    background-color: red;
+}
+
+.pinky {
+    background-color: pink;
+}
+
+.inky {
+    background-color: cyan;
+}
+
+.clyde {
+    background-color: orange;     
+}
+
+.pac-man {
+    background-color: yellow;
+    border-radius: 10px;   
+    border: 0 solid white;
+}
+
+.scared-ghost {
+    background-color: aquamarine;
+}

@@ -1,0 +1,223 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.sequencer {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.controls {
+    width: 20rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    margin: 0 2rem 0 0;
+}
+
+.controls button {
+	padding: 1rem;
+	border: none;
+	color: white;
+	background: rgb(182, 182, 182);
+	font-size: 1rem;
+	cursor: pointer;
+	transition: all 0.5s ease;
+}
+
+.controls select {
+    padding: 1rem;
+    font-size: 1rem;
+    width: fit-content;
+}
+
+.mute-btn.active {
+	background: rgb(88, 88, 88);
+}
+
+.tempo {
+	margin: 0;
+	width: 30%;
+}
+.tempo-slider {
+	padding: 0.2rem;
+	-webkit-appearance: none;
+	margin: 1rem 0rem;
+	width: 100%;
+	position: relative;
+	background: rgb(88, 88, 88);
+	cursor: pointer;
+	border-radius: 1rem;
+}
+.tempo p {
+	font-size: 1.5rem;
+	margin: 2rem;
+	text-align: center;
+}
+
+.pad {
+	transition: all 0.5s ease;
+}
+
+i,
+svg {
+	pointer-events: none;
+}
+
+
+.track-section {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    justify-content: space-between;
+    margin: 5rem auto auto auto;
+}
+
+
+.track {
+	display: flex;
+}
+
+
+.track-pad {
+	width: 4rem;
+	height: 4rem;
+	margin: 1rem 0.5rem;
+	cursor: pointer;
+}
+
+
+.clap-pad {
+	background: rgb(247 118 118);
+}
+.cowbell-pad {
+	background: rgb(120 247 118);
+}
+.crash-pad {
+	background: rgb(132 135 243);
+}
+.hihat-pad {
+	background: rgb(224, 194, 160);
+}
+.kick-pad {
+	background: rgb(160, 221, 224);
+}
+.openhat-pad {
+	background: rgb(239 247 118);
+}
+.perc-pad {
+	background: rgb(118 247 164);
+}
+.snare-pad {
+	background: rgb(224, 160, 208);
+}
+
+.clap-pad.active {
+	background: rgb(255 65 65);
+}
+.cowbell-pad.active {
+	background: rgb(63 239 61);
+}
+.crash-pad.active {
+	background: rgb(45 49 208);
+}
+.hihat-pad.active {
+	background: rgb(241, 158, 64);
+}
+.kick-pad.active {
+	background: rgb(59, 197, 231);
+}
+.openhat-pad.active {
+	background: rgb(255 235 60);
+}
+.perc-pad.active {
+	background: rgb(0, 255, 91);
+}
+.snare-pad.active {
+	background: rgb(218, 58, 178);
+}
+
+.play {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background: rgb(88, 88, 88);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+@keyframes playTrack {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.2);
+	}
+}
+
+@media only screen and (max-width: 1060px) {
+	.track-section {
+	    margin: 1rem auto auto auto;
+	    flex-wrap: wrap;
+	}
+	.controls {
+    	width: 30%;
+	    margin: auto;
+	    font-size: 0.8rem;
+	}
+	.track {
+	    margin: 0 auto;
+	}
+	.controls button {
+	    padding: 0.7rem;
+	    margin: 0.5rem;
+	}
+	.controls select {
+	    padding: 0.5rem;
+	    font-size: 0.8rem;
+	    width: 6rem;
+	}
+	.play {
+	    margin-top: 1rem;
+	}
+	.tempo p {
+	    margin: 0.5rem;
+	}
+}
+
+@media only screen and (max-width: 660px) {
+	.track {
+	    flex-wrap: wrap;
+    	justify-content: center;
+	}
+	.track-pad {
+	    margin: 0.5rem 0.5rem;
+	}
+}
+
+
+@media only screen and (max-width: 250px) {
+	.controls {
+    	width: 30%;
+	    margin: auto;
+	    font-size: 0.7rem;
+	}
+
+	.controls button {
+	    padding: 0.6rem;
+	    margin: 0.4rem;
+	}
+	.controls select {
+	    padding: 0.4rem;
+	    font-size: 0.7rem;
+	    width: 4rem;
+	}
+}
