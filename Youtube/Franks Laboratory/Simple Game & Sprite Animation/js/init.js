@@ -11,6 +11,7 @@ context.imageSmoothingEnabled = false;
 window.addEventListener("resize", () => {
     canvas.width = innerWidth;
     canvas.height = innerHeight;
+    enemiesLimit = Math.ceil((canvas.height * canvas.width) / 9000 * .35);
 });
 
 const background = new Image();

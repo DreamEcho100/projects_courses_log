@@ -123,7 +123,7 @@ function addEnemy(limit) {
             {
                 "left": true,
             },
-            4
+            5
         ));
     }
 }

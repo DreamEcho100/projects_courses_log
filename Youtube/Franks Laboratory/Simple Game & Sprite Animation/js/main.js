@@ -1,6 +1,6 @@
 let counter = 0;
 let limit = 3;
-const enemiesLimit = Math.ceil((canvas.height * canvas.width) / 9000 * .35);
+let enemiesLimit = Math.ceil((canvas.height * canvas.width) / 9000 * .35);
 function animate() {
     if(counter % limit === 0) {
         context.clearRect(0, 0, canvas.width, canvas.height);
@@ -15,8 +15,8 @@ function animate() {
             if (
                 enemy.x < player.x + player.width &&
                 enemy.x > player.x &&
-                enemy.y < player.y + player.height &&
-                enemy.y > player.y
+                enemy.y < player.y + player.height - (player.height * 0.2) &&
+                enemy.y > player.y -  (player.height * 0.3)
             ) {
                 setTimeout(() => enemies.splice(index, 1), 0);
                 addEnemy(1);
