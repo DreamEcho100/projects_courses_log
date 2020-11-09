@@ -19,32 +19,33 @@ class Player extends Character {
     }
 
     handlePlayerFrame() {
+        if (!this.moving) return;
         if (this.frame[this.pos].x.coor < this.frame[this.pos].x.limit) this.frame[this.pos].x.coor++;
         else this.frame[this.pos].x.coor = this.frame[this.pos].x.base;
     }
 
     movePlayer() {
-        if (!this.moving) return;
         if ((keys["38"] || keys["ArrowUp"]) && this.y > (canvas.height / 10)) {
+            this.moving = true;
             this.y -= this.speed;
             this.pos = "up";
-            this.handlePlayerFrame();
         }
         if ((keys["40"] || keys["ArrowDown"]) && (this.y + this.height) < canvas.height) {
+            this.moving = true;
             this.y += this.speed;
             this.pos = "down";
-            this.handlePlayerFrame();
         }
         if ((keys["39"] || keys["ArrowRight"]) && this.x + this.width < canvas.width) {
+            this.moving = true;
             this.x += this.speed;
             this.pos = "right";
-            this.handlePlayerFrame();
         }
         if ((keys["37"] || keys["ArrowLeft"]) && this.x > 0) {
+            this.moving = true;
             this.x -= this.speed;
             this.pos = "left";
-            this.handlePlayerFrame();
         }
+        this.handlePlayerFrame();
     }
 }
 

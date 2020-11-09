@@ -87,3 +87,12 @@ const spriteSheetMovement1 = {
         },
     },
 };
+
+const keys = {};
+window.addEventListener("keydown", (event) => {
+    keys[event.key || event.keyCode] = true;
+});
+window.addEventListener("keyup", (event) => {
+    delete keys[event.key || event.keyCode];
+    player.moving = false;
+});
