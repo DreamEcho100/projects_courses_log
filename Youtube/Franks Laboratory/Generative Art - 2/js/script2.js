@@ -22,12 +22,19 @@ canvas.addEventListener("mousemove", (event) => {
 window.addEventListener("resize", () => {
     canvas.width = innerWidth;
     canvas.height = innerHeight;
+    init();
 });
 
+canvas.style.background = "linear-gradient(to right, white, black)";
+
 const numberOfParticales = 150;
-const particalesArray = [];
+let particalesArray = [];
 /*let hue = 0;
 let hue2 = 12;*/
+
+const gradient = context.createLinearGradient(0, 0, canvas.width, 0);
+
+const gradient2 = context.createLinearGradient(0, 0, canvas.width, 0);
 
 class Particale {
     constructor() {
@@ -42,25 +49,25 @@ class Particale {
     drawCuerent() {
         context.beginPath();
         context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        context.fillStyle = "blue";
+        context.fillStyle = gradient;
         context.closePath();
         context.fill();
         context.stroke();
-        context.strokeStyle = "black";
+        context.strokeStyle = gradient2;
     }
 
     drawPrevuios() {
         context.beginPath();
         context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        context.fillStyle = "black";
+        context.fillStyle = gradient2;
         context.closePath();
         context.fill();
         context.stroke();
-        context.strokeStyle = "black";
+        context.strokeStyle = gradient2;
     }
 
     update() {
-        this.drawPrevuios();
+        // this.drawPrevuios();
         if (
             this.x + this.speedX < 0 ||
             this.x + this.speedX > canvas.width
@@ -92,15 +99,25 @@ class Particale {
 };
 
 function init() {
+    particalesArray = [];
+    gradient.addColorStop("0.2", "red");
+    gradient.addColorStop("0.4", "blue");
+    gradient.addColorStop("0.6", "green");
+    gradient.addColorStop("0.8", "pink");
+    
+    gradient2.addColorStop("0.2", "black");
+    gradient2.addColorStop("0.5", "transparent");
+    gradient2.addColorStop("0.3", "white");
+    
     for (let i = 0; i < numberOfParticales; i++) {
         particalesArray.push(new Particale);
     }
 }
 
 function animate() {
-    // context.clearRect(0, 0, canvas.width, canvas.height);
-    context.fillStyle = "rgba(255, 255, 255, 0.01)";
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    // context.fillStyle = "rgba(255, 255, 255, 0.01)";
+    // context.fillRect(0, 0, canvas.width, canvas.height);
     
     
     particalesArray.forEach(particale => particale.update());
