@@ -32,6 +32,29 @@ class Character {
         this.speed = speed;
     }
 
+    drawSprite() {
+        for (let pos in this.pos) {
+            if (this.pos[pos]) {
+                context.drawImage(
+                    this.img, // img
+                    this.width * this.frame[pos].x.coor, // sX
+                    this.height * this.frame[pos].y.coor, // sY
+                    this.width, // sW
+                    this.height, // sH
+                    this.x, // dX
+                    this.y, // dY
+                    this.width, // dW
+                    this.height, // dH
+                );
+            }
+        }
+    }
+
+    handleFrame(pos) {
+        if (this.frame[pos].x.coor < this.frame[pos].x.limit) this.frame[pos].x.coor++;
+        else this.frame[pos].x.coor = this.frame[pos].x.base;
+    }
+
     imgHandler(imgSrc) {
         this.img = new Image();
         this.img.src = imgSrc;
