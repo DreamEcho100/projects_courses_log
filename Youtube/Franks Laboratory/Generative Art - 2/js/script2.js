@@ -32,9 +32,9 @@ let particalesArray = [];
 /*let hue = 0;
 let hue2 = 12;*/
 
-const gradient = context.createLinearGradient(0, 0, canvas.width, 0);
+let gradient = context.createLinearGradient(0, 0, canvas.width, 0);
 
-const gradient2 = context.createLinearGradient(0, 0, canvas.width, 0);
+let gradient2 = context.createLinearGradient(0, 0, canvas.width, 0);
 
 class Particale {
     constructor() {
@@ -100,11 +100,13 @@ class Particale {
 
 function init() {
     particalesArray = [];
+    gradient = context.createLinearGradient(0, 0, canvas.width, 0);
     gradient.addColorStop("0.2", "red");
     gradient.addColorStop("0.4", "blue");
     gradient.addColorStop("0.6", "green");
     gradient.addColorStop("0.8", "pink");
     
+    gradient2 = context.createLinearGradient(0, 0, canvas.width, 0);
     gradient2.addColorStop("0.2", "black");
     gradient2.addColorStop("0.5", "transparent");
     gradient2.addColorStop("0.3", "white");
