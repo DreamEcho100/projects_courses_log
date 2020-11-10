@@ -276,7 +276,21 @@ YotubeContent.list.push(
       {
 	      types: ["normal-content-project"],
         name: "Generative Art",
-        info: "Generative Art for Beginners - Particle System Algorithm with Vanilla JavaScript and HTML Canvas",
+        info: "Generative Art - Particle System Algorithm with Vanilla JavaScript and HTML Canvas",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+	      types: ["normal-content-project"],
+        name: "Generative Art - 2",
+        info: " Vanilla JavaScript Project [ 2D Pipes ] HSL color & Createlineargradient",
         fileName: "index",
         fileExtension: "html",
         difficulty: "",
