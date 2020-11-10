@@ -32,9 +32,7 @@ let particalesArray = [];
 /*let hue = 0;
 let hue2 = 12;*/
 
-let gradient = context.createLinearGradient(0, 0, canvas.width, 0);
-
-let gradient2 = context.createLinearGradient(0, 0, canvas.width, 0);
+let gradient, gradient2;
 
 class Particale {
     constructor() {
