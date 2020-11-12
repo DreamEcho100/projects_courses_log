@@ -275,6 +275,20 @@ YotubeContent.list.push(
       },
       {
 	      types: ["normal-content-project"],
+        name: "Frogger Game",
+        info: "Make A Game With Vanilla JS [Frogger]",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+	      types: ["normal-content-project"],
         name: "Generative Art",
         info: "Generative Art - Particle System Algorithm with Vanilla JavaScript and HTML Canvas",
         fileName: "index",
