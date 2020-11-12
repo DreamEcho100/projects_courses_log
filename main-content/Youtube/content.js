@@ -415,6 +415,20 @@ YotubeContent.list.push(
       },
       {
 	      types: ["normal-content-project"],
+        name: "Splash Letters",
+        info: "Vanilla JavaScript Project HTML Canvas Mouse Move Animation Animated Text",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+	      types: ["normal-content-project"],
         name: "Sprite Animation",
         info: "Vanilla JavaScript Gamedev - Sprite Animation - Make games from scratch with JS & HTML Canvas",
         fileName: "index",
