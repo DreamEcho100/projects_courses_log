@@ -37,8 +37,8 @@ class Particale {
                 if (this.opacity - 0.007 > 0) {
                     this.opacity -= 0.007;
                 }
-                if (this.radius - 0.1 > 0.1) {
-                    this.radius -= 0.1;
+                if (this.radius - 0.15 > 0) {
+                    this.radius -= 0.15;
                 } else {
                     setTimeout(() => delete particalesArray[this.id], 50);
                 }
@@ -69,7 +69,7 @@ function handleParticales() {
 
     if (keys[37] || keys[38] || keys[39] || keys[40]) {
         if (frogger.y > 250 || frogger.y < 100) {
-            for (let i = 0; i < 7; i++) {
+            for (let i = 0; i < 5; i++) {
                 let randomNumber = Math.random().toFixed(2);
                 particalesArray[`${frogger.x.toFixed(2)}${frogger.y.toFixed(2)}${i}${randomNumber}`] = new Particale(
                     `${frogger.x.toFixed(2)}${frogger.y.toFixed(2)}${i}${randomNumber}`,

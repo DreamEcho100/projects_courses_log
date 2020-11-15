@@ -6,12 +6,31 @@ class Obstacle {
         this.height = height;
         this.speed = speed;
         this.type = type;
+        this.frameX = 0;
+        this.frameY = 0;
+        this.randomFrameLimit = Math.floor(Math.random() * 30) + 30;
+        this.carType = (Math.floor(Math.random() * numberOfCars));/*((type) => {
+
+        })(this.type)*/
     }
 
     draw() {
         ctx3.beginPath();
-        ctx3.fillStyle = "blue";
-        ctx3.fillRect(this.x, this.y, this.width, this.height);
+        ({
+            "turtle": () => {
+                if (frame % this.randomFrameLimit === 0) {
+                    if (this.frameX >= 1) this.frameX = 0;
+                    else this.frameX++;
+                }
+                ctx3.drawImage(turtle, this.frameX * 70, this.frameY * 70, 70, 70, this.x, this.y, this.width, this.height);
+            },
+            "log": () => {
+                ctx3.drawImage(log, this.x, this.y, this.width, this.height);
+            },
+            "car": () => {
+                ctx3.drawImage(car, this.frameX * this.width, this.carType * this.height, grid * 2, grid, this.x, this.y, this.width, this.height);
+            }
+        }[this.type])();
         ctx3.closePath();
         ctx3.fill();
     }
@@ -21,10 +40,13 @@ class Obstacle {
         if (this.speed > 0) {
             if(this.x > canvas1.width) {
                 this.x = -this.width;
+                this.carType = (Math.floor(Math.random() * numberOfCars));
             }
         } else {
+            this.frameX = 1;
             if(this.x + this.width < 0) {
                 this.x = canvas1.width;
+                this.carType = (Math.floor(Math.random() * numberOfCars));
             }
         }
         this.draw();
@@ -87,15 +109,59 @@ function initObstacles() {
             "turtle"
         ));
     }
+
+    waterObstacles = [...logsArray, ...turtelsArray];
 }
 
 initObstacles();
 
 function handleLandObstacles() {
     carsArray.forEach(car => car.update());
+
+    // Collision
+    let i;
+    for (i = 0; i < carsArray.length; i++) {
+        if (rectsCollision(frogger, carsArray[i])) {
+            ctx4.drawImage(collision, 0, 100, 100, 100, frogger.x, frogger.y, 50, 50)
+            resetGame();
+        }
+    }
 }
 
 function handleWaterObstacles() {
     logsArray.forEach(log => log.update());
     turtelsArray.forEach(log => log.update());
+
+    // Collision
+    if(frogger.y < 250 && frogger.y > 100){
+        isSinking = true;
+        let i;
+        for (let i = 0; i < waterObstacles.length; i++) {
+            if (rectsCollision(frogger, waterObstacles[i])) {
+                frogger.x += waterObstacles[i].speed;
+                isSinking = false;
+                break;
+            }
+        }
+        if(isSinking) {
+            let randomNumber = Math.random().toFixed(2);
+            ripplesArray.unshift(new Particale(
+                `${frogger.x.toFixed(2)}${frogger.y.toFixed(2)}${i}${randomNumber}`,
+                "ripple",
+                frogger.x + (frogger.width / 2),
+                frogger.y + (frogger.height / 2)
+            ));
+            ctx4.drawImage(collision, 0, 0, 100, 100, frogger.x, frogger.y, 50, 50)
+            resetGame();
+        }
+    }
+    /*
+    if(
+        frogger.y < 250 && frogger.y > 100 &&
+        !waterObstacles.some(obstacle => rectsCollision(frogger, obstacle))
+    ){
+        ctx4.drawImage(collision, 0, 0, 100, 100, frogger.x, frogger.y, 50, 50)
+        resetGame();
+    }
+    */
 }

@@ -13,14 +13,24 @@ class Frogger {
 
     draw() {
         ctx3.beginPath();
-        ctx3.fillStyle = "green";
-        ctx3.fillRect(this.x, this.y, this.width, this.height);
+        ctx3.drawImage(
+            froggerSprite,
+            this.frameX * this.spriteWidth,
+            this.frameY * this.spriteHeight,
+            this.spriteWidth,
+            this.spriteHeight,
+            this.x - 25,
+            this.y - 25,
+            this.width * 2,
+            this.height * 2
+        );
         ctx3.closePath();
         ctx3.fill();
     }
 
     jump() {
-        console.log("jump");
+        if (this.moving === false) this.frameX = 1;
+        else if (this.frameX === 1) this.frameX = 0
     }
 
     update() {
@@ -28,24 +38,29 @@ class Frogger {
             if (this.moving === false) {
                 this.y -= grid;
                 this.moving = true;
+                this.frameX = 1;
+                this.frameY = 0;
             }
         }
         if (keys[40]) { // down
             if (this.moving === false && this.y + (this.height * 2) < canvas1.height) {
                 this.y += grid;
                 this.moving = true;
+                this.frameY = 3;
             }
         }
         if (keys[37]) { // down
             if (this.moving === false && this.x  > this.width) {
                 this.x -= grid;
                 this.moving = true;
+                this.frameY = 2;
             }
         }
         if (keys[39]) { // down
             if (this.moving === false && this.x + (this.width * 2) < canvas1.width) {
                 this.x += grid;
                 this.moving = true;
+                this.frameY = 1;
             }
         }
         

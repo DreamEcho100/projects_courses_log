@@ -5,6 +5,10 @@
 // ctx.globalCompositeOperation = "lighter";
 
 const froggeyGameSection = document.getElementById("froggey-game");
+const gameWrapper = froggeyGameSection.querySelector(".wrapper");
+const gameWrapperOriginalWidth = gameWrapper.clientWidth;
+const gameWrapperOriginalHeight = gameWrapper.clientHeight;
+
 const canvas1 = document.getElementById("canvas1");
 const ctx1 = canvas1.getContext("2d");
 
@@ -46,12 +50,13 @@ let frame = 0;
 let gameSpeed = 1;
 
 const particalesArray = {};
-let particalesArraySize = 0;
 const maxParticales = 300;
 const ripplesArray = [];
 const carsArray = [];
 const logsArray = [];
 const turtelsArray = [];
+let waterObstacles;
+let isSinking = false;
 
 // Images
 const background_lvl2 = new Image();
@@ -60,6 +65,18 @@ background_lvl2.src = "images/background_lvl2.png";
 const grass = new Image();
 grass.src = "images/grass.png";
 
-/*window.addEventListener("resize", () => {
-    
-});*/
+const collision = new Image();
+collision.src = "images/collisions.png";
+
+const turtle = new Image();
+turtle.src = "images/turtles.png";
+
+const log = new Image();
+log.src = "images/log.png";
+
+const car = new Image();
+car.src = "images/cars.png";
+let numberOfCars = 3;
+
+const froggerSprite = new Image();
+froggerSprite.src = "images/frog_spritesheet.png";
