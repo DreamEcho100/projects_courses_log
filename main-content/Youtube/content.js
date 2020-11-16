@@ -359,6 +359,20 @@ YotubeContent.list.push(
       },
       {
 	      types: ["normal-content-project"],
+        name: "Particales Text Canvas Animation",
+        info: "Vanilla JavaScript Text Animation [Particles & Physics effect]",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+	      types: ["normal-content-project"],
         name: "Particles JS Effect with Pure Vanilla JavaScript - Animated Background",
         info: "Particles JS Effect with Pure Vanilla JavaScript - Animated Background",
         fileName: "index",
