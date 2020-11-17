@@ -304,7 +304,21 @@ YotubeContent.list.push(
       {
 	      types: ["normal-content-project"],
         name: "Generative Art - 2",
-        info: " Vanilla JavaScript Project [ 2D Pipes ] HSL color & Createlineargradient",
+        info: "Vanilla JavaScript Project [ 2D Pipes ] HSL color & Createlineargradient",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+	      types: ["normal-content-project"],
+        name: "Generative Art - 3 - Fibonacci Flower",
+        info: "Generative Art - Fibonacci Flower - Golden Ratio - Phyllotaxis - HTML5 Canvas [Drawing Shapes with JavaScript]",
         fileName: "index",
         fileExtension: "html",
         difficulty: "",

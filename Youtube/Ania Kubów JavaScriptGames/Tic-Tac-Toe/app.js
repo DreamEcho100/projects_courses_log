@@ -1,10 +1,26 @@
+
 addEventListener("DOMContentLoaded", () => {
 	const grid = document.querySelector("#Tic-Tac-Toe-section .grid");
 	const scoreDisplay = document.querySelector("#Tic-Tac-Toe-section .score");
-	const playerDisplay = document.querySelector(
-		"#Tic-Tac-Toe-section .player"
-	);
+	const playerDisplay = document.querySelector("#Tic-Tac-Toe-section .player");
 	const line = document.querySelector("#Tic-Tac-Toe-section .line");
+	const currentPlayer = {
+		state: "playing",
+		size: 2,
+		counter: 0,
+		players: {
+			0: {
+				player: "playerX",
+				combo: {}
+			},
+			1: {
+				player: "playerO",
+				combo: {}
+			},
+		},
+		numberOfChoosedSquares: 0,
+
+	};
 	const width = 3;
 	let squares = [];
 	let horizontalCombination = [];
@@ -53,83 +69,57 @@ addEventListener("DOMContentLoaded", () => {
 			}
 			counter3 = counter3 / width - (width - 1);
 		}
-
-		console.log(
-			horizontalCombination,
-			verticalCombination,
-			diagonalCombination
-		);
 	}
 
 	combinationsArraysBuilder();
 
 	squares.forEach((square) => square.addEventListener("click", clickOutcome));
 
-	function clickOutcome(e) {
-		//const squaresArray = Array.from(squares);
-		const index = squares.indexOf(e.target);
-		if (e.target.classList.contains("choosed")) return;
-		currentPlayer = !squares.some((square) =>
-			square.classList.contains("choosed")
-		)
-			? [playerDisplay.innerText]
-			: {
-					playerX: "playerO",
-					playerO: "playerX",
-			  }[playerDisplay.innerText];
-		playerDisplay.innerText = currentPlayer;
-		squares[index].classList.add(currentPlayer, "choosed");
+	function clickOutcome(event) {
+		if (!event.target.classList.contains("choosed")) {
+			event.target.classList.add(playerDisplay.innerText, "choosed");
+			currentPlayer.players[currentPlayer.counter].combo[event.target.number] = true;
+			currentPlayer.numberOfChoosedSquares++;
+			if (currentPlayer.numberOfChoosedSquares >= 3) {
+				checkForPossibleCombination(currentPlayer.players[currentPlayer.counter]);
+			}
 
-		checkForPossibleCombination();
+			if (currentPlayer.state === "playing") {
+				currentPlayer.counter =
+				currentPlayer.counter + 1 === currentPlayer.size ?
+				0 :
+				currentPlayer.counter + 1;
+				playerDisplay.innerText = currentPlayer.players[currentPlayer.counter].player;
+			}
+
+		}
 	}
 
-	function checkForPossibleCombination() {
-		let playerXCombo = [];
-		let playerOCombo = [];
-		squares.forEach((square) => {
-			if (!square.classList.contains("choosed")) return;
-
-			if (square.classList.contains("playerX")) {
-				return playerXCombo.push(square.number);
-			} else if (square.classList.contains("playerO")) {
-				return playerOCombo.push(square.number);
-			}
-		});
-
-		console.log(playerXCombo, playerOCombo);
-
-		checkForHorizontalCombination(playerXCombo, "playerX");
-		checkForHorizontalCombination(playerOCombo, "playerO");
-		checkForVerticalCombination(playerXCombo, "playerX");
-		checkForVerticalCombination(playerOCombo, "playerO");
-		checkForDiagonalCombination(playerXCombo, "playerX");
-		checkForDiagonalCombination(playerOCombo, "playerO");
+	function checkForPossibleCombination(current) {
+		checkForHorizontalCombination(current.player, current.combo);
+		checkForVerticalCombination(current.player, current.combo);
+		checkForDiagonalCombination(current.player, current.combo);
 		checkForTie();
 	}
 
 	// Check for horizontal combinations
-	function checkForHorizontalCombination(player, playerName) {
-		// const firstCombo = [0, 1, 2];
-		// const secondCombo = [3, 4, 5];
-		// const thirdCombo = [6, 7, 8];
-		const firstCombo = horizontalCombination[0];
-		const secondCombo = horizontalCombination[1];
-		const thirdCombo = horizontalCombination[2];
+	function checkForHorizontalCombination(player, combo) {
+		// horizontalCombination[0] = [0, 1, 2];
+		// horizontalCombination[1] = [3, 4, 5];
+		// horizontalCombination[2] = [6, 7, 8];
+		const combos = {
+			0: horizontalCombination[0],
+			1: horizontalCombination[1],
+			2: horizontalCombination[2],
+		}
 
-		firstCombo.forEach((item) => {
-			if (!firstCombo.every((i) => player.indexOf(i) !== -1)) return;
-			horizontalLineDisplay(squares[firstCombo[0]], playerName);
-		});
-
-		secondCombo.forEach((item) => {
-			if (!secondCombo.every((i) => player.indexOf(i) !== -1)) return;
-			horizontalLineDisplay(squares[secondCombo[0]], playerName);
-		});
-
-		thirdCombo.forEach((item) => {
-			if (!thirdCombo.every((i) => player.indexOf(i) !== -1)) return;
-			horizontalLineDisplay(squares[thirdCombo[0]], playerName);
-		});
+		for (let array in combos) {
+			if (combos[array].every(item => combo[item] === true)) {
+				horizontalLineDisplay(squares[combos[array][0]], player);
+				return;
+			}
+	
+		}
 	}
 
 	function horizontalLineDisplay(lineStart, playerName) {
@@ -142,31 +132,27 @@ addEventListener("DOMContentLoaded", () => {
 		squares.forEach((square) =>
 			square.removeEventListener("click", clickOutcome)
 		);
+		currentPlayer.state = `${playerName} Won!`;
 	}
 
 	// Check for vertical combinations
-	function checkForVerticalCombination(player, playerName) {
-		// const firstCombo = [0, 3, 6];
-		// const secondCombo = [1, 4, 7];
-		// const thirdCombo = [2, 5, 8];
-		const firstCombo = verticalCombination[0];
-		const secondCombo = verticalCombination[1];
-		const thirdCombo = verticalCombination[2];
+	function checkForVerticalCombination(player, combo) {
+		// verticalCombination[0] = [0, 3, 6];
+		// verticalCombination[1] = [1, 4, 7];
+		// verticalCombination[2] = [2, 5, 8];
+		const combos = {
+			0: verticalCombination[0],
+			1: verticalCombination[1],
+			2: verticalCombination[2],
+		}
 
-		firstCombo.forEach((item) => {
-			if (!firstCombo.every((i) => player.indexOf(i) !== -1)) return;
-			verticalLineDisplay(squares[firstCombo[0]], playerName);
-		});
-
-		secondCombo.forEach((item) => {
-			if (!secondCombo.every((i) => player.indexOf(i) !== -1)) return;
-			verticalLineDisplay(squares[secondCombo[0]], playerName);
-		});
-
-		thirdCombo.forEach((item) => {
-			if (!thirdCombo.every((i) => player.indexOf(i) !== -1)) return;
-			verticalLineDisplay(squares[thirdCombo[0]], playerName);
-		});
+		for (let array in combos) {
+			if (combos[array].every(item => combo[item] === true)) {
+				verticalLineDisplay(squares[combos[array][0]], player);
+				return;
+			}
+	
+		}
 	}
 
 	function verticalLineDisplay(lineStart, playerName) {
@@ -181,27 +167,26 @@ addEventListener("DOMContentLoaded", () => {
 		squares.forEach((square) =>
 			square.removeEventListener("click", clickOutcome)
 		);
+		currentPlayer.state = `${playerName} Won!`;
 	}
-
+	
 	// Check for Diagonal combinations
-	function checkForDiagonalCombination(player, playerName) {
-		// const firstCombo = [0, 4, 8];
-		// const secondCombo = [2, 4, 6];
-		const firstCombo = diagonalCombination[0];
-		const secondCombo = diagonalCombination[1];
+	function checkForDiagonalCombination(player, combo) {
+		// diagonalCombination[0] = [0, 4, 8];
+		// diagonalCombination[1] = [2, 4, 6];
 		let direction;
+		const combos = {
+			0: {combo: diagonalCombination[0], direction: 1},
+			1: {combo: diagonalCombination[1], direction: -1},
+		}
 
-		firstCombo.forEach((item) => {
-			if (!firstCombo.every((i) => player.indexOf(i) !== -1)) return;
-			direction = 1;
-			diagonalLineDisplay(squares[firstCombo[0]], playerName, direction);
-		});
-
-		secondCombo.forEach((item) => {
-			if (!secondCombo.every((i) => player.indexOf(i) !== -1)) return;
-			direction = -1;
-			diagonalLineDisplay(squares[secondCombo[0]], playerName, direction);
-		});
+		for (let array in combos) {
+			if (combos[array].combo.every(item => combo[item] === true)) {
+				diagonalLineDisplay(squares[combos[array].combo[0]], player, combos[array].direction);
+				return;
+			}
+	
+		}
 	}
 
 	function diagonalLineDisplay(lineStart, playerName, direction) {
@@ -221,6 +206,7 @@ addEventListener("DOMContentLoaded", () => {
 		squares.forEach((square) =>
 			square.removeEventListener("click", clickOutcome)
 		);
+		currentPlayer.state = `${playerName} Won!`;
 	}
 
 	// Check for a tie
@@ -231,5 +217,6 @@ addEventListener("DOMContentLoaded", () => {
 			square.removeEventListener("click", clickOutcome)
 		);
 		playerDisplay.innerText = `Tie between playerX&playerO!`;
+		currentPlayer.state = `Tie between playerX&playerO!`;
 	}
 });
