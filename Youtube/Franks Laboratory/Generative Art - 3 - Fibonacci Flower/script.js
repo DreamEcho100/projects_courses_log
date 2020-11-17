@@ -4,7 +4,7 @@ const context = canvas.getContext('2d');
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 //'source-over | copy | destination-in | destination-out | destination-over | lighter | source-atop | source-in | source-out | xor';
-// context.globalCompositeOperation = "lighter";
+context.globalCompositeOperation = "destination-over";
 
 context.imageSmoothingEnabled = false;
 
@@ -13,30 +13,37 @@ window.addEventListener("resize", () => {
     canvas.height = innerHeight;
 });
 
-const numberOfParticales = 150;
-const particalesArray = [];
+let number = 0;
+let scale = 10;
+let angleMultiplay = Math.random();
 
-class Particale {
-    constructor() {
-    }
+function drawFlower() {
+    let angle = number * angleMultiplay;
+    // let size = 0;
+    let radius = scale * Math.sqrt(number);
+    let positionX = radius * Math.sin(angle) + canvas.width / 2;
+    let positionY = radius * Math.cos(angle) + canvas.height / 2;
 
-};
+    context.beginPath();
+    context.fillStyle = 'orangered';
+    context.strokeStyle = 'pink';
+    context.lineWidth = 4;
+    context.arc(positionX, positionY, 20, 0, Math.PI * 2);
+    context.fill();
+    context.closePath();
+    context.stroke();
 
-function init() {
-    for (let i = 0; i < numberOfParticales; i++) {
-        particalesArray.push(new Particale);
-    }
+    number++;
 }
 
 function animate() {
-    /// context.clearRect(0, 0, canvas.width, canvas.height);
-    /// context.fillStyle = "rgba(255, 255, 255, 0.005)";
-    /// context.fillRect(0, 0, canvas.width, canvas.height);
+    // context.clearRect(0, 0, canvas.width, canvas.height);
 
-    particalesArray.forEach(particale => particale.update());
+    drawFlower();
+
+    if (number > 300) return;
 
     requestAnimationFrame(animate);
 }
 
-/// init();
-/// animate();
+animate();
