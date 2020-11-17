@@ -1,13 +1,6 @@
 const canvas = document.getElementById('canvas1');
 const context = canvas.getContext('2d');
 
-const mouseCoor = {
-    x: null,
-    y: null
-}
-
-let drawing = false;
-
 canvas.width = innerWidth;
 canvas.height = innerHeight;
 //'source-over | copy | destination-in | destination-out | destination-over | lighter | source-atop | source-in | source-out | xor';
@@ -15,10 +8,6 @@ canvas.height = innerHeight;
 
 context.imageSmoothingEnabled = false;
 
-canvas.addEventListener("mousemove", (event) => {
-    mouseCoor.x = event.x;
-    mouseCoor.y = event.y;
-});
 window.addEventListener("resize", () => {
     canvas.width = innerWidth;
     canvas.height = innerHeight;
@@ -26,8 +15,6 @@ window.addEventListener("resize", () => {
 
 const numberOfParticales = 150;
 const particalesArray = [];
-let hue = 0;
-let hue2 = 12;
 
 class Particale {
     constructor() {

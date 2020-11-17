@@ -1,5 +1,4 @@
-
-addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
 	const grid = document.querySelector("#Tic-Tac-Toe-section .grid");
 	const scoreDisplay = document.querySelector("#Tic-Tac-Toe-section .score");
 	const playerDisplay = document.querySelector("#Tic-Tac-Toe-section .player");
@@ -19,7 +18,6 @@ addEventListener("DOMContentLoaded", () => {
 			},
 		},
 		numberOfChoosedSquares: 0,
-
 	};
 	const width = 3;
 	let squares = [];
@@ -28,6 +26,8 @@ addEventListener("DOMContentLoaded", () => {
 	let diagonalCombination = [];
 
 	function buildBoard() {
+		grid.innerHTML = "";
+		playerDisplay.innerText = currentPlayer.players[currentPlayer.counter].player;
 		for (let i = 0; i < width * width; i++) {
 			const square = document.createElement("div");
 			square.number = i;
