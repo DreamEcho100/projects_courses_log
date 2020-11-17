@@ -15,7 +15,7 @@ window.addEventListener("resize", () => {
 
 let number = 0;
 let scale = 10;
-let angleMultiplay = Math.random();
+let angleMultiplay = Math.random() >= 0.5 ? Math.random() * 15 : Math.random();
 
 function drawFlower() {
     let angle = number * angleMultiplay;
@@ -25,8 +25,8 @@ function drawFlower() {
     let positionY = radius * Math.cos(angle) + canvas.height / 2;
 
     context.beginPath();
-    context.fillStyle = 'orangered';
-    context.strokeStyle = 'pink';
+    context.fillStyle = 'gray'; // 'orangered';
+    context.strokeStyle = 'black'; // 'pink';
     context.lineWidth = 4;
     context.arc(positionX, positionY, 20, 0, Math.PI * 2);
     context.fill();
