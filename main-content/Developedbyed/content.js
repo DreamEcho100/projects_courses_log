@@ -122,7 +122,21 @@ DevelopedbyedContent.list.push(
 	      info: "",
 	      fileName: "index",
 	      fileExtension: "html",
-	      difficulty: 2.75,
+	      difficulty: 1.5,
+	      tech: {
+	        languages: ["HTML", "CSS", "JavaScript"],
+	        libraries: [],
+	        frameworks: [],
+	        APIs: [],
+	      },
+	    },
+	    {
+	      types: ["normal-content-project"],
+	      name: "Portfolio",
+	      info: "",
+	      fileName: "index",
+	      fileExtension: "html",
+	      difficulty: 1.75,
 	      tech: {
 	        languages: ["HTML", "CSS", "JavaScript"],
 	        libraries: [],
@@ -139,7 +153,7 @@ DevelopedbyedContent.list.push(
 	      info: "",
 	      fileName: "index",
 	      fileExtension: "html",
-	      difficulty: "",
+	      difficulty: 1.5,
 	      tech: {
 	        languages: ["HTML", "CSS", "JavaScript"],
 	        libraries: [],
