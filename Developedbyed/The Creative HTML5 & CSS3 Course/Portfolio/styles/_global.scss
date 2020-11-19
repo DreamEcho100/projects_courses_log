@@ -41,10 +41,17 @@ ul {
 }
 a {
   text-decoration: none;
-  color: "black";
+  color: $gray-text;
 }
 body {
+	font-family: 'Montserrat', sans-serif;
   animation: opening 1s ease-in-out;
+}
+
+@media screen and (min-width: 1150px) {
+	.hide-overflow-above-1150 {
+		overflow: hidden;
+	}
 }
 
 /*----------------------------*/

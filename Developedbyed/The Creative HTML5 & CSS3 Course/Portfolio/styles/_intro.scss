@@ -1,0 +1,199 @@
+.main-head {
+  width: 95%;
+  margin: 0 0 0 auto;
+}
+
+nav {
+  @include flex(row, space-between, center);
+  min-height: 10vh;
+  width: 80%;
+
+  .logo {
+    @include flex(row, flex-start, center);
+    flex: 1 1 10rem;
+    h1 {
+      margin: 1em;
+    }
+  }
+  ul {
+    @include flex(row, space-around, center);
+    flex: 1 1 40rem;
+    
+    li {
+      margin: 0 0.5em;
+    }
+  }
+}
+
+.intro {
+  width: 90%;
+  margin: auto;
+  flex-wrap: wrap;
+  @include flex(row, space-between, flex-start);
+  
+  h2 {
+    font-size: 7rem;
+    background: $gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(0, 0, 0, 0.2);
+    display: inline-block;
+  }
+
+  h3 {
+    font-size: 4.5rem;
+    padding: 0.1em 0rem;
+  }
+
+  p {
+    color: $gray-text;
+    width: 150%;
+  }
+}
+
+.intro-social {
+  padding-top: 1em;
+}
+
+.intro-text {
+  width: 40%;
+}
+
+.intro-images {
+  width: 58%;
+}
+
+.me-working {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  position: relative;
+}
+
+.splash {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  height: 100%;
+  z-index: -1;
+}
+
+@media screen and (max-width: 710px) {
+  :root {
+    font-size: 50%;
+  }
+  .main-head {
+    margin: auto;
+  }
+  nav {
+    @include flex(row, center, center);
+    width: 100%;
+    flex-wrap: wrap;
+  
+    .logo {
+      @include flex(row, center, center);
+      margin: 1em 0;
+    }
+    ul {
+      @include flex(row, space-around, center);
+    }
+  }
+
+  .intro {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    p {
+      width: 100%;
+    }
+  }
+
+  .intro-text {
+    width: 100%;
+    margin: 4em 6em;
+  }
+
+  .intro-images {
+    width: 100%;
+  }
+
+  .splash {
+    top: -4%;
+    right: -102%;
+    height: 100%;
+    width: 132%;
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  :root {
+    font-size: 30%;
+  }
+}
+
+.active {
+  background: $gray-text;
+  color: white;
+  padding: 0.5em 1.5em;
+  border-radius: 2em;
+}
+
+#plant-left {
+  animation: plant 1.5s ease infinite alternate;
+}
+
+#plant-right {
+  animation: plant 1.5s ease infinite alternate 0.5s;
+}
+
+#me {
+  transform-origin: bottom;
+  animation: me 20s ease infinite alternate 0.5s;
+}
+
+#clock-arrow-container {
+  transform: translateY(5px);
+}
+#clock-arrow {
+  transform-origin: bottom;
+  transform-box: fill-box;
+  animation: clockArrow 1.5s infinite linear;
+}
+
+@keyframes plant {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-30%);
+  }
+}
+
+@keyframes me {
+  0% {
+    transform: rotateZ(-3deg);
+  }
+  20% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(3deg);
+  }
+  70% {
+    transform: rotateZ(-1deg);
+  }
+  100% {
+    transform: rotateZ(3deg);
+  }
+}
+
+@keyframes clockArrow {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}

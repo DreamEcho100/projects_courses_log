@@ -4,7 +4,8 @@ $header3: 2.5rem;
 $header4: 2rem;
 $text: 2.5rem;
 $big-text: 6rem;
-$gradiant: linear-gradiant(left, #38d39f, #38a4d3);
+$gradient: linear-gradient(-90deg, #38d39f, #38a4d3);
+/*linear-gradient(-90deg, black, #823030, black, #4a4a01, black)*/
 /*$special-color: #906272;*/
 $background-color: #154353;
 $gray-text: #2c2c2c;
@@ -17,3 +18,7 @@ $gray-text: #2c2c2c;
 }
 
 @import "global";
+@import "intro";
+@import "projects";
+@import "contact";
+@import "footer";
