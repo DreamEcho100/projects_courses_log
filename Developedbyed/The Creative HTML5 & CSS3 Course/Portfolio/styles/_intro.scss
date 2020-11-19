@@ -36,6 +36,7 @@ nav {
     background: $gradient;
     background-clip: text;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: rgba(0, 0, 0, 0.2);
     display: inline-block;
   }

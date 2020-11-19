@@ -182,6 +182,7 @@ nav ul li {
   background: linear-gradient(-90deg, #38d39f, #38a4d3);
   background-clip: text;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: rgba(0, 0, 0, 0.2);
   display: inline-block;
 }
