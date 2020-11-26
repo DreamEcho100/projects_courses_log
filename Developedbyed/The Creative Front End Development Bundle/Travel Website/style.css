@@ -316,11 +316,11 @@ body.hide {
 	background: rgb(255, 139, 93);
 	z-index: 5;
 }
-.swipe {
+.swipe2 {
 	background: rgb(167, 110, 231);
 	z-index: 4;
 }
-.swipe {
+.swipe3 {
 	background: rgb(86, 124, 228);
 	z-index: 3;
 }
@@ -348,7 +348,7 @@ body.hide {
 	    margin: auto;
 	}
 	.hero-img h2 {
-    	font-size: 1.6rem
+    	font-size: 1.6rem;
     	padding: 1rem 0rem;
 	}
 	.hero-img p {
@@ -414,3 +414,7 @@ body.hide {
 	    width: 85%;
 	}
 }
+
+/*.reveal-img, .reveal-txt {
+	display: none;
+}*/
