@@ -65,11 +65,11 @@ function animateSlides() {
       reverse: false
     })
     .setTween(slideTl)
-    .addIndicators({
+    /*.addIndicators({
       colorStart: "white",
       colorTrigger: "red",
       name: "slide"
-    })
+    })*/
     .addTo(controller);
 
     // Create new Animation
@@ -84,11 +84,11 @@ function animateSlides() {
       duration: "100%",
       triggerHook: 0,
     })
-    .addIndicators({
+    /*.addIndicators({
       colorStart: "white",
       colorTrigger: "red",
       name: "slide"
-    })
+    })*/
     .setPin(slide, { pushFollowers: false })
     .setTween(pageTl)
     .addTo(controller);
@@ -174,11 +174,11 @@ function detailAnimation() {
       duration: "100%",
       triggerHook: 0,
     })
-    .addIndicators({
+    /*.addIndicators({
       colorStart: "white",
       colorTrigger: "red",
       name: "slide"
-    })
+    })*/
     .setTween(slideTl)
     .addTo(controller);
   });
