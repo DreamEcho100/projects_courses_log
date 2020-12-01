@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+
+}
+
+html {
+    font-size: 62.5%;
+}
+
+main {
+    background-color: rgba(103, 248, 241, 0.616);
+    background-image: url(bakery-1.jpeg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    height: auto;
+    font-size: 14rem;
+}
+
+.formContainer {
+    text-align: center;
+    background-color: rgba(190, 145, 73, 0.4);
+    margin: 10%;
+    padding: 5%;
+    border: 1rem solid rgba(214, 180, 87, 0.6);
+    width: 110%;
+    font-size: 5rem;
+    transition: all 1s;
+}
+
+.formContainer:hover {
+    transform: scale(1.1);
+}
+
+input#alertButton {
+    font-size: 2rem;
+    width: 15rem;
+    margin-bottom: 2rem;
+}
+
+#alertButton:hover {
+    width: 15rem;
+    cursor: pointer;
+    color: bisque;
+    background-color: burlywood;
+    box-shadow: 0.5rem 0.5rem rgba(222, 184, 135, 0.678);
+    text-shadow: 1rem 1rem rgba(255, 197, 126, 0.678);
+    font-size: 3rem;
+}
+
+.formContainer input,
+.formContainer select {
+    height: 5rem;
+}
+
+.formContainer fieldset {
+    padding: 3rem;
+}
+
+.fNAndlN {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+input[type="submit"] {
+    width: 20rem;
+}
+
+input[type="reset"] {
+    width: 20rem;
+}

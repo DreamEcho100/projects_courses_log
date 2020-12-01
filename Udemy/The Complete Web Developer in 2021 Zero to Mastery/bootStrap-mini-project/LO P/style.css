@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.container {
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    height: 100%;
+    width: 100%;
+}
+
+header {
+
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    background: green;
+    font-size: 2rem;
+    grid-column: 1/-1;
+    grid-row: 1/3;
+}
+
+.top_navbar {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    justify-content: center;
+    align-content: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.logo {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    align-self: center;
+    justify-self: center;
+}
+
+.page_list {
+    list-style: none;
+    color: aliceblue;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: center;
+    justify-self: center;
+}
+
+
+
+main {
+    grid-column: 1/-1;
+    grid-row: 3/9;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.cover {
+    background: crimson;
+    font-size: 2rem;
+    grid-column: 1/-1;
+    grid-row: 1/2;
+}
+
+.content {
+    background: aqua;
+    font-size: 2rem;
+    grid-column: 1/-1;
+    grid-row: 2/-1;
+}
+
+footer {
+    background: darkorange;
+    font-size: 2rem;
+    grid-column: 1/-1;
+    grid-row: 9/-1;
+}

@@ -1133,6 +1133,103 @@ UdemyContent.list.push(
 
 UdemyContent.list.push(
   {
+    types: ["normal-content-course"],
+    name: "The Complete Web Developer in 2021 Zero to Mastery",
+    info: "",
+    classes: "spinningBackground1",
+    list: [
+      {
+        types: ["normal-content-project"],
+        name: "bootStrap-mini-project",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+        types: ["normal-content-project"],
+        name: "Gradiant Background",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+        types: ["normal-content-project"],
+        name: "Only HTML Website",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+        types: ["normal-content-project"],
+        name: "Playing With Grid",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+        types: ["normal-content-project"],
+        name: "Simple Flexbox Layout Website",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+        types: ["no-content-project"],
+        name: "",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+
+      // Inner List End
+    ],
+  }
+)
+
+UdemyContent.list.push(
+  {
     types: ["no-content-course"],
     name: "",
     info: "",

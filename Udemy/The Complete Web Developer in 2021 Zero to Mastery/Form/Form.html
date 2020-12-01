@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="FormStyles.css">
+    <title>Registration-Form - Sign-in Form</title>
+</head>
+
+<body>
+    <main>
+        <div class="formContainer">
+            <form method="POST">
+                <header>Hi There</header>
+                <fieldset>
+                    <legend>Sign-in?</legend>
+                    <input type="button" name="button" onclick="alert('Hi there :)')" value="Click-Me!"
+                        id="alertButton">
+                    <br>
+                    <div class="fNAndlN">
+                        <div class="fN">
+                            <label for="uFName">First Name:</label>
+                            <input name="userFirstName" type="text" required id="uFName">
+                        </div>
+                        <div class="lN">
+                            <label for="uLName">Last Name:</label>
+                            <input name="userLastName" type="text" required id="uLName">
+                        </div>
+                    </div>
+                    <label for="uEmail">E-mail:</label>
+                    <input name="userE-mail" type="email" required id="uEmail">
+                    <br>
+                    <label for="uPassword">Password:</label>
+                    <input type="password" name="userPassword" id="uPassword" required maxlength="64" minlength="8">
+                    <br>
+                    <label for="phone">Enter your phone number:</label>
+                    <input type="tel" id="phone" name="phone" required pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}">
+                    <br>
+                    <label for="uBirthday">Birthday:</label>
+                    <input name="Birthday" type="date" required id="uBirthday">
+                    <br>
+                    Gender:
+                    <br>
+                    <label for="Male">Male</label>
+                    <input name="userGender" type="radio" value="Male" id="Male">
+                    <label for="Female">Female</label>
+                    <input name="userGender" type="radio" value="Female" id="Female">
+                    <br>
+                    <label for="Nationality">Nationality:</label>
+                    <select id="Nationality" required>
+                        <option value="......." name="Nationality" value=".......">.......</option>
+                        <option value="Egyptian" name="Nationality" value="Egyptian">Egyptian</option>
+                        <option value="Other" name="Nationality" value="Other">Other</option>
+                    </select>
+                    <br>
+                    <label for="Browsers?">Browser</label>
+                    <input list="Browser" name="Browsers" id="Browsers?">
+                    <datalist id="Browser">
+                        <option value="Internet Explorer">
+                        <option value="Firefox" name="Browsers">
+                        <option value="Chrome" name="Browsers">
+                        <option value="Opera" name="Browsers">
+                        <option value="Safari" name="Browsers">
+                    </datalist>
+                    <br>
+                    Excited:
+                    <br>
+                    <label for="Yes">-Yes.</label>
+                    <input type="checkbox" name="Excited" value="Yes" id="Yes">
+                    <label for="No">-No.</label>
+                    <input type="checkbox" name="Excited" value="No" id="No">
+                    <br>
+                    <input type="submit" value="Register!">
+                    <input type="reset">
+                </fieldset>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
+<!--
+<a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@blakewisz?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Blake Wisz"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Blake Wisz</span></a>
+-->
+<!--
+<form action="/action_page.php"
+  oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+  0
+  <input type="range"  id="a" name="a" value="50">
+  100 +
+  <input type="number" id="b" name="b" value="50">
+  =
+  <output name="x" for="a b"></output>
+  <br><br>
+  <input type="submit">
+</form>
+-->
+<!--
+<form>
+    <label for="favcolor">Select your favorite color:</label>
+    <input type="color" id="favcolor" name="favcolor">
+  </form>
+-->
+<!--
+<form>
+    <label for="birthdaytime">Birthday (date and time):</label>
+    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+  </form>
+-->
+<!--
+<form>
+    <label for="vol">Volume (between 0 and 50):</label>
+    <input type="range" id="vol" name="vol" min="0" max="50">
+</form>
+-->
+<!--
+<form>
+    <label for="gsearch">Search Google:</label>
+    <input type="search" id="gsearch" name="gsearch">
+</form>
+-->
+<!--
+<form action="">
+<label for="homepage">Add your homepage:</label>
+<input type="url" id="homepage" name="homepage">
+</form>
+-->
