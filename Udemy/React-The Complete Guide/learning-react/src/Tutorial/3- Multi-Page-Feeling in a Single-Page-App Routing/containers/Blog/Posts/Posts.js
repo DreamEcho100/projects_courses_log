@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import axios from "../../../axios";
 import Post from '../../../components/Post/Post';
 import "./style.css";
@@ -22,10 +23,10 @@ class Posts extends Component {
           };
         });
         this.setState({ posts: updatePosts });
-        console.log(response);
+        // console.log(response);
       })
       .catch((error) => {
-        console.error(error);
+        // console.error(error);
         this.setState({ error: true });
       });
   }
@@ -59,4 +60,4 @@ class Posts extends Component {
   }
 }
 
-export default Posts;
+export default withRouter(Posts);

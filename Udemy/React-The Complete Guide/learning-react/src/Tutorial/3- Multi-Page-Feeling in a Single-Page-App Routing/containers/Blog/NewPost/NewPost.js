@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+// import { withRouter } from 'react-router-dom';
 import axios from "axios";
 
 import "./NewPost.css";
+import { withRouter } from "react-router";
 
 class NewPost extends Component {
   state = {
@@ -11,15 +13,20 @@ class NewPost extends Component {
   };
 
   postDataHandler = () => {
+    // console.log(this.props);
     const post = {
       title: this.state.title,
       body: this.state.content,
       author: this.state.author,
     };
     axios.post("/posts/", post).then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
     });
   };
+  
+  componentDidMount() {
+    // console.log(this.props);
+  }
 
   render() {
     return (
@@ -51,4 +58,4 @@ class NewPost extends Component {
   }
 }
 
-export default NewPost;
+export default withRouter(NewPost);
