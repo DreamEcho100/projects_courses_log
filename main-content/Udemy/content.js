@@ -1195,6 +1195,21 @@ UdemyContent.list.push(
         },
       },
       {
+        types: ["normal-content-project", "extra-url-after-name"],
+        extraUrlAfterName: "build",
+        name: "robofriends",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: ["tachyon"],
+          frameworks: ["react"],
+          APIs: ["https://jsonplaceholder.typicode.com/users"],
+        },
+      },
+      {
         types: ["normal-content-project"],
         name: "Simple Flexbox Layout Website",
         info: "",

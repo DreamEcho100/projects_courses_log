@@ -254,6 +254,7 @@ let ContentBuilder = (function () {
         `;
       } else if (section.types.includes("normal-content-section")) {
         let tempUrl = section.name;
+
         content += `
     <section class="${section.classes}">
       <h2>
@@ -345,6 +346,7 @@ let ContentBuilder = (function () {
       
       if (item.types.includes("deep-list-content-files")) {
         let tempUrl = `${url}/${item.name}`;
+        
 /*        let tempUrl = item.types.includes("special-characters-type-1") ?
           `${url}/${specialCharactersType1(item.name, item.specialCharactersType1)}/${item.fileName}.${item.fileExtension}` :
           `${url}/${item.name}/${item.fileName}.${item.fileExtension}`;*/
@@ -367,9 +369,21 @@ let ContentBuilder = (function () {
                     </li>
             `;
       } else if (item.types.includes("normal-content-project")) {
-        let tempUrl = item.types.includes("special-characters-type-1") ?
-          `${url}/${specialCharactersType1(item.name, item.specialCharactersType1)}/${specialCharactersType1(item.fileName, item.specialCharactersType1)}.${item.fileExtension}` :
-          `${url}/${item.name}/${item.fileName}.${item.fileExtension}`;
+        let tempUrl;
+        if ( item.types.includes("extra-url-after-name") ) {
+          if ( item.types.includes("special-characters-type-1") ) {
+            `${url}/${specialCharactersType1(item.name, item.specialCharactersType1)}/${item.extraUrlAfterName}/${specialCharactersType1(item.fileName, item.specialCharactersType1)}.${item.fileExtension}`;
+          } else {
+            tempUrl = `${url}/${item.name}/${item.extraUrlAfterName}/${item.fileName}.${item.fileExtension}`;
+          }
+        } else {
+          if ( item.types.includes("special-characters-type-1") ) {
+            `${url}/${specialCharactersType1(item.name, item.specialCharactersType1)}/${specialCharactersType1(item.fileName, item.specialCharactersType1)}.${item.fileExtension}`;
+          } else {
+            tempUrl = `${url}/${item.name}/${item.fileName}.${item.fileExtension}`;
+          }
+        }
+        
         listContent += `
                     <li>
                         <a href="${tempUrl}"  target="_blank">
