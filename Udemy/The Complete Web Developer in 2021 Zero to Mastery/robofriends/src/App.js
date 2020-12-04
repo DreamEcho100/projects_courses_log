@@ -1,28 +1,53 @@
-import React, { Component } from "react";
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from "react";
+import "tachyons";
+import "./App.css";
+import SearchBox from './Components/SearchBox/SearchBox';
+import Scroll from "./Components/Scroll/Scroll";
+import CardsList from './Components/CardsList/CardsList';
+// import { robots } from "./robots";
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      robots: [],
+      searchField: ""
+    };
+  }
+
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then(response => response.json())
+    .then(users => this.setState({ robots: users }));
+  }
+
+  onSearchChange = (event) => {
+    this.setState({ searchField: event.target.value });
+  }
   
   render () {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    const { robots, searchField } = this.state
+
+    const filteredRobots = robots.filter(robot => {
+      return (
+        robot.name.toLowerCase().includes(searchField.toLowerCase()) ||
+        robot.username.toLowerCase().includes(searchField.toLowerCase()) ||
+        robot.email.toLowerCase().includes(searchField.toLowerCase())
+      );
+    });
+
+    return !robots.length ?
+      <h1>Loading...</h1>
+      :
+      (
+        <Fragment>
+          <h1 className="f1">RoboFriends</h1>
+          <SearchBox searchChange={this.onSearchChange} />
+          <Scroll>
+            <CardsList robots={ filteredRobots } />
+          </Scroll>
+        </Fragment>
+      );
   }
 }
 
