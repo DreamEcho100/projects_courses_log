@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "tachyons";
 import "./App.css";
+import ErrorBoundry from "./Components/ErrorBoundry/ErrorBoundry";
 import SearchBox from './Components/SearchBox/SearchBox';
 import Scroll from "./Components/Scroll/Scroll";
 import CardsList from './Components/CardsList/CardsList';
@@ -26,7 +27,7 @@ class App extends Component {
   }
   
   render () {
-    const { robots, searchField } = this.state
+    const { robots, searchField } = this.state;
 
     const filteredRobots = robots.filter(robot => {
       return (
@@ -44,7 +45,9 @@ class App extends Component {
           <h1 className="f1">RoboFriends</h1>
           <SearchBox searchChange={this.onSearchChange} />
           <Scroll>
-            <CardsList robots={ filteredRobots } />
+            <ErrorBoundry>
+              <CardsList robots={ filteredRobots } />
+            </ErrorBoundry>
           </Scroll>
         </Fragment>
       );

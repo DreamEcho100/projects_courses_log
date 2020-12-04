@@ -347,9 +347,6 @@ let ContentBuilder = (function () {
       if (item.types.includes("deep-list-content-files")) {
         let tempUrl = `${url}/${item.name}`;
         
-/*        let tempUrl = item.types.includes("special-characters-type-1") ?
-          `${url}/${specialCharactersType1(item.name, item.specialCharactersType1)}/${item.fileName}.${item.fileExtension}` :
-          `${url}/${item.name}/${item.fileName}.${item.fileExtension}`;*/
         listContent += `
                     <li>
                       <h3>${item.name}</h3>
@@ -383,7 +380,7 @@ let ContentBuilder = (function () {
             tempUrl = `${url}/${item.name}/${item.fileName}.${item.fileExtension}`;
           }
         }
-        
+
         listContent += `
                     <li>
                         <a href="${tempUrl}"  target="_blank">
