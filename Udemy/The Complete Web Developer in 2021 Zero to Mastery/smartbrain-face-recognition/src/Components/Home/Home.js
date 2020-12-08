@@ -15,7 +15,7 @@ to:
 */
 
 const app = new Clarifai.App({
-  apiKey: "dec623295edf4e86aa6a1681ecf10619"
+  apiKey: ""
 });
 
 class Home extends Component {
