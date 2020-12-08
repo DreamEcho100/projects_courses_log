@@ -3,6 +3,7 @@ import Clarifai from 'clarifai';
 import Rank from "./Rank/Rank";
 import ImageLinkForm from "./ImageLinkForm/ImageLinkForm";
 import FaceDetiction from "./FaceDetiction/FaceDetiction";
+import apikey from "../../apikey";
 
 /*
 so you would change from in the video:
@@ -15,7 +16,7 @@ to:
 */
 
 const app = new Clarifai.App({
-  apiKey: ""
+  apiKey: apikey
 });
 
 class Home extends Component {
