@@ -711,6 +711,34 @@ YotubeContent.list.push(
 YotubeContent.list.push(
   {
     types: ["normal-content-course"],
+    name: "Mahmoud Shehata",
+    info: "",
+    classes: "spinningBackground1",
+    list: [
+      {
+        types: ["normal-content-project", "extra-url-after-name"],
+        extraUrlAfterName: "build",
+        name: "Weather App",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: ["react"],
+          APIs: ["api.openweathermap.org"],
+        },
+      },
+
+      // Inner List End
+    ],
+  }
+);
+
+YotubeContent.list.push(
+  {
+    types: ["normal-content-course"],
     name: "Traversy Media",
     info: "",
     classes: "spinningBackground1",
