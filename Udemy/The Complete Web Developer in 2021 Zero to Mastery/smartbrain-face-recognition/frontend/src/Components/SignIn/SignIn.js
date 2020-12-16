@@ -1,6 +1,39 @@
 import React, { Component } from 'react';
 
 class SignIn extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      signInEmail: "",
+      signInPassword: "",
+    }
+  }
+
+  onEmailChange = event => {
+    this.setState({ signInEmail: event.target.value });
+  }
+
+  onPasswordChange = event => {
+    this.setState({ signInPassword: event.target.value });
+  }
+
+  onSubmitSignIn = () => {
+    fetch("http://localhost:5000/signin", {
+      method: "post",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({
+        email: this.state.signInEmail,
+        password: this.state.signInPassword
+      })
+    })
+    .then(response => response.json())
+    .then(user => {
+      if (user.id) {
+        this.props.loadUser(user);
+        this.props.onRouteChange("home");
+      }
+    });
+  }
 
   render() {
     const { onRouteChange } = this.props;
@@ -18,6 +51,7 @@ class SignIn extends Component {
                   type="email"
                   name="email-address"
                   id="email-address"
+                  required
                   onChange={this.onEmailChange}
                 />
               </div>
@@ -28,13 +62,16 @@ class SignIn extends Component {
                   type="password"
                   name="password"
                   id="password"
+                  minLength="8"
+                  maxLength="64"
+                  required
                   onChange={this.onPasswordChange}
                 />
               </div>
             </fieldset>
             <div className="">
               <input
-                onClick={ () => onRouteChange(("home"))/*this.onSubmitSignIn*/}
+                onClick={ this.onSubmitSignIn }
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f4 dib"
                 type="submit"
                 value="Sign in"

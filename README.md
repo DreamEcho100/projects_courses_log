@@ -101,66 +101,124 @@ say hello **(only on Mac)**
 
 ~/.config/fish/config.fish 
 
-    set normal (set_color normal)
-    set magenta (set_color magenta)
-    set yellow (set_color yellow)
-    set green (set_color green)
-    set red (set_color red)
-    set gray (set_color -o black)
-     
-    # Fish git prompt
-    set __fish_git_prompt_showdirtystate 'yes'
-    set __fish_git_prompt_showstashstate 'yes'
-    set __fish_git_prompt_showuntrackedfiles 'yes'
-    set __fish_git_prompt_showupstream 'yes'
-    set __fish_git_prompt_color_branch yellow
-    set __fish_git_prompt_color_upstream_ahead green
-    set __fish_git_prompt_color_upstream_behind red
-     
-    # Status Chars
-    set __fish_git_prompt_char_dirtystate '⚡'
-    set __fish_git_prompt_char_stagedstate '→'
-    set __fish_git_prompt_char_untrackedfiles '☡'
-    set __fish_git_prompt_char_stashstate '↩'
-    set __fish_git_prompt_char_upstream_ahead '+'
-    set __fish_git_prompt_char_upstream_behind '-'
-     
-     
-    function fish_prompt
-      set last_status $status
-     
-      set_color $fish_color_cwd
-      printf '%s' (prompt_pwd)
-      set_color normal
-     
-      printf '%s ' (__fish_git_prompt)
-     
-      set_color normal
-    end
+	set normal (set_color normal)
+	set magenta (set_color magenta)
+	set yellow (set_color yellow)
+	set green (set_color green)
+	set red (set_color red)
+	set gray (set_color -o black)
+	 
+	# Fish git prompt
+	set __fish_git_prompt_showdirtystate 'yes'
+	set __fish_git_prompt_showstashstate 'yes'
+	set __fish_git_prompt_showuntrackedfiles 'yes'
+	set __fish_git_prompt_showupstream 'yes'
+	set __fish_git_prompt_color_branch yellow
+	set __fish_git_prompt_color_upstream_ahead green
+	set __fish_git_prompt_color_upstream_behind red
+	 
+	# Status Chars
+	set __fish_git_prompt_char_dirtystate '⚡'
+	set __fish_git_prompt_char_stagedstate '→'
+	set __fish_git_prompt_char_untrackedfiles '☡'
+	set __fish_git_prompt_char_stashstate '↩'
+	set __fish_git_prompt_char_upstream_ahead '+'
+	set __fish_git_prompt_char_upstream_behind '-'
+	 
+	 
+	function fish_prompt
+	  set last_status $status
+	 
+	  set_color $fish_color_cwd
+	  printf '%s' (prompt_pwd)
+	  set_color normal
+	 
+	  printf '%s ' (__fish_git_prompt)
+	 
+	  set_color normal
+	end
 
 
-    e git remote -v and press Enter. You'll see the current configured remote repository for your fork.
+	e git remote -v and press Enter. You'll see the current configured remote repository for your fork.
 
-        git remote -v
-        origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-        origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+		git remote -v
+		origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+		origin  https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
 
-    Type git remote add upstream, and then paste the URL you would copy from the original repository if you were to do a git clone. Press Enter. It will look like this:
+	Type git remote add upstream, and then paste the URL you would copy from the original repository if you were to do a git clone. Press Enter. It will look like this:
 
-        git remote add upstream https://github.com/zero-to-mastery/PROJECT_NAME.git
+		git remote add upstream https://github.com/zero-to-mastery/PROJECT_NAME.git
 
-    To verify the new upstream repository you've specified for your fork, type git remote -v again. You should see the URL for your fork as origin, and the URL for the original repository as upstream.
+	To verify the new upstream repository you've specified for your fork, type git remote -v again. You should see the URL for your fork as origin, and the URL for the original repository as upstream.
 
-        git remote -v
-        origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
-        origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
-        upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
-        upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
+		git remote -v
+		origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (fetch)
+		origin    https://github.com/YOUR_USERNAME/YOUR_FORK.git (push)
+		upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (fetch)
+		upstream  https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git (push)
 
 Now, you can keep your fork synced with the upstream repository with a few Git commands.
 
 One simple way is to do the below command from the master of your forked repository: 
 
-    git pull upstream master
+	git pull upstream master
 
 Or you can follow along another method here: "Syncing a fork."
+
+## Postgresql
+CREATE TABLE users_test (name text, age smallint, birthday date);
+
+INSERT INTO users_test (name, age, bithday) VALUES ("Andrei", 31, "1930-01-25");
+
+select * from users_test;
+
+SELECT name FROM users_test;
+
+SELECT name, bithday, age FROM users_test;
+
+SELECT * FROM users_test WHERE name LIKE 'A%';
+
+ALTER TABLE users_test ADD score smallint;
+
+UPDATE users_test SET score = 50 WHERE name = 'Andrei';
+
+UPDATE users_test SET score = 100 WHERE name = 'Sally' OR name = 'john';
+
+SELECT * FROM users_test ORDER BY score DESC;
+
+SELECT * FROM users_test WHERE name LIKE '%y'  ORDER BY score DESC;
+
+SELECT AVG(score) FROM users_test;
+
+SELECT SUM(AGE) FROM users_test;
+
+SELECT COUNT(NAME) FROM users_test;
+
+CREATE TABLE login (
+	ID serial NOT NULL PRIMARY KEY,
+	secret VARCHAR (100) NOT NULL,
+	name TEXT UNIQUE NOT NULL
+);
+
+INSERT INTO login (secret, name) VALUES ('abc', 'Andrei');
+INSERT INTO login (secret, name) VALUES ('xyz', 'Sally');
+
+SELECT * FROM users_test JOIN login ON users_test.name = login.name;
+
+DELETE FROM users_test WHERE name='Sally';
+
+DROP TABLE login;
+
+CREATE TABLE users (
+	id serial PRIMARY KEY,
+	name VARCHAR(100),
+	email TEXT UNIQUE NOT NULL,
+	entries BIGINT DEFAULT 0,
+	joined TIMESTAMP NOT NULL
+);
+
+CREATE TABLE login (
+	id serial PRIMARY KEY,
+	hash varchar(100),
+	email TEXT UNIQUE NOT NULL
+);

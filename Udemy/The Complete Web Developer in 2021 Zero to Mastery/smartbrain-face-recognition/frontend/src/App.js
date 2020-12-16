@@ -26,8 +26,29 @@ class App extends Component {
     super();
     this.state = {
       route: "signin",
-      isSignedIn: false
+      isSignedIn: false,
+      user: {
+        id: "",
+        name: "",
+        email: "",
+        password: "",
+        entries: 0,
+        joined: ""
+      }
     };
+  }
+
+  loadUser = (data) => {
+    this.setState({
+      user: {
+        id: data.id,
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        entries: data.entries,
+        joined: data.joined,
+      }
+    });
   }
 
   onRouteChange = (route) => {
@@ -50,16 +71,16 @@ class App extends Component {
           route === "home" ?
           <Fragment>
             <Logo />
-            <Home />
+            <Home user={this.state.user} />
           </Fragment> :
           (route === "signin" || route === "signout") ?
           <Fragment>
-            <SignIn onRouteChange={ this.onRouteChange } />
+            <SignIn loadUser={this.loadUser} onRouteChange={ this.onRouteChange } />
             <Logo extraStyles={ {marginTop: "auto"} }/>
           </Fragment> :
           route === "register" ?
           <Fragment>
-            <Register onRouteChange={ this.onRouteChange } />
+            <Register loadUser={this.loadUser} onRouteChange={ this.onRouteChange } />
             <Logo extraStyles={ {marginTop: "auto"} }/>
           </Fragment> :
           null

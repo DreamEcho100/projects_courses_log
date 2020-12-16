@@ -1,15 +1,15 @@
 import React from "react";
 import "tachyons";
 
-const Rank = () => {
+const Rank = ({ name, entries }) => {
 
   return (
     <div>
       <div className='white f3 tc'>
-        {`${ /* name */ "Mazen" }, your current entry count is...`}
+        {`${ name }, your current entry count is...`}
       </div>
       <div className='white f1 tc'>
-        { "#5" /* entries */ }
+        { entries }
       </div>
     </div>
   );
