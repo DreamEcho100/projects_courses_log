@@ -388,6 +388,9 @@ body {
     height: 75%;
     margin: 15%;
   }
+  .main-section-2 .feature-card .back p {
+    font-size: 1.1rem;
+  }
 }
 
 /*----------------------------*/
