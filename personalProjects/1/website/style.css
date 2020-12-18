@@ -78,6 +78,9 @@ a {
   text-decoration: none;
   color: var(--main-text-color);
 }
+button {
+  cursor: pointer;
+}
 .full-wh-container {
   width: 100%;
   height: auto;
@@ -525,23 +528,6 @@ body {
   text-transform: capitalize;
 }
 
-/*.main-section-5 .container-1 .part-3 h5,
-.main-section-5 .container-1 .part-3 button,
-.main-section-5 .container-1 .part-3 p {
-  margin: auto;
-}
-
-.main-section-5 .container-1 .part-3 h5 {
-  margin-bottom: 0;
-}
-
-
-.main-section-5 .container-1 .part-3 p {
-  margin-top: 1em;
-}*/
-
-
-
 
 
 
@@ -634,5 +620,3 @@ body {
 .margin-r-a {
   margin-right: auto;
 }
-
-
