@@ -500,8 +500,8 @@ body {
   bottom: -20%;
   right: 15%;
   background: var(--main-bg-color-2);
-  width: calc(20rem + 10vw);
-  height: calc(15rem + 10vw);
+  width: calc(30rem + 15vw);
+  height: calc(15rem + 15vw);
 }
 
 .main-section-5 .container-1 .part-3 {
@@ -509,7 +509,7 @@ body {
   width: calc(30rem + 15vw);
   max-width: calc(80rem + 1vw);
   margin: auto;
-  height: 50rem;
+  height: calc(50rem + 5vw);
   text-align: center;
   position: relative;
   z-index: 3;
@@ -524,8 +524,13 @@ body {
 
 .main-section-5 .container-1 .part-3 h5 {
   margin-bottom: 0;
+  margin-top: auto;
   letter-spacing: 0.15em;
   text-transform: capitalize;
+}
+
+.main-section-5 .container-1 .part-3 button {
+  margin: auto;
 }
 
 
