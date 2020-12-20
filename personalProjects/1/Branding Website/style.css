@@ -29,25 +29,32 @@
 	--header6: calc(1.5rem + 1vw);
 	--text: calc(1.2rem + 1vw);
 	--big-text: calc(6rem + 1vw);
+	/**/
+	--main-secondary-text-color: #292d33;
+	--main-secondary-text-color-2: white;
+	--main-secondary-text-color-3: #ffcb00;
+	--main-secondary-bg-color-2: #ffcb00;
+	--main-secondary-bg-color-3: #292d33;
+	/**/
+	--first-transition: ease-in-out 0.5s;
+	font-family: 'Open Sans',sans-serif;
+	color: var(--main-text-color);
+}
+body.light {
 	--main-text-color: #292d33;
 	--main-text-color-2: white;
 	--main-text-color-3: #ffcb00;
 	--main-bg-color: white;
 	--main-bg-color-2: #ffcb00;
 	--main-bg-color-3: #292d33;
-	--main-bg-color-4: #ffe300;
-	/**/
-	--main-secondary-text-color: #292d33;
-	--main-secondary-text-color-2: white;
-	--main-secondary-text-color-3: #ffcb00;
-	--main-secondary-bg-color: white;
-	--main-secondary-bg-color-2: #ffcb00;
-	--main-secondary-bg-color-3: #292d33;
-	--main-secondary-bg-color-4: #ffe300;
-	/**/
-	--first-transition: ease-in-out 0.5s;
-	font-family: 'Open Sans',sans-serif;
-	color: var(--main-text-color);
+}
+body.dark {
+	--main-text-color: #ddd;
+	--main-text-color-2: #292d33;
+	--main-text-color-3: #ffcb00;
+	--main-bg-color: #292d33;
+	--main-bg-color-2: #ffcb00;
+	--main-bg-color-3: #ddd;
 }
 html,
 body {
@@ -117,7 +124,7 @@ button {
 	text-transform: uppercase;
 }
 .special-btn-1,
-.special-btn-1 a {
+.special-btn-1 * {
 	letter-spacing: 0.2em;
 	transition: all var(--first-transition);
 }
@@ -126,7 +133,7 @@ button {
 	color: var(--main-text-color-3);
 }
 .special-btn-1:hover,
-.special-btn-1:hover a {
+.special-btn-1:hover * {
 	color: var(--main-text-color-3);
 }
 
@@ -142,7 +149,7 @@ button {
 	text-transform: uppercase;
 }
 .special-btn-2,
-.special-btn-2 a {
+.special-btn-2 * {
 	letter-spacing: 0.2em;
 	color: var(--main-text-color-3);
 	transition: all var(--first-transition);
@@ -151,7 +158,7 @@ button {
 	background: var(--main-bg-color-2);
 }
 .special-btn-2:hover,
-.special-btn-2:hover a {
+.special-btn-2:hover * {
 	color: var(--main-text-color);
 }
 
@@ -182,6 +189,11 @@ button {
 body {
 	background: var(--main-bg-color);
 	animation: opening 1.5s ease-in-out;
+	color: var(--main-text-color);
+}
+
+* {
+	
 }
 
 /*----------------------------*/
@@ -252,6 +264,7 @@ body {
 
 /**/
 .secondray-header {
+  color: var(--main-secondary-text-color-2);
 	display: flex;
   top: 0;
   left: 0;
@@ -265,16 +278,16 @@ body {
 }
 
 .secondray-header nav {
-  height: 100vh;
+  height: 100%;
   background: var(--main-secondary-text-color);
   padding: 2em;
-  transform: translateX(-100%);
+  overflow-y: scroll;
+  /*transform: translateX(-100%);*/
   transition: transform var(--first-transition);
 }
 
 .secondray-header .empty-space {
 	height: 100%;
-	width: 100%
 }
 
 .secondray-header nav ul li {
@@ -288,6 +301,46 @@ body {
 
 .secondray-header nav ul a:hover {
   border-bottom: 2px var(--main-text-color-3) solid;
+}
+
+.secondray-header nav ul li .theme-swaper {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.secondray-header nav .theme-swaper button {
+  margin: 0.2em 0;
+  padding: 1.4em 0.8em;
+  width: 20rem;
+	height: 4rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.secondray-header .theme-swaper .theme-toggle-button p {
+	font-size: 1.5rem;
+	font-weight: bold;
+	flex: 1 1 75%;
+}
+
+.secondray-header .theme-swaper .theme-toggle-button .svg-container {
+	flex: 1 1 0%;
+	width: 2rem;
+	height: 2rem;
+}
+
+.secondray-header nav .theme-swaper .sun-moon-container {
+
+}
+
+.secondray-header nav .theme-swaper .sun-moon-container .svg-container {
+	width: 2rem;
 }
 
 
@@ -480,6 +533,10 @@ body {
 .main-section-3 .part-1-wrapper .text-wrapper h2 {
 	font-size: var(--big-text);
 	color: var(--main-text-color-3);
+}
+
+.main-section-3 .part-1-wrapper .text-wrapper h3 {
+	color: var(--main-text-color-2);
 }
 
 .main-section-3 .part-1-wrapper .img-wrapper img {
@@ -859,6 +916,12 @@ body {
 /*----------------------------*/
 
 @media screen and (max-width: 800px) {
+	.secondray-header .empty-space {
+    width: 40%;
+	}
+	.secondray-header nav {
+    width: 60%;
+	}
 	.main-section-1 {
 		flex-wrap: wrap;
 	}

@@ -9,6 +9,7 @@ secondrayHeaderEmptySpace.addEventListener("click", toggleSecondrayHeader);
 function toggleSecondrayHeader() {
  if (secondrayHeader.classList.contains("isHidden")) {
  	secondrayHeader.classList.remove("isHidden");
+ 	document.body.style.overflowY = "hidden";
  	setTimeout(() => secondrayHeaderNav.style.transform = "translateX(0%)", 0);
  } else {
  	// secondrayHeader.classList.add("isHidden");
@@ -16,6 +17,7 @@ function toggleSecondrayHeader() {
  	secondrayHeaderNav.addEventListener("transitionend", secondrayHeaderNavOnTransitionStart);
  	function secondrayHeaderNavOnTransitionStart() {
  		secondrayHeader.classList.add("isHidden");
+ 	document.body.style.overflowY = "auto";
  		secondrayHeaderNav.removeEventListener("transitionend", secondrayHeaderNavOnTransitionStart);
  	}
  }
