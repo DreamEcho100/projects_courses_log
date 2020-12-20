@@ -22,6 +22,20 @@ PersonalProjectsContent.list.push(
     list: [
       {
         types: ["normal-content-project"],
+        name: "Branding Website",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+        types: ["normal-content-project"],
         name: "HTML-CSS-JavaScript Demos",
         info: "",
         fileName: "index",
@@ -34,7 +48,6 @@ PersonalProjectsContent.list.push(
           APIs: [],
         },
       },
-
       {
         types: ["no-content-project"],
         name: "",
