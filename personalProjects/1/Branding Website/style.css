@@ -177,7 +177,7 @@ button {
 	width: calc(2rem + 1vw);
 	height: calc(2rem + 1vw);
 	display: inline-block;
-	color: #959595;
+	color: var(--main-secondary-text-color);
 }
 body {
 	background: var(--main-bg-color);
