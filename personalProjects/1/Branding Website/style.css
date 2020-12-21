@@ -241,17 +241,6 @@ body {
 	}
 }
 
-}
-@keyframes flipFront {
-	0% {
-		z-index: 3;
-		transform: rotateY(360deg);
-	}
-	100% {
-		z-index: 2;
-		transform: rotateY(180deg);
-	}
-}
 
 @keyframes flipCard {
 	0% {
