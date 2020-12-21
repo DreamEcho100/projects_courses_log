@@ -208,7 +208,7 @@ button {
 	width: calc(2rem + 1vw);
 	height: calc(2rem + 1vw);
 	display: inline-block;
-	color: var(--main-secondary-text-color);
+	color: var(--main-secondary-text-color-2);
 }
 
 .social-links .social-link.dribbble-link:hover {
