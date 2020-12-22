@@ -441,7 +441,7 @@ body {
 	font-weight: 400;
 }
 
-.main-section-4 .text-holder p {
+.main-section-4 p {
 	font-weight: 200;
 }
 
@@ -473,6 +473,7 @@ body {
 
 .main-section-4 .grid-4-1-holder .part h3 {
 	text-align: left;
+	font-weight: 400;
 }
 
 /*----------------------------*/
@@ -480,6 +481,7 @@ body {
 /*----------------------------*/
 .main-section-5 {
 	background: url("./images/ffa38b2636fc1f5273f26994676d1935.png");
+	min-height: 75vh;
 	padding: 2em;
 }
 
