@@ -213,7 +213,10 @@ a {
   color: var(--facebook-icon-hover-color);
 }
 
-h1 {
+/*h1 {
+	font-family: Oswald, sans-serif;
+}*/
+body {
 	font-family: Oswald, sans-serif;
 }
 
@@ -295,4 +298,73 @@ h1 {
   height: 1rem;
   display: block;
   margin: 1em auto -3em auto;
+}
+
+/*----------------------------*/
+/* Main Section 1 */
+/*----------------------------*/
+.main-section-2 .text-holder {
+	margin: 1em 0;
+}
+
+.main-section-2 .text-holder {
+	text-align: center;
+}
+
+.main-section-2 .text-holder h2 {
+	margin: 0.5em;
+	font-weight: 400;
+}
+
+.main-section-2 .text-holder p {
+	margin: 0.5em;
+	letter-spacing: 0.2em;
+}
+
+.main-section-2 .cards-holder {
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	background: white;
+}
+	
+.main-section-2 .cards-holder .card {
+  background: red;
+  width: 20rem;
+  height: 30rem;
+  margin: 1em;
+  position: relative;
+}
+
+.main-section-2 .cards-holder .card .num-holder {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: var(--special-bg-color);
+	width: 3rem;
+	height: 3rem;
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+.main-section-2 .devicies-images-holder {
+
+}
+
+.main-section-2 .devicies-images-holder .empty-space {
+	background: white;
+	height: calc(15rem + 5vw);
+}
+
+.main-section-2 .devicies-images-holder .img-holder {
+	position: relative;
+	height: calc(15rem + 5vw);
+}
+
+.main-section-2 .devicies-images-holder .img-holder img {
+  position: absolute;
+  height: calc(10rem + 15vw);
+  width: calc(20rem + 40vw);
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
 }
