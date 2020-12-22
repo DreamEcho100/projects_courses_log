@@ -369,13 +369,15 @@ let ContentBuilder = (function () {
         let tempUrl;
         if ( item.types.includes("extra-url-after-name") ) {
           if ( item.types.includes("special-characters-type-1") ) {
+            tempUrl = console.log(true);
             `${url}/${specialCharactersType1(item.name, item.specialCharactersType1)}/${item.extraUrlAfterName}/${specialCharactersType1(item.fileName, item.specialCharactersType1)}.${item.fileExtension}`;
           } else {
             tempUrl = `${url}/${item.name}/${item.extraUrlAfterName}/${item.fileName}.${item.fileExtension}`;
           }
         } else {
           if ( item.types.includes("special-characters-type-1") ) {
-            `${url}/${specialCharactersType1(item.name, item.specialCharactersType1)}/${specialCharactersType1(item.fileName, item.specialCharactersType1)}.${item.fileExtension}`;
+            console.log(true);
+            tempUrl = `${url}/${specialCharactersType1(item.name, item.specialCharactersType1)}/${specialCharactersType1(item.fileName, item.specialCharactersType1)}.${item.fileExtension}`;
           } else {
             tempUrl = `${url}/${item.name}/${item.fileName}.${item.fileExtension}`;
           }

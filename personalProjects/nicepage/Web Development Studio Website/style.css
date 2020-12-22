@@ -241,7 +241,7 @@ body {
 	font-family: Oswald, sans-serif;
 }
 
-main section {
+.min-h-100vh {
 	min-height: 100vh;
 }
 
@@ -529,6 +529,82 @@ main section {
 
 .main-section-5 .img-holder {
 	width: 60%;
+}
+
+/*----------------------------*/
+/* Main Section 6 */
+/*----------------------------*/
+.main-section-6 {
+
+}
+
+.main-section-6 .wrapper {
+	text-align: center;
+	padding:1em;
+}
+
+.main-section-6 .slider {
+  margin: 8em auto;
+  position: relative;
+  width: 90%;
+  overflow: hidden;
+}
+
+.main-section-6 .slider .left-arrow,
+.main-section-6 .slider .right-arrow {
+	width: calc(3rem + 2vw);
+	height: calc(3rem + 2vw);
+	position: absolute;
+	top: 50%;
+	cursor: pointer;
+	transform: translateY(-50%);
+}
+
+
+.main-section-6 .slider .left-arrow {
+	left: 0;
+}
+
+.main-section-6 .slider .right-arrow {
+	right: 0;
+}
+
+.main-section-6 .slider .content {
+	width: 90%;
+	margin: auto;
+	transition: all var(--first-transition);
+}
+
+.main-section-6 .slider .img-holder {
+	/*width: 60rem;
+	height: 20rem;*/
+	flex: 1 1 10%;
+}
+
+.main-section-6 .slider .content .text-holder {
+	flex: 1 1 75%;
+	margin-left: 1em;
+}
+
+.main-section-6 .slider .img-holder img {
+  border-radius: 50%;
+  width: 12rem;
+  height: 12rem;
+}
+
+.main-section-6 .slider .text-holder {
+	text-align: left;
+}
+.main-section-6 .slider .text-holder p {
+	width: 100%;
+}
+
+.main-section-6 {
+
+}
+
+.main-section-6 {
+
 }
 
 /*----------------------------*/
