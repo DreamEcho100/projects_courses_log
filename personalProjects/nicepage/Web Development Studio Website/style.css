@@ -241,6 +241,10 @@ body {
 	font-family: Oswald, sans-serif;
 }
 
+main section {
+	min-height: 100vh;
+}
+
 /*----------------------------*/
 /* ANIMATIONS */
 /*----------------------------*/
@@ -430,11 +434,16 @@ body {
 	margin: 4em;
 }
 
+.main-section-3 .grid-4-1-holder .img-holder {
+	display: flex;
+	align-items: stretch;
+	justify-content: stretch;
+}
+
 /*----------------------------*/
 /* Main Section 4 */
 /*----------------------------*/
 .main-section-4 {
-
 }
 
 .main-section-4 .text-holder h3 {
@@ -481,7 +490,6 @@ body {
 /*----------------------------*/
 .main-section-5 {
 	background: url("./images/ffa38b2636fc1f5273f26994676d1935.png");
-	min-height: 75vh;
 	padding: 2em;
 }
 
