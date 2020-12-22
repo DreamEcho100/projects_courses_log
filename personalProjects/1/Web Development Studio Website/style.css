@@ -213,6 +213,16 @@ a {
   color: var(--facebook-icon-hover-color);
 }
 
+.bg-img-fixies-1 {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.img-fixies-1 {
+	object-fit: cover;
+	object-position: center;
+}
+
 /*h1 {
 	font-family: Oswald, sans-serif;
 }*/
@@ -248,9 +258,6 @@ body {
 /*----------------------------*/
 .main-section-1 {
 	background-image: url("./images/77143220e0ed2fc7fb6de2985a0a0605.png");
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
 	height: 100vh;
 }
 
@@ -301,7 +308,7 @@ body {
 }
 
 /*----------------------------*/
-/* Main Section 1 */
+/* Main Section 2 */
 /*----------------------------*/
 .main-section-2 .text-holder {
 	margin: 1em 0;
@@ -367,4 +374,47 @@ body {
   top: -50%;
   left: 50%;
   transform: translateX(-50%);
+}
+
+/*----------------------------*/
+/* Main Section 3 */
+/*----------------------------*/
+
+.main-section-3 {
+	background-image: linear-gradient(0deg, rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url("./images/e0cd5b9c022703abe1039b862844f5d3.png");
+}
+
+.main-section-3 .text-holder {
+	text-align: center;
+}
+
+.main-section-3 .text-holder h2 {
+	font-weight: 400;
+}
+
+.main-section-3 .text-holder p {
+	width: 50%;
+	margin: 0 auto;
+	font-weight: 300;
+}
+
+.main-section-3 .grid-holder {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 1fr;
+	justify-content: center;
+	align-items: center;
+
+	margin: 4em;
+}
+
+.main-section-3 button {
+	border-color: transparent;
+	background: var(--special-bg-color);
+	width: 13rem;
+	height: 4rem;
+	text-align: center;
+	margin: 0 0 2em 0;
+	font-size: var(--small-text);
+	color: var(--main-text-color);
 }
