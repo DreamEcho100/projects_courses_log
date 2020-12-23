@@ -1,5 +1,6 @@
 const contentContainer = document.querySelector('.main-section-6 .slider');
 const leftArrow = document.querySelector('.main-section-6 .slider .left-arrow');
+const rightArrow = document.querySelector('.main-section-6 .slider .right-arrow');
 	let currentSlider, nextSlider;
 
 const content = [
