@@ -632,6 +632,14 @@ body {
 	}
 }
 @media screen and (max-width: 625px) {
+	.main-section-3 .grid-4-1-holder {
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(25rem, 1fr));
+	}
+	.main-section-4 .grid-4-1-holder {
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(10rem, 1fr));
+	}
 	.main-section-6 .slider .content {
 		flex-direction: column;
 	}
