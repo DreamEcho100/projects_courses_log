@@ -1,4 +1,6 @@
-const contentContainer = document.querySelector('.main-section-6 .slider .content-container');
+const contentContainer = document.querySelector('.main-section-6 .slider');
+const leftArrow = document.querySelector('.main-section-6 .slider .left-arrow');
+	let currentSlider, nextSlider;
 
 const content = [
 	{
@@ -20,7 +22,7 @@ function sliderHTMLBuilder({ name, imageUrl, text }) {
 							<div class="img-holder flex-xy-center">
 								<img class="full-w-h-container" src="${imageUrl}" alt="${name}">
 							</div>
-							<div class="text-holder full-w-h-container">
+							<div class="text-holder full-w-h-container flex-xy-center flex-d-c">
 								<p>
 									${text}
 								</p>
@@ -34,24 +36,92 @@ function sliderHTMLBuilder({ name, imageUrl, text }) {
 function sliderContentContainerBuilder(type, index) {
 	const slider = document.createElement("div");
 	slider.classList.add("content", "flex-xy-center", "full-w-h-container");
-	slider.innerHTML = sliderHTMLBuilder(content[currentSliderIndex]);
+	slider.innerHTML = sliderHTMLBuilder(content[index]);
 
-	if (type === "next") slider.style.left = "110%";
+	if (type === "next") {
+		slider.style.left = "110%";
+		slider.style.transform = 'scale(0.1)';
+	}
 
 	contentContainer.appendChild(slider);
 
+	return slider;
 
 }
 
-function sliderAnimationHandler() {
-	let currentSlider, nextSlider;
-	setTimeout(() => {
-	  sliderContentContainerBuilder("current", currentSliderIndex);
+let sliderToLeftSetTimeout,
+sliderToLeftSetTimeoutRec;
+
+function sliderAnimationHandlerToTheLeft() {
+
+	currentSlider.style.left = '-110%';
+	currentSlider.style.transform = 'scale(0.1)';
+
+	nextSlider.style.left = '5%';
+	nextSlider.style.transform = 'scale(1)';
+
+	sliderToLeftSetTimeout = setTimeout(
+		() => currentSliderTransitionEnd(),
+		(parseInt(getComputedStyle(document.body).getPropertyValue("--scecond-transition-delay")) + 0.1) * 1000
+		);
+
+	function currentSliderTransitionEnd() {
+
+		currentSlider.parentElement.removeChild(currentSlider);
 
 		currentSliderIndex = nextSliderIndex;
-		if (nextSliderIndex > content.length) nextSliderIndex = 0;
+		if (nextSliderIndex + 1 >= content.length) nextSliderIndex = 0;
 		else nextSliderIndex++;
-	}, 1000)
+
+		currentSlider = nextSlider;
+
+		nextSlider = sliderContentContainerBuilder("next", nextSliderIndex);
+
+		sliderToLeftSetTimeoutRec = setTimeout(() => sliderAnimationHandlerToTheLeft(), 5000);
+	}
 }
 
-sliderContentContainerBuilder("current", currentSliderIndex);
+let sliderToRightSetTimeout,
+sliderToRightSetTimeoutRec;
+
+function sliderAnimationHandlerToTheRight() {
+
+	currentSlider.style.right = '-110%';
+	currentSlider.style.transform = 'scale(0.1)';
+
+	nextSlider.style.right = '5%';
+	nextSlider.style.transform = 'scale(1)';
+
+	sliderToRightSetTimeout = setTimeout(
+		() => currentSliderTransitionEnd(),
+		(parseInt(getComputedStyle(document.body).getPropertyValue("--scecond-transition-delay")) + 0.1) * 1000
+		);
+
+	function currentSliderTransitionEnd() {
+
+		currentSlider.parentElement.removeChild(currentSlider);
+
+		nextSliderIndex = currentSliderIndex;
+		if (currentSliderIndex - 1 >= content.length) currentSliderIndex = 0;
+		else currentSliderIndex--;
+
+		currentSlider = nextSlider;
+
+		nextSlider = sliderContentContainerBuilder("next", nextSliderIndex);
+
+		sliderToRightSetTimeoutRec = setTimeout(() => sliderAnimationHandlerToTheRight(), 5000);
+	}
+}
+
+leftArrow.addEventListener("click", () => {
+  clearInterval(sliderToLeftSetTimeout);
+  clearInterval(sliderToLeftSetTimeoutRec);
+
+  sliderAnimationHandlerToTheLeft();
+
+});
+
+currentSlider = sliderContentContainerBuilder("current", currentSliderIndex);
+nextSlider = sliderContentContainerBuilder("next", nextSliderIndex);
+
+sliderAnimationHandlerToTheLeft();

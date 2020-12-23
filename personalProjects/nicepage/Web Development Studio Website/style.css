@@ -31,6 +31,7 @@
 	--text: calc(1.2rem + 1vw);
 	--big-text: calc(6rem + 1vw);
 	--first-transition: ease-in-out 0.5s;
+	--scecond-transition-delay: 2s;
 	font-family: 'Open Sans', sans-serif;
 }
 body.dark {
@@ -548,7 +549,8 @@ body {
   position: relative;
   width: 90%;
   overflow: hidden;
-  height: 18rem;
+  height: calc(30rem - 1vw);
+  min-height: 20rem;
 }
 
 .main-section-6 .slider .left-arrow,
@@ -556,6 +558,7 @@ body {
 	width: calc(3rem + 2vw);
 	height: calc(3rem + 2vw);
 	position: absolute;
+	z-index: 3;
 	top: 50%;
 	cursor: pointer;
 	transform: translateY(-50%);
@@ -570,16 +573,21 @@ body {
 	right: 0;
 }
 
-.main-section-6 .slider .content-container {
+/*.main-section-6 .slider .content-container {
   width: 90%;
   height: 100%;
   margin: auto;
   position: relative;
-}
+}*/
 
 .main-section-6 .slider .content {
 	position: absolute;
-  transition: all var(--first-transition);
+	top: 0;
+	left: 5%;
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  transition: all ease-in-out var(--scecond-transition-delay);
 }
 
 .main-section-6 .slider .img-holder {
