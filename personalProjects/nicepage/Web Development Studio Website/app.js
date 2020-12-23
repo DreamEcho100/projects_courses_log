@@ -1,7 +1,7 @@
 const contentContainer = document.querySelector('.main-section-6 .slider');
 const leftArrow = document.querySelector('.main-section-6 .slider .left-arrow');
 const rightArrow = document.querySelector('.main-section-6 .slider .right-arrow');
-	let currentSlider, nextSlider;
+let previousSlider, currentSlider, nextSlider;
 
 const content = [
 	{
@@ -16,9 +16,14 @@ const content = [
 	}
 ];
 
-let currentSliderIndex = 0, nextSliderIndex = content.length - 1;
+let currentSliderIndex = 0,
+nextSliderIndex = currentSliderIndex + 1 >= content.length ? content.length - 1 : currentSliderIndex + 1,
+previousSliderIndex = currentSliderIndex - 1 < 0 ? content.length - 1 : currentSliderIndex - 1;
 
-function sliderHTMLBuilder({ name, imageUrl, text }) {
+leftArrow.addEventListener("click", sliderAnimationHandlerToTheLeft);
+
+function sliderHTMLBuilder(obj, type) {
+	const { name, imageUrl, text } = obj;
 	return `
 							<div class="img-holder flex-xy-center">
 								<img class="full-w-h-container" src="${imageUrl}" alt="${name}">
@@ -41,6 +46,11 @@ function sliderContentContainerBuilder(type, index) {
 
 	if (type === "next") {
 		slider.style.left = "110%";
+		slider.style.opacity = "0";
+		slider.style.transform = 'scale(0.1)';
+	} else if (type === "previous") {
+		slider.style.left = "-110%";
+		slider.style.opacity = "0";
 		slider.style.transform = 'scale(0.1)';
 	}
 
@@ -54,11 +64,15 @@ let sliderToLeftSetTimeout,
 sliderToLeftSetTimeoutRec;
 
 function sliderAnimationHandlerToTheLeft() {
+  clearInterval(sliderToLeftSetTimeout);
+  clearInterval(sliderToLeftSetTimeoutRec);
 
 	currentSlider.style.left = '-110%';
+	currentSlider.style.opacity = "0";
 	currentSlider.style.transform = 'scale(0.1)';
 
 	nextSlider.style.left = '5%';
+	nextSlider.style.opacity = "1";
 	nextSlider.style.transform = 'scale(1)';
 
 	sliderToLeftSetTimeout = setTimeout(
@@ -69,14 +83,19 @@ function sliderAnimationHandlerToTheLeft() {
 	function currentSliderTransitionEnd() {
 
 		currentSlider.parentElement.removeChild(currentSlider);
+		previousSlider.parentElement.removeChild(previousSlider);
 
 		currentSliderIndex = nextSliderIndex;
 		if (nextSliderIndex + 1 >= content.length) nextSliderIndex = 0;
 		else nextSliderIndex++;
+		if (previousSliderIndex - 1 < 0) previousSliderIndex = content.length - 1;
+		else previousSliderIndex--;
+
 
 		currentSlider = nextSlider;
 
 		nextSlider = sliderContentContainerBuilder("next", nextSliderIndex);
+		previousSlider = sliderContentContainerBuilder("previous", previousSliderIndex);
 
 		sliderToLeftSetTimeoutRec = setTimeout(() => sliderAnimationHandlerToTheLeft(), 5000);
 	}
@@ -85,13 +104,18 @@ function sliderAnimationHandlerToTheLeft() {
 let sliderToRightSetTimeout,
 sliderToRightSetTimeoutRec;
 
+rightArrow.addEventListener("click", sliderAnimationHandlerToTheRight);
 function sliderAnimationHandlerToTheRight() {
+  clearInterval(sliderToLeftSetTimeout);
+  clearInterval(sliderToLeftSetTimeoutRec);
 
-	currentSlider.style.right = '-110%';
+	currentSlider.style.left = '110%';
+	currentSlider.style.opacity = "0";
 	currentSlider.style.transform = 'scale(0.1)';
 
-	nextSlider.style.right = '5%';
-	nextSlider.style.transform = 'scale(1)';
+	previousSlider.style.left = '5%';
+	previousSlider.style.opacity = "1";
+	previousSlider.style.transform = 'scale(1)';
 
 	sliderToRightSetTimeout = setTimeout(
 		() => currentSliderTransitionEnd(),
@@ -101,27 +125,25 @@ function sliderAnimationHandlerToTheRight() {
 	function currentSliderTransitionEnd() {
 
 		currentSlider.parentElement.removeChild(currentSlider);
+		nextSlider.parentElement.removeChild(nextSlider);
 
-		nextSliderIndex = currentSliderIndex;
-		if (currentSliderIndex - 1 >= content.length) currentSliderIndex = 0;
-		else currentSliderIndex--;
+		currentSliderIndex = previousSliderIndex;
+		if (previousSliderIndex + 1 >= content.length) previousSliderIndex = 0;
+		else previousSliderIndex++;
+		if (nextSliderIndex - 1 < 0) nextSliderIndex = content.length - 1;
+		else nextSliderIndex--;
 
-		currentSlider = nextSlider;
+
+		currentSlider = previousSlider;
 
 		nextSlider = sliderContentContainerBuilder("next", nextSliderIndex);
+		previousSlider = sliderContentContainerBuilder("previous", previousSliderIndex);
 
-		sliderToRightSetTimeoutRec = setTimeout(() => sliderAnimationHandlerToTheRight(), 5000);
+		sliderToLeftSetTimeoutRec = setTimeout(() => sliderAnimationHandlerToTheLeft(), 5000);
 	}
 }
 
-leftArrow.addEventListener("click", () => {
-  clearInterval(sliderToLeftSetTimeout);
-  clearInterval(sliderToLeftSetTimeoutRec);
-
-  sliderAnimationHandlerToTheLeft();
-
-});
-
+previousSlider = sliderContentContainerBuilder("previous", nextSliderIndex);
 currentSlider = sliderContentContainerBuilder("current", currentSliderIndex);
 nextSlider = sliderContentContainerBuilder("next", nextSliderIndex);
 
