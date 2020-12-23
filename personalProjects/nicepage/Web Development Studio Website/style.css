@@ -548,6 +548,7 @@ body {
   position: relative;
   width: 90%;
   overflow: hidden;
+  height: 18rem;
 }
 
 .main-section-6 .slider .left-arrow,
@@ -569,10 +570,16 @@ body {
 	right: 0;
 }
 
+.main-section-6 .slider .content-container {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  position: relative;
+}
+
 .main-section-6 .slider .content {
-	width: 90%;
-	margin: auto;
-	transition: all var(--first-transition);
+	position: absolute;
+  transition: all var(--first-transition);
 }
 
 .main-section-6 .slider .img-holder {
