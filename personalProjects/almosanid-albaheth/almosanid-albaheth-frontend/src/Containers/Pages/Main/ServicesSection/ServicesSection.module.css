@@ -1,0 +1,93 @@
+.LastSection {
+
+}
+
+.ServicesSection {
+  /*height: calc(40rem + 2vw + 2vh) !important;
+  max-height: 75vh !important;*/
+  --swiper-theme-color: var(--bg-color-3);
+  text-align: center;
+}
+
+.ServicesSection h2 {
+  margin-top: 0.2em;
+  font-size: var(--big-text);
+  line-height: 1.1em;
+}
+
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+  justify-content: center;
+  align-items: center;
+}
+
+.CubesHolder {
+  justify-content: space-around;
+}
+
+.Cube1 ul li {
+  margin: 1em 0;
+  background: var(--bg-color-1);
+  color: var(--text-lighter-color-2);
+}
+
+.Cube1 {
+  width: calc(25rem + 5vw);
+  padding: 0.5em;
+  margin: 0.5em 1em;
+}
+
+.Cube1 .swiper-pagination {
+  width: calc(0.5 + 1vw);
+  height: calc(0.5 + 1vw);
+  max-width: 2rem;
+  max-height: 2rem;
+  margin: 0 0.5em !important;
+  bottom: 0;
+}
+
+
+.Side {
+  border-radius: 0px 0px 3% 3%;
+}
+
+.Side header {
+  width: 100%;
+  text-align: center;
+  background: var(--bg-darker-color-2);
+  color: var(--text-color-1);
+  padding: 0.5em 0;
+}
+
+.Side button {
+  margin: 1em auto;
+  background: var(--bg-color-4);
+  padding: 0.3em 0.5em;
+  border-color: transparent;
+  border-radius: 5px;
+  margin: 0.5em auto;
+  transform: scale(0.9);
+  transition: all var(--transition-delay-1) cubic-bezier(.79,.14,.15,.86);
+}
+
+.Side button:hover {
+  background: var(--bg-lighter-color-4);
+  color: rgb(153, 153, 153);
+  transform: scale(1);
+}
+
+.Side button a {
+  color: white;
+}
+
+.TextHolder {
+  text-align: center;
+}
+
+.TextHolder p {
+  line-height: 1em;
+  margin: 1em 0;
+  font-weight: 500;
+  padding: 0 0.1em;
+}

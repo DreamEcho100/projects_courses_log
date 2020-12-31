@@ -1,0 +1,27 @@
+.swiper-pagination .swiper-pagination-bullet {
+  width: calc(1rem + 0.25vw);
+  height: calc(1rem + 0.25vw);
+  max-width: 3rem;
+  max-height: 3rem;
+}
+
+#services-section .swiper-pagination {
+  bottom: 0;
+  transform: translateY(100%);
+  margin: 0 0.5em !important;
+}
+
+#services-section .swiper-button-prev {
+  right: 5%;
+}
+
+#services-section .swiper-button-next {
+  left: 5%;
+}
+
+#services-section .swiper-button-prev,
+#services-section .swiper-button-next {
+  transform: translateX(0);
+  top: 100%;
+  position: absolute;
+}

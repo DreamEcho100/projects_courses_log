@@ -1,0 +1,72 @@
+.Nav {
+  display: flex;
+  --nav-size: 6rem;
+}
+
+.Nav li {
+  --nav-li-height: calc(var(--nav-size) * 0.6);
+  background: var(--bg-darker-color-1);
+  width: calc(var(--nav-size) * 0.6);
+  height: var(--nav-li-height);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Nav li a {
+  display: flex;
+  background: var(--bg-darker-color-1);
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  transition: filter 300ms;
+}
+
+.Nav li:not(.NoBtn) a {
+  border-radius: 50%;
+}
+
+.Nav svg {
+  width: calc(var(--nav-size) * 0.4) !important;
+  height: calc(var(--nav-size) * 0.4) !important;
+}
+
+
+.NavItemDropdownMenu1 {
+  position: relative;
+}
+
+.DropdownMenu1 {
+  position: absolute;
+  bottom: calc(0% - 0.1em);
+  width: calc(15rem + 1em + 1vw);
+  max-width: 30rem;
+  transform: translate(45%, 100%);
+  background: var(--bg-darker-color-1);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.DropItemMenu1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+  transition: filter 300ms;
+  background: var(--bg-color-darker-1);
+  justify-items: space-around;
+  line-height: 0.8em;
+  padding: 0.5em 0em;
+}
+
+.DropItemMenu1:hover {
+  background: var(--bg-color-1);
+}
+
+.DropItemMenu1 span {
+  width: calc(var(--nav-size) * 0.4) !important;
+  height: calc(var(--nav-size) * 0.4) !important;
+}

@@ -1,0 +1,28 @@
+.MainHeader {
+  background: var(--bg-darker-color-2);
+  height: 7rem;
+  padding: 0.5em 1em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.Logo {
+  margin-left: auto;
+  max-width: 10rem;
+}
+
+.NavOnSmallScreens {
+  display: none;
+}
+
+@media screen and (max-width: 750px) {
+  .NavOnBigScreens {
+    display: none;
+  }
+  .NavOnSmallScreens {
+    display: flex;
+    margin-right: auto;
+  }
+}

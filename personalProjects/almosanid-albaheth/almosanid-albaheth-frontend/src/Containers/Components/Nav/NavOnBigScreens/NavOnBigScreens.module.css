@@ -1,0 +1,63 @@
+.Nav {
+  width: 100%;
+  color: var(--text-darker-color-4);
+}
+
+.Nav ul {
+  justify-content: space-around;
+}
+
+.Nav li {
+  cursor: pointer;
+  margin: 0 0.1em;
+  font-weight: 500;
+}
+
+.Nav ul a {
+  transition: all var(--transition-delay-2) cubic-bezier(.79,.14,.15,.86);
+}
+
+.Nav ul a,
+.Nav ul a:active,
+.Nav ul a:focus,
+.Nav ul a:visited {
+  color: var(--text-color-4);
+  font-weight: 500;
+  transition: all 0.4s ease-in-out;
+  border-bottom: 3px transparent solid;
+}
+
+.Nav ul a:hover {
+  border-bottom-color: var(--text-color-4);
+}
+
+.ServiceHolder {
+  position: relative;
+}
+
+.ServiceHolder a {
+  font-weight: 300;
+  border-bottom-color: transparent;
+}
+
+.Nav .ServiceHolder ul {
+  position: absolute;
+  left: 50%;
+  bottom: 0%;
+  transform: translateX(50%);
+  width: 200%;
+  height: 9rem;
+}
+
+.DropdownMenu1 {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50% ,100%);
+  background: var(--bg-darker-color-2);
+  color: var(--text-color-4);
+  width: 12rem;
+  text-align: center;
+  border-radius: 10px;
+  padding: 0.1em;
+}

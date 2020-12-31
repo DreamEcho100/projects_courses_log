@@ -1,0 +1,39 @@
+.Footer {
+  background: var(--bg-darker-color-2);
+  color: var(--text-darker-color-1);
+  min-height: 10%;
+  padding: 1em;
+  margin-top: auto;
+  height: 25%;
+}
+
+.Footer p {
+  flex: 11 50%;
+  text-align: right;
+}
+
+.Footer p,
+.Footer svg {
+  font-size: calc(var(--text) + 1rem);
+}
+
+.SocialLinksWrapper {
+  flex: 11 50%;
+}
+
+.SocialLinksWrapper ul {
+  width: 20rem;
+  margin-left: auto;
+  margin-left: 1em;
+}
+
+.SocialLinksWrapper ul li {
+  margin: 0 0.25em;
+}
+
+.SocialLinksWrapper ul li .social-link.facebook-link a {
+  color: #1818b3;
+}
+
+.SocialLinksWrapper  a {
+}

@@ -1,0 +1,89 @@
+.LastSection {
+  
+}
+
+.Grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  margin: 3em 0 0 0;
+}
+
+.Part {
+
+}
+
+.ImageContainer {
+
+}
+
+.Grid  .TextHolder {
+  text-align: center;
+  line-height: 3em;
+  background: #2f3f4f;
+  color: white;
+  padding: 1em;
+  position: relative;
+}
+
+.Grid  .TextHolder h2 {
+  color: #ee930b;
+}
+
+.Grid  .TextHolder h4 {
+  color: #a0fa35;
+}
+
+.Grid  .TextHolder button {
+  margin: 1em auto;
+  background: var(--bg-color-4);
+  padding: 0.3em 0.5em;
+  border-color: transparent;
+  border-radius: 5px;
+  margin: 0.5em auto;
+  transition: all var(--transition-delay-1) cubic-bezier(.79,.14,.15,.86);
+  position: absolute;
+  bottom: 0;
+  width: max-content;
+  transform: translateY(100%) scale(0.9);
+}
+
+.Grid  .TextHolder button a,
+.Grid  .TextHolder button a:active,
+.Grid  .TextHolder button a:focus,
+.Grid  .TextHolder button a:visited {
+  color: white;
+}
+
+.Grid  .TextHolder button:hover {
+  background: var(--bg-lighter-color-4);
+  color: rgb(153, 153, 153);
+  transform: translateY(90%) scale(1);
+}
+
+.Specialties {
+  background: var(--bg-color-2);
+  color: white;
+}
+
+.Specialties .ImageHolder {
+  flex: 1 1 50%;
+  padding: 1%;
+}
+
+.Specialties .TextHolder {
+  flex: 1 1 50%;
+  padding: 2em 1em;
+}
+
+.Specialties .TextHolder ol li {
+  margin-right: 1.5em;
+  color: var(--text-color-4);
+}
+
+@media screen and (max-width: 475px) {
+  .Grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
