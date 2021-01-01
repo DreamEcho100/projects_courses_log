@@ -120,8 +120,8 @@ main {
 }
 
 .hero {
-    min-height: 90vh;
-    margin-top: 10vh;
+	min-height: 90vh;
+	margin-top: 10vh;
 	background: linear-gradient(rgba(0, 0, 0, 0.8), transparent), url("./img/landing-page.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;

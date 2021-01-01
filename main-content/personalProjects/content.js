@@ -13,16 +13,58 @@ const PersonalProjectsContent =
     // Section End
   }
 
+  PersonalProjectsContent.list.push(
+    {
+      types: ["normal-content-course"],
+      name: "1",
+      info: "",
+      classes: "spinningBackground1",
+      list: [
+        {
+          types: ["normal-content-project"],
+          name: "HTML-CSS-JavaScript Demos",
+          info: "",
+          fileName: "index",
+          fileExtension: "html",
+          difficulty: "",
+          tech: {
+            languages: ["HTML", "CSS", "JavaScript"],
+            libraries: [],
+            frameworks: [],
+            APIs: [],
+          },
+        },
+        {
+          types: ["no-content-project"],
+          name: "",
+          info: "",
+          fileName: "index",
+          fileExtension: "html",
+          difficulty: "",
+          tech: {
+            languages: ["HTML", "CSS", "JavaScript"],
+            libraries: [],
+            frameworks: [],
+            APIs: [],
+          },
+        },
+  
+        // Inner List End
+      ],
+    }
+  );
+
 PersonalProjectsContent.list.push(
   {
     types: ["normal-content-course"],
-    name: "1",
+    name: "almosanid-albaheth",
     info: "",
     classes: "spinningBackground1",
     list: [
       {
-        types: ["normal-content-project"],
-        name: "HTML-CSS-JavaScript Demos",
+        types: ["normal-content-project", "extra-url-after-name"],
+        extraUrlAfterName: "build",
+        name: "almosanid-albaheth-frontend",
         info: "",
         fileName: "index",
         fileExtension: "html",
@@ -30,7 +72,7 @@ PersonalProjectsContent.list.push(
         tech: {
           languages: ["HTML", "CSS", "JavaScript"],
           libraries: [],
-          frameworks: [],
+          frameworks: ["React"],
           APIs: [],
         },
       },

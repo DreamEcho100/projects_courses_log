@@ -1,0 +1,263 @@
+/*----------------------------*/
+/* GLOBAL STYLES */
+/*----------------------------*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+@font-face { 
+	font-family: "BigVesta-Arabic";
+	font-display: swap;
+	src: url("https://secureservercdn.net/160.153.138.177/gnd.80c.myftpupload.com/wp-content/uploads/et-fonts/BigVesta-Arabic-Regular.ttf")
+	format("truetype"); 
+}
+:root {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+	--header1: calc(4rem + 1vw);
+	--header2: calc(3.2rem + 1vw);
+	--header3: calc(2.5rem + 1vw);
+	--header4: calc(2rem + 1vw);
+	--header5: calc(1.8rem + 1vw);
+	--header6: calc(1.5rem + 1vw);
+	--small-text: calc(0.7rem + 1vw);
+	--text: calc(1.2rem + 1vw);
+	--big-text: calc(6rem + 1vw);
+	--first-transition: ease-in-out 0.5s;
+	--scecond-transition-delay: 2s;
+	font-family: 'Open Sans', sans-serif;
+}
+body.dark {
+  --text-color-1: #141414;
+	--text-color-2: #fff;
+  
+  --bg-color-1: #141414;
+	--bg-color-2: #fff;
+	
+  --bg-hover-color-1: #171e26;
+	--bg-hover-color-2: rgb(189, 187, 187);
+}
+
+body {
+  animation: opening 1.5s ease-in-out;
+	font-family: 'Lateef',handwriting;
+	color: var(--text-color-1);
+	background: var(--bg-color-1);
+}
+html,
+body,
+#root {
+	width: 100%;
+	height: 100%;
+}
+h1 {
+	font-size: var(--header1);
+}
+h2 {
+	font-size: var(--header2);
+}
+h3 {
+	font-size: var(--header3);
+}
+h4 {
+	font-size: var(--header4);
+}
+h5 {
+	font-size: var(--header5);
+}
+h6 {
+	font-size: var(--header6);
+}
+li,
+button,
+label,
+input,
+textarea,
+a,
+p,
+span,
+div,
+section,
+main,
+article {
+	font-size: var(--text);
+}
+ul {
+	list-style: none;
+}
+a,
+a:hover,
+a:active,
+a:focus,
+a:visited {
+	text-decoration: none;
+}
+button,
+a {
+	cursor: pointer;
+}
+.full-w-container {
+	width: 100%;
+	height: auto;
+}
+.full-w-h-container {
+	width: 100%;
+	height: 100%;
+}
+.min-h-100vh {
+	min-height: 100vh;
+}
+.max-w-100 {
+  max-width: 100%;
+}
+.flex-xy-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.flex-d-c {
+	flex-direction: column;
+}
+.isHidden {
+	display: none !Important;
+}
+
+.svg-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.svg-container svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	fill: currentColor;
+}
+
+.social-links {
+	width: 100%;
+	display: flex;
+}
+
+.social-links .social-link.dribbble-link:hover {
+  color: var(--dribbble-icon-hover-color);
+}
+.social-links .social-link.instagram-link:hover {
+  color: var(--instagram-icon-hover-color);
+}
+.social-links .social-link.twitter-link:hover {
+  color: var(--twitter-icon-hover-color);
+}
+.social-links .social-link.facebook-link:hover {
+  color: var(--facebook-icon-hover-color);
+}
+
+.bg-img-fixies-1 {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.img-fixies-1 {
+	object-fit: cover;
+	object-position: center;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+/*----------------------------*/
+/* ANIMATIONS */
+/*----------------------------*/
+@keyframes opening {
+	from {
+			opacity: 0;
+	}
+	to {
+			opacity: 1;
+	}
+}
+
+@keyframes backgroundChangeSpecialColor {
+	0% {
+		background: var(--special-bg-color);
+	}
+	50% {
+		background: var(--special-bg-color);
+	}
+	51% {
+		background: #ef342b;
+	}
+	100% {
+		background: #ef342b;
+	}
+}
+
+/*----------------------------*/
+/*  */
+/*----------------------------*/
+
+.text-to-speech {
+  width: 80%;
+  max-width: 50rem;
+  margin: auto;
+  color: var(--text-color-2);
+  padding: 0.5em;
+  background-repeat: repeat-x;
+  background-size: 100% 100%;
+}
+
+.text-to-speech img {
+  width: calc(5rem + 10vw);
+  max-width: 20rem;
+  height: calc(5rem + 10vw);
+  max-height: 20rem;
+  margin: 1em;
+}
+
+.text-to-speech .content {
+  margin: 1em;
+}
+
+.rate-holder,
+.pitch-holder,
+.text-to-speech button {
+  margin: 0.5em 0;
+}
+
+#rate-value,
+#pitch-value {
+  margin-left: auto;
+  background: #0058ff;
+  padding: 0 0.5em;
+  text-align: center;
+}
+
+.rate-holder label,
+.pitch-holder label {
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
+.select-holder {
+  height: 3rem;
+  margin: 1em;
+}
+
+.text-to-speech button {
+  background: white;
+  border-color: transparent;
+  border-radius: 10px;
+  padding: 0.5em 0;
+}
+
+.text-to-speech p {
+  text-align: center;
+  margin: 0.5em;
+  font-size: var(--small-text);
+  font-weight: 200;
+}

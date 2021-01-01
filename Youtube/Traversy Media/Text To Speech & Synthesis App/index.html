@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Text To Speech & Synthesis App</title>
+</head>
+<body class="dark">
+  <section class="text-to-speech full-w-h-container flex-xy-center flex-d-c">
+    <img src="./images/speech.png" alt="speech photo">
+    <form class="controls-inputs-holder full-w-container flex-xy-center flex-d-c">
+      <div class="textarea-holder full-w-container flex-xy-center flex-d-c">
+        <textarea class="full-w-container" name="" id="text-input" cols="" rows="" placeholder="Type anything..."></textarea>
+      </div>
+      <div class="rate-holder full-w-container flex-xy-center flex-d-c">
+          <div class="text-holder full-w-container full-w-container flex-xy-center">
+            <label for="rate">Rate</label>
+            <span id="rate-value">1</span>
+          </div>
+          <input class="full-w-container" type="range" value="1" id="rate" min="0.1" max="5" step="0.1">
+      </div>
+      <div class="pitch-holder full-w-container flex-xy-center flex-d-c">
+          <div class="text-holder full-w-container flex-xy-center">
+            <label for="pitch">Pitch</label>
+            <span id="pitch-value">1</span>
+          </div>
+          <input class="full-w-container" type="range" value="1" id="pitch" min="0" max="5" step="0.1">
+      </div>
+      <div class="select-holder full-w-container flex-xy-center flex-d-c">
+        <select class="full-w-h-container" id="voice-select">
+        </select>
+      </div>
+      <button type="submit" class="full-w-container">Speak It</button>
+      <p class="full-w-container">
+        Note: This app uses the Web Speech API which is experimental and may not fully work in some versions of certain browsers.
+      </p>
+      <p class="full-w-container">
+        Note: The voices depends on the already installed voices on your machine.
+      </p>
+    </form>
+  </section>
+
+  <script src="./app.js"></script>
+</body>
+</html>
