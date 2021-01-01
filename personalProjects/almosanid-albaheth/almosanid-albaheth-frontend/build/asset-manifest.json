@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "./static/css/main.ed336624.chunk.css",
+    "main.js": "./static/js/main.07d6c96d.chunk.js",
+    "main.js.map": "./static/js/main.07d6c96d.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.2acbec24.js",
+    "runtime-main.js.map": "./static/js/runtime-main.2acbec24.js.map",
+    "static/css/2.f05ecb0f.chunk.css": "./static/css/2.f05ecb0f.chunk.css",
+    "static/js/2.9f034bdc.chunk.js": "./static/js/2.9f034bdc.chunk.js",
+    "static/js/2.9f034bdc.chunk.js.map": "./static/js/2.9f034bdc.chunk.js.map",
+    "static/js/3.ecd5f651.chunk.js": "./static/js/3.ecd5f651.chunk.js",
+    "static/js/3.ecd5f651.chunk.js.map": "./static/js/3.ecd5f651.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/2.f05ecb0f.chunk.css.map": "./static/css/2.f05ecb0f.chunk.css.map",
+    "static/css/main.ed336624.chunk.css.map": "./static/css/main.ed336624.chunk.css.map",
+    "static/js/2.9f034bdc.chunk.js.LICENSE.txt": "./static/js/2.9f034bdc.chunk.js.LICENSE.txt",
+    "static/media/Labeled Book Lot.4857032b.jpg": "./static/media/Labeled Book Lot.4857032b.jpg",
+    "static/media/Macbook Pro on Brown Wooden Table.1039c3da.jpg": "./static/media/Macbook Pro on Brown Wooden Table.1039c3da.jpg",
+    "static/media/Main-slide-1.d0fcb182.png": "./static/media/Main-slide-1.d0fcb182.png",
+    "static/media/Person Sitting While Open the Book.47a3ce28.jpg": "./static/media/Person Sitting While Open the Book.47a3ce28.jpg",
+    "static/media/almanasa.abec798f.png": "./static/media/almanasa.abec798f.png",
+    "static/media/mosanindcom.dbafdb9d.png": "./static/media/mosanindcom.dbafdb9d.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2acbec24.js",
+    "static/css/2.f05ecb0f.chunk.css",
+    "static/js/2.9f034bdc.chunk.js",
+    "static/css/main.ed336624.chunk.css",
+    "static/js/main.07d6c96d.chunk.js"
+  ]
+}
