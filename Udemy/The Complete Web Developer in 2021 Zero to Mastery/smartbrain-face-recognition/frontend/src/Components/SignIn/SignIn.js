@@ -18,6 +18,11 @@ class SignIn extends Component {
   }
 
   onSubmitSignIn = () => {
+    const { signInEmail, signInPassword} = this.state
+    if (
+      (!signInEmail || signInEmail.length === 0 )||
+      (!signInPassword || signInPassword.length < 8 || signInPassword.length > 64)
+    ) return console.error("Error Wrong inputs");
     fetch("http://localhost:5000/signin", {
       method: "post",
       headers: {"Content-Type": "application/json"},

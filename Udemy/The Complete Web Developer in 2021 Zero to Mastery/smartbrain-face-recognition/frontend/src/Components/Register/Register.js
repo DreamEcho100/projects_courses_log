@@ -23,9 +23,11 @@ class Register extends Component {
   }
 
   onSubmitSignIn = () => {
-    if (this.state.name.length <= 0 ||
-this.state.email.length <= 0 ||
-this.state.password.length <= 0) return;
+    if (
+      (!this.state.name || this.state.name.length < 8 || this.state.name.length > 64) ||
+      (!this.state.email || this.state.email.length < 0) ||
+      (!this.state.password || this.state.password.length < 8 || this.state.password.length > 64)
+    ) return console.error("Error Wrong inputs");
     fetch("http://localhost:5000/register", {
       method: "post",
       headers: {"Content-Type": "application/json"},
@@ -37,7 +39,7 @@ this.state.password.length <= 0) return;
     })
     .then(response => response.json())
     .then((user) => {
-      if (user) {
+      if (user.id) {
         this.props.loadUser(user);
         this.props.onRouteChange("home");
       }

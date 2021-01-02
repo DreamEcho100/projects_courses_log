@@ -3,7 +3,6 @@ import Clarifai from 'clarifai';
 import Rank from "./Rank/Rank";
 import ImageLinkForm from "./ImageLinkForm/ImageLinkForm";
 import FaceDetiction from "./FaceDetiction/FaceDetiction";
-import apikey from "../../apikey";
 
 /*
 so you would change from in the video:
@@ -14,10 +13,6 @@ to:
 
   .predict('c0c0ac362b03416da06ab3fa36fb58e3', this.state.input)
 */
-
-const app = new Clarifai.App({
-  apiKey: apikey
-});
 
 class Home extends Component {
   constructor(props) {
@@ -54,70 +49,38 @@ class Home extends Component {
 
   submitBtnHandler = () => {
     this.setState({imageUrl: this.state.input});
-    // app.models.predict('c0c0ac362b03416da06ab3fa36fb58e3', "this.state.imageUrl")
     setTimeout(
-      () => 
-        app.models.predict(Clarifai.FACE_DETECT_MODEL, (this.state.imageUrl))
-        .then(response => {
-          /*
-          
-          if (response) {
-            fetch("http://localhost:5000/image", {
-              method: "put",
-              hesders: {"Content-Type": "application/json"},
-              body: JSON.stringify({
-                id: this.pros.user.id 
+      () => {
+          fetch('http://localhost:5000/imageUrl', {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              input: this.state.input
+            })
+          })
+          .then(response => response.json())
+          .then(response => {
+            if (response) {
+              fetch('http://localhost:5000/image', {
+                method: 'put',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                  id: this.state.user.id
+                })
               })
-            })
-            .then(response => response.json())
-            .then(count => {this.setState({user: {
-              entries: count
-            }
-          */
-          /*if (response) {
-            fetch("http://localhost:5000/image", {
-              method: "put",
-              hesders: {"Content-Type": "application/json"},
-              body: JSON.stringify({
-                id: this.pros.user.id 
-              })
-            })
-            .then(response => response.json())
-            .then(count => {this.setState({user: {
-              entries: count
-            }
-          })*/
-          /*if (response) {
-            console.log(this.props.user.id);
-            fetch("http://localhost:5000/image", {
-              method: "put",
-              hesders: {"Content-Type": "application/json"},
-              body: JSON.stringify({ id: this.props.user.id })
-            })
-            .then(response => response.json())
-            .then(count => {
-              this.setState(
-                Object.assign(this.props.user, {entries: count}));
-            });
-          }*/
-          if (response) {
-            fetch('http://localhost:5000/image', {
-              method: 'put',
-              headers: {'Content-Type': 'application/json'},
-              body: JSON.stringify({
-                id: this.state.user.id
-              })
-            })
               .then(response => response.json())
               .then(data => {
-                this.setState(Object.assign(this.state.user, { entries: data}))
+                console.log(data);
+                this.setState(Object.assign(this.state.user, { entries: data})) // this.setState({ ...this.state, entries: data})
+                console.log(this.state);
               })
-
-          }
-          this.displayFaceBoxes(response.outputs[0].data.regions.map(data => this.calculateFaceFunction(data)));
-        })
-        .catch(err => console.log(err)),
-      0
+              .catch(err => console.log(err));
+            }
+            this.displayFaceBoxes(response.outputs[0].data.regions.map(data => this.calculateFaceFunction(data)));
+          })
+          .catch(err => console.log(err))
+        },
+        0
     );
     /*
     // -Face Detection model we will be using:
