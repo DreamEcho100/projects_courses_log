@@ -1224,6 +1224,21 @@ UdemyContent.list.push(
         },
       },
       {
+        types: ["normal-content-project", "extra-url-after-name"],
+        extraUrlAfterName: "frontend/build",
+        name: "smartbrain-face-recognition",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript", "Node.js"],
+          libraries: [],
+          frameworks: ["React"],
+          APIs: ["Clarifai"],
+        },
+      },
+      {
         types: ["no-content-project"],
         name: "",
         info: "",

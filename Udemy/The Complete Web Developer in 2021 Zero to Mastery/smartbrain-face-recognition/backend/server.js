@@ -2,8 +2,6 @@ const express = require('express');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
-// const clarifai = require('clarifai');
-const databasePassword = require('./databasePassword');
 const registerHandler = require('./controllers/register').register;
 const signinHandler = require('./controllers/signin').signin;
 const imageFacesPositionData = require('./controllers/imageClarifai').FacesPositionData;
@@ -15,13 +13,16 @@ const db = knex({
 	client: 'pg',
 	connection: {
 		connectionString: process.env.DATABASE_URL,
-		ssl: true,
-		/*host: ,
-		user: 'postgres',
-		password: databasePassword,
-		database: 'smartbrain'*/
+		ssl: {
+	    rejectUnauthorized: false
+	  }
 	}
 });
+		// ssl: true,
+		/*host: ,
+		user: '',
+		password: '',
+		database: ''*/
 
 const app = express();
 
