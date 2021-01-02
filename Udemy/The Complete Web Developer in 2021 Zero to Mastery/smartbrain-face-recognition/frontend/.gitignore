@@ -12,10 +12,7 @@
 ./coverage
 
 # production
-/build
-
-# apikey
-./apikey.js
+# /build
 
 # backend
 ./backend
