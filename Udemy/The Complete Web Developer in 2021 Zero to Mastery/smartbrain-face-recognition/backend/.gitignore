@@ -1,5 +1,8 @@
-./node_modules
+# ./node_modules
 /node_modules
 
-./controllers/clarifaiApikey.js
-/controllers/clarifaiApikey.js
+/backend-practice
+# ./backend-practice
+
+# ./controllers/clarifaiApikey.js
+# /controllers/clarifaiApikey.js

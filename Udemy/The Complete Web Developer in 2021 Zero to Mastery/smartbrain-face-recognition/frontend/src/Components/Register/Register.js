@@ -28,7 +28,7 @@ class Register extends Component {
       (!this.state.email || this.state.email.length < 0) ||
       (!this.state.password || this.state.password.length < 8 || this.state.password.length > 64)
     ) return console.error("Error Wrong inputs");
-    fetch("http://localhost:5000/register", {
+    fetch("https://floating-dusk-25989.herokuapp.com/register", {
       method: "post",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({

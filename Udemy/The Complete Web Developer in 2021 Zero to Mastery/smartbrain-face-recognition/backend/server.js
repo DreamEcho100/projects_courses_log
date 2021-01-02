@@ -14,10 +14,12 @@ const PORT = process.env.PORT;
 const db = knex({
 	client: 'pg',
 	connection: {
-		host: '127.0.0.1',
+		connectionString: process.env.DATABASE_URL,
+		ssl: true,
+		/*host: ,
 		user: 'postgres',
 		password: databasePassword,
-		database: 'smartbrain'
+		database: 'smartbrain'*/
 	}
 });
 
@@ -26,6 +28,8 @@ const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cors());
+
+app.get("/", (request, response) => response.send("It's Working!!!"));
 
 app.post("/signin", (request, response) => signinHandler(db, bcrypt)(request, response));
 

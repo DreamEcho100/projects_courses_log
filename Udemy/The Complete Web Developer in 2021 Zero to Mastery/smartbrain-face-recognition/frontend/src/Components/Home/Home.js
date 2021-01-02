@@ -51,7 +51,7 @@ class Home extends Component {
     this.setState({imageUrl: this.state.input});
     setTimeout(
       () => {
-          fetch('http://localhost:5000/imageUrl', {
+          fetch('https://floating-dusk-25989.herokuapp.com/imageUrl', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -61,7 +61,7 @@ class Home extends Component {
           .then(response => response.json())
           .then(response => {
             if (response) {
-              fetch('http://localhost:5000/image', {
+              fetch('https://floating-dusk-25989.herokuapp.com/image', {
                 method: 'put',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
@@ -167,7 +167,7 @@ class Home extends Component {
         .then(response => {
           if (response) {
             console.log(this.props.user.id);
-            fetch("http://localhost:5000/image", {
+            fetch("https://floating-dusk-25989.herokuapp.com/image", {
               method: "put",
               headers: {"Content-Type": "application/json"},
               body: JSON.stringify({ id: this.props.user.id })
