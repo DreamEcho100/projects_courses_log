@@ -7,10 +7,6 @@
   src: local('SEGA LOGO FONT'), url('./Recorces/SEGA.woff') format('woff');
 }
 
-body {
-  background: black;
-}
-
 h1 {
   font-size: 4rem !important;
   font-family: 'SEGA LOGO FONT';

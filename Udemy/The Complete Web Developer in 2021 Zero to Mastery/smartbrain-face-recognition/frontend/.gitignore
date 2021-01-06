@@ -28,3 +28,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# "start": "serve -s build",
+#  it used to be like this, which you can remove now:
+# "start": "react-scripts start",

@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react";
 import "tachyons";
-import "./App.css";
-import ErrorBoundry from "./Components/ErrorBoundry/ErrorBoundry";
-import SearchBox from './Components/SearchBox/SearchBox';
-import Scroll from "./Components/Scroll/Scroll";
-import CardsList from './Components/CardsList/CardsList';
-// import { robots } from "./robots";
+import "../App.css";
+import ErrorBoundry from "../Components/ErrorBoundry/ErrorBoundry";
+import SearchBox from '../Components/SearchBox/SearchBox';
+import Scroll from "../Components/Scroll/Scroll";
+import CardsList from '../Components/CardsList/CardsList';
+// import { robots } from "../robots";
 
 class App extends Component {
   constructor() {

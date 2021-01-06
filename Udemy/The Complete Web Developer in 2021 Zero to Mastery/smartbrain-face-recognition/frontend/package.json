@@ -17,9 +17,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "serve -s build",
-    // it used to be like this, which you can remove now:
-    // "start": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
