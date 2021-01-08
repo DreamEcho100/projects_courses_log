@@ -1,10 +1,22 @@
-import React, { Component } from "react";
-import { Route, NavLink, Switch, withRouter } from "react-router-dom";
+import React, { Component, Suspense } from "react";
+import { Route, NavLink, Switch, withRouter, Redirect } from "react-router-dom";
 
 import "./Blog.css";
 import Posts from "./Posts/Posts"
-import NewPost from "./NewPost/NewPost";
-import FullPost from "./FullPost/FullPost";
+// import FullPost from "./FullPost/FullPost";
+// import NewPost from "./NewPost/NewPost";
+
+// import asyncComponent from "../../hoc/asyncComponent";
+// const AsyncNewPost = asyncComponent(() => {
+//   return import("./NewPost/NewPost");
+// });
+
+const NewPost = React.lazy(() =>  import("./NewPost/NewPost"));
+const AsyncNewPost = (() =>
+  <Suspense fallback={<div style={{ textAlign: "center", fontSize: "3rem" }}>Loading...</div>}>
+    <NewPost />
+  </Suspense>
+);
 
 class Blog extends Component {
 
@@ -17,13 +29,13 @@ class Blog extends Component {
             <ul>
               <li><NavLink 
                 exact
-                to="/"
+                to="/posts"
                 activeClassName="my-active"
                 activeStyle={{
                   color: "#FA923F",
                   textDecoration: "underline"
                 }}
-              >Home</NavLink></li>
+              >Posts</NavLink></li>
               <li><NavLink 
                 exact
                 activeClassName="selected"
@@ -38,10 +50,12 @@ class Blog extends Component {
         </header>
         {/*<Route path="/" exact render={() => <h1>Home</h1>} />
         <Route path="/posts" exact render={() => <Posts />} />*/}
-        <Route path="/" exact component={ Posts } />
         <Switch>
-          <Route path="/new-post" exact component={ NewPost } />
-          <Route path="/posts/:id" exact component={ FullPost } />
+          <Route path="/new-post" exact component={ AsyncNewPost } />
+          <Route path="/posts" component={ Posts } />
+          <Redirect from="/" to="/posts" />
+          {/* <Route path="/" component={ Posts } /> */}
+          {/* <Route render={ () => <h1>Not Found 404</h1> } /> */}
         </Switch>
         
       </div>
