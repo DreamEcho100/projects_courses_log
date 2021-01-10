@@ -7,7 +7,7 @@ const signinHandler = require('./controllers/signin').signin;
 const imageFacesPositionData = require('./controllers/imageClarifai').FacesPositionData;
 const imageEntries = require('./controllers/imageClarifai').Entries;
 const profileId = require('./controllers/profile').id;
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 const db = knex({
 	client: 'pg',
