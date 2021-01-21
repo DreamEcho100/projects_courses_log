@@ -33,6 +33,8 @@ git push -u origin master
 
 git init
 git remote add origin https://github.com/DreamEcho100/projects_courses_log.git
+git status
+git log -p
 git pull .
 git add .
 git commit -m "Uplaod&Update..."
