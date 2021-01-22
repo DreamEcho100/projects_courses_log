@@ -26,10 +26,10 @@
   --big-size-text-2: calc(7rem + var(--incerment-1));
   --big-size-text-3: calc(7.6rem + var(--incerment-1));
   --color-light-1: #fff;
-  --color-light-2: #fafafa;
-  --color-light-3: #f8f9fa;
-  --color-dark-1: #000;
-  --color-dark-2: #232424;
+  --color-light-2: #D3D7CF;
+  --color-light-3: #9D9D9D;
+  --color-dark-1: #1D1D1D;
+  --color-dark-2: #2E3436;
   --color-dark-3: #343a40;
   --transition-delay-1: 0.3s;
   --transition-delay-2: 3s;
@@ -40,7 +40,7 @@ body.light {
 }
 body.dark {
   background: var(--color-dark-2);
-  color: var(--color-light-3);
+  color: var(--color-light-2);
 }
 
 body {

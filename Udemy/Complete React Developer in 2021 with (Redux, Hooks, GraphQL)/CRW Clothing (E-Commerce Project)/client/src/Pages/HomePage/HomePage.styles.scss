@@ -1,3 +1,23 @@
+body.light {
+
+  .directory-menu {
+
+    h1.title {
+      color: #4a4a4a;
+    }
+  }
+}
+
+body.dark {
+
+  .directory-menu {
+
+    h1.title {
+      color: #ebefd7
+    }
+  }
+}
+
 .homepage {
   display: flex;
   flex-direction: column;
@@ -42,7 +62,6 @@
     .title {
       font-weight: bold;
       margin-bottom: 0.0.5em;
-      color: #4a4a4a;
     }
 
     .subtitle {
