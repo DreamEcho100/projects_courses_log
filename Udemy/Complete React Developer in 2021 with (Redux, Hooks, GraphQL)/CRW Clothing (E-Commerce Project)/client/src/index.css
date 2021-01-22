@@ -9,21 +9,22 @@
 :root {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  --header1: calc(6rem + 0.5vw);
-  --header2: calc(5.2rem + 0.5vw);
-  --header3: calc(4.6rem + 0.5vw);
-  --header4: calc(3.8rem + 0.5vw);
-  --header5: calc(3rem + 0.5vw);
-  --header6: calc(2.4rem + 0.5vw);
-  /*--small-size-text-1: calc(0.8rem + 0.5vw);
-	--small-size-text-2: calc(1rem + 0.5vw);
-	--small-size-text-3: calc(1.2rem + 0.5vw);*/
-  --normal-size-text-1: calc(1rem + 0.5vw);
-  --normal-size-text-2: calc(1.2rem + 0.5vw);
-  --normal-size-text-3: calc(1.4rem + 0.5vw);
-  --big-size-text-1: calc(4.5rem + 0.5vw);
-  --big-size-text-2: calc(5.2rem + 0.5vw);
-  --big-size-text-3: calc(6.4rem + 0.5vw);
+  --incerment-1: 0.5vw;
+  --header1: calc(6rem + var(--incerment-1));
+  --header2: calc(5.2rem + var(--incerment-1));
+  --header3: calc(4.6rem + var(--incerment-1));
+  --header4: calc(3.8rem + var(--incerment-1));
+  --header5: calc(3rem + var(--incerment-1));
+  --header6: calc(2.4rem + var(--incerment-1));
+  --small-size-text-1: calc(0.7rem + var(--incerment-1));
+  --small-size-text-2: calc(1rem + var(--incerment-1));
+  --small-size-text-3: calc(1.3rem + var(--incerment-1));
+  --normal-size-text-1: calc(1.6rem + var(--incerment-1));
+  --normal-size-text-2: calc(1.9rem + var(--incerment-1));
+  --normal-size-text-3: calc(2.2rem + var(--incerment-1));
+  --big-size-text-1: calc(6.4rem + var(--incerment-1));
+  --big-size-text-2: calc(7rem + var(--incerment-1));
+  --big-size-text-3: calc(7.6rem + var(--incerment-1));
   --color-light-1: #fff;
   --color-light-2: #fafafa;
   --color-light-3: #f8f9fa;
@@ -35,10 +36,10 @@
 }
 body.light {
   background: var(--color-light-1);
-  color: var(--color-dark-3);
+  color: var(--color-dark-2);
 }
 body.dark {
-  background: var(--color-dark-3);
+  background: var(--color-dark-2);
   color: var(--color-light-3);
 }
 
@@ -91,7 +92,7 @@ td,*/
 *:not(html):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6)
 */
 *:not(html, h1, h2, h3, h4, h5, h6) {
-  font-size: var(--normal-size-text-1) !important;
+  font-size: var(--normal-size-text-1);
 }
 ul {
   list-style: none;
