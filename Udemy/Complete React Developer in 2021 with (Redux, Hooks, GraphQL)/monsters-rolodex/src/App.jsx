@@ -41,7 +41,7 @@ class App extends Component {
       <h1>Loading...</h1>
     ) : (
       <Fragment>
-        <h1 className="f1">RoboFriends</h1>
+        <h1 className="f1">MonstersRolodex</h1>
         <SearchBox searchChange={this.onSearchChange} />
         <Scroll>
           <ErrorBoundry>
