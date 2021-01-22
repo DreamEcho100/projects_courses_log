@@ -42,6 +42,19 @@ git push -u origin master
 
 ##
 
+git init
+git clone https://github.com/DreamEcho100/projects_courses_log.git
+git remove remote origin
+git remote add origin https://github.com/DreamEcho100/projects_courses_log.git
+git status
+git log -p
+git pull .
+git add .
+git commit -m "Uplaod&Update..."
+git push -u origin master
+
+##
+
 Install dependencies from package.json: npm install == yarn
 
 Install a package and add to package.json: npm install package --save == yarn add package
