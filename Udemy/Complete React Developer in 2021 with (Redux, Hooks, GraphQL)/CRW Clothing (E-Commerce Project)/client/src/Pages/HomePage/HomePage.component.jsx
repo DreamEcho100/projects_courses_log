@@ -5,9 +5,9 @@ import DirectoryMenu from "../../Components/DirectoryMenu/DirectoryMenu.jsx";
 
 const HomePage = () => {
   return (
-    <div className="homepage">
+    <section className="homepage">
       <DirectoryMenu />
-    </div>
+    </section>
   );
 };
 
