@@ -31,7 +31,11 @@
         <select class="full-w-h-container" id="voice-select">
         </select>
       </div>
-      <button type="submit" class="full-w-container">Speak It</button>
+      <button type="submit" class="full-w-container play-btn">Speak It</button>
+      <div class="controls flex-xy-center full-w-container isHidden">
+        <button class="stop-btn"><i class="fas fa-pause"></i></button>
+        <button class="resume-btn isHidden"><i class="fas fa-play"></i></button>
+      </div>
       <p class="full-w-container">
         Note: This app uses the Web Speech API which is experimental and may not fully work in some versions of certain browsers.
       </p>
@@ -41,6 +45,7 @@
     </form>
   </section>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
   <script src="./app.js"></script>
 </body>
 </html>

@@ -182,21 +182,6 @@ a {
 	}
 }
 
-@keyframes backgroundChangeSpecialColor {
-	0% {
-		background: var(--special-bg-color);
-	}
-	50% {
-		background: var(--special-bg-color);
-	}
-	51% {
-		background: #ef342b;
-	}
-	100% {
-		background: #ef342b;
-	}
-}
-
 /*----------------------------*/
 /*  */
 /*----------------------------*/
@@ -253,6 +238,12 @@ a {
   border-color: transparent;
   border-radius: 10px;
   padding: 0.5em 0;
+}
+
+.text-to-speech .controls button {
+	margin: 0 1em;
+	padding: 0.5em;
+	text-align: center;
 }
 
 .text-to-speech p {
