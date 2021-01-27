@@ -158,6 +158,47 @@ YotubeContent.list.push(
 YotubeContent.list.push(
   {
     types: ["normal-content-course"],
+    name: "Developedbyed",
+    info: "",
+    classes: "spinningBackground1",
+    list: [
+      {
+        types: ["normal-content-project"],
+        name: "Glass Website",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+        types: ["no-content-project"],
+        name: "",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+
+      // Inner List End
+    ],
+  }
+);
+
+YotubeContent.list.push(
+  {
+    types: ["normal-content-course"],
     name: "Fireship",
     info: "",
     classes: "spinningBackground1",
@@ -331,7 +372,7 @@ YotubeContent.list.push(
       },
       {
         types: ["normal-content-project"],
-        name: "Image into Interactive Particles",
+        name: "Image Into Interactive Particles",
         info: "Image into Interactive Particles - HTML Canvas Animation Tutorial - Advanced Pure Vanilla JavaScript",
         fileName: "index",
         fileExtension: "html",
@@ -788,6 +829,47 @@ YotubeContent.list.push(
       {
         types: ["normal-content-project"],
         name: "Text To Speech & Synthesis App",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+      {
+        types: ["no-content-project"],
+        name: "",
+        info: "",
+        fileName: "index",
+        fileExtension: "html",
+        difficulty: "",
+        tech: {
+          languages: ["HTML", "CSS", "JavaScript"],
+          libraries: [],
+          frameworks: [],
+          APIs: [],
+        },
+      },
+
+      // Inner List End
+    ],
+  }
+);
+
+YotubeContent.list.push(
+  {
+    types: ["normal-content-course"],
+    name: "Web Dev Simplified",
+    info: "",
+    classes: "spinningBackground1",
+    list: [
+      {
+        types: ["normal-content-project"],
+        name: "Custom Dropdown menu",
         info: "",
         fileName: "index",
         fileExtension: "html",

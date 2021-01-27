@@ -1,7 +1,6 @@
 .projects {
   width: 90%;
   margin: auto;
-  min-height: 90vh;
   @include flex(row, center, space-between);
   text-align: center;
   flex-wrap: wrap;

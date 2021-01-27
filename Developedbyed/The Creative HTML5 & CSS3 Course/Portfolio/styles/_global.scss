@@ -46,6 +46,10 @@ a {
 body {
 	font-family: 'Montserrat', sans-serif;
   animation: opening 1s ease-in-out;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: stretch;
 }
 
 @media screen and (min-width: 1150px) {
@@ -59,9 +63,9 @@ body {
 /*----------------------------*/
 @keyframes opening {
   from {
-      opacity: 0;
+	  opacity: 0;
   }
   to {
-      opacity: 1;
+	  opacity: 1;
   }
 }
