@@ -54,6 +54,7 @@
 .custom-select-option {
 	padding: 0.25em 0.5em;
 	cursor: pointer;
+	user-select: none;
 }
 .custom-select-option:hover {
 	background-color: hsl(200, 100%, 70%);
