@@ -250,6 +250,20 @@ YotubeContent.list.push({
 	list: [
 		{
 			types: ["normal-content-project"],
+			name: "3D Layered Animation With CSS Transforms",
+			info: "3D Layered Animation With CSS Transforms",
+			fileName: "index",
+			fileExtension: "html",
+			difficulty: "",
+			tech: {
+				languages: ["HTML", "CSS"],
+				libraries: [],
+				frameworks: [],
+				APIs: [],
+			},
+		},
+		{
+			types: ["normal-content-project"],
 			name: "Bouncing Particle Effects",
 			info:
 				"Bouncing Particle Effects - Vanilla JavaScript & HTML Canvas Animation Tutorial with ES6 Classes",
@@ -397,7 +411,7 @@ YotubeContent.list.push({
 		},
 		{
 			types: ["normal-content-project"],
-			name: "Interactive Animated Background",
+			name: "Liquid Effect In CSS With SVG Filters",
 			info: "Liquid Effect In CSS With SVG Filters",
 			fileName: "index",
 			fileExtension: "html",
