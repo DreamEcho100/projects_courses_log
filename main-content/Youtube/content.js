@@ -308,6 +308,20 @@ YotubeContent.list.push({
 		},
 		{
 			types: ["normal-content-project"],
+			name: "First Letter & Background Creative Button Animation",
+			info: "First Letter & Background Creative Button Animation",
+			fileName: "index",
+			fileExtension: "html",
+			difficulty: "",
+			tech: {
+				languages: ["HTML", "CSS", "JavaScript"],
+				libraries: [],
+				frameworks: [],
+				APIs: [],
+			},
+		},
+		{
+			types: ["normal-content-project"],
 			name: "Flappy Bird With Particle Effects & Sprites",
 			info: "Vanilla JavaScript Flappy Bird With Particle Effects & Sprites",
 			fileName: "index",

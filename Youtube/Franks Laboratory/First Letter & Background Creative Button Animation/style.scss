@@ -1,0 +1,101 @@
+.first-letter-and-background-creative-button-animation {
+	margin: 1em auto;
+	width: 22rem;
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 0.1em;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+
+	.button {
+		display: block;
+		position: relative;
+		margin: 0.5em;
+		transition: 0.2s;
+		width: 16rem;
+		height: 6rem;
+
+		* {
+			line-height: 6rem;
+			text-align: center;
+			font-size: 2.5rem;
+			font-weight: 900;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			transition: 0.8s;
+			z-index: 1;
+		}
+
+		&:hover {
+			&::after {
+				background-color: rgba(0, 0, 0, 1);
+				transform: rotate(10deg);
+				border: 1px solid black;
+			}
+
+			p {
+				color: white;
+			}
+
+			span::before {
+				color: white;
+				transform: translate(-65%, 10%) rotate(360deg);
+				font-size: 8rem;
+			}
+		}
+
+		span {
+			color: transparent;
+			position: relative;
+
+			&::before {
+				position: absolute;
+				width: auto;
+				height: 6rem;
+				color: black;
+			}
+		}
+
+		span.H {
+			&::before {
+				content: "H";
+				transition: 0.2s ease-out;
+			}
+		}
+		span.P {
+			&::before {
+				content: "P";
+				transition: 0.2s ease-out;
+			}
+		}
+		span.A {
+			&::before {
+				content: "A";
+				transition: 0.2s ease-out;
+			}
+		}
+		span.C {
+			&::before {
+				content: "C";
+				transition: 0.2s ease-out;
+			}
+		}
+
+		p {
+			position: relative;
+			transition: 0.8s;
+			z-index: 10;
+		}
+	}
+}

@@ -34,7 +34,6 @@
           transform: translate(0, 0) rotate(0) skew(0);
   -webkit-transition: 0.2s;
   transition: 0.2s;
-  transition: 0.2s;
 }
 
 .animation-3d-layered-with-css-transforms .button i {
