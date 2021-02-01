@@ -1,0 +1,150 @@
+.animation-3d-layered-with-css-transforms {
+  margin: 1em auto;
+  width: 22rem;
+  height: 22rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0.1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+.animation-3d-layered-with-css-transforms .button {
+  --rib-length: 5rem;
+  --num: 4;
+  --square-font-color: black;
+  /*--square-bg-color: white;*/
+  display: block;
+  position: relative;
+  background-color: #f5b0d6;
+  width: var(--rib-length);
+  height: var(--rib-length);
+  margin: 0.5em;
+  -webkit-transform: translate(0, 0) rotate(0) skew(0);
+          transform: translate(0, 0) rotate(0) skew(0);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  transition: 0.2s;
+}
+
+.animation-3d-layered-with-css-transforms .button i {
+  font-size: 2.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: var(--square-font-color);
+  z-index: 10;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.animation-3d-layered-with-css-transforms .button span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+.animation-3d-layered-with-css-transforms .button span:nth-of-type(4) {
+  -webkit-transform: translate(calc(var(--rib-length) * (-0.02 * var(--num) * 1)), calc(var(--rib-length) * (-0.02 * var(--num) * 1)));
+          transform: translate(calc(var(--rib-length) * (-0.02 * var(--num) * 1)), calc(var(--rib-length) * (-0.02 * var(--num) * 1)));
+  /*translate(calc(var(--rib-length) * -0.08), calc(var(--rib-length) * -0.08))*/
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  z-index: 0;
+  opacity: 0.5;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
+
+.animation-3d-layered-with-css-transforms .button span:nth-of-type(4)::before, .animation-3d-layered-with-css-transforms .button span:nth-of-type(4)::after {
+  content: "";
+  position: absolute;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.animation-3d-layered-with-css-transforms .button span:nth-of-type(4)::before {
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-bottom: 1px solid black;
+}
+
+.animation-3d-layered-with-css-transforms .button span:nth-of-type(4)::after {
+  width: 100%;
+  height: 0;
+  top: 100%;
+  right: 0;
+  border-right: 1px solid black;
+}
+
+.animation-3d-layered-with-css-transforms .button:hover {
+  --square-font-color: white;
+  -webkit-transform: translate(-15px, -5px) rotateY(-15deg) skewY(-10deg);
+          transform: translate(-15px, -5px) rotateY(-15deg) skewY(-10deg);
+}
+
+.animation-3d-layered-with-css-transforms .button:hover span:nth-of-type(1) {
+  -webkit-transform: translate(calc(var(--rib-length) * (0.02 * var(--num) * 2)), calc(var(--rib-length) * (0.02 * var(--num) * 1)));
+          transform: translate(calc(var(--rib-length) * (0.02 * var(--num) * 2)), calc(var(--rib-length) * (0.02 * var(--num) * 1)));
+  /*translate(8px, 4px);*/
+  background-color: #e08dbb;
+}
+
+.animation-3d-layered-with-css-transforms .button:hover span:nth-of-type(2) {
+  -webkit-transform: translate(calc(var(--rib-length) * (0.02 * var(--num) * 4)), calc(var(--rib-length) * (0.02 * var(--num) * 2)));
+          transform: translate(calc(var(--rib-length) * (0.02 * var(--num) * 4)), calc(var(--rib-length) * (0.02 * var(--num) * 2)));
+  /*translate(16px, 8px);*/
+  background-color: #bd6093;
+}
+
+.animation-3d-layered-with-css-transforms .button:hover span:nth-of-type(3) {
+  -webkit-transform: translate(calc(var(--rib-length) * (0.02 * var(--num) * 6)), calc(var(--rib-length) * (0.02 * var(--num) * 3)));
+          transform: translate(calc(var(--rib-length) * (0.02 * var(--num) * 6)), calc(var(--rib-length) * (0.02 * var(--num) * 3)));
+  /*translate(24px, 12px);*/
+  background-color: #94386a;
+}
+
+.animation-3d-layered-with-css-transforms .button:hover span:nth-of-type(4) {
+  -webkit-transform: translate(calc(var(--rib-length) * (0.02 * var(--num) * 7.5)), calc(var(--rib-length) * (0.02 * var(--num) * 4)));
+          transform: translate(calc(var(--rib-length) * (0.02 * var(--num) * 7.5)), calc(var(--rib-length) * (0.02 * var(--num) * 4)));
+  /*translate(
+					30px,
+					16px
+				);*/
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.animation-3d-layered-with-css-transforms .button:hover span:nth-of-type(4)::before {
+  width: 100%;
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
+.animation-3d-layered-with-css-transforms .button:hover span:nth-of-type(4)::after {
+  height: 100%;
+  -webkit-transition-delay: 0.6s;
+          transition-delay: 0.6s;
+  top: 0;
+}
+/*# sourceMappingURL=style.css.map */
