@@ -1,0 +1,75 @@
+.calculator-cotainer *,
+.calculator-cotainer *::before,
+.calculator-cotainer *::after {
+	box-sizing: border-box;
+	font-family: Gotham Rounded, sans-serif;
+	font-weight: normal;
+}
+
+.calculator-cotainer {
+	--cotainer-width: calc(20rem + 10vw);
+	/*--cotainer-height: calc(30rem + 10vw);*/
+	background: linear-gradient(to right, violet, thistle);
+	width: var(--cotainer-width);
+	/*height: var(--cotainer-height);*/
+	padding: 0.25em 0.5em;
+	margin: auto;
+}
+
+.calculator-grid {
+	font-size: 3.2rem;
+	display: grid;
+	justify-content: center;
+	align-content: center;
+	grid-template-columns: repeat(4, minmax(25%, auto));
+	grid-template-rows: repeat(5, minmax(6.25%, auto));
+	/*
+	grid-template-columns: repeat(
+		4,
+		minmax(calc(var(--cotainer-width) / 4 - 0.25em), auto)
+	);
+  grid-template-rows: repeat(5, minmax(calc(var(--cotainer-height) / 6), auto));
+  */
+}
+
+.calculator-grid > button {
+	/*font-size: 3.2rem;*/
+	border: 1px solid white;
+	background-color: rgba(255, 255, 255, 0.75);
+	min-height: 5rem;
+}
+
+.calculator-grid > button:hover {
+	background-color: rgba(255, 255, 255, 0.9);
+}
+
+.calculator-grid .span-two {
+	grid-column: span 2;
+}
+
+.calculator-grid .output {
+	min-height: 7.5rem;
+	grid-column: 1 / -1;
+	background-color: rgba(0, 0, 0, 0.75);
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-around;
+	flex-direction: column;
+	padding: 0.25em;
+}
+
+.calculator-grid .output .previous-operand {
+	color: rgba(255, 255, 255, 0.75);
+	font-size: 2.4rem;
+}
+
+.calculator-grid .output .current-operand {
+	color: white;
+	font-size: 4rem;
+}
+
+.calculator-grid .output .previous-operand,
+.calculator-grid .output .current-operand {
+	word-break: break-word;
+	word-wrap: break-all;
+}

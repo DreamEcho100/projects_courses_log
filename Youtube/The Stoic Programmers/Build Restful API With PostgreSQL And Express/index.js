@@ -17,15 +17,70 @@ app.get('/', (request, response) => {
 	})
 });
 
+app.get('/todos', async(request, response) => {
+	try {
+		const todos = await pool.query("SELECT description, todo_id FROM todo");
+		// const todos = await pool.query("SELECT description FROM todo");
+		response.json({
+			todos: todos.rows
+		});
+	} catch(error) {
+		console.error(`Error, ${error}`);
+	}
+});
+
+app.get('/todos/:id', async(request, response) => {
+	try {
+		const { id } = request.params;
+		const todos = await pool.query("SELECT * FROM todo WHERE todo_id=($1)", [
+			id
+		]);
+		response.json({
+			todos: todos.rows
+		});
+	} catch(error) {
+		console.error(`Error, ${error}`);
+	}
+});
+
 app.post('/todos', async(request, response) => {
 	try {
-		console.log(request.body);
+		const { description } = request.body;
+		const newTodo = await pool.query("INSERT INTO todo (description) VALUES ($1) RETURNING *", [
+			description
+		]);
 		response.json({
-			...request.body,
-			LOL: "LOL",
-			BRUH: "BRUH"
-		})
+			description: newTodo.rows[0]
+		});
 	} catch(error) {
-		console.error(`Error, ${error}`)
+		console.error(`Error, ${error}`);
+	}
+});
+
+app.put('/todos/:id', async(request, response) => {
+	try {
+		const { id } = request.params;
+		const { description } = request.body;
+		const todos = await pool.query("UPDATE todo SET description=($1) WHERE todo_id=($2) RETURNING *", [
+			description,
+			id
+		]);
+		response.json({
+			todos: todos.rows[0]
+		});
+	} catch(error) {
+		console.error(`Error, ${error}`);
+	}
+});
+
+app.delete('/todos/:id', async(request, response) => {
+	try {
+		const { id } = request.params;
+		const todos = await pool.query("DELETE FROM todo WHERE todo_id=($1)", [
+			id
+		]);
+		response.json("Successfully deleted!!!");
+	} catch(error) {
+		console.error(`Error, ${error}`);
 	}
 });

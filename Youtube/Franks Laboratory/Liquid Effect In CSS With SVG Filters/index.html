@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			defer
+			src="https://kit.fontawesome.com/ad3a0bed28.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="stylesheet" href="global-styles.css" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Liquid Effect In CSS With SVG Filters</title>
+	</head>
+	<body>
+		<div class="liquid-effect-container">
+			<div class="button">
+				<i class="fab fa-facebook-f"></i>
+				<div class="blurred"><span></span><span></span></div>
+			</div>
+			<div class="button">
+				<i class="fab fa-instagram"></i>
+				<div class="blurred"><span></span><span></span></div>
+			</div>
+			<div class="button">
+				<i class="fab fa-youtube"></i>
+				<div class="blurred"><span></span><span></span></div>
+			</div>
+			<div class="button">
+				<i class="fab fa-linkedin-in"></i>
+				<div class="blurred"><span></span><span></span></div>
+			</div>
+			<div class="button">
+				<i class="fab fa-google-plus-g"></i>
+				<div class="blurred"><span></span><span></span></div>
+			</div>
+			<div class="button">
+				<i class="fab fa-twitter"></i>
+				<div class="blurred"><span></span><span></span></div>
+			</div>
+			<div class="button">
+				<i class="fab fa-pinterest-p"></i>
+				<div class="blurred"><span></span><span></span></div>
+			</div>
+			<div class="button">
+				<i class="fab fa-whatsapp"></i>
+				<div class="blurred"><span></span><span></span></div>
+			</div>
+			<div class="button">
+				<i class="fab fa-twitch"></i>
+				<div class="blurred"><span></span><span></span></div>
+			</div>
+		</div>
+		<svg>
+			<defs>
+				<filter id="goo">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="name" />
+					<feColorMatrix
+						in="name"
+						mode="matrix"
+						values="1 0 0 0 0
+                     0 1 0 0 0 
+                     0 0 1 0 0
+                     0 0 0 30 -15 "
+						result="aab"
+					/>
+					<feBlend in="SourceGraphic" in2="aab" />
+				</filter>
+			</defs>
+		</svg>
+	</body>
+</html>

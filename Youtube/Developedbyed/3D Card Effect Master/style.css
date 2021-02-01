@@ -1,0 +1,105 @@
+body {
+	font-family: "Poppins", sans-serif;
+}
+
+.container {
+	--container-width: calc(24rem + 10vw);
+	--card-difference: 4rem;
+	width: 50%;
+	min-width: var(--container-width);
+}
+
+.card {
+	min-width: calc(var(--container-width) - var(--card-difference));
+	width: 90%;
+	max-width: 30rem;
+	padding: 0.5em 1em;
+	border-radius: 15px;
+	box-shadow: 0px 20px 20px rgb(0 0 0 / 20%), 0px 0px 50px rgb(0 0 0 / 20%);
+	transform-style: preserve-3d;
+}
+
+.sneaker {
+	--sneaker-num: calc(16rem + 2vw);
+	position: relative;
+	min-height: var(--sneaker-num);
+}
+
+.sneaker img {
+	width: calc(var(--sneaker-num) - 2rem);
+	z-index: 2;
+}
+
+.sneaker .circle {
+	width: calc(var(--sneaker-num) - 5rem);
+	height: calc(var(--sneaker-num) - 5rem);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: linear-gradient(
+		to right,
+		rgba(245, 70, 66, 0.75),
+		rgba(8, 83, 156, 0.75)
+	);
+	border-radius: 50%;
+}
+
+.info h1 {
+	font-size: 3.2rem;
+}
+
+.info h3 {
+	font-size: 1.55rem;
+	padding: 0.5em 0;
+	color: #585858;
+	font-weight: lighter;
+}
+
+.sizes {
+	padding: 0.5em 0;
+	padding-top: 0;
+	cursor: pointer;
+}
+
+.sizes button {
+	padding: 0.25em 0.75em;
+	margin: 0 0.1em;
+	transition: all 0.3s ease-in-out;
+	cursor: pointer;
+	border: none;
+	box-shadow: 0px 5px 10px rgb(0 0 0 / 20%);
+	border-radius: 15px;
+	font-weight: bold;
+	color: #585858;
+}
+
+.sizes button:hover {
+	transform: scale(1.2);
+}
+
+.sizes button.active {
+	background: #585858;
+	color: white;
+}
+
+.purchase button {
+	width: 100%;
+	padding: 0.5em 0;
+	background: #db4136;
+	border: none;
+	color: white;
+	border-radius: 15px;
+	font-weight: bolder;
+	transition: all 0.3s ease-in-out;
+}
+
+.purchase button:hover {
+	background: #f04944;
+}
+
+@media screen and (min-width: 1500px) {
+	.sneaker {
+		--sneaker-num: 20rem;
+	}
+}

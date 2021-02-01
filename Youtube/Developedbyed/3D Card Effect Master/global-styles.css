@@ -1,0 +1,259 @@
+/*----------------------------*/
+/* GLOBAL STYLES */
+/*----------------------------*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+:root {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+	--incerment-1: 0.5vw;
+	--header1: calc(9rem + var(--incerment-1));
+	--header2: calc(4rem + var(--incerment-1));
+	--header3: calc(2.6rem + var(--incerment-1));
+	--header4: calc(2.4rem + var(--incerment-1));
+	--header5: calc(2rem + var(--incerment-1));
+	--header6: calc(1.6rem + var(--incerment-1));
+	--small-size-text-1: calc(0.7rem + var(--incerment-1));
+	--small-size-text-2: calc(1rem + var(--incerment-1));
+	--small-size-text-3: calc(1.3rem + var(--incerment-1));
+	--normal-size-text-1: calc(1.6rem + var(--incerment-1));
+	--normal-size-text-2: calc(1.9rem + var(--incerment-1));
+	--normal-size-text-3: calc(2.2rem + var(--incerment-1));
+	--big-size-text-1: calc(6.4rem + var(--incerment-1));
+	--big-size-text-2: calc(7rem + var(--incerment-1));
+	--big-size-text-3: calc(7.6rem + var(--incerment-1));
+	--color-light-1: #fff;
+	--color-light-2: #d3d7cf;
+	--color-light-3: #9d9d9d;
+	--color-dark-1: #1d1d1d;
+	--color-dark-2: #2e3436;
+	--color-dark-3: #343a40;
+	--transition-delay-1: 0.3s;
+	--transition-delay-2: 3s;
+}
+body.light {
+	background: var(--color-light-1);
+	color: var(--color-dark-2);
+}
+body.dark {
+	background: var(--color-dark-2);
+	color: var(--color-light-2);
+}
+
+body {
+	overflow-x: hidden;
+	animation: opening 3s ease-in-out;
+}
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+h1 {
+	font-size: var(--header1);
+}
+h2 {
+	font-size: var(--header2);
+}
+h3 {
+	font-size: var(--header3);
+}
+h4 {
+	font-size: var(--header4);
+}
+h5 {
+	font-size: var(--header5);
+}
+h6 {
+	font-size: var(--header6);
+}
+/*li,
+  button,
+  label,
+  input,
+  textarea,
+  a,
+  p,
+  ul,
+  header,
+  main,
+  section,
+  footer,
+  th,
+  tbody,
+  tfoot,
+  tr,
+  td,*/
+/*
+  *:not(html):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6)
+  */
+*:not(html, h1, h2, h3, h4, h5, h6) {
+	font-size: var(--normal-size-text-1);
+}
+ul {
+	list-style: none;
+}
+a,
+a:hover,
+a:active,
+a:focus,
+a:visited {
+	text-decoration: none;
+}
+
+button,
+a {
+	cursor: pointer;
+}
+
+.margin-auto {
+	margin: auto;
+}
+
+.width-100percent {
+	width: 100%;
+	height: auto;
+}
+.height-100percent {
+	height: 100%;
+}
+
+.min-height-100vh {
+	min-height: 100vh;
+}
+
+.max-width-100 {
+	max-width: 100%;
+}
+
+.overflow-hidden {
+	overflow: hidden;
+}
+.overflow-x-hidden {
+	overflow-x: hidden;
+}
+.overflow-y-hidden {
+	overflow-y: hidden;
+}
+
+.display-flex {
+	display: flex;
+}
+.align-items-center {
+	align-items: center;
+}
+.justify-content-center {
+	justify-content: center;
+}
+.justify-content-space-around {
+	justify-content: space-around;
+}
+.justify-content-space-between {
+	justify-content: space-between;
+}
+.flex-direction-column {
+	flex-direction: column;
+}
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.bg-no-repeat {
+	background-repeat: no-repeat;
+}
+.bg-position-center {
+	background-position: center;
+}
+.background-size-cover {
+	background-size: cover;
+}
+
+.object-fit-cover {
+	object-fit: cover;
+}
+.object-positioncenter {
+	object-position: center;
+}
+.text-align-center {
+	text-align: center;
+}
+
+.isHidden {
+	display: none !important;
+}
+
+.flex-x-y-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.svg-container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+.svg-container svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	fill: currentColor;
+}
+
+/*.social-link.dribbble-link.init-color {
+    color: ;
+  }
+  .social-link.google-plus-link.init-color {
+    color: ;
+  }
+  .social-link.instagram-link.init-color {
+    color: ;
+  }
+  .social-link.twitter-link.init-color {
+    color: ;
+  }
+  .social-link.facebook-link.init-color {
+    color: ;
+  }
+  
+  .social-link.dribbble-link:hover {
+    color: ;
+  }
+  .social-link.google-plus-link:hover {
+    color: ;
+  }
+  .social-link.instagram-link:hover {
+    color: ;
+  }
+  .social-link.twitter-link:hover {
+    color: ;
+  }
+  .social-link.facebook-link:hover {
+    color: ;
+  }*/
+
+/*----------------------------*/
+/* Global Animation */
+/*----------------------------*/
+@keyframes opening {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+/*----------------------------*/
+/* Your Global Syles */
+/*----------------------------*/
+
+/*----------------------------*/
+/* Your Global Animation */
+/*----------------------------*/

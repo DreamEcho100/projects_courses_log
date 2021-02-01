@@ -98,8 +98,8 @@
   display: grid;
   place-items: center;
   z-index: 10;
-  -webkit-transition: opacity 75ms linear, background-color 100ms linear;
-  transition: opacity 75ms linear, background-color 100ms linear;
+  -webkit-transition: opacity 75ms linear, background-color 100ms linear;
+  transition: opacity 75ms linear, background-color 100ms linear;
 }
 
 #popdog-card-clone .streamers .FA-icon:hover::after {

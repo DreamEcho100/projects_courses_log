@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!--
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+		-->
+		<link rel="stylesheet" href="global-styles.css" />
+		<link rel="stylesheet" href="style.css" />
+		<title>3D Card Effect Master</title>
+	</head>
+	<body class="overflow-x-hidden">
+		<div
+			class="container margin-auto display-flex align-items-center justify-content-center"
+		>
+			<div
+				class="card"
+				data-transitiondelay="300"
+				data-transitiontimingfunction="ease-in-out"
+			>
+				<div class="sneaker flex-x-y-center">
+					<div class="circle"></div>
+					<img
+						class="Style3D"
+						src="images/adidas.png"
+						alt="adidas shoe"
+						data-transition="all 0.7s ease-in-out"
+						data-transformfrom="translateZ(0px) rotate(0deg)"
+						data-transformto="translateZ(100px) rotate(-45deg)"
+					/>
+				</div>
+				<h2
+					class="title Style3D"
+					data-transition="all 0.7s ease-in-out"
+					data-transformfrom="translateZ(0px)"
+					data-transformto="translateZ(75px)"
+				>
+					Adidas ZX
+				</h2>
+				<div
+					class="info Style3D"
+					data-transition="all 0.7s ease-in-out"
+					data-transformfrom="translateZ(0px)"
+					data-transformto="translateZ(75px)"
+				>
+					<h3>
+						FUTURE-READY TRAINERS WITH WRAPPED BOOST FOR EXCEPTION COMFORT.
+					</h3>
+					<div
+						class="sizes Style3D display-flex justify-content-space-between"
+						data-transition="all 0.7s ease-in-out"
+						data-transformfrom="translateZ(0px)"
+						data-transformto="translateZ(50px)"
+					>
+						<button>39</button>
+						<button>40</button>
+						<button class="active">42</button>
+						<button>44</button>
+					</div>
+				</div>
+				<div
+					class="purchase Style3D"
+					data-transition="all 0.7s ease-in-out"
+					data-transformfrom="translateZ(0px)"
+					data-transformto="translateZ(100px)"
+				>
+					<button>Purchase</button>
+				</div>
+			</div>
+		</div>
+
+		<script type="module" src="app.js"></script>
+	</body>
+</html>
