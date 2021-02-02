@@ -1,0 +1,170 @@
+.css-animations-on-social-media-buttons {
+  margin: 1em auto;
+  width: 22rem;
+  height: 22rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0.1em;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  justify-items: center;
+  overflow: hidden;
+}
+
+.css-animations-on-social-media-buttons .facebook-icon {
+  --current-icon-color: #3c5a99;
+}
+
+.css-animations-on-social-media-buttons .facebook-icon i {
+  color: var(--current-icon-color);
+}
+
+.css-animations-on-social-media-buttons .instagram-icon {
+  --current-icon-color: #c32aa3;
+}
+
+.css-animations-on-social-media-buttons .instagram-icon i {
+  color: var(--current-icon-color);
+}
+
+.css-animations-on-social-media-buttons .youtube-icon {
+  --current-icon-color: #ff0000;
+}
+
+.css-animations-on-social-media-buttons .youtube-icon i {
+  color: var(--current-icon-color);
+}
+
+.css-animations-on-social-media-buttons .linkedin-icon {
+  --current-icon-color: #3c5a99;
+}
+
+.css-animations-on-social-media-buttons .linkedin-icon i {
+  color: var(--current-icon-color);
+}
+
+.css-animations-on-social-media-buttons .google-icon {
+  --current-icon-color: #db4437;
+}
+
+.css-animations-on-social-media-buttons .google-icon i {
+  color: var(--current-icon-color);
+}
+
+.css-animations-on-social-media-buttons .twitter-icon {
+  --current-icon-color: #1da1f2;
+}
+
+.css-animations-on-social-media-buttons .twitter-icon i {
+  color: var(--current-icon-color);
+}
+
+.css-animations-on-social-media-buttons .pinterest-icon {
+  --current-icon-color: #bd081c;
+}
+
+.css-animations-on-social-media-buttons .pinterest-icon i {
+  color: var(--current-icon-color);
+}
+
+.css-animations-on-social-media-buttons .whatsapp-icon {
+  --current-icon-color: #25d366;
+}
+
+.css-animations-on-social-media-buttons .whatsapp-icon i {
+  color: var(--current-icon-color);
+}
+
+.css-animations-on-social-media-buttons .twitch-icon {
+  --current-icon-color: #3c5a99;
+}
+
+.css-animations-on-social-media-buttons .twitch-icon i {
+  color: var(--current-icon-color);
+}
+
+.css-animations-on-social-media-buttons button {
+  background: transparent;
+  border-color: transparent;
+  --circle-radius: 5rem;
+  --circle-font-color: black;
+  --circle-bg-color: white;
+  position: relative;
+  width: var(--circle-radius);
+  height: var(--circle-radius);
+  margin: 0.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+.css-animations-on-social-media-buttons button::before {
+  content: "";
+  left: calc(var(--circle-radius) * -1);
+  top: calc(var(--circle-radius));
+  position: absolute;
+  width: calc(var(--circle-radius) * 0.2);
+  height: calc(var(--circle-radius) * 0.2);
+  background-color: var(--current-icon-color);
+  border-radius: 100%;
+  -webkit-transition: 0.15s ease-in;
+  transition: 0.15s ease-in;
+}
+
+.css-animations-on-social-media-buttons button::after {
+  content: "";
+  position: absolute;
+  left: var(--circle-radius);
+  top: 0px;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: white;
+  border-radius: 100%;
+  -webkit-transition: 0.25s cubic-bezier(0.14, 1.88, 0.3, 0.76);
+  transition: 0.25s cubic-bezier(0.14, 1.88, 0.3, 0.76);
+}
+
+.css-animations-on-social-media-buttons button:hover::before {
+  left: 0px;
+  top: 0px;
+  width: var(--circle-radius);
+  height: var(--circle-radius);
+}
+
+.css-animations-on-social-media-buttons button:hover::after {
+  left: calc(var(--circle-radius) * 0.2);
+  top: calc(var(--circle-radius) * -0.04);
+  width: calc(var(--circle-radius) * 0.95);
+  height: calc(var(--circle-radius) * 0.95);
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.css-animations-on-social-media-buttons button i {
+  font-size: 3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  /*transition-delay: 0.3s;*/
+  z-index: 10;
+}
+/*# sourceMappingURL=style.css.map */

@@ -10,7 +10,9 @@
 	justify-content: center;
 	overflow: hidden;
 
-	.button {
+	button {
+		background: transparent;
+		border-color: transparent;
 		display: block;
 		position: relative;
 		margin: 0.5em;

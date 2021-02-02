@@ -1,0 +1,134 @@
+.css-animations-on-social-media-buttons {
+	margin: 1em auto;
+	width: 22rem;
+	height: 22rem;
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 0.1em;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	align-items: center;
+	justify-content: center;
+	justify-items: center;
+	overflow: hidden;
+
+	.facebook-icon {
+		--current-icon-color: #3c5a99;
+		i {
+			color: var(--current-icon-color);
+		}
+	}
+	.instagram-icon {
+		--current-icon-color: #c32aa3;
+		i {
+			color: var(--current-icon-color);
+		}
+	}
+	.youtube-icon {
+		--current-icon-color: #ff0000;
+		i {
+			color: var(--current-icon-color);
+		}
+	}
+	.linkedin-icon {
+		--current-icon-color: #3c5a99;
+		i {
+			color: var(--current-icon-color);
+		}
+	}
+	.google-icon {
+		--current-icon-color: #db4437;
+		i {
+			color: var(--current-icon-color);
+		}
+	}
+	.twitter-icon {
+		--current-icon-color: #1da1f2;
+		i {
+			color: var(--current-icon-color);
+		}
+	}
+	.pinterest-icon {
+		--current-icon-color: #bd081c;
+		i {
+			color: var(--current-icon-color);
+		}
+	}
+	.whatsapp-icon {
+		--current-icon-color: #25d366;
+		i {
+			color: var(--current-icon-color);
+		}
+	}
+	.twitch-icon {
+		--current-icon-color: #3c5a99;
+		i {
+			color: var(--current-icon-color);
+		}
+	}
+
+	button {
+		background: transparent;
+		border-color: transparent;
+		--circle-radius: 5rem;
+		--circle-font-color: black;
+		--circle-bg-color: white;
+		position: relative;
+		width: var(--circle-radius);
+		height: var(--circle-radius);
+		margin: 0.5em;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			left: calc(var(--circle-radius) * -1);
+			top: calc(var(--circle-radius));
+			position: absolute;
+			width: calc(var(--circle-radius) * 0.2);
+			height: calc(var(--circle-radius) * 0.2);
+			background-color: var(--current-icon-color);
+			border-radius: 100%;
+			transition: 0.15s ease-in;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			left: var(--circle-radius);
+			top: 0px;
+			width: 4.5rem;
+			height: 4.5rem;
+			background-color: white;
+			border-radius: 100%;
+			transition: 0.25s cubic-bezier(0.14, 1.88, 0.3, 0.76);
+		}
+		&:hover {
+			&::before {
+				left: 0px;
+				top: 0px;
+				width: var(--circle-radius);
+				height: var(--circle-radius);
+			}
+
+			&::after {
+				left: calc(var(--circle-radius) * 0.2);
+				top: calc(var(--circle-radius) * -0.04);
+				width: calc(var(--circle-radius) * 0.95);
+				height: calc(var(--circle-radius) * 0.95);
+				transition-delay: 0.2s;
+			}
+		}
+		i {
+			font-size: 3rem;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			/*transition-delay: 0.3s;*/
+			z-index: 10;
+		}
+	}
+}

@@ -18,7 +18,9 @@
   overflow: hidden;
 }
 
-.first-letter-and-background-creative-button-animation .button {
+.first-letter-and-background-creative-button-animation button {
+  background: transparent;
+  border-color: transparent;
   display: block;
   position: relative;
   margin: 0.5em;
@@ -28,14 +30,14 @@
   height: 6rem;
 }
 
-.first-letter-and-background-creative-button-animation .button * {
+.first-letter-and-background-creative-button-animation button * {
   line-height: 6rem;
   text-align: center;
   font-size: 2.5rem;
   font-weight: 900;
 }
 
-.first-letter-and-background-creative-button-animation .button::after {
+.first-letter-and-background-creative-button-animation button::after {
   content: "";
   position: absolute;
   top: 0;
@@ -47,61 +49,61 @@
   z-index: 1;
 }
 
-.first-letter-and-background-creative-button-animation .button:hover::after {
+.first-letter-and-background-creative-button-animation button:hover::after {
   background-color: black;
   -webkit-transform: rotate(10deg);
           transform: rotate(10deg);
   border: 1px solid black;
 }
 
-.first-letter-and-background-creative-button-animation .button:hover p {
+.first-letter-and-background-creative-button-animation button:hover p {
   color: white;
 }
 
-.first-letter-and-background-creative-button-animation .button:hover span::before {
+.first-letter-and-background-creative-button-animation button:hover span::before {
   color: white;
   -webkit-transform: translate(-65%, 10%) rotate(360deg);
           transform: translate(-65%, 10%) rotate(360deg);
   font-size: 8rem;
 }
 
-.first-letter-and-background-creative-button-animation .button span {
+.first-letter-and-background-creative-button-animation button span {
   color: transparent;
   position: relative;
 }
 
-.first-letter-and-background-creative-button-animation .button span::before {
+.first-letter-and-background-creative-button-animation button span::before {
   position: absolute;
   width: auto;
   height: 6rem;
   color: black;
 }
 
-.first-letter-and-background-creative-button-animation .button span.H::before {
+.first-letter-and-background-creative-button-animation button span.H::before {
   content: "H";
   -webkit-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
 }
 
-.first-letter-and-background-creative-button-animation .button span.P::before {
+.first-letter-and-background-creative-button-animation button span.P::before {
   content: "P";
   -webkit-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
 }
 
-.first-letter-and-background-creative-button-animation .button span.A::before {
+.first-letter-and-background-creative-button-animation button span.A::before {
   content: "A";
   -webkit-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
 }
 
-.first-letter-and-background-creative-button-animation .button span.C::before {
+.first-letter-and-background-creative-button-animation button span.C::before {
   content: "C";
   -webkit-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
 }
 
-.first-letter-and-background-creative-button-animation .button p {
+.first-letter-and-background-creative-button-animation button p {
   position: relative;
   -webkit-transition: 0.8s;
   transition: 0.8s;
