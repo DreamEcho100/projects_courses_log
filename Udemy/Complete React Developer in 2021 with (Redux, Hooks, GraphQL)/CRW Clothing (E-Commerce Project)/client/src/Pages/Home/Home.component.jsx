@@ -1,14 +1,14 @@
 import React from "react";
-import "./HomePage.styles.scss";
+import "./Home.styles.scss";
 import MenuItem from "../../Components/MenuItem/MenuItem.jsx";
 import DirectoryMenu from "../../Components/DirectoryMenu/DirectoryMenu.jsx";
 
-const HomePage = (props) => {
+const Home = (props) => {
 	return (
-		<section className="homepage">
+		<section className="home">
 			<DirectoryMenu history={props.history} />
 		</section>
 	);
 };
 
-export default HomePage;
+export default Home;
