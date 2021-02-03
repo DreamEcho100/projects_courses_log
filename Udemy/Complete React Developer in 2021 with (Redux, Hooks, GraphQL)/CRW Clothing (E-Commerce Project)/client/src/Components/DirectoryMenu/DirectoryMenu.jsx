@@ -9,15 +9,13 @@ class DirectoryMenu extends Component {
 	}
 
 	render() {
-	  return (
-	     <section className="directory-menu">
-	     	{
-	     		Data.map(({ id, title, subtitle, imageUrl, linkUrl, size }) =>( 
-	        	<MenuItem key={ id } title={ title } subtitle={ subtitle } imageUrl={ imageUrl } linkUrl={ linkUrl } size={ size } />
-	     		))
-	     	}
-	    </section>
-	  )
+		return (
+			<section className="directory-menu">
+				{Data.map(({ id, ...otherSectionProps }) => (
+					<MenuItem key={id} {...otherSectionProps} />
+				))}
+			</section>
+		);
 	}
 }
 
