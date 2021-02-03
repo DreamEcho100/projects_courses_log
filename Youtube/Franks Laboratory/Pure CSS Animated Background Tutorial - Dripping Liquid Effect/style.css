@@ -1,0 +1,173 @@
+.pure-css-animated-background-tutorial-dripping-liquid-effect {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  -webkit-filter: url(#goo);
+          filter: url(#goo);
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale {
+  width: 10rem;
+  height: 10rem;
+  top: -20%;
+  background-color: black;
+  position: absolute;
+  border-radius: 50%;
+  -webkit-animation: fall 15s infinite;
+          animation: fall 15s infinite;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(2n) {
+  width: 6rem;
+  height: 6rem;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(3n) {
+  width: 12rem;
+  height: 12rem;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(1) {
+  left: 30%;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(2) {
+  left: 60%;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(3) {
+  left: 25%;
+  -webkit-animation-delay: 3s;
+          animation-delay: 3s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(4) {
+  left: 75%;
+  -webkit-animation-delay: 4s;
+          animation-delay: 4s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(5) {
+  left: 35%;
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(1) {
+  left: 30%;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(6) {
+  left: 50%;
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(7) {
+  left: 65%;
+  -webkit-animation-delay: 7s;
+          animation-delay: 7s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(8) {
+  left: 35%;
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(9) {
+  left: 55%;
+  -webkit-animation-delay: 9s;
+          animation-delay: 9s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(10) {
+  left: 55%;
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(11) {
+  left: 35%;
+  -webkit-animation-delay: 11s;
+          animation-delay: 11s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(12) {
+  left: 50%;
+  -webkit-animation-delay: 12s;
+          animation-delay: 12s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(13) {
+  left: 65%;
+  -webkit-animation-delay: 13s;
+          animation-delay: 13s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(14) {
+  left: 40%;
+  -webkit-animation-delay: 14s;
+          animation-delay: 14s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .particale:nth-of-type(15) {
+  left: 60%;
+  -webkit-animation-delay: 15s;
+          animation-delay: 15s;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .border {
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  height: 10%;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .border:nth-last-of-type(1) {
+  top: 0;
+  left: 0%;
+}
+
+.pure-css-animated-background-tutorial-dripping-liquid-effect .border:nth-last-of-type(2) {
+  bottom: 0;
+  left: 0%;
+}
+
+@-webkit-keyframes fall {
+  0% {
+    top: -20%;
+  }
+  20% {
+    top: 0%;
+  }
+  80% {
+    top: 85%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes fall {
+  0% {
+    top: -20%;
+  }
+  20% {
+    top: 0%;
+  }
+  80% {
+    top: 85%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
