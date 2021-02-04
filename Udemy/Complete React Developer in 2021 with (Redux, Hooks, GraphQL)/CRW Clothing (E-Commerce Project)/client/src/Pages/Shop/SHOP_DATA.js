@@ -135,7 +135,8 @@ const SHOP_DATA = [
 			{
 				id: 3,
 				name: "Grey Jean Jacket",
-				imageUrl: "https://i.ibb.co/N71k1ML/grey-jean-jacket.png",
+				imageUrl:
+					"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP._RCCCpQI6X97YztDbaCpUQHaHa%26pid%3DApi&f=1",
 				price: 90,
 			},
 			{
@@ -159,44 +160,51 @@ const SHOP_DATA = [
 		items: [
 			{
 				id: 1,
-				name: "Blue Tanktop",
-				imageUrl: "https://i.ibb.co/7CQVJNm/blue-tank.png",
+				name: "Tall Tanktop",
+				imageUrl:
+					"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzsc4NVVmWTzTexdyWaOIxrYB0cNW7jbGoIA&usqp=CAU",
 				price: 25,
 			},
 			{
 				id: 2,
 				name: "Floral Blouse",
-				imageUrl: "https://i.ibb.co/4W2DGKm/floral-blouse.png",
+				imageUrl:
+					"https://images-na.ssl-images-amazon.com/images/I/61cKyO9ClnL._AC_UX385_.jpg",
 				price: 20,
 			},
 			{
 				id: 3,
 				name: "Floral Dress",
-				imageUrl: "https://i.ibb.co/KV18Ysr/floral-skirt.png",
+				imageUrl:
+					"https://i.pinimg.com/originals/e7/72/0c/e7720c2c3a866b7329af026aa571e10e.jpg",
 				price: 80,
 			},
 			{
 				id: 4,
 				name: "Red Dots Dress",
-				imageUrl: "https://i.ibb.co/N3BN1bh/red-polka-dot-dress.png",
+				imageUrl:
+					"https://images-na.ssl-images-amazon.com/images/I/71EFwwnHMBL._UL1500_.jpg",
 				price: 80,
 			},
 			{
 				id: 5,
 				name: "Striped Sweater",
-				imageUrl: "https://i.ibb.co/KmSkMbH/striped-sweater.png",
+				imageUrl:
+					"https://di2ponv0v5otw.cloudfront.net/posts/2020/05/27/5ece87c7c936af603accab03/m_5ece887b6e28469d6ef8800d.jpg",
 				price: 45,
 			},
 			{
 				id: 6,
 				name: "Yellow Track Suit",
-				imageUrl: "https://i.ibb.co/v1cvwNf/yellow-track-suit.png",
+				imageUrl:
+					"https://ae01.alicdn.com/kf/Habce28c9e2534d10ba7e39c4e6bcd20a3.jpg_q50.jpg",
 				price: 135,
 			},
 			{
 				id: 7,
 				name: "White Blouse",
-				imageUrl: "https://i.ibb.co/qBcrsJg/white-vest.png",
+				imageUrl:
+					"https://asset1.marksandspencer.com/is/image/mands/SD_01_T43_4001F_Z0_X_EC_90?wid=240&qlt=40",
 				price: 20,
 			},
 		],

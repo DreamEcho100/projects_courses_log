@@ -1,6 +1,5 @@
 import React from "react";
 import "./Home.styles.scss";
-import MenuItem from "../../Components/MenuItem/MenuItem.jsx";
 import DirectoryMenu from "../../Components/DirectoryMenu/DirectoryMenu.jsx";
 
 const Home = (props) => {
