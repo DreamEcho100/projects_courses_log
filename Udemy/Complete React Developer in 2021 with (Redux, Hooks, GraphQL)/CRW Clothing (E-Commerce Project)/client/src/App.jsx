@@ -5,12 +5,14 @@ import Shop from "./Pages/Shop/Shop.component";
 
 function App(props) {
 	return (
-		<main>
-			<Switch>
-				<Route exact path="/" component={Home} />
-				<Route path="/shop" component={Shop} />
-			</Switch>
-		</main>
+		<>
+			<main>
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route path="/shop" component={Shop} />
+				</Switch>
+			</main>
+		</>
 	);
 }
 
