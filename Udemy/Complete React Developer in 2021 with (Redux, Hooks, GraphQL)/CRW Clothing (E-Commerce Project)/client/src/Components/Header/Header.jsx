@@ -16,6 +16,13 @@ const Header = () => {
 				<NavLink className="option" activeClassName="active-link" to="/contact">
 					CONTACT
 				</NavLink>
+				<NavLink
+					className="option"
+					activeClassName="active-link"
+					to="/signinorsignup"
+				>
+					SIGN IN/UP
+				</NavLink>
 			</nav>
 		</header>
 	);

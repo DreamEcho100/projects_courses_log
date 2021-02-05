@@ -1,0 +1,11 @@
+.sign-in {
+	min-width: calc(30rem + 1vw);
+	width: 40vw;
+	display: flex;
+	flex-direction: column;
+
+	h2 {
+		text-transform: capitalize;
+		letter-spacing: 0.02em;
+	}
+}
