@@ -32,7 +32,12 @@ class SignIn extends Component {
 		return (
 			<div className="sign-in">
 				<h2>I already have an account</h2>
-				<span>Sign in with your email and password</span>
+				<div style={{ width: "100%" }} className="one-button-holder">
+					<CustomButton isGoogleSignIn type="button" onClick={signInWithGoogle}>
+						Sign in with Google
+					</CustomButton>
+				</div>
+				<span>Or sign in with your email and password</span>
 
 				<form onSubmit={this.handleSubmit}>
 					<FormInput
@@ -51,11 +56,8 @@ class SignIn extends Component {
 						label="password"
 						required
 					/>
-					<div style={{ display: "flex", width: "100%" }}>
+					<div style={{ width: "100%" }} className="one-button-holder">
 						<CustomButton type="submit">Sign In</CustomButton>
-						<CustomButton type="button" onClick={signInWithGoogle}>
-							Sign in with Google
-						</CustomButton>
 					</div>
 				</form>
 			</div>

@@ -12,7 +12,6 @@ const MenuItem = ({
 	history,
 	match,
 }) => {
-	console.log(history);
 	return (
 		<div
 			className={`menu-item ${size} bg-no-repeat bg-position-center bg-size-cover`}
