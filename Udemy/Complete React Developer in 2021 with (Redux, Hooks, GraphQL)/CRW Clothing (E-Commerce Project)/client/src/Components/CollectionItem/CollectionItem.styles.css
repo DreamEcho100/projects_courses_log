@@ -1,0 +1,45 @@
+.collection-item {
+  width: calc(20rem + 1vw);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 35rem;
+  margin: 0.5em 0.25em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.collection-item .image {
+  width: 100%;
+  height: 95%;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0.5em;
+}
+
+.collection-item .collection-footer {
+  width: 100%;
+  height: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 1.8rem;
+}
+
+.collection-item .collection-footer .name {
+  width: 90%;
+  margin-bottom: 1em;
+}
+
+.collection-item .collection-footer .price {
+  width: 10%;
+}
+/*# sourceMappingURL=CollectionItem.styles.css.map */

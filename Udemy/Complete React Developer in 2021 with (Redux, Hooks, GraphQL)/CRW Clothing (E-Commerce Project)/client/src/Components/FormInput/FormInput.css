@@ -1,0 +1,91 @@
+.group {
+  position: relative;
+  margin: 1em 0;
+}
+
+.group .form-input {
+  background: none;
+  background-color: white;
+  color: grey;
+  font-size: 2rem;
+  padding: 0.5em 0.5em 0.5em 0.1em;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid grey;
+  margin: 1em 0;
+}
+
+.group .form-input:focus {
+  outline: none;
+}
+
+.group .form-input:focus ~ .form-input-label {
+  top: -14px;
+  font-size: 1.4rem;
+  color: black;
+}
+
+.group .form-input:not(:focus) {
+  -webkit-animation: outOfTheInputField 0.7s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+          animation: outOfTheInputField 0.7s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+.group .form-input:not(:focus) ~ .form-input-label {
+  -webkit-animation: outOfTheInputField 0.7s cubic-bezier(0.075, 0.82, 0.165, 1) forwards 0.1s;
+          animation: outOfTheInputField 0.7s cubic-bezier(0.075, 0.82, 0.165, 1) forwards 0.1s;
+}
+
+.group input[type="password"] {
+  letter-spacing: 0.2em;
+}
+
+.group .form-input-label {
+  color: grey;
+  font-size: 1.6rem;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+}
+
+.group .form-input-label.shrink {
+  top: -14px;
+  font-size: 1.4rem;
+  color: black;
+}
+
+@-webkit-keyframes outOfTheInputField {
+  0% {
+    margin-left: 1em;
+    text-shadow: 0 0 0 black;
+  }
+  30% {
+    margin-left: 1.5em;
+    text-shadow: 0 0 7px black;
+  }
+  100% {
+    margin-left: 0;
+    text-shadow: 0 0 0 black;
+  }
+}
+
+@keyframes outOfTheInputField {
+  0% {
+    margin-left: 1em;
+    text-shadow: 0 0 0 black;
+  }
+  30% {
+    margin-left: 1.5em;
+    text-shadow: 0 0 7px black;
+  }
+  100% {
+    margin-left: 0;
+    text-shadow: 0 0 0 black;
+  }
+}
+/*# sourceMappingURL=FormInput.css.map */

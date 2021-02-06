@@ -1,0 +1,51 @@
+.main-header {
+  height: 7rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.main-header .active-link {
+  text-shadow: 0 0 2.5px black;
+  font-style: 4rem;
+  margin: 0 0.5em;
+  color: darkgray;
+  border-bottom: 3px solid darkslategray;
+}
+
+.main-header .logo-container {
+  height: 100%;
+  width: 7rem;
+  padding: 1em;
+}
+
+.main-header .options {
+  cursor: pointer;
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.main-header .options .option {
+  padding: 0.5em 0.75em;
+}
+
+.main-header .logo,
+.main-header .option {
+  -webkit-transition: all 2.8s cubic-bezier(0.075, 0.82, 0.165, 1), margin 1s ease-in-out;
+  transition: all 2.8s cubic-bezier(0.075, 0.82, 0.165, 1), margin 1s ease-in-out;
+}
+/*# sourceMappingURL=Header.styles.css.map */
