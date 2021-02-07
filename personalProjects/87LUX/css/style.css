@@ -1,0 +1,148 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.main-header {
+  background-color: var(--color-light-1);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-shadow: 0px 9px 24px 0px #000000;
+          box-shadow: 0px 9px 24px 0px #000000;
+  z-index: 999;
+}
+
+.main-header div {
+  width: 50%;
+  padding: 0.5em 0.25em;
+}
+
+.section-1 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.section-1 .container .holder-1,
+.section-1 .container .holder-2 {
+  width: 50%;
+  min-height: 100vh;
+}
+
+.section-1 .container .holder-1 {
+  padding: 1em;
+}
+
+.section-1 .container .holder-1 .text-holder h1 {
+  margin: calc(0.25em + 1.5vh) 0;
+  font-size: var(--big-size-text-1);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  line-height: 0.9;
+}
+
+.section-1 .container .holder-1 .text-holder p {
+  margin-bottom: calc(0.25em + 1.5vh);
+}
+
+.section-1 .container .holder-1 form {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.section-1 .container .holder-1 form input {
+  min-width: 22rem;
+  width: 36.7rem;
+  height: 5.1rem;
+  background: var(--color-light-1);
+  color: var(--color-dark-1);
+  border-color: transparent;
+  -webkit-box-shadow: 0px 12px 42px 1px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 12px 42px 1px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+.section-1 .container .holder-1 form button {
+  margin: calc(0.5em + 1.5vh) 0;
+  padding: 0.5em 1.5em;
+  background: #7e53fd;
+  -webkit-box-shadow: 0px 12px 42px 1px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 12px 42px 1px rgba(0, 0, 0, 0.15);
+  border-color: transparent;
+  border-radius: 5px;
+}
+
+.section-1 .container .holder-2 {
+  position: relative;
+  min-height: 100vh;
+}
+
+.section-1 .container .holder-2 img {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.section-1 .container .holder-2 .video {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 4;
+}
+
+.section-1 .container .holder-2 .polygon-1 {
+  z-index: 3;
+  top: 0%;
+  left: 0;
+  height: 100%;
+}
+
+.section-1 .container .holder-2 .ellipse-1,
+.section-1 .container .holder-2 .ellipse-2 {
+  z-index: 2;
+  width: 50%;
+}
+
+.section-1 .container .holder-2 .ellipse-1 {
+  left: 15%;
+  top: 7.5%;
+}
+
+.section-1 .container .holder-2 .ellipse-2 {
+  right: 15%;
+  bottom: 7.5%;
+}
+
+@media screen and (max-width: 750px) {
+  .section-1 .container {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .section-1 .container .holder-1,
+  .section-1 .container .holder-2 {
+    width: 90%;
+    margin: auto;
+  }
+  .section-1 .container .holder-1 {
+    height: 50rem;
+    min-height: unset;
+  }
+  .section-1 .container .holder-2 {
+    height: 40rem;
+    min-height: unset;
+  }
+  .section-1 .container .holder-2 .ellipse-1 {
+    left: 10%;
+    top: 5%;
+  }
+  .section-1 .container .holder-2 .ellipse-2 {
+    right: 5%;
+    bottom: 0%;
+  }
+}
+/*# sourceMappingURL=style.css.map */

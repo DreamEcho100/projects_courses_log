@@ -1,0 +1,136 @@
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+		Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.main-header {
+	background-color: var(--color-light-1);
+	position: sticky;
+	top: 0;
+	left: 0;
+	display: flex;
+	box-shadow: 0px 9px 24px 0px #000000;
+	z-index: 999;
+
+	div {
+		width: 50%;
+		padding: 0.5em 0.25em;
+	}
+}
+
+.main-content {
+}
+
+.section-1 {
+	.container {
+		display: flex;
+		.holder-1,
+		.holder-2 {
+			width: 50%;
+			min-height: 100vh;
+		}
+
+		.holder-1 {
+			padding: 1em;
+			.text-holder {
+				h1 {
+					margin: calc(0.25em + 1.5vh) 0;
+					font-size: var(--big-size-text-1);
+					font-family: "Franklin Gothic Medium", "Arial Narrow", Arial,
+						sans-serif;
+					line-height: 0.9;
+				}
+				p {
+					margin-bottom: calc(0.25em + 1.5vh);
+				}
+			}
+			form {
+				align-items: flex-start;
+
+				input {
+					min-width: 22rem;
+					width: 36.7rem;
+					height: 5.1rem;
+
+					background: var(--color-light-1);
+					color: var(--color-dark-1);
+					border-color: transparent;
+					box-shadow: 0px 12px 42px 1px rgba(0, 0, 0, 0.15);
+					border-radius: 5px;
+				}
+				button {
+					margin: calc(0.5em + 1.5vh) 0;
+					padding: 0.5em 1.5em;
+					background: #7e53fd;
+					box-shadow: 0px 12px 42px 1px rgba(0, 0, 0, 0.15);
+					border-color: transparent;
+					border-radius: 5px;
+				}
+			}
+		}
+
+		.holder-2 {
+			position: relative;
+			min-height: 100vh;
+
+			img {
+				width: 100%;
+				position: absolute;
+				z-index: 1;
+			}
+			.video {
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				z-index: 4;
+			}
+			.polygon-1 {
+				z-index: 3;
+				top: 0%;
+				left: 0;
+				height: 100%;
+			}
+			.ellipse-1,
+			.ellipse-2 {
+				z-index: 2;
+				width: 50%;
+			}
+			.ellipse-1 {
+				left: 15%;
+				top: 7.5%;
+			}
+			.ellipse-2 {
+				right: 15%;
+				bottom: 7.5%;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.section-1 {
+		.container {
+			flex-wrap: wrap;
+			.holder-1,
+			.holder-2 {
+				width: 90%;
+				margin: auto;
+			}
+			.holder-1 {
+				height: 50rem;
+				min-height: unset;
+			}
+			.holder-2 {
+				height: 40rem;
+				min-height: unset;
+				.ellipse-1 {
+					left: 10%;
+					top: 5%;
+				}
+				.ellipse-2 {
+					right: 5%;
+					bottom: 0%;
+				}
+			}
+		}
+	}
+}
