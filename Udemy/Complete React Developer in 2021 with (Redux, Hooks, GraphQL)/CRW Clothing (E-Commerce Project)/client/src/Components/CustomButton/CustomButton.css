@@ -1,55 +1,55 @@
 .one-button-holder .custom-button {
-  min-width: calc(30rem + 1vw);
-  width: 40vw;
-  max-width: 35rem;
+	min-width: calc(30rem + 1vw);
+	width: 40vw;
+	max-width: 35rem;
 }
 
 .two-button-holder {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
 }
 
 .two-button-holder .custom-button {
-  width: 16.5rem;
+	width: 16.5rem;
 }
 
 .custom-button {
-  height: 6rem;
-  letter-spacing: 0.5px;
-  padding: 0.125em 0.25em;
-  font-size: 1.8rem;
-  background-color: black;
-  color: white;
-  margin: 0.5em auto;
-  text-transform: uppercase;
-  font-family: "Open Sans Condensed";
-  font-weight: bolder;
-  border: none;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  text-shadow: 0 0 18px black;
-  cursor: pointer;
+	height: 6rem;
+	letter-spacing: 0.5px;
+	padding: 0.125em 0.25em;
+	font-size: 1.8rem;
+	background-color: black;
+	color: white;
+	margin: 0.5em auto;
+	text-transform: uppercase;
+	font-family: "Open Sans Condensed";
+	font-weight: bolder;
+	border: none;
+	-webkit-transition: all 0.4s;
+	transition: all 0.4s;
+	text-shadow: 0 0 18px black;
+	cursor: pointer;
 }
 
 .custom-button:hover {
-  background-color: white;
-  color: black;
-  border: 1px solid black;
-  text-shadow: 0 0 0px black;
-  font-size: 2rem;
+	background-color: white;
+	color: black;
+	border: 1px solid black;
+	text-shadow: 0 0 0px black;
+	font-size: 2rem;
 }
 
 .custom-button.google-sign-in {
-  background-color: #4285f4;
-  text-shadow: 0 0 8px #357ae8;
-  color: white;
+	background-color: #4285f4;
+	text-shadow: 0 0 8px #357ae8;
+	color: white;
 }
 
 .custom-button.google-sign-in:hover {
-  margin: 0.46em auto;
-  background-color: #357ae8;
-  text-shadow: 0 0 8px #4285f4;
-  border: none;
+	margin: 0.46em auto;
+	background-color: #357ae8;
+	text-shadow: 0 0 8px #4285f4;
+	border: none;
 }
 /*# sourceMappingURL=CustomButton.css.map */

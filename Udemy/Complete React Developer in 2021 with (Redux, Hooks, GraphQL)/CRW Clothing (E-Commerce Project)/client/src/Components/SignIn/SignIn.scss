@@ -4,6 +4,11 @@
 	max-width: 35rem;
 	display: flex;
 	flex-direction: column;
+	margin: 0.5em;
+	padding: 0.5em;
+	border: 1px solid black;
+	border-radius: 5px;
+	height: fit-content;
 
 	h2 {
 		text-transform: capitalize;

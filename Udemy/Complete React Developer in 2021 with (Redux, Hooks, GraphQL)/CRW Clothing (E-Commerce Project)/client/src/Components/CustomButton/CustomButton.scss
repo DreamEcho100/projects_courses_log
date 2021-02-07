@@ -1,8 +1,12 @@
 .one-button-holder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	.custom-button {
-		min-width: calc(30rem + 1vw);
-		width: 40vw;
+		width: 100%;
 		max-width: 35rem;
+		margin: auto;
 	}
 }
 

@@ -1,18 +1,18 @@
 .sign-in {
-  min-width: calc(30rem + 1vw);
-  width: 40vw;
-  max-width: 35rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+	min-width: calc(30rem + 1vw);
+	width: 40vw;
+	max-width: 35rem;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
 }
 
 .sign-in h2 {
-  text-transform: capitalize;
-  letter-spacing: 0.02em;
+	text-transform: capitalize;
+	letter-spacing: 0.02em;
 }
 /*# sourceMappingURL=SignIn.css.map */

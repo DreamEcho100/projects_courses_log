@@ -1,0 +1,18 @@
+.sign-up {
+	display: flex;
+	flex-direction: column;
+	width: 46rem;
+	border: 1px solid black;
+	border-radius: 5px;
+	padding: 0.5em;
+	margin: 0.5em;
+
+	.title {
+		margin: 0.5em 0;
+		text-transform: capitalize;
+	}
+
+	.one-button-holder {
+		width: 100%;
+	}
+}
