@@ -47,10 +47,10 @@ class App extends Component {
 				<Header currentUser={this.state.currentUser} />
 				<main>
 					<Switch>
-						<Route exact path="/" component={Home} />
 						<Route path="/shop" component={Shop} />
 						<Route exact path="/signinorsignup" component={SignInOrSignUp} />
 						<Route exact path="/signinorsignup" component={SignInOrSignUp} />
+						<Route path="/" component={Home} />
 					</Switch>
 				</main>
 			</>
