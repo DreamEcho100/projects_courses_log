@@ -1,8 +1,9 @@
 .sign-up {
 	display: flex;
 	flex-direction: column;
-	width: 35rem;
-	min-width: calc(20rem + 10vw);
+	min-width: calc(22rem + 11%);
+	width: 40rem;
+	max-width: calc(40rem + 1%);
 	border: 1px solid black;
 	border-radius: 5px;
 	padding: 0.5em;

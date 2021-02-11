@@ -41,15 +41,14 @@
 	}
 
 	&.google-sign-in {
-		background-color: #4285f4;
-		text-shadow: 0 0 8px #357ae8;
+		background-color: #3679e6;
+		text-shadow: 0 0 0px #145acc;
 		color: white;
 
 		&:hover {
-			margin: 0.46em auto;
-			background-color: #357ae8;
-			text-shadow: 0 0 8px #4285f4;
-			border: none;
+			background-color: #1a68e7;
+			text-shadow: 0 0 16px #145acc;
+			border: 15px solid #145acc;
 		}
 	}
 }

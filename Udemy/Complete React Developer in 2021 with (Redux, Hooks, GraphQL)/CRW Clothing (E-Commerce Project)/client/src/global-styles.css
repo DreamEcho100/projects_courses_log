@@ -52,24 +52,6 @@ body {
 	width: 100%;
 	height: 100%;
 }
-h1 {
-	font-size: var(--header1);
-}
-h2 {
-	font-size: var(--header2);
-}
-h3 {
-	font-size: var(--header3);
-}
-h4 {
-	font-size: var(--header4);
-}
-h5 {
-	font-size: var(--header5);
-}
-h6 {
-	font-size: var(--header6);
-}
 /*li,
   button,
   label,
@@ -89,9 +71,30 @@ h6 {
   td,*/
 /*
   *:not(html):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6)
-  */
-*:not(html, h1, h2, h3, h4, h5, h6) {
+	*/
+/*
+	*:not(html, h1, h2, h3, h4, h5, h6)
+	*/
+*:not(html) {
 	font-size: var(--normal-size-text-1);
+}
+h1 {
+	font-size: var(--header1);
+}
+h2 {
+	font-size: var(--header2);
+}
+h3 {
+	font-size: var(--header3);
+}
+h4 {
+	font-size: var(--header4);
+}
+h5 {
+	font-size: var(--header5);
+}
+h6 {
+	font-size: var(--header6);
 }
 ul {
 	list-style: none;
