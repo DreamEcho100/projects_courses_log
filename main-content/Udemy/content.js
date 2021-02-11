@@ -4,7 +4,46 @@ const UdemyContent = {
 	info: "",
 	classes: "main-section Site",
 	list: [],
-};
+}
+
+UdemyContent.list.push({
+	types: ["normal-content-course"],
+	name: "50 Projects In 50 Days - HTML, CSS And JavaScript",
+	info: "",
+	classes: "spinningBackground1",
+	list: [
+		{
+			types: ["normal-content-project"],
+			name: "Expanding Cards",
+			info: "Expanding Cards",
+			fileName: "index",
+			fileExtension: "html",
+			difficulty: "",
+			tech: {
+				languages: ["HTML", "CSS", "JavaScript"],
+				libraries: [],
+				frameworks: [],
+				APIs: [],
+			},
+		},
+		{
+			types: ["no-content-project"],
+			name: "",
+			info: "",
+			fileName: "index",
+			fileExtension: "html",
+			difficulty: "",
+			tech: {
+				languages: ["HTML", "CSS", "JavaScript"],
+				libraries: [],
+				frameworks: [],
+				APIs: [],
+			},
+		},
+
+		// Inner List End
+	],
+})
 
 UdemyContent.list.push({
 	types: ["normal-content-course"],
@@ -62,7 +101,7 @@ UdemyContent.list.push({
 
 		// Inner List End
 	],
-});
+})
 
 UdemyContent.list.push({
 	types: ["normal-content-course"],
@@ -1032,7 +1071,7 @@ UdemyContent.list.push({
 
 		// Inner List End
 	],
-});
+})
 
 UdemyContent.list.push({
 	types: ["no-content-course"],
@@ -1057,7 +1096,7 @@ UdemyContent.list.push({
 
 		// Inner List End
 	],
-});
+})
 
 UdemyContent.list.push({
 	types: ["normal-content-course"],
@@ -1180,7 +1219,7 @@ UdemyContent.list.push({
 
 		// Inner List End
 	],
-});
+})
 
 UdemyContent.list.push({
 	types: ["normal-content-course"],
@@ -1305,7 +1344,7 @@ UdemyContent.list.push({
 
 		// Inner List End
 	],
-});
+})
 
 UdemyContent.list.push({
 	types: ["no-content-course"],
@@ -1330,4 +1369,4 @@ UdemyContent.list.push({
 
 		// Inner List End
 	],
-});
+})

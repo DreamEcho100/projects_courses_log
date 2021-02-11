@@ -1,11 +1,6 @@
 /*----------------------------*/
 /* */
 /*----------------------------*/
-
-html {
-	font-size: calc(50% + 0.25vw);
-}
-
 body {
 	display: flex;
 	flex-direction: column;

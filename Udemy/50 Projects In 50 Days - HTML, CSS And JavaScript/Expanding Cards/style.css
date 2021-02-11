@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+body {
+  font-family: 'Roboto', sans-serif;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em 5rem;
+}
+
+.container .panel {
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+  margin: 0.25em;
+  position: relative;
+  -webkit-transition: -webkit-box-flex 0.7s ease-in;
+  transition: -webkit-box-flex 0.7s ease-in;
+  transition: flex 0.7s ease-in;
+  transition: flex 0.7s ease-in, -webkit-box-flex 0.7s ease-in, -ms-flex 0.7s ease-in;
+}
+
+.container .panel.active {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+}
+
+.container .panel.active h3 {
+  opacity: 0.6;
+  -webkit-transition: opacity 0.3s ease-in 0.4s;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+.container .panel h3 {
+  font-size: 2.4rem;
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  margin: 0;
+  opacity: 0;
+}
+
+.container .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  max-width: 100vw;
+  padding: 25px;
+}
+
+.container .header .button--light {
+  opacity: 0.6;
+  color: #212121;
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 20px;
+  border: 2px solid #212121;
+  outline: none;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container .header .button--light:hover {
+  opacity: 1;
+  background-color: rgba(230, 230, 170, 0.3);
+  cursor: pointer;
+  outline: none;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container .header .button--dark {
+  opacity: 0.6;
+  color: #e6e6e6;
+  background-color: transparent;
+  padding: 15px;
+  border-radius: 20px;
+  border: 2px solid #e6e6e6;
+  outline: none;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.2);
+          box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.2);
+}
+
+.container .header .button--dark:hover {
+  opacity: 1;
+  background-color: rgba(230, 230, 170, 0.3);
+  cursor: pointer;
+  outline: none;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2), 0 6px 20px 0 rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 480px) {
+  .container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100vw;
+    height: 90vh;
+  }
+  .container .panel {
+    background-size: cover;
+  }
+  .container .panel h3 {
+    font-size: 2rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+  .container .panel.active {
+    background-size: cover;
+  }
+}
+/*# sourceMappingURL=style.css.map */
