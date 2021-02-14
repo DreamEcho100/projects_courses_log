@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import "./App.css";
-import { Route, Switch, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import Home from "./Pages/Home/Home.component.jsx";
-import Shop from "./Pages/Shop/Shop.component.jsx";
-import SignInOrSignUp from "./Pages/SignInOrSignUp/SignInOrSignUp.component.jsx";
-import Header from "./Components/Header/Header.jsx";
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
-import { setCurrentUser } from "./redux/user/user.actions";
+import React, { Component } from 'react';
+import './App.css';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Home from './Pages/Home/Home.component.jsx';
+import Shop from './Pages/Shop/Shop.component.jsx';
+import SignInOrSignUp from './Pages/SignInOrSignUp/SignInOrSignUp.component.jsx';
+import Header from './Components/Header/Header.jsx';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import { setCurrentUser } from './redux/user/user.actions';
 
 class App extends Component {
 	/*constructor(props) {
@@ -57,19 +57,19 @@ class App extends Component {
 				<Header />
 				<main>
 					<Switch>
-						<Route path="/shop" component={Shop} />
+						<Route path='/shop' component={Shop} />
 						<Route
 							exact
-							path="/signinorsignup"
+							path='/signinorsignup'
 							render={() =>
 								this.props.currentUser ? (
-									<Redirect to="/" />
+									<Redirect to='/' />
 								) : (
 									<SignInOrSignUp />
 								)
 							}
 						/>
-						<Route path="/" component={Home} />
+						<Route path='/' component={Home} />
 					</Switch>
 				</main>
 			</>

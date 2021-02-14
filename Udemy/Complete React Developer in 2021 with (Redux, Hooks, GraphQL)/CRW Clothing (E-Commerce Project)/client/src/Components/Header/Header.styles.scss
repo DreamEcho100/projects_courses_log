@@ -1,5 +1,6 @@
 .main-header {
-	height: 7rem;
+	--header-height: 7rem;
+	height: var(--header-height);
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
