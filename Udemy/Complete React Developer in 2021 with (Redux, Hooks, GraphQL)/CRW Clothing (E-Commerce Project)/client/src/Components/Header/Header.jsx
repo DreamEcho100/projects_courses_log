@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import './Header.styles.scss';
 import { auth } from '../../firebase/firebase.utils';
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, hidden }) => {
 	return (
 		<header className='main-header'>
 			<NavLink
@@ -40,13 +40,14 @@ const Header = ({ currentUser }) => {
 				)}
 				<CartIcon />
 			</nav>
-			<CartDropdown />
+			{hidden ? null : <CartDropdown />}
 		</header>
 	);
 };
 
-const mapStateToProps = (state) => ({
-	currentUser: state.user.currentUser,
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+	currentUser,
+	hidden,
 });
 
 export default connect(mapStateToProps)(Header);
