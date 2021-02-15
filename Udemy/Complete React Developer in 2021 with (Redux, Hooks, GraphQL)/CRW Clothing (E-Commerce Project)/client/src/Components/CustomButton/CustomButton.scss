@@ -25,12 +25,15 @@
 	color: white;
 	margin: 0.5em auto;
 	text-transform: uppercase;
-	font-family: "Open Sans Condensed";
+	font-family: 'Open Sans Condensed';
 	font-weight: bolder;
 	border: none;
 	transition: all 0.4s;
 	text-shadow: 0 0 18px black;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	&:hover {
 		background-color: white;
@@ -49,6 +52,20 @@
 			background-color: #1a68e7;
 			text-shadow: 0 0 16px #145acc;
 			border: 15px solid #145acc;
+		}
+	}
+
+	&.inverted {
+		background-color: white;
+		color: black;
+		text-shadow: 0 0 18px white;
+		border: 1px solid black;
+
+		&:hover {
+			background-color: black;
+			color: white;
+			text-shadow: 0 0 0px black;
+			border: none;
 		}
 	}
 }
