@@ -1,5 +1,6 @@
 .main-header {
 	--header-height: 7rem;
+	position: relative;
 	height: var(--header-height);
 	width: 100%;
 	display: flex;
