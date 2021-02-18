@@ -3,10 +3,11 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
+import Header from './Components/Header/Header.jsx';
 import Home from './Pages/Home/Home.component.jsx';
 import Shop from './Pages/Shop/Shop.component.jsx';
 import SignInOrSignUp from './Pages/SignInOrSignUp/SignInOrSignUp.component.jsx';
-import Header from './Components/Header/Header.jsx';
+import Checkout from './Pages/Checkout/Checkout';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectUserCurrent } from './redux/user/user.selectors';
@@ -62,6 +63,7 @@ class App extends Component {
 				<main>
 					<Switch>
 						<Route path='/shop' component={Shop} />
+						<Route exact path='/checkout' component={Checkout} />
 						<Route
 							exact
 							path='/signinorsignup'
