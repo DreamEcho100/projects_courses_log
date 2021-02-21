@@ -9,10 +9,11 @@ import { selectCartItems } from '../../redux/cart/cart.selectors';
 /*
 import { selectCartItemsCounts } from '../../redux/cart/cart.selectors';
 */
+import { toggleCartHidden } from '../../redux/cart/cart.action';
 
 import './CartDropdown.scss';
 
-const CartDropdown = ({ cartItems, history }) => (
+const CartDropdown = ({ cartItems, history, dispatch }) => (
 	<div className='cart-dropdown'>
 		<div className='cart-items'>
 			{cartItems.length ? (
@@ -24,7 +25,12 @@ const CartDropdown = ({ cartItems, history }) => (
 			)}
 		</div>
 		<div style={{ width: '100%' }} className='one-button-holder'>
-			<CustomButton onClick={() => history.push('/checkout')}>
+			<CustomButton
+				onClick={() => {
+					history.push('/checkout');
+					dispatch(toggleCartHidden());
+				}}
+			>
 				GO TO CHECKOUT
 			</CustomButton>
 		</div>

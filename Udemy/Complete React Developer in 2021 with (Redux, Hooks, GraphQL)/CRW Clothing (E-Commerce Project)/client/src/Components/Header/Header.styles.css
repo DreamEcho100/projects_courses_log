@@ -1,6 +1,14 @@
 .main-header {
-  height: 7rem;
-  width: 100%;
+  --header-height: 7rem;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 999;
+  top: 0;
+  background: var(--color-light-1);
+  height: var(--header-height);
+  width: 98vw;
+  max-width: 98%;
+  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8,6 +16,32 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 1em;
+  -webkit-box-shadow: 3px 3px 8px var(--color-dark-2);
+          box-shadow: 3px 3px 8px var(--color-dark-2);
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-transition: all 6s ease-in-out;
+  transition: all 6s ease-in-out;
+  -webkit-animation: tiltSideWays 9s alternate infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+          animation: tiltSideWays 9s alternate infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.main-header:hover {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.main-header.scrollDown {
+  --header-height: 5.5rem;
+}
+
+.main-header.scrollDown .main-header a {
+  font-size: var(--small-size-text-2);
+  font-weight: 700;
+}
+
+.main-header.scrollDown svg {
+  width: 4rem;
 }
 
 .main-header .active-link {
@@ -15,13 +49,34 @@
   font-style: 4rem;
   margin: 0 0.5em;
   color: darkgray;
+}
+
+.main-header .active-link:not(.logo-container) {
+  border-bottom: 3px solid darkslategray;
+}
+
+.main-header .active-link.logo-container {
+  border: none;
+}
+
+.main-header .active-link.logo-container svg {
+  padding-bottom: 0.5em;
   border-bottom: 3px solid darkslategray;
 }
 
 .main-header .logo-container {
   height: 100%;
   width: 7rem;
-  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0.5em;
 }
 
 .main-header .options {
@@ -47,5 +102,51 @@
 .main-header .option {
   -webkit-transition: all 2.8s cubic-bezier(0.075, 0.82, 0.165, 1), margin 1s ease-in-out;
   transition: all 2.8s cubic-bezier(0.075, 0.82, 0.165, 1), margin 1s ease-in-out;
+}
+
+@-webkit-keyframes tiltSideWays {
+  0% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  25% {
+    -webkit-transform: rotateY(-7.5deg);
+            transform: rotateY(-7.5deg);
+  }
+  50% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  75% {
+    -webkit-transform: rotateY(7.5deg);
+            transform: rotateY(7.5deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+@keyframes tiltSideWays {
+  0% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  25% {
+    -webkit-transform: rotateY(-7.5deg);
+            transform: rotateY(-7.5deg);
+  }
+  50% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+  75% {
+    -webkit-transform: rotateY(7.5deg);
+            transform: rotateY(7.5deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
 }
 /*# sourceMappingURL=Header.styles.css.map */

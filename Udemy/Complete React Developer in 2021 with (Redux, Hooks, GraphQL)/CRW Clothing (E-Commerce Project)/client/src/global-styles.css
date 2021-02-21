@@ -1,15 +1,6 @@
 /*----------------------------*/
 /* GLOBAL STYLES */
 /*----------------------------*/
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 :root {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -30,13 +21,13 @@
   --big-size-text-2: calc(7rem + var(--incerment-1));
   --big-size-text-3: calc(7.6rem + var(--incerment-1));
   --color-light-1: #fff;
-  --color-light-2: #d3d7cf;
-  --color-light-3: #9d9d9d;
-  --color-dark-1: #1d1d1d;
-  --color-dark-2: #2e3436;
-  --color-dark-3: #343a40;
-  --transition-delay-1: 0.3s;
-  --transition-delay-2: 3s;
+  --color-light-2: #eee;
+  --color-light-3: #ddd;
+  --color-dark-1: #000;
+  --color-dark-2: #333;
+  --color-dark-3: #555;
+  --main-font-color: black;
+  --main-bg-color: white;
 }
 
 html,
@@ -62,47 +53,68 @@ body {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  background: var(--main-bg-color);
   -webkit-animation: opening 3s ease-in-out;
           animation: opening 3s ease-in-out;
 }
 
+body *,
+body *::before,
+body *::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  font-size: var(--normal-size-text-1);
+}
+
+body *:hover, body *:active, body *:focus, body *:visited,
+body *::before:hover,
+body *::before:active,
+body *::before:focus,
+body *::before:visited,
+body *::after:hover,
+body *::after:active,
+body *::after:focus,
+body *::after:visited {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  font-size: var(--normal-size-text-1);
+}
+
+body * {
+  color: var(--main-font-color);
+}
+
+body *:hover, body *:active, body *:focus, body *:visited {
+  color: var(--main-font-color);
+}
+
+body *::before,
+body *::after {
+  color: currentColor;
+}
+
+body *::before:hover, body *::before:active, body *::before:focus, body *::before:visited,
+body *::after:hover,
+body *::after:active,
+body *::after:focus,
+body *::after:visited {
+  color: currentColor;
+}
+
 body.light {
-  background: var(--color-light-1);
-  color: var(--color-dark-2);
+  --main-bg-color: var(--color-light-2);
+  --main-font-color: var(--color-dark-2);
 }
 
 body.dark {
-  background: var(--color-dark-2);
-  color: var(--color-light-2);
-}
-
-/*li,
-  button,
-  label,
-  input,
-  textarea,
-  a,
-  p,
-  ul,
-  header,
-  main,
-  section,
-  footer,
-  th,
-  tbody,
-  tfoot,
-  tr,
-  td,*/
-/*
-  *:not(html):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6)
-	*/
-/*
-	*:not(html, h1, h2, h3, h4, h5, h6)
-	*/
-*:not(html),
-*:not(html)::before,
-*:not(html)::after {
-  font-size: var(--normal-size-text-1);
+  --main-bg-color: var(--color-dark-2);
+  --main-font-color: var(--color-light-2);
 }
 
 h1 {
@@ -131,14 +143,6 @@ h6 {
 
 ul {
   list-style: none;
-}
-
-a,
-a:hover,
-a:active,
-a:focus,
-a:visited {
-  text-decoration: none;
 }
 
 button,

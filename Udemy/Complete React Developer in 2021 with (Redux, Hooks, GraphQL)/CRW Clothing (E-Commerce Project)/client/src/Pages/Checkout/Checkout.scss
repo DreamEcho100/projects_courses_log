@@ -1,5 +1,5 @@
 .checkout-page {
-	width: 90%;
+	width: 55%;
 	min-height: 90vh;
 	display: flex;
 	flex-direction: column;
@@ -17,8 +17,25 @@
 			text-transform: capitalize;
 			width: 23%;
 
+			&:not(:last-child) {
+				transform: rotate(0deg);
+				transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+				&:hover,
+				&:active {
+					transform: rotate(29deg);
+				}
+			}
+
 			&:last-child {
 				width: 8%;
+				transform: rotate(0deg) translate(-90%, 0%);
+				transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+				&:hover,
+				&:active {
+					transform: rotate(29deg) translate(-90%, 3%);
+				}
 			}
 		}
 	}

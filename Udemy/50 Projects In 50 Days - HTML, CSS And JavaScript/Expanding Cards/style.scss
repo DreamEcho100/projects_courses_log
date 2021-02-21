@@ -6,6 +6,24 @@ body {
 	height: 100vh;
 	overflow: hidden;
 	margin: 0;
+
+	button.mode {
+		background-color: dimgrey;
+		border-color: transparent;
+		border-radius: 10px;
+		padding: 0.5em 1em;
+	}
+
+	&.light {
+		button.mode {
+			background-color: deepskyblue;
+		}
+	}
+	&.dark {
+		button.mode {
+			background-color: dimgrey;
+		}
+	}
 }
 
 .container {

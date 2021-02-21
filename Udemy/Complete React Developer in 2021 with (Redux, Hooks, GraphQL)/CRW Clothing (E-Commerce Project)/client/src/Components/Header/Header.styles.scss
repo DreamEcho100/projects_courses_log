@@ -5,7 +5,9 @@
 	top: 0;
 	background: var(--color-light-1);
 	height: var(--header-height);
-	width: 100%;
+	width: 98vw;
+	max-width: 98%;
+	margin: auto;
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 1em;
