@@ -1,3 +1,10 @@
+document.querySelector('.menu').addEventListener('click', () => {
+	[
+		...document.querySelectorAll('.main-header'),
+		...document.querySelectorAll('.main-header-btn'),
+	].forEach((element) => element.classList.toggle('change'));
+});
+
 const section1Animation = () => {
 	const icons = document.querySelectorAll('.section-1 .icons-holder i');
 	let counter = 1;

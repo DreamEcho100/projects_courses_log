@@ -12,7 +12,7 @@
 		/>
 		<link rel="stylesheet" href="global-styles.css" />
 		<link rel="stylesheet" href="style.css" />
-		<script defer type="module" src="app.js"></script>
+		<script defer src="app.js"></script>
 		<title>Foods</title>
 	</head>
 	<body class="dark">
@@ -38,6 +38,7 @@
 					<i class="fas fa-blender-phone"></i>
 					<span>Contact</span>
 				</a>
+				<button class="menu main-header-btn"></button>
 			</nav>
 		</header>
 		<main class="container">
@@ -130,20 +131,22 @@
 				</div>
 			</section>
 			<section class="section-4">
-				<div class="text-holder">
-					<h2 class="header">popular meals</h2>
-					<p class="paragraph">BE THE FIRST TO KNOW ABOUT NEW PRODUCTS</p>
+				<div class="container">
+					<div class="text-holder">
+						<h2 class="header">Sign Me Up</h2>
+						<p class="paragraph">BE THE FIRST TO KNOW ABOUT NEW PRODUCTS</p>
+					</div>
+					<form class="signup-form">
+						<input
+							type="email"
+							class="signup-form-input"
+							placeholder="Enter Your Email"
+						/>
+						<button type="submit" class="signup-form-btn">
+							<i class="fas fa-arrow-right"></i>
+						</button>
+					</form>
 				</div>
-				<form class="signup-form">
-					<input
-						type="email"
-						class="signup-form-input"
-						placeholder="Enter Your Email"
-					/>
-					<button type="submit" class="signup-form-btn">
-						<i class="fas fa-arrow-right"></i>
-					</button>
-				</form>
 			</section>
 		</main>
 		<footer class="main-footer">

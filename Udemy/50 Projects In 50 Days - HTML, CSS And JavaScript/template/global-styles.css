@@ -17,9 +17,9 @@
   --normal-size-text-1: calc(1.6rem + var(--incerment-1));
   --normal-size-text-2: calc(1.9rem + var(--incerment-1));
   --normal-size-text-3: calc(2.2rem + var(--incerment-1));
-  --big-size-text-1: calc(6.4rem + var(--incerment-1));
-  --big-size-text-2: calc(7rem + var(--incerment-1));
-  --big-size-text-3: calc(7.6rem + var(--incerment-1));
+  --big-size-text-1: calc(9rem + var(--incerment-1));
+  --big-size-text-2: calc(11rem + var(--incerment-1));
+  --big-size-text-3: calc(13rem + var(--incerment-1));
   --color-light-1: #fff;
   --color-light-2: #eee;
   --color-light-3: #ddd;
@@ -40,35 +40,22 @@ body {
   overflow-x: hidden;
   max-width: 200rem;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   background: var(--main-bg-color);
-  -webkit-animation: opening 3s ease-in-out;
-          animation: opening 3s ease-in-out;
+  animation: opening 3s ease-in-out;
 }
-
 body *,
 body *::before,
 body *::after {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   text-decoration: none;
   font-size: var(--normal-size-text-1);
 }
-
 body *:hover, body *:active, body *:focus, body *:visited,
 body *::before:hover,
 body *::before:active,
@@ -80,25 +67,20 @@ body *::after:focus,
 body *::after:visited {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   text-decoration: none;
   font-size: var(--normal-size-text-1);
 }
-
 body * {
   color: var(--main-font-color);
 }
-
 body *:hover, body *:active, body *:focus, body *:visited {
   color: var(--main-font-color);
 }
-
 body *::before,
 body *::after {
   color: currentColor;
 }
-
 body *::before:hover, body *::before:active, body *::before:focus, body *::before:visited,
 body *::after:hover,
 body *::after:active,
@@ -106,12 +88,10 @@ body *::after:focus,
 body *::after:visited {
   color: currentColor;
 }
-
 body.light {
   --main-bg-color: var(--color-light-2);
   --main-font-color: var(--color-dark-2);
 }
-
 body.dark {
   --main-bg-color: var(--color-dark-2);
   --main-font-color: var(--color-light-2);
@@ -184,44 +164,31 @@ a {
 }
 
 .display-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .align-i-center {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .justify-c-center {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .justify-c-space-around {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .justify-c-space-between {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .flex-d-c {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .flex-wrap {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .bg-no-repeat {
@@ -237,13 +204,11 @@ a {
 }
 
 .object-fit-cover {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .object-positioncenter {
-  -o-object-position: center;
-     object-position: center;
+  object-position: center;
 }
 
 .text-align-center {
@@ -255,15 +220,9 @@ a {
 }
 
 .flex-x-y-center {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .svg-container {
@@ -297,7 +256,7 @@ a {
   .social-link.facebook-link.init-color {
     color: ;
   }
-  
+
   .social-link.dribbble-link:hover {
     color: ;
   }
@@ -316,14 +275,6 @@ a {
 /*----------------------------*/
 /* Global Animation */
 /*----------------------------*/
-@-webkit-keyframes opening {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes opening {
   from {
     opacity: 0;
@@ -332,11 +283,11 @@ a {
     opacity: 1;
   }
 }
-
 /*----------------------------*/
 /* Your Global Syles */
 /*----------------------------*/
 /*----------------------------*/
 /* Your Global Animation */
 /*----------------------------*/
+
 /*# sourceMappingURL=global-styles.css.map */
