@@ -17,15 +17,16 @@ const MenuItem = ({
 			className={`menu-item ${size} bg-no-repeat bg-position-center bg-size-cover`}
 			key={key}
 			onClick={() => {
-				history.push(`${match.url}${linkUrl}}`);
-				console.log(title);
-				setTimeout(
+				// console.log(`/shop/${title}`);
+				history.push(`/shop/${title.toLowerCase()}`);
+				// history.push(`${match.url}${linkUrl}}`);
+				/*setTimeout(
 					() =>
 						document
 							.getElementById(title)
 							.scrollIntoView({ behavior: 'smooth' }),
 					0
-				); // document.getElementById(title).scrollIntoView();
+				);*/ // document.getElementById(title).scrollIntoView();
 			}}
 		>
 			<div

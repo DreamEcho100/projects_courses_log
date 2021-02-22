@@ -1,24 +1,17 @@
 {
-  "files": {
-    "main.css": "./static/css/main.cf5a41df.chunk.css",
-    "main.js": "./static/js/main.2cd1841e.chunk.js",
-    "main.js.map": "./static/js/main.2cd1841e.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.42451bc9.js",
-    "runtime-main.js.map": "./static/js/runtime-main.42451bc9.js.map",
-    "static/js/2.5e6f6909.chunk.js": "./static/js/2.5e6f6909.chunk.js",
-    "static/js/2.5e6f6909.chunk.js.map": "./static/js/2.5e6f6909.chunk.js.map",
-    "static/js/3.e960a3ff.chunk.js": "./static/js/3.e960a3ff.chunk.js",
-    "static/js/3.e960a3ff.chunk.js.map": "./static/js/3.e960a3ff.chunk.js.map",
-    "index.html": "./index.html",
-    "static/css/main.cf5a41df.chunk.css.map": "./static/css/main.cf5a41df.chunk.css.map",
-    "static/js/2.5e6f6909.chunk.js.LICENSE.txt": "./static/js/2.5e6f6909.chunk.js.LICENSE.txt",
-    "static/media/crown.3a4e2b15.svg": "./static/media/crown.3a4e2b15.svg",
-    "static/media/shopping-bag.a688874f.svg": "./static/media/shopping-bag.a688874f.svg"
-  },
-  "entrypoints": [
-    "static/js/runtime-main.42451bc9.js",
-    "static/js/2.5e6f6909.chunk.js",
-    "static/css/main.cf5a41df.chunk.css",
-    "static/js/main.2cd1841e.chunk.js"
-  ]
+  "main.css": "./static/css/main.d2406822.chunk.css",
+  "main.js": "./static/js/main.4b96539d.chunk.js",
+  "main.js.map": "./static/js/main.4b96539d.chunk.js.map",
+  "runtime~main.js": "./static/js/runtime~main.b819a5f5.js",
+  "runtime~main.js.map": "./static/js/runtime~main.b819a5f5.js.map",
+  "static/js/2.0d21971e.chunk.js": "./static/js/2.0d21971e.chunk.js",
+  "static/js/2.0d21971e.chunk.js.map": "./static/js/2.0d21971e.chunk.js.map",
+  "static/js/3.a8d6d2b3.chunk.js": "./static/js/3.a8d6d2b3.chunk.js",
+  "static/js/3.a8d6d2b3.chunk.js.map": "./static/js/3.a8d6d2b3.chunk.js.map",
+  "index.html": "./index.html",
+  "precache-manifest.d699c5773ab65e5e8f812bcae528a0d9.js": "./precache-manifest.d699c5773ab65e5e8f812bcae528a0d9.js",
+  "service-worker.js": "./service-worker.js",
+  "static/css/main.d2406822.chunk.css.map": "./static/css/main.d2406822.chunk.css.map",
+  "static/media/crown.ed28accb.svg": "./static/media/crown.ed28accb.svg",
+  "static/media/shopping-bag.30f07071.svg": "./static/media/shopping-bag.30f07071.svg"
 }
