@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
 
 import CollectionOverview from '../../Components/CollectionOverview/CollectionOverview';

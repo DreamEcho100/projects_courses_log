@@ -13,19 +13,6 @@ import { selectUserCurrent } from '../../redux/user/user.selectors';
 import './Header.styles.scss';
 
 const Header = ({ currentUser, hidden }) => {
-	const shrinkHeader = (event) => {
-		const limit = document.body.clientHeight * 0.06;
-		console.log(limit, event);
-		/*const sectionOffset = section.getBoundingClientRect();
-		const limit = document.body.clientHeight * 0.06;
-
-		if (sectionOffset.top < limit && sectionOffset.top >= (limit * -1) ) {
-			section.classList.add("your-active-class");
-		} else if (section.classList.contains("your-active-class")) {
-			section.classList.remove("your-active-class");
-		}*/
-	};
-
 	return (
 		<header className='main-header'>
 			<NavLink

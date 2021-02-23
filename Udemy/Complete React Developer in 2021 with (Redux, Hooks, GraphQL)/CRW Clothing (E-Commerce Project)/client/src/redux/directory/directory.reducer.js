@@ -28,7 +28,6 @@ const INITIAL_STATE = {
 			id: 4,
 			linkUrl: 'shop/womens',
 			subtitle: 'SHOP NOW',
-			size: 'large',
 		},
 		{
 			title: 'mens',
@@ -37,7 +36,6 @@ const INITIAL_STATE = {
 			id: 5,
 			linkUrl: 'shop/mens',
 			subtitle: 'SHOP NOW',
-			size: 'large',
 		},
 	],
 };

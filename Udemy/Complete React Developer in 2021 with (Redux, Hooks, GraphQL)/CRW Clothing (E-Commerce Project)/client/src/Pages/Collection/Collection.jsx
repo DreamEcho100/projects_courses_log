@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CartItem from '../../Components/CartItem/CartItem';
+// import CartItem from '../../Components/CartItem/CartItem';
 
 import './Collection.scss';
 
