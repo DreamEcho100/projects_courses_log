@@ -54,7 +54,21 @@ UdemyContent.list.push({
 		{
 			types: ['normal-content-project'],
 			name: 'Expanding Cards',
-			info: 'Expanding Cards',
+			info: '',
+			fileName: 'index',
+			fileExtension: 'html',
+			difficulty: '',
+			tech: {
+				languages: ['HTML', 'CSS', 'JavaScript'],
+				libraries: [],
+				frameworks: [],
+				APIs: [],
+			},
+		},
+		{
+			types: ['normal-content-project'],
+			name: 'Progress Steps',
+			info: '',
 			fileName: 'index',
 			fileExtension: 'html',
 			difficulty: '',
