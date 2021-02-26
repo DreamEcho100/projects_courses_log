@@ -1,0 +1,9 @@
+.sign-in-and-sign-up-section {
+  max-width: 85rem;
+  margin: 1em auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/*# sourceMappingURL=SignInAndSignUp.css.map */

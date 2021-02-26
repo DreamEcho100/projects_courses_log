@@ -1,15 +1,8 @@
 .one-button-holder {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
-
 .one-button-holder .custom-button {
   width: 100%;
   max-width: 35rem;
@@ -17,11 +10,8 @@
 }
 
 .two-button-holder {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .two-button-holder .custom-button {
   width: 16.5rem;
 }
@@ -35,24 +25,16 @@
   color: white;
   margin: 0.5em auto;
   text-transform: uppercase;
-  font-family: 'Open Sans Condensed';
+  font-family: "Open Sans Condensed";
   font-weight: bolder;
   border: none;
-  -webkit-transition: all 0.4s;
   transition: all 0.4s;
   text-shadow: 0 0 18px black;
   cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
-
 .custom-button:hover {
   background-color: white;
   color: black;
@@ -60,30 +42,27 @@
   text-shadow: 0 0 0px black;
   font-size: 2rem;
 }
-
 .custom-button.google-sign-in {
   background-color: #3679e6;
   text-shadow: 0 0 0px #145acc;
   color: white;
 }
-
 .custom-button.google-sign-in:hover {
   background-color: #1a68e7;
   text-shadow: 0 0 16px #145acc;
   border: 15px solid #145acc;
 }
-
 .custom-button.inverted {
   background-color: white;
   color: black;
   text-shadow: 0 0 18px white;
   border: 1px solid black;
 }
-
 .custom-button.inverted:hover {
   background-color: black;
   color: white;
   text-shadow: 0 0 0px black;
   border: none;
 }
+
 /*# sourceMappingURL=CustomButton.css.map */

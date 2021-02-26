@@ -1,0 +1,70 @@
+body.light .directory-menu h1.title {
+  color: #4a4a4a;
+}
+
+body.dark .directory-menu h1.title {
+  color: #ebefd7;
+}
+
+.menu-item {
+  min-width: calc(20rem + 12vw);
+  height: 24rem;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  margin: 0 0.25em 0.5em;
+  transform: scale(0.9);
+  transition: transform 0.25s ease-in;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.menu-item:hover {
+  transform: scale(1);
+  z-index: 2;
+  cursor: pointer;
+}
+.menu-item:hover .background-image {
+  transform: scale(1.1);
+  transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95) 0.2s;
+}
+.menu-item:hover .content {
+  opacity: 0.85;
+  transition: 0.2s ease-in-out 0.3s;
+}
+.menu-item:first-child {
+  margin-right: 1em;
+}
+.menu-item:last-child {
+  margin-left: 1em;
+}
+.menu-item .large {
+  height: 38rem;
+}
+.menu-item .content {
+  height: 9rem;
+  padding: 3em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  background: #fff;
+  opacity: 0.7;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.menu-item .content .title {
+  font-weight: bold;
+  margin-bottom: 0 0.5em;
+}
+.menu-item .content .subtitle {
+  font-weight: lighter;
+  font-size: var(--normal-size-text-1);
+}
+
+/*# sourceMappingURL=MenuItem.css.map */

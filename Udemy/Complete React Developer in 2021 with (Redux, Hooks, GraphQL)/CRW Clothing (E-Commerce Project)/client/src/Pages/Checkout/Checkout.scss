@@ -46,3 +46,19 @@
 		font-size: 3.6rem;
 	}
 }
+
+@media screen and (max-width: 1000px) {
+	.checkout-page {
+		width: 75%;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.checkout-page {
+		width: 75%;
+
+		& * {
+			font-size: var(--small-size-text-3);
+		}
+	}
+}

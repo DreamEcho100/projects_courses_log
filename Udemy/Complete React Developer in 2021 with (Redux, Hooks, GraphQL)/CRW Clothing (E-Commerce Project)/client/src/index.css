@@ -1,13 +1,21 @@
 body {
-	padding: 0.25em 0.5em;
-	max-width: 150rem;
-	margin: auto;
+  padding: 0.25em 0.5em;
+  max-width: 150rem;
+  margin: auto;
 }
 
 a {
-	color: black;
+  color: black;
 }
 
 div#root {
-	max-width: 200rem;
+  max-width: 200rem;
 }
+
+@media screen and (max-width: 700px) {
+  :root {
+    font-size: 50%;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

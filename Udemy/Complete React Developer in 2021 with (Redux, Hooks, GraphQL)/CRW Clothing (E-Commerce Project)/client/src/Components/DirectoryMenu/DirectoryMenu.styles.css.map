@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,eAAe,CAAC;EACd,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;EACf,eAAe,EAAE,aAAa;CAC/B",
-    "sources": [
-        "DirectoryMenu.styles.scss"
-    ],
-    "names": [],
-    "file": "DirectoryMenu.styles.css"
-}

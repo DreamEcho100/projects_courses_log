@@ -9,7 +9,7 @@ import { store, persistor } from './redux/store';
 import reportWebVitals from './reportWebVitals';
 
 import './index.css';
-import './global-styles.scss';
+import './global-styles.css';
 
 ReactDOM.render(
 	<React.StrictMode>

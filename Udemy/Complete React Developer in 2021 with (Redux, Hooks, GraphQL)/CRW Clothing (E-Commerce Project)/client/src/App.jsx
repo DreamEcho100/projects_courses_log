@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import Header from './Components/Header/Header.jsx';
-import Home from './Pages/Home/Home.component.jsx';
-import Shop from './Pages/Shop/Shop.component.jsx';
-import SignInOrSignUp from './Pages/SignInOrSignUp/SignInOrSignUp.component.jsx';
+import Home from './Pages/Home/Home.jsx';
+import Shop from './Pages/Shop/Shop.jsx';
+import SignInOrSignUp from './Pages/SignInOrSignUp/SignInOrSignUp.jsx';
 import Checkout from './Pages/Checkout/Checkout';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';

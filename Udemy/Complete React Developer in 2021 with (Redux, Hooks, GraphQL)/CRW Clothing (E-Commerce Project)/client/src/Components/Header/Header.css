@@ -1,0 +1,91 @@
+.main-header {
+  --header-height: 7rem;
+  position: sticky;
+  z-index: 999;
+  top: 0;
+  padding: 0 0.3em;
+  background: var(--color-light-1);
+  height: var(--header-height);
+  width: 98vw;
+  max-width: 98%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  box-shadow: 3px 3px 8px var(--color-dark-2);
+  transform: rotateY(0deg);
+  transition: all 6s ease-in-out;
+  animation: tiltSideWays 9s alternate infinite cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.main-header:hover {
+  animation-play-state: paused;
+}
+.main-header.scrollDown {
+  --header-height: 5.5rem;
+}
+.main-header.scrollDown .main-header a {
+  font-size: var(--small-size-text-2);
+  font-weight: 700;
+}
+.main-header.scrollDown svg {
+  width: 4rem;
+}
+.main-header .active-link {
+  text-shadow: 0 0 2.5px black;
+  font-style: 4rem;
+  margin: 0 0.5em;
+  color: darkgray;
+}
+.main-header .active-link:not(.logo-container) {
+  border-bottom: 3px solid darkslategray;
+}
+.main-header .active-link.logo-container {
+  border: none;
+}
+.main-header .active-link.logo-container svg {
+  padding-bottom: 0.5em;
+  border-bottom: 3px solid darkslategray;
+}
+.main-header .logo-container {
+  height: 100%;
+  width: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+}
+.main-header .options {
+  cursor: pointer;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.main-header .options .option {
+  padding: 0.5em 0.75em;
+}
+.main-header .logo,
+.main-header .option {
+  transition: all 2.8s cubic-bezier(0.075, 0.82, 0.165, 1), margin 1s ease-in-out;
+}
+
+@keyframes tiltSideWays {
+  0% {
+    transform: rotateY(0deg);
+  }
+  25% {
+    transform: rotateY(-7.5deg);
+  }
+  50% {
+    transform: rotateY(0deg);
+  }
+  75% {
+    transform: rotateY(7.5deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+/*# sourceMappingURL=Header.css.map */

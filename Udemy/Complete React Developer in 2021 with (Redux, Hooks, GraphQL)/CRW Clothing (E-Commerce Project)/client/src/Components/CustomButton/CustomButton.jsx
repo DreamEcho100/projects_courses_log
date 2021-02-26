@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './CustomButton.scss';
+import './CustomButton.css';
 
 const CustomButton = ({
 	children,

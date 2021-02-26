@@ -1,18 +1,18 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import FormInput from "../FormInput/FormInput";
-import CustomButton from "../CustomButton/CustomButton";
-import { auth, signInWithGoogle } from "../../firebase/firebase.utils";
+import FormInput from '../FormInput/FormInput';
+import CustomButton from '../CustomButton/CustomButton';
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
-import "./SignIn.scss";
+import './SignIn.css';
 
 class SignIn extends Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			email: "",
-			password: "",
+			email: '',
+			password: '',
 		};
 	}
 
@@ -23,7 +23,7 @@ class SignIn extends Component {
 
 		try {
 			await auth.signInWithEmailAndPassword(email, password);
-			this.setState({ email: "", password: "" });
+			this.setState({ email: '', password: '' });
 		} catch (error) {
 			console.error(error);
 		}
@@ -37,10 +37,10 @@ class SignIn extends Component {
 
 	render() {
 		return (
-			<div className="sign-in">
+			<div className='sign-in'>
 				<h2>I already have an account</h2>
-				<div style={{ width: "100%" }} className="one-button-holder">
-					<CustomButton isGoogleSignIn type="button" onClick={signInWithGoogle}>
+				<div style={{ width: '100%' }} className='one-button-holder'>
+					<CustomButton isGoogleSignIn type='button' onClick={signInWithGoogle}>
 						Sign in with Google
 					</CustomButton>
 				</div>
@@ -48,23 +48,23 @@ class SignIn extends Component {
 
 				<form onSubmit={this.handleSubmit}>
 					<FormInput
-						name="email"
-						type="email"
+						name='email'
+						type='email'
 						handleChange={this.handleChange}
 						value={this.state.email}
-						label="email"
+						label='email'
 						required
 					/>
 					<FormInput
-						name="password"
-						type="password"
+						name='password'
+						type='password'
 						handleChange={this.handleChange}
 						value={this.state.password}
-						label="password"
+						label='password'
 						required
 					/>
-					<div style={{ width: "100%" }} className="one-button-holder">
-						<CustomButton type="submit">Sign In</CustomButton>
+					<div style={{ width: '100%' }} className='one-button-holder'>
+						<CustomButton type='submit'>Sign In</CustomButton>
 					</div>
 				</form>
 			</div>

@@ -10,7 +10,7 @@ import CartDropdown from '../CartDropdown/CartDropdown';
 import { selectCartHidden } from '../../redux/cart/cart.selectors';
 import { selectUserCurrent } from '../../redux/user/user.selectors';
 
-import './Header.styles.scss';
+import './Header.css';
 
 const Header = ({ currentUser, hidden }) => {
 	return (
