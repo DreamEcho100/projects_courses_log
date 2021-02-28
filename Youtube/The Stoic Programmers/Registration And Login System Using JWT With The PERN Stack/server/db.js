@@ -1,12 +1,12 @@
-const Pool = require("pg").Pool;
-const dbPassword = require("./dbPassword.js");
+const Pool = require('pg').Pool;
+const dbPassword = require('./dbPassword.js');
 
 const pool = new Pool({
-	user: "postgres",
+	user: 'postgres',
 	password: dbPassword,
-	host: "localhost",
+	host: 'localhost',
 	port: 5432,
-	database: "jwttutorial",
+	database: 'jwttutorial',
 });
 
 module.exports = pool;

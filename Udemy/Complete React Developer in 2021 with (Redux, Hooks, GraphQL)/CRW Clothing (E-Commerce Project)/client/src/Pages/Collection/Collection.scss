@@ -1,0 +1,20 @@
+.collection-page {
+	display: flex;
+	flex-direction: column;
+
+	.title {
+		font-size: 3.8rem;
+		margin: 0 auto 2em;
+	}
+
+	.items {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(20rem, 3fr));
+		justify-items: center;
+		grid-gap: 1rem;
+
+		& .collection-item {
+			margin-bottom: 2em;
+		}
+	}
+}
