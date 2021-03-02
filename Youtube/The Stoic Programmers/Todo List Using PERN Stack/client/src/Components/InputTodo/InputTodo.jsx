@@ -1,11 +1,22 @@
 import React, { Fragment, useState } from 'react';
+import { connect } from 'react-redux';
+import { addTodo } from '../../redux/todos/actions';
 
-const InputTodo = ({ todos, setTodos }) => {
+const InputTodo = ({ todos, addTodo }) => {
 	const [description, setDescription] = useState('');
 
 	const onSubmitForm = async (event) => {
 		event.preventDefault();
 		if (description === '') {
+			return;
+		}
+		try {
+			addTodo(todos.items, description);
+			setDescription('');
+		} catch (error) {
+			console.error(error.message, error);
+		}
+		/*if (description === '') {
 			return;
 		}
 		try {
@@ -21,7 +32,7 @@ const InputTodo = ({ todos, setTodos }) => {
 			// window.location = '/';
 		} catch (error) {
 			console.error(error.message, error);
-		}
+		}*/
 	};
 
 	return (
@@ -40,4 +51,12 @@ const InputTodo = ({ todos, setTodos }) => {
 	);
 };
 
-export default InputTodo;
+const mapStateToProps = (state) => ({
+	todos: state.todos,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+	addTodo: (items, description) => dispatch(addTodo(items, description)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputTodo);

@@ -1,35 +1,20 @@
 import React, { Fragment, useState } from 'react';
+import { connect } from 'react-redux';
+import { updateTodo } from '../../redux/todos/actions';
 
-const EditTodo = ({ todo, todos, setTodos }) => {
+const EditTodo = ({ item, items, updateTodo }) => {
 	const [hideModule, setHideModule] = useState(true);
 	const [editedDescription, setEditedDescription] = useState(
-		todo.description.slice()
+		item.description.slice()
 	);
+
 	const updateDescription = async (e) => {
 		e.preventDefault();
-		try {
-			const id = todo.id;
-			const description = editedDescription;
-			console.log(id, description, todo);
-			/*const response = */ await fetch(`http://localhost:5000/todos/${id}`, {
-				method: 'PUT',
-				headers: { 'Content-type': 'application/json' },
-				body: JSON.stringify({ description }),
-			});
-
-			setTodos(
-				todos.map((todo) => {
-					if (todo.id === id) {
-						todo.description = description;
-					}
-					return todo;
-				})
-			);
-			console.log(todos);
-			// window.location = '/';
-		} catch (error) {
-			console.error(error.message, error);
+		if (editedDescription === '') {
+			return;
 		}
+		updateTodo(items, item.id, editedDescription);
+		setHideModule(true);
 	};
 
 	return (
@@ -37,8 +22,8 @@ const EditTodo = ({ todo, todos, setTodos }) => {
 			<button
 				className='btn btn-warning'
 				data-toggle='modal'
-				data-target={`#id${todo.id}`}
-				onClick={() => setHideModule(!hideModule)}
+				data-target={`#id${item.id}`}
+				onClick={() => setHideModule(false)}
 			>
 				Edit
 			</button>
@@ -70,7 +55,7 @@ const EditTodo = ({ todo, todos, setTodos }) => {
 									type='button'
 									className='close'
 									data-dismiss='modal'
-									onClick={() => setHideModule(!hideModule)}
+									onClick={() => setHideModule(true)}
 								>
 									&times;
 								</button>
@@ -98,7 +83,7 @@ const EditTodo = ({ todo, todos, setTodos }) => {
 									type='button'
 									className='btn btn-danger'
 									data-dismiss='modal'
-									onClick={() => setHideModule(!hideModule)}
+									onClick={() => setHideModule(true)}
 								>
 									Close
 								</button>
@@ -110,5 +95,9 @@ const EditTodo = ({ todo, todos, setTodos }) => {
 		</Fragment>
 	);
 };
+const mapDispatchToProps = (dispatch) => ({
+	updateTodo: (items, id, description) =>
+		dispatch(updateTodo(items, id, description)),
+});
 
-export default EditTodo;
+export default connect(null, mapDispatchToProps)(EditTodo);

@@ -6,15 +6,22 @@ import {
 	REQUEST_ADD_TODO_PENDING,
 	REQUEST_ADD_TODO_SUCCESS,
 	REQUEST_ADD_TODO_FAILED,
+	REQUEST_UPDATE_TODO_PENDING,
+	REQUEST_UPDATE_TODO_SUCCESS,
+	REQUEST_UPDATE_TODO_FAILED,
 	REQUEST_DELETE_TODO_PENDING,
 	REQUEST_DELETE_TODO_SUCCESS,
 	REQUEST_DELETE_TODO_FAILED,
 } from './types';
 
+const items = [];
+
 const INITIAL_STATE = {
 	isGetTodosPending: false,
-	isDeletetodoPending: true,
-	data: [],
+	isAddtodoPending: false,
+	isUpdatetodoPending: false,
+	isDeletetodoPending: false,
+	items,
 	error: '',
 };
 
@@ -28,7 +35,7 @@ export const todosReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				isGetTodosPending: false,
-				data: action.payload,
+				items: action.payload,
 				error: '',
 			};
 			// eslint-disable-next-line no-unreachable
@@ -37,21 +44,21 @@ export const todosReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				isGetTodosPending: false,
-				data: [],
+				items: [],
 				error: action.payload,
 			};
 			// eslint-disable-next-line no-unreachable
 			break;
 
 		case REQUEST_ADD_TODO_PENDING:
-			return { ...state, isDeletetodoPending: true, error: '' };
+			return { ...state, isAddtodoPending: true, error: '' };
 			// eslint-disable-next-line no-unreachable
 			break;
 		case REQUEST_ADD_TODO_SUCCESS:
 			return {
 				...state,
-				isDeletetodoPending: false,
-				data: action.payload,
+				isAddtodoPending: false,
+				items: action.payload,
 				error: '',
 			};
 			// eslint-disable-next-line no-unreachable
@@ -59,8 +66,31 @@ export const todosReducer = (state = INITIAL_STATE, action) => {
 		case REQUEST_ADD_TODO_FAILED:
 			return {
 				...state,
-				isDeletetodoPending: false,
-				data: state.data,
+				isAddtodoPending: false,
+				items: state.items,
+				error: action.payload,
+			};
+			// eslint-disable-next-line no-unreachable
+			break;
+
+		case REQUEST_UPDATE_TODO_PENDING:
+			return { ...state, isUpdatetodoPending: true, error: '' };
+			// eslint-disable-next-line no-unreachable
+			break;
+		case REQUEST_UPDATE_TODO_SUCCESS:
+			return {
+				...state,
+				isUpdatetodoPending: false,
+				items: action.payload,
+				error: '',
+			};
+			// eslint-disable-next-line no-unreachable
+			break;
+		case REQUEST_UPDATE_TODO_FAILED:
+			return {
+				...state,
+				isUpdatetodoPending: false,
+				items: state.items,
 				error: action.payload,
 			};
 			// eslint-disable-next-line no-unreachable
@@ -74,7 +104,7 @@ export const todosReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				isDeletetodoPending: false,
-				data: action.payload,
+				items: action.payload,
 				error: '',
 			};
 			// eslint-disable-next-line no-unreachable
@@ -83,7 +113,7 @@ export const todosReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				isDeletetodoPending: false,
-				data: state.data,
+				items: state.items,
 				error: action.payload,
 			};
 			// eslint-disable-next-line no-unreachable
