@@ -152,7 +152,7 @@ YotubeContent.list.push({
 
 YotubeContent.list.push({
 	types: ['normal-content-course'],
-	name: 'Developedbyed',
+	name: 'Dev Ed',
 	info: '',
 	classes: 'spinningBackground1',
 	list: [
