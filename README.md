@@ -24,7 +24,9 @@ git push -u origin master
 ##
 
 git add .
+
 git commit -m "Uplaod&Update..."
+
 git push -u origin master
 
 &amp;
