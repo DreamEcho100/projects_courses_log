@@ -22,7 +22,7 @@
   transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .checkout-page .checkout-header .header-block:not(:last-child):hover, .checkout-page .checkout-header .header-block:not(:last-child):active {
-  transform: rotate(29deg);
+  transform: rotate(5deg);
 }
 .checkout-page .checkout-header .header-block:last-child {
   width: 8%;
@@ -30,12 +30,24 @@
   transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .checkout-page .checkout-header .header-block:last-child:hover, .checkout-page .checkout-header .header-block:last-child:active {
-  transform: rotate(29deg) translate(-90%, 3%);
+  transform: rotate(5deg) translate(-90%, 3%);
 }
 .checkout-page .total {
   margin-top: 2em;
   margin-left: auto;
   font-size: 3.6rem;
+}
+.checkout-page .test-warning {
+  text-align: center;
+  margin-top: 4rem;
+  font-size: 2.4rem;
+  color: red;
+  letter-spacing: 0.3rem;
+}
+.checkout-page button.StripeCheckout {
+  margin-left: auto;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
 }
 
 @media screen and (max-width: 1000px) {

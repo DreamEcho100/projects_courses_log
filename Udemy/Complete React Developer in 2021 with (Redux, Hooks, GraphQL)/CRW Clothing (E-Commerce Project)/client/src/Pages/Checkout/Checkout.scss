@@ -23,7 +23,7 @@
 
 				&:hover,
 				&:active {
-					transform: rotate(29deg);
+					transform: rotate(5deg);
 				}
 			}
 
@@ -34,7 +34,7 @@
 
 				&:hover,
 				&:active {
-					transform: rotate(29deg) translate(-90%, 3%);
+					transform: rotate(5deg) translate(-90%, 3%);
 				}
 			}
 		}
@@ -44,6 +44,22 @@
 		margin-top: 2em;
 		margin-left: auto;
 		font-size: 3.6rem;
+	}
+
+	.test-warning {
+		text-align: center;
+		margin-top: 4rem;
+		font-size: 2.4rem;
+		color: red;
+		letter-spacing: 0.3rem;
+	}
+
+	button {
+		&.StripeCheckout {
+			margin-left: auto;
+			margin-top: 5rem;
+			margin-bottom: 1rem;
+		}
 	}
 }
 
