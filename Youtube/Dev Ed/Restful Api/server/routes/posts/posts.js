@@ -1,5 +1,4 @@
-const { Router, response, request } = require('express');
-const router = Router();
+const router = require('express').Router();
 const Post = require('../../models/Post/Post');
 
 router.get('/', async (request, response) => {

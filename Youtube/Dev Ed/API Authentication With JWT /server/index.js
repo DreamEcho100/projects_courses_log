@@ -3,34 +3,30 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
+const authRoute = require('./routes/auth/auth');
+const postsRoute = require('./routes/posts/posts');
+
 const PORT = process.env.PORT;
 const app = express();
 
 // Middlewares
 app.use(cors());
 app.use(express.json());
-app.use('/', (request, response, next) => {
-	console.log('This is a middleware running');
-	next();
-});
 
-//
+// Connect to MongoDB
 mongoose.connect(
 	process.env.MONGO_URL,
 	{
 		useNewUrlParser: true,
 		useUnifiedTopology: true,
-	},
-	() => console.log('Connected to MongoDB')
+	} /*,
+	() => console.log('Connected to MongoDB')*/
 );
 
-mongoose.connection.on('connected', () => {
-	console.log('Mongoose is connected!');
-});
-
-// Routes
-app.use('/posts', require('./routes/posts/posts'));
-
+// Routes Middleware
 app.get('/', (req, res) => res.send('Hello World!'));
+
+app.use('/api/user', authRoute);
+app.use('/api/posts', postsRoute);
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`));
