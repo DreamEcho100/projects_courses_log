@@ -156,6 +156,11 @@ body {
   text-align: center;
   margin: auto;
   user-select: none;
+  position: relative;
+  z-index: 2;
+}
+.video-player .video-speed-controls .value {
+  z-index: 1;
 }
 .video-player video {
   max-width: 100%;

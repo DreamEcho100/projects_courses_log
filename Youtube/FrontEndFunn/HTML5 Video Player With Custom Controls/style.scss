@@ -173,6 +173,12 @@ body {
 			text-align: center;
 			margin: auto;
 			user-select: none;
+			position: relative;
+			z-index: 2;
+		}
+
+		.value {
+			z-index: 1;
 		}
 	}
 
