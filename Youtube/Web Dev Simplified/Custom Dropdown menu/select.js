@@ -13,7 +13,7 @@ class Select {
 
 	get selectedOption() {
 		const { options } = this;
-		return options.find(option => option.selected);
+		return options.find((option) => option.selected);
 	}
 
 	get selectedOptionIndex() {
@@ -21,9 +21,16 @@ class Select {
 		return options.indexOf(selectedOption);
 	}
 
-	selectValue = (value) => {
-		const { options, selectedOption, labelElement, optionsCustomElement } = this;
-		const newSelectedOption = options.find(option => option.value === value);
+	selectValue = ({ value, label }) => {
+		const {
+			options,
+			selectedOption,
+			labelElement,
+			optionsCustomElement,
+		} = this;
+		const newSelectedOption = options.find(
+			(option) => option.value === value && option.label === label
+		);
 
 		const previousSelectedOption = selectedOption;
 		previousSelectedOption.selected = false;
@@ -32,18 +39,22 @@ class Select {
 		newSelectedOption.selected = true;
 		newSelectedOption.element.selected = true;
 
-
-		labelElement.innerText = newSelectedOption.label;
+		labelElement.querySelector('.text-holder').innerText =
+			newSelectedOption.label;
 
 		// selectedOption.element.classList.remove('selected');
-		optionsCustomElement.querySelector(`[data-value=${previousSelectedOption.value}]`).classList.remove('selected');
-		const newCustomElement = optionsCustomElement.querySelector(`[data-value=${newSelectedOption.value}]`);
+		optionsCustomElement
+			.querySelector(`[data-value=${previousSelectedOption.value}]`)
+			.classList.remove('selected');
+		const newCustomElement = optionsCustomElement.querySelector(
+			`[data-value=${newSelectedOption.value}]`
+		);
 		newCustomElement.classList.add('selected');
-		newCustomElement.scrollIntoView({ block:'nearest' });
+		newCustomElement.scrollIntoView({ block: 'nearest' });
 		// const previousSelectedLi = optionsCustomElement.querySelector("li.selected");
 		// previousSelectedLi.classList.remove('selected');
 		// optionElement.classList.add('selected');
-	}
+	};
 }
 
 let searchTerm = '';
@@ -57,16 +68,29 @@ function toggleElementClass(element, targetedClass) {
 	return element.classList.toggle(targetedClass);
 }
 
-function setupCustomElement(select/*{ cc, customElement, labelElement, optionsCustomElement, options, selectedOption, selectValue, selectedOptionIndex }*/) {
-	const { cc, customElement, labelElement, optionsCustomElement, options, selectedOption, selectValue, selectedOptionIndex } = select;
+function setupCustomElement(
+	select /*{ cc, customElement, labelElement, optionsCustomElement, options, selectedOption, selectValue, selectedOptionIndex }*/
+) {
+	const {
+		cc,
+		customElement,
+		labelElement,
+		optionsCustomElement,
+		options,
+		selectedOption,
+		selectValue,
+		selectedOptionIndex,
+	} = select;
 
 	customElement.classList.add('custom-select-container');
 	customElement.tabIndex = 0;
 
 	labelElement.classList.add('custom-select-value');
-	labelElement.innerText = selectedOption.label;
+	labelElement.innerHTML = `
+	<div class="text-holder">${selectedOption.label}</div>
+	<div class="pointer"><div class="pointerContainer"></div></div>
+	`;
 	customElement.append(labelElement);
-
 
 	optionsCustomElement.classList.add('custom-select-options');
 	options.forEach(({ selected, label, value }) => {
@@ -84,52 +108,78 @@ function setupCustomElement(select/*{ cc, customElement, labelElement, optionsCu
 	});
 	customElement.append(optionsCustomElement);
 
-	labelElement.addEventListener('click', () => toggleElementClass(optionsCustomElement, 'show'));
+	labelElement.addEventListener('click', () =>
+		toggleElementClass(optionsCustomElement, 'show')
+	);
 
-	customElement.addEventListener('blur', () => removeElementClass(optionsCustomElement, 'show'));
+	customElement.addEventListener('blur', () =>
+		removeElementClass(optionsCustomElement, 'show')
+	);
 
-	customElement.addEventListener('keydown', event => {
-		({
-			"Space": () => toggleElementClass(optionsCustomElement, 'show'),
-			"ArrowUp": () => {
-				const condition = cc.selectedOptionIndex - 1 < 0 ? options.length - 1 : cc.selectedOptionIndex - 1;
-				const previousOption = options[condition];
-				// console.log(selectedOptionIndex, cc.selectedOptionIndex);
-				if (previousOption) selectValue(previousOption.value);
-			},
-			"ArrowDown": () => {
-				const condition = cc.selectedOptionIndex + 1 >= options.length ? 0 : cc.selectedOptionIndex + 1;
-				const previousOption = options[condition];
-				// console.log(selectedOptionIndex, cc.selectedOptionIndex);
-				if (previousOption) selectValue(previousOption.value);
-			},
-			"Enter": () => toggleElementClass(optionsCustomElement, 'show'),
-			"Escape": () => removeElementClass(optionsCustomElement, 'show'),
-		}[event.code] || searchList)(event.key);
+	customElement.addEventListener('keydown', (event) => {
+		if (event.key !== 'Tab') {
+			event.preventDefault();
+		}
+		let condition, previousOption;
+		switch (event.key) {
+			case 'Space':
+				toggleElementClass(optionsCustomElement, 'show');
+				break;
+			case 'ArrowUp':
+				condition =
+					cc.selectedOptionIndex - 1 < 0
+						? options.length - 1
+						: cc.selectedOptionIndex - 1;
+				previousOption = options[condition];
+				if (previousOption) selectValue(previousOption);
+				break;
+			case 'ArrowDown':
+				// debugger;
+				condition =
+					cc.selectedOptionIndex + 1 >= options.length
+						? 0
+						: cc.selectedOptionIndex + 1;
+				previousOption = options[condition];
+				if (previousOption) selectValue(previousOption);
+				break;
+			case 'Tab':
+			case 'Enter':
+				toggleElementClass(optionsCustomElement, 'show');
+				break;
+			case 'Escape':
+				removeElementClass(optionsCustomElement, 'show');
+				break;
+			default:
+				searchList(event.key);
+				break;
+		}
 
 		function searchList(keyword) {
 			searchTerm += keyword;
-			console.log(searchTerm);
 			clearTimeout(searchTermDebounceTimeout);
 
 			searchTermDebounceTimeout = setTimeout(() => {
 				searchTerm = '';
 			}, 1000);
 
-			const searchFinder = options.find(option => option.label.toLowerCase().startsWith(searchTerm));
-			console.log(keyword, searchFinder.value, searchFinder);
-			if (searchFinder) selectValue(searchFinder.value);
+			const searchFinder = options.find((option) =>
+				option.label.toLowerCase().startsWith(searchTerm)
+			);
+			if (!searchFinder) {
+				searchTerm = '';
+			}
+			if (searchFinder) selectValue(searchFinder);
 		}
 	});
 }
 
 function getFormattedOptions(optionsElements) {
-	return [...optionsElements].map(optionElements => {
+	return [...optionsElements].map((optionElements) => {
 		return {
 			value: optionElements.value,
 			label: optionElements.label,
 			selected: optionElements.selected,
-			element: optionElements
+			element: optionElements,
 		};
 	});
 }
