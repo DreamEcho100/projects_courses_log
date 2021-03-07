@@ -1,5 +1,9 @@
 .custom-select-container,
-.custom-select-container * {
+.custom-select-container *,
+.custom-select-container::before,
+.custom-select-container *::before,
+.custom-select-container::after,
+.custom-select-container *::after {
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
