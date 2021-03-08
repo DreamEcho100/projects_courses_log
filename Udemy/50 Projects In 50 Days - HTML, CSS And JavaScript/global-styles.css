@@ -47,6 +47,14 @@ body {
   background: var(--main-bg-color);
   animation: opening 3s ease-in-out;
 }
+body * {
+  font-size: var(--normal-size-text-1);
+  color: var(--main-font-color);
+}
+body *:hover, body *:active, body *:focus, body *:visited {
+  font-size: var(--normal-size-text-1);
+  color: var(--main-font-color);
+}
 body *,
 body *::before,
 body *::after {
@@ -54,7 +62,6 @@ body *::after {
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  font-size: var(--normal-size-text-1);
 }
 body *:hover, body *:active, body *:focus, body *:visited,
 body *::before:hover,
@@ -69,24 +76,6 @@ body *::after:visited {
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  font-size: var(--normal-size-text-1);
-}
-body * {
-  color: var(--main-font-color);
-}
-body *:hover, body *:active, body *:focus, body *:visited {
-  color: var(--main-font-color);
-}
-body *::before,
-body *::after {
-  color: currentColor;
-}
-body *::before:hover, body *::before:active, body *::before:focus, body *::before:visited,
-body *::after:hover,
-body *::after:active,
-body *::after:focus,
-body *::after:visited {
-  color: currentColor;
 }
 body.light {
   --main-bg-color: var(--color-light-2);
@@ -241,37 +230,6 @@ a {
   fill: currentColor;
 }
 
-/*.social-link.dribbble-link.init-color {
-    color: ;
-  }
-  .social-link.google-plus-link.init-color {
-    color: ;
-  }
-  .social-link.instagram-link.init-color {
-    color: ;
-  }
-  .social-link.twitter-link.init-color {
-    color: ;
-  }
-  .social-link.facebook-link.init-color {
-    color: ;
-  }
-
-  .social-link.dribbble-link:hover {
-    color: ;
-  }
-  .social-link.google-plus-link:hover {
-    color: ;
-  }
-  .social-link.instagram-link:hover {
-    color: ;
-  }
-  .social-link.twitter-link:hover {
-    color: ;
-  }
-  .social-link.facebook-link:hover {
-    color: ;
-  }*/
 /*----------------------------*/
 /* Global Animation */
 /*----------------------------*/

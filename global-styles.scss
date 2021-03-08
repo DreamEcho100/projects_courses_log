@@ -46,6 +46,18 @@ body {
 	background: var(--main-bg-color);
 	animation: opening 3s ease-in-out;
 
+	* {
+		font-size: var(--normal-size-text-1);
+		color: var(--main-font-color);
+
+		&:hover,
+		&:active,
+		&:focus,
+		&:visited {
+			font-size: var(--normal-size-text-1);
+			color: var(--main-font-color);
+		}
+	}
 	*,
 	*::before,
 	*::after {
@@ -53,7 +65,6 @@ body {
 		padding: 0;
 		box-sizing: border-box;
 		text-decoration: none;
-		font-size: var(--normal-size-text-1);
 
 		&:hover,
 		&:active,
@@ -63,30 +74,6 @@ body {
 			padding: 0;
 			box-sizing: border-box;
 			text-decoration: none;
-			font-size: var(--normal-size-text-1);
-		}
-	}
-
-	* {
-		color: var(--main-font-color);
-
-		&:hover,
-		&:active,
-		&:focus,
-		&:visited {
-			color: var(--main-font-color);
-		}
-	}
-
-	*::before,
-	*::after {
-		color: currentColor;
-
-		&:hover,
-		&:active,
-		&:focus,
-		&:visited {
-			color: currentColor;
 		}
 	}
 

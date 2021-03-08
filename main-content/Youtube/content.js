@@ -307,13 +307,27 @@ YotubeContent.list.push({
 		},
 		{
 			types: ['normal-content-project'],
+			name: 'CSS Animations 3D Transform Cube Menu',
+			info: 'CSS Animations 3D Transform Cube Menu',
+			fileName: 'index',
+			fileExtension: 'html',
+			difficulty: '',
+			tech: {
+				languages: ['HTML', 'CSS'],
+				libraries: [],
+				frameworks: [],
+				APIs: [],
+			},
+		},
+		{
+			types: ['normal-content-project'],
 			name: 'CSS Animations On Social Media Buttons',
 			info: 'CSS Animations On Social Media Buttons',
 			fileName: 'index',
 			fileExtension: 'html',
 			difficulty: '',
 			tech: {
-				languages: ['HTML', 'CSS', 'JavaScript'],
+				languages: ['HTML', 'CSS'],
 				libraries: [],
 				frameworks: [],
 				APIs: [],
@@ -327,7 +341,7 @@ YotubeContent.list.push({
 			fileExtension: 'html',
 			difficulty: '',
 			tech: {
-				languages: ['HTML', 'CSS', 'JavaScript'],
+				languages: ['HTML', 'CSS'],
 				libraries: [],
 				frameworks: [],
 				APIs: [],
@@ -341,7 +355,7 @@ YotubeContent.list.push({
 			fileExtension: 'html',
 			difficulty: '',
 			tech: {
-				languages: ['HTML', 'CSS', 'JavaScript'],
+				languages: ['HTML', 'CSS'],
 				libraries: [],
 				frameworks: [],
 				APIs: [],
