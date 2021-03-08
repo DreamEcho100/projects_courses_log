@@ -1,0 +1,74 @@
+.container {
+  width: 40rem;
+  height: auto;
+  margin: 25% auto;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.container .grid {
+  display: grid;
+  grid-template-columns: 33% auto 33%;
+}
+.container > h1 {
+  font-size: 5rem;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+}
+.container .button {
+  display: block;
+  height: 6rem;
+  line-height: 6rem;
+  text-align: center;
+  background-color: black;
+  color: white;
+  font-size: 2.5rem;
+}
+.container .button > span {
+  position: absolute;
+  top: 10rem;
+  left: 0;
+  width: 40rem;
+  font-size: 1.5rerm;
+  text-align: center;
+  line-height: 1.8rem;
+  padding: 3rem;
+  transition: 3s;
+  color: black;
+  filter: blur(20rem);
+}
+.container .button p {
+  -webkit-text-stroke: 0.3rem transparent;
+  text-stroke: 0.3rem transparent;
+  transition: 0.5s;
+  color: white;
+}
+.container .button svg {
+  width: 40rem;
+  height: 20rem;
+  filter: blur(20rem);
+  position: absolute;
+  left: 0;
+  fill: black;
+  color: black;
+  top: -200%;
+  transition: 3s;
+}
+.container .button:hover svg {
+  filter: blur(0);
+  transition: 1s;
+}
+.container .button:hover span {
+  filter: blur(0);
+  transition: 1s;
+}
+.container .button:hover p {
+  color: black;
+  -webkit-text-stroke: 0.1rem white;
+  text-stroke: 0.1rem white;
+}
+
+/*# sourceMappingURL=style.css.map */
