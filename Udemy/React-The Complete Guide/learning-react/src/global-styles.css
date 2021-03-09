@@ -30,6 +30,37 @@
   --main-bg-color: white;
 }
 
+* {
+  font-size: var(--normal-size-text-1);
+  color: var(--main-font-color);
+}
+*:hover, *:active, *:focus, *:visited {
+  color: var(--main-font-color);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+*:hover, *:active, *:focus, *:visited,
+*::before:hover,
+*::before:active,
+*::before:focus,
+*::before:visited,
+*::after:hover,
+*::after:active,
+*::after:focus,
+*::after:visited {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
 html,
 body {
   width: 100%;
@@ -46,36 +77,6 @@ body {
   justify-content: flex-start;
   background: var(--main-bg-color);
   animation: opening 3s ease-in-out;
-}
-body * {
-  font-size: var(--normal-size-text-1);
-  color: var(--main-font-color);
-}
-body *:hover, body *:active, body *:focus, body *:visited {
-  font-size: var(--normal-size-text-1);
-  color: var(--main-font-color);
-}
-body *,
-body *::before,
-body *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-body *:hover, body *:active, body *:focus, body *:visited,
-body *::before:hover,
-body *::before:active,
-body *::before:focus,
-body *::before:visited,
-body *::after:hover,
-body *::after:active,
-body *::after:focus,
-body *::after:visited {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
 }
 body.light {
   --main-bg-color: var(--color-light-2);

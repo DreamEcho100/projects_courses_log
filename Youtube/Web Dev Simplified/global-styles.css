@@ -60,18 +60,14 @@
   box-sizing: border-box;
   text-decoration: none;
 }
-* html,
-* body,
-*::before html,
-*::before body,
-*::after html,
-*::after body {
+
+html,
+body {
   width: 100%;
   height: 100%;
 }
-* body,
-*::before body,
-*::after body {
+
+body {
   overflow-x: hidden;
   max-width: 200rem;
   margin: auto;
@@ -82,15 +78,11 @@
   background: var(--main-bg-color);
   animation: opening 3s ease-in-out;
 }
-*.light,
-*::before.light,
-*::after.light {
+body.light {
   --main-bg-color: var(--color-light-2);
   --main-font-color: var(--color-dark-2);
 }
-*.dark,
-*::before.dark,
-*::after.dark {
+body.dark {
   --main-bg-color: var(--color-dark-2);
   --main-font-color: var(--color-light-2);
 }

@@ -349,6 +349,22 @@ YotubeContent.list.push({
 		},
 		{
 			types: ['normal-content-project'],
+			name:
+				'CSS Buttons Animation On Hover - Vertical Waves Effect With Cubic Bezier',
+			info:
+				'CSS Buttons Animation On Hover - Vertical Waves Effect With Cubic Bezier',
+			fileName: 'index',
+			fileExtension: 'html',
+			difficulty: '',
+			tech: {
+				languages: ['HTML', 'CSS'],
+				libraries: [],
+				frameworks: [],
+				APIs: [],
+			},
+		},
+		{
+			types: ['normal-content-project'],
 			name: 'CSS Text Effects - Animated Stroke SVG Tutorial',
 			info: 'CSS Text Effects - Animated Stroke SVG Tutorial',
 			fileName: 'index',
