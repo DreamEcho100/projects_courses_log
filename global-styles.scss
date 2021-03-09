@@ -30,51 +30,51 @@
 	--main-bg-color: white;
 }
 
-html,
-body {
-	width: 100%;
-	height: 100%;
-}
-body {
-	overflow-x: hidden;
-	max-width: 200rem;
-	margin: auto;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-start;
-	background: var(--main-bg-color);
-	animation: opening 3s ease-in-out;
+* {
+	font-size: var(--normal-size-text-1);
+	color: var(--main-font-color);
 
-	* {
-		font-size: var(--normal-size-text-1);
+	&:hover,
+	&:active,
+	&:focus,
+	&:visited {
 		color: var(--main-font-color);
-
-		&:hover,
-		&:active,
-		&:focus,
-		&:visited {
-			font-size: var(--normal-size-text-1);
-			color: var(--main-font-color);
-		}
 	}
-	*,
-	*::before,
-	*::after {
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+
+	&:hover,
+	&:active,
+	&:focus,
+	&:visited {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
 		text-decoration: none;
+	}
 
-		&:hover,
-		&:active,
-		&:focus,
-		&:visited {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-			text-decoration: none;
-		}
+	html,
+	body {
+		width: 100%;
+		height: 100%;
+	}
+	body {
+		overflow-x: hidden;
+		max-width: 200rem;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		background: var(--main-bg-color);
+		animation: opening 3s ease-in-out;
 	}
 
 	&.light {
