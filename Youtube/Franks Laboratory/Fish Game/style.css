@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.container .canvas-1 {
+  width: 80rem;
+  height: 50rem;
+  border: 0.4rem solid black;
+}
+
+/*# sourceMappingURL=style.css.map */
