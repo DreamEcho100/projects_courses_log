@@ -21,7 +21,6 @@ canvas.addEventListener('mousedown', (event) => {
 	mouse.click = false;
 	mouse.x = event.x - canvasPosition.left;
 	mouse.y = event.y - canvasPosition.top;
-	// console.log(event, mouse.x, mouse.y, event.clientX, event.clientY);
 });
 
 canvas.addEventListener('mouseup', (event) => {
@@ -223,6 +222,7 @@ const handleBubbles = () => {
 	}
 };
 // Animation Loop
+let animateId;
 const animate = () => {
 	context.clearRect(0, 0, canvas.width, canvas.height);
 	player.update();
@@ -231,23 +231,45 @@ const animate = () => {
 	context.fillText(`Score: ${score}`, 10, 50);
 	handleBubbles();
 	gameFrame++;
-	requestAnimationFrame(animate);
+	animateId = requestAnimationFrame(animate);
 };
 
-animate();
-
-/*
 function gameResize() {
-  if (froggeyGameSection.clientWidth < gameWrapper.clientWidth + 10 || froggeyGameSection.clientHeight < gameWrapper.clientHeight + 10) {
-      gameWrapper.style.width = `${gameWrapper.clientWidth * 0.75}px`;
-      gameWrapper.style.height = `${gameWrapper.clientHeight * 0.75}px`;
-      if (froggeyGameSection.clientWidth < gameWrapper.clientWidth + 10 || froggeyGameSection.clientHeight < gameWrapper.clientHeight + 10) gameResize();
-  } else if (froggeyGameSection.clientWidth < gameWrapperOriginalWidth + 10 && froggeyGameSection.clientHeight > gameWrapper.clientHeight + 10) {
-      gameWrapper.style.width = `${gameWrapperOriginalWidth}px`;
-      gameWrapper.style.height = `${gameWrapperOriginalHeight}px`;
-  }
+	/*if (
+		canvas.clientWidth > document.body.clientWidth &&
+		canvas.clientWidth * 0.75 < document.body.clientWidth &&
+		canvas.clientWidth < 500
+	) {
+		canvas.style.width = `${canvas.clientWidth * 0.75}px`;
+		canvas.style.height = `${canvas.clientHeight * 0.75}px`;
+	} else if (
+		canvas.clientWidth < document.body.clientWidth &&
+		canvas.clientWidth * 1.25 > document.body.clientWidth
+	) {
+		canvas.style.width = `${canvas.clientWidth * 1.25}px`;
+		canvas.style.height = `${canvas.clientHeight * 1.25}px`;
+	}
+
+	if (
+		(canvas.clientWidth > document.body.clientWidth &&
+			canvas.clientWidth * 0.75 < document.body.clientWidth &&
+			canvas.clientWidth < 500) ||
+		(canvas.clientWidth < document.body.clientWidth &&
+			canvas.clientWidth * 1.25 > document.body.clientWidth)
+	) {
+		gameResize();
+	}
+	canvas.width = parseInt(canvas.style.width);
+	canvas.height = parseInt(canvas.style.height);*/
+	canvasPosition = canvas.getBoundingClientRect();
+	/*cancelAnimationFrame(animateId);
+	animate();*/
 }
 
-window.addEventListener("resize", gameResize);
-
-gameResize();*/
+window.addEventListener('resize', gameResize);
+setTimeout(() => {
+	gameResize();
+	cancelAnimationFrame(animateId);
+	animate();
+}, 100);
+// document.body.addEventListener('animationend', gameResize);
