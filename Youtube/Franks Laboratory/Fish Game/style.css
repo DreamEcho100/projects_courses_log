@@ -15,6 +15,7 @@ body {
   width: 80rem;
   height: 50rem;
   border: 0.4rem solid black;
+  background: linear-gradient(to bottom, lightblue, darkblue, black);
 }
 
 /*# sourceMappingURL=style.css.map */

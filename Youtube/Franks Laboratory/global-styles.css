@@ -82,7 +82,6 @@ body {
 	align-items: center;
 	justify-content: flex-start;
 	background: var(--main-bg-color);
-	animation: opening 3s ease-in-out;
 }
 body.light {
 	--main-bg-color: var(--color-light-2);

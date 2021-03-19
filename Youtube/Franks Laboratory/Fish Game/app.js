@@ -7,7 +7,9 @@ canvas.height = 500;
 
 let score = 0;
 let gameFrame = 0;
-context.font = '5rem Georgia';
+let gameSpeed = 1;
+let gameOver = false;
+context.font = '50px Georgia';
 
 // Mouse Interactivity
 let canvasPosition = canvas.getBoundingClientRect();
@@ -41,9 +43,9 @@ class Player {
 		this.speedPerDistanceX = 30;
 		this.speedPerDistanceY = 30;
 		this.angle = 0;
+		this.frame = 0;
 		this.frameX = 0;
 		this.frameY = 0;
-		this.frame = 0;
 		this.spriteWidth = 498; // 1992 / 4;
 		this.spriteHeight = 327; // 981 / 3;
 	}
@@ -58,6 +60,26 @@ class Player {
 		if (mouse.y !== this.y) {
 			this.y -= dy / this.speedPerDistanceY;
 		}
+		if (gameFrame % 5 === 0) {
+			this.frame++;
+			if (this.frame >= 12) {
+				this.frame = 0;
+			}
+			if (this.frame === 3 || this.frame === 7 || this.frame === 11) {
+				this.frameX = 0;
+			} else {
+				this.frameX++;
+			}
+			if (this.frame < 3) {
+				this.frameY = 0;
+			} else if (this.frame < 7) {
+				this.frameY = 1;
+			} else if (this.frame < 11) {
+				this.frameY = 2;
+			} else {
+				this.frameY = 0;
+			}
+		}
 	}
 	draw() {
 		if (mouse.click) {
@@ -67,14 +89,14 @@ class Player {
 			context.lineTo(mouse.x, mouse.y);
 			context.stroke();
 		}
-		context.fillStyle = 'red';
+		/*context.fillStyle = 'red';
 		context.beginPath();
 		context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
 		context.fill();
 		context.closePath();
 		context.fill();
 		context.closePath();
-		context.fillRect(this.x, this.y, this.radius, 10);
+		context.fillRect(this.x, this.y, this.radius, 10);*/
 
 		/*context.drawImage(
 			playerLeft,
@@ -88,12 +110,12 @@ class Player {
 			this.spriteHeight / 4
 		);*/
 
-		context.fillStyle = 'red';
+		/*context.fillStyle = 'red';
 		context.beginPath();
 		context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
 		context.fill();
 		context.closePath();
-		context.fillRect(this.x, this.y, this.radius, 10);
+		context.fillRect(this.x, this.y, this.radius, 10);*/
 
 		context.save();
 		context.translate(this.x, this.y);
@@ -105,10 +127,10 @@ class Player {
 				this.frameY * this.spriteHeight,
 				this.spriteWidth,
 				this.spriteHeight,
-				0 - 60,
-				0 - 45,
-				this.spriteWidth / 4,
-				this.spriteHeight / 4
+				0 - 65,
+				0 - 55,
+				this.spriteWidth / 3.8,
+				this.spriteHeight / 3.1
 			);
 		} else {
 			context.drawImage(
@@ -117,10 +139,10 @@ class Player {
 				this.frameY * this.spriteHeight,
 				this.spriteWidth,
 				this.spriteHeight,
-				0 - 60,
-				0 - 45,
-				this.spriteWidth / 4,
-				this.spriteHeight / 4
+				0 - 65,
+				0 - 55,
+				this.spriteWidth / 3.8,
+				this.spriteHeight / 3.1
 			);
 		}
 		context.restore();
@@ -157,6 +179,10 @@ const bubblesObj = {
 	counter: 0,
 	bubbles: {},
 };
+
+const bubbleImage1 = new Image();
+bubbleImage1.src = './sptites/bubble/bubble_pop_one/bubble_pop_frame_01.png';
+
 class Bubble {
 	constructor() {
 		this.radius = 50;
@@ -178,12 +204,19 @@ class Bubble {
 		this.distance = Math.sqrt(dx * dx + dy * dy);
 	}
 	draw() {
-		context.fillStyle = 'blue';
+		/*context.fillStyle = 'blue';
 		context.beginPath();
 		context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
 		context.fill();
 		context.closePath();
-		context.stroke();
+		context.stroke();*/
+		context.drawImage(
+			bubbleImage1,
+			this.x - 65,
+			this.y - 65,
+			this.radius * 2.6,
+			this.radius * 2.6
+		);
 	}
 }
 
@@ -221,20 +254,133 @@ const handleBubbles = () => {
 		bubblesObj.bubbles[bubble].draw();
 	}
 };
+
+// Repeating backgrounds
+const background = new Image();
+background.src = './images/backgrounds/background1.png';
+
+const BG = {
+	x1: 0,
+	x2: canvas.width,
+	y: 0,
+	width: canvas.width,
+	height: canvas.height,
+};
+
+const handleBackground = () => {
+	BG.x1 -= gameSpeed;
+	if (BG.x1 < -BG.width) {
+		BG.x1 = BG.width;
+	}
+	BG.x2 -= gameSpeed;
+	if (BG.x2 < -BG.width) {
+		BG.x2 = BG.width;
+	}
+	context.drawImage(background, BG.x1, BG.y, BG.width, BG.height);
+	context.drawImage(background, BG.x2, BG.y, BG.width, BG.height);
+};
+
+// Enemies
+const enemy1Image = new Image();
+enemy1Image.src = './sptites/enemies/__yellow_cartoon_fish_01_swim.png';
+
+class Enemy {
+	constructor() {
+		this.x = canvas.width + 200;
+		this.y = Math.random() * (canvas.height - 150) + 90;
+		this.radius = 60;
+		this.speed = Math.random() * 2 + 2;
+		this.frame = 0;
+		this.frameX = 0;
+		this.frameY = 0;
+		this.spriteWidth = 418;
+		this.spriteHeight = 397;
+	}
+	update() {
+		this.x -= this.speed;
+		if (this.x < 0 - this.radius * 2) {
+			this.x = canvas.width + 200;
+			this.y = Math.random() * (canvas.height - 150) + 90;
+			this.speed = Math.random() * 2 + 2;
+		}
+		if (gameFrame % 5 === 0) {
+			this.frame++;
+			if (this.frame >= 12) {
+				this.frame = 0;
+			}
+			if (this.frame === 3 || this.frame === 7 || this.frame === 11) {
+				this.frameX = 0;
+			} else {
+				this.frameX++;
+			}
+			if (this.frame < 3) {
+				this.frameY = 0;
+			} else if (this.frame < 7) {
+				this.frameY = 1;
+			} else if (this.frame < 11) {
+				this.frameY = 2;
+			} else {
+				this.frameY = 0;
+			}
+		}
+		// Collision with player
+		const dx = this.x - player.x;
+		const dy = this.y - player.y;
+		const distance = Math.sqrt(dx * dx + dy * dy);
+		if (distance < this.radius + player.radius) {
+			handleGameOver();
+		}
+	}
+	draw() {
+		/*context.fillStyle = 'red';
+		context.beginPath();
+		context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+		context.fill();*/
+
+		context.drawImage(
+			enemy1Image,
+			this.frameX * this.spriteWidth,
+			this.frameY * this.spriteHeight,
+			this.spriteWidth,
+			this.spriteHeight,
+			this.x - 60,
+			this.y - 70,
+			this.spriteWidth / 3,
+			this.spriteHeight / 3
+		);
+	}
+}
+
+const enemy = new Enemy();
+const handleEnemies = () => {
+	enemy.draw();
+	enemy.update();
+};
+
 // Animation Loop
 let animateId;
 const animate = () => {
 	context.clearRect(0, 0, canvas.width, canvas.height);
+	handleBubbles();
 	player.update();
 	player.draw();
+	handleEnemies();
+	handleBackground();
 	context.fillStyle = 'black';
 	context.fillText(`Score: ${score}`, 10, 50);
-	handleBubbles();
 	gameFrame++;
-	animateId = requestAnimationFrame(animate);
+	// animateId = requestAnimationFrame(animate);
+	if (!gameOver) animateId = requestAnimationFrame(animate);
 };
 
-function gameResize() {
+function handleGameOver() {
+	context.fillStyle = 'white';
+	context.fillText(`Game Over, your score: ${score}`, 110, 250);
+	gameOver = true;
+	// cancelAnimationFrame(animateId);
+}
+
+const gameResize = () => {
 	/*if (
 		canvas.clientWidth > document.body.clientWidth &&
 		canvas.clientWidth * 0.75 < document.body.clientWidth &&
@@ -264,12 +410,12 @@ function gameResize() {
 	canvasPosition = canvas.getBoundingClientRect();
 	/*cancelAnimationFrame(animateId);
 	animate();*/
-}
+};
 
 window.addEventListener('resize', gameResize);
 setTimeout(() => {
 	gameResize();
-	cancelAnimationFrame(animateId);
+	// cancelAnimationFrame(animateId);
 	animate();
 }, 100);
 // document.body.addEventListener('animationend', gameResize);
