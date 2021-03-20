@@ -282,7 +282,7 @@ const handleBackground = () => {
 
 // Enemies
 const enemy1Image = new Image();
-enemy1Image.src = './sptites/enemies/__yellow_cartoon_fish_01_swim.png';
+enemy1Image.src = './sptites/enemies/yellow_cartoon_fish_01_swim.png';
 
 class Enemy {
 	constructor() {
