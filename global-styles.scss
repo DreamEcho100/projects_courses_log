@@ -30,25 +30,13 @@
 	--main-bg-color: white;
 }
 
-* {
-	font-size: var(--normal-size-text-1);
-	color: var(--main-font-color);
-
-	&:hover,
-	&:active,
-	&:focus,
-	&:visited {
-		color: var(--main-font-color);
-	}
-}
-
 *,
 *::before,
 *::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	text-decoration: none;
+	font-size: var(--normal-size-text-1);
 
 	&:hover,
 	&:active,
@@ -57,7 +45,6 @@
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
-		text-decoration: none;
 	}
 }
 
@@ -67,6 +54,8 @@ body {
 	height: 100%;
 }
 body {
+	color: var(--main-font-color);
+	background: var(--main-bg-color);
 	overflow-x: hidden;
 	max-width: 200rem;
 	margin: auto;
@@ -74,7 +63,6 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	background: var(--main-bg-color);
 	animation: opening 3s ease-in-out;
 
 	&.light {
@@ -106,6 +94,26 @@ h6 {
 	font-size: var(--header6);
 }
 ul {
+	list-style: none;
+}
+
+a {
+	color: var(--main-font-color);
+	text-decoration: none;
+
+	&:hover,
+	&:active,
+	&:focus,
+	&:visited {
+		color: var(--main-font-color);
+	}
+}
+
+ul,
+ol,
+dl,
+li {
+	text-decoration: none;
 	list-style: none;
 }
 

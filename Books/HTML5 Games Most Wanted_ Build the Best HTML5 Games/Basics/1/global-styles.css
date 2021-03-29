@@ -1,15 +1,6 @@
 /*----------------------------*/
 /* GLOBAL STYLES */
 /*----------------------------*/
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 :root {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -26,17 +17,39 @@
   --normal-size-text-1: calc(1.6rem + var(--incerment-1));
   --normal-size-text-2: calc(1.9rem + var(--incerment-1));
   --normal-size-text-3: calc(2.2rem + var(--incerment-1));
-  --big-size-text-1: calc(6.4rem + var(--incerment-1));
-  --big-size-text-2: calc(7rem + var(--incerment-1));
-  --big-size-text-3: calc(7.6rem + var(--incerment-1));
+  --big-size-text-1: calc(9rem + var(--incerment-1));
+  --big-size-text-2: calc(11rem + var(--incerment-1));
+  --big-size-text-3: calc(13rem + var(--incerment-1));
   --color-light-1: #fff;
-  --color-light-2: #d3d7cf;
-  --color-light-3: #9d9d9d;
-  --color-dark-1: #1d1d1d;
-  --color-dark-2: #2e3436;
-  --color-dark-3: #343a40;
-  --transition-delay-1: 0.3s;
-  --transition-delay-2: 3s;
+  --color-light-2: #eee;
+  --color-light-3: #ddd;
+  --color-dark-1: #000;
+  --color-dark-2: #333;
+  --color-dark-3: #555;
+  --main-font-color: black;
+  --main-bg-color: white;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: var(--normal-size-text-1);
+}
+*:hover, *:active, *:focus, *:visited,
+*::before:hover,
+*::before:active,
+*::before:focus,
+*::before:visited,
+*::after:hover,
+*::after:active,
+*::after:focus,
+*::after:visited {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html,
@@ -46,63 +59,24 @@ body {
 }
 
 body {
+  color: var(--main-font-color);
+  background: var(--main-bg-color);
   overflow-x: hidden;
   max-width: 200rem;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-animation: opening 3s ease-in-out;
-          animation: opening 3s ease-in-out;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  animation: opening 3s ease-in-out;
 }
-
 body.light {
-  background: var(--color-light-2);
-  color: var(--color-dark-2);
+  --main-bg-color: var(--color-light-2);
+  --main-font-color: var(--color-dark-2);
 }
-
 body.dark {
-  background: var(--color-dark-2);
-  color: var(--color-light-2);
-}
-
-/*li,
-  button,
-  label,
-  input,
-  textarea,
-  a,
-  p,
-  ul,
-  header,
-  main,
-  section,
-  footer,
-  th,
-  tbody,
-  tfoot,
-  tr,
-  td,*/
-/*
-  *:not(html):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6)
-	*/
-/*
-	*:not(html, h1, h2, h3, h4, h5, h6)
-	*/
-*:not(html),
-*:not(html)::before,
-*:not(html)::after {
-  font-size: var(--normal-size-text-1);
+  --main-bg-color: var(--color-dark-2);
+  --main-font-color: var(--color-light-2);
 }
 
 h1 {
@@ -133,12 +107,20 @@ ul {
   list-style: none;
 }
 
-a,
-a:hover,
-a:active,
-a:focus,
-a:visited {
+a {
+  color: var(--main-font-color);
   text-decoration: none;
+}
+a:hover, a:active, a:focus, a:visited {
+  color: var(--main-font-color);
+}
+
+ul,
+ol,
+dl,
+li {
+  text-decoration: none;
+  list-style: none;
 }
 
 button,
@@ -180,44 +162,31 @@ a {
 }
 
 .display-flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
 .align-i-center {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .justify-c-center {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .justify-c-space-around {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .justify-c-space-between {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .flex-d-c {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .flex-wrap {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .bg-no-repeat {
@@ -233,13 +202,11 @@ a {
 }
 
 .object-fit-cover {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .object-positioncenter {
-  -o-object-position: center;
-     object-position: center;
+  object-position: center;
 }
 
 .text-align-center {
@@ -251,15 +218,9 @@ a {
 }
 
 .flex-x-y-center {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .svg-container {
@@ -278,48 +239,9 @@ a {
   fill: currentColor;
 }
 
-/*.social-link.dribbble-link.init-color {
-    color: ;
-  }
-  .social-link.google-plus-link.init-color {
-    color: ;
-  }
-  .social-link.instagram-link.init-color {
-    color: ;
-  }
-  .social-link.twitter-link.init-color {
-    color: ;
-  }
-  .social-link.facebook-link.init-color {
-    color: ;
-  }
-  
-  .social-link.dribbble-link:hover {
-    color: ;
-  }
-  .social-link.google-plus-link:hover {
-    color: ;
-  }
-  .social-link.instagram-link:hover {
-    color: ;
-  }
-  .social-link.twitter-link:hover {
-    color: ;
-  }
-  .social-link.facebook-link:hover {
-    color: ;
-  }*/
 /*----------------------------*/
 /* Global Animation */
 /*----------------------------*/
-@-webkit-keyframes opening {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes opening {
   from {
     opacity: 0;
@@ -328,11 +250,11 @@ a {
     opacity: 1;
   }
 }
-
 /*----------------------------*/
 /* Your Global Syles */
 /*----------------------------*/
 /*----------------------------*/
 /* Your Global Animation */
 /*----------------------------*/
+
 /*# sourceMappingURL=global-styles.css.map */
