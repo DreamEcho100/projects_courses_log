@@ -10,27 +10,14 @@
 			integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="global-styles.css" />
-		<link rel="stylesheet" href="style.css" />
-		<script
-			type="module"
-			src="../../processing-js-master/processing.js"
-		></script>
-		<script type="module" src="app.js"></script>
-		<title>My Project</title>
+		<link rel="stylesheet" href="../../../../../global-styles.css" />
+		<link rel="stylesheet" href="./style.css" />
+		<script defer src="app.js"></script>
+		<title>Coding up a bouncing ball in 2D</title>
 	</head>
 	<body>
-		<canvas id="processingCanvas"></canvas>
-
-		<script type="application/processing">
-			void setup() {
-			size(400,200);
-			}
-			void draw() {
-			background(0);
-			fill(255,0,0);
-			ellipse(mouseX,mouseY,50,50);
-			}
-		</script>
+		<section>
+			<canvas id="canvas"></canvas>
+		</section>
 	</body>
 </html>
