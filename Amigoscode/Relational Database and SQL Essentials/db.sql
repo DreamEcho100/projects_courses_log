@@ -1,0 +1,5 @@
+-- Database is an orginaized collection of structured information
+-- Collumns === Attributes
+-- Rows === Records
+-- SQL - Structured Query Language
+-- DBMS - DataBase Management System
