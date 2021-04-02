@@ -3,13 +3,16 @@ const context = canvas.getContext('2d');
 
 let g = 0.1;
 
+const balls = []; // new Array();
+const numberOfBalls = 50;
+
 function Ball(radius, color) {
 	this.radius = radius;
 	this.color = color;
-	this.x = 0;
-	this.y = 0;
-	this.vx = 0;
-	this.vy = 0;
+	this.x = Math.random() * canvas.width;
+	this.y = Math.random() * (canvas.height / 5);
+	this.vx = Math.random() * 5; // 2;
+	this.vy = (Math.random() - 0.5) * 4; // 0;
 }
 Ball.prototype.draw = function (context) {
 	context.fillStyle = this.color;
@@ -28,17 +31,38 @@ Ball.prototype.onEachStep = function () {
 	}
 	if (this.x > canvas.width + this.radius) {
 		this.x = -this.radius;
+		this.vx = Math.random() * 5;
+		this.vy = (Math.random() - 0.5) * 4;
 	}
 	this.draw(context);
 };
 const ball = new Ball(20, '#00f');
 const animate = () => {
-	context.clearRect(0, 0, canvas.width, canvas.height);
-	ball.onEachStep();
-	requestAnimationFrame(animate);
+	let i;
+	const playAnimation = () => {
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		for (i = 0; i < numberOfBalls; i++) {
+			balls[i].onEachStep();
+		}
+		requestAnimationFrame(playAnimation);
+	};
+	playAnimation();
 };
+
 const init = () => {
-	ball.vx = 2;
+	let i, ball;
+	for (i = 0; i < numberOfBalls; i++) {
+		ball = new Ball(
+			Math.floor(Math.random() * 20) + 10,
+			`hsl(${Math.floor(Math.random() * 361)}, 100%, 50%)`
+		);
+		ball.x = Math.random() * canvas.width;
+		ball.y = Math.random() * (canvas.height / 5);
+		ball.vx = Math.random() * 5; // 2;
+		ball.vy = (Math.random() - 0.5) * 4; // 0;
+		ball.draw(context);
+		balls.push(ball);
+	}
 	animate();
 };
 
