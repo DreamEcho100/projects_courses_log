@@ -60,13 +60,29 @@ body {
   justify-content: flex-start;
   animation: opening 3s ease-in-out;
 }
-body.light {
+body.theme-light-1 {
+  --main-bg-color: var(--color-light-1);
+  --main-font-color: var(--color-dark-1);
+}
+body.theme-light-2 {
   --main-bg-color: var(--color-light-2);
   --main-font-color: var(--color-dark-2);
 }
-body.dark {
+body.theme-light-3 {
+  --main-bg-color: var(--color-light-3);
+  --main-font-color: var(--color-dark-3);
+}
+body.theme-dark-1 {
+  --main-bg-color: var(--color-dark-1);
+  --main-font-color: var(--color-light-1);
+}
+body.theme-dark-2 {
   --main-bg-color: var(--color-dark-2);
   --main-font-color: var(--color-light-2);
+}
+body.theme-dark-3 {
+  --main-bg-color: var(--color-dark-3);
+  --main-font-color: var(--color-light-3);
 }
 
 h1 {
