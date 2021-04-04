@@ -36,16 +36,10 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-size: var(--normal-size-text-1);
+}
 
-	&:hover,
-	&:active,
-	&:focus,
-	&:visited {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
+* {
+	font-size: var(--normal-size-text-1);
 }
 
 html,
