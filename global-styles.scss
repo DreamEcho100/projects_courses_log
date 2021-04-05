@@ -26,6 +26,7 @@
 	--color-dark-1: #000;
 	--color-dark-2: #333;
 	--color-dark-3: #555;
+
 	--main-font-color: black;
 	--main-bg-color: white;
 }
@@ -40,6 +41,76 @@
 
 * {
 	font-size: var(--normal-size-text-1);
+	color: var(--main-font-color);
+	background: var(--main-bg-color);
+}
+
+.theme-light-1 {
+	--main-bg-color: var(--color-light-1);
+	--main-font-color: var(--color-dark-1);
+	color: var(--main-font-color);
+	background: var(--main-bg-color);
+
+	.reverse-theme {
+		--main-bg-color: var(--color-dark-1);
+		--main-font-color: var(--color-light-1);
+	}
+}
+.theme-light-2 {
+	--main-bg-color: var(--color-light-2);
+	--main-font-color: var(--color-dark-2);
+	color: var(--main-font-color);
+	background: var(--main-bg-color);
+
+	.reverse-theme {
+		--main-bg-color: var(--color-dark-2);
+		--main-font-color: var(--color-light-2);
+	}
+}
+.theme-light-3 {
+	--main-bg-color: var(--color-light-3);
+	--main-font-color: var(--color-dark-3);
+	color: var(--main-font-color);
+	background: var(--main-bg-color);
+
+	.reverse-theme {
+		--main-bg-color: var(--color-dark-3);
+		--main-font-color: var(--color-light-3);
+	}
+}
+
+.theme-dark-1 {
+	--main-bg-color: var(--color-dark-1);
+	--main-font-color: var(--color-light-1);
+	color: var(--main-font-color);
+	background: var(--main-bg-color);
+
+	.reverse-theme {
+		--main-bg-color: var(--color-light-1);
+		--main-font-color: var(--color-dark-1);
+	}
+}
+.theme-dark-2 {
+	--main-bg-color: var(--color-dark-2);
+	--main-font-color: var(--color-light-2);
+	color: var(--main-font-color);
+	background: var(--main-bg-color);
+
+	.reverse-theme {
+		--main-bg-color: var(--color-light-2);
+		--main-font-color: var(--color-dark-2);
+	}
+}
+.theme-dark-3 {
+	--main-bg-color: var(--color-dark-3);
+	--main-font-color: var(--color-light-3);
+	color: var(--main-font-color);
+	background: var(--main-bg-color);
+
+	.reverse-theme {
+		--main-bg-color: var(--color-light-3);
+		--main-font-color: var(--color-dark-3);
+	}
 }
 
 html,
@@ -58,32 +129,6 @@ body {
 	align-items: center;
 	justify-content: flex-start;
 	animation: opening 3s ease-in-out;
-
-	&.theme-light-1 {
-		--main-bg-color: var(--color-light-1);
-		--main-font-color: var(--color-dark-1);
-	}
-	&.theme-light-2 {
-		--main-bg-color: var(--color-light-2);
-		--main-font-color: var(--color-dark-2);
-	}
-	&.theme-light-3 {
-		--main-bg-color: var(--color-light-3);
-		--main-font-color: var(--color-dark-3);
-	}
-
-	&.theme-dark-1 {
-		--main-bg-color: var(--color-dark-1);
-		--main-font-color: var(--color-light-1);
-	}
-	&.theme-dark-2 {
-		--main-bg-color: var(--color-dark-2);
-		--main-font-color: var(--color-light-2);
-	}
-	&.theme-dark-3 {
-		--main-bg-color: var(--color-dark-3);
-		--main-font-color: var(--color-light-3);
-	}
 }
 
 h1 {
