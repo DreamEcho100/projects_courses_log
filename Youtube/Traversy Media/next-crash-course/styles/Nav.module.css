@@ -1,0 +1,27 @@
+.nav {
+	height: 5rem;
+	padding: 0.15em;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	box-shadow: inset 1rem 1rem 3rem 0rem var(--main-font-color);
+	width: 98%;
+	margin: auto;
+}
+
+.nav ul {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
+}
+
+.nav ul li a {
+	margin: 0.1em 0.5em;
+	font-weight: 700;
+}
+
+.nav ul li a:hover {
+	text-shadow: -0.5rem -0.5rem var(--main-bg-color);
+	transition: text-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

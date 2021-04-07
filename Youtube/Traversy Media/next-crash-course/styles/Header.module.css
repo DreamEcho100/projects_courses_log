@@ -1,0 +1,28 @@
+.title a,
+.title span {
+	color: var(--main-special-color);
+	text-decoration: none;
+}
+
+.title a:hover,
+.title a:focus,
+.title a:active {
+	text-decoration: underline;
+}
+
+.title {
+	margin: 0;
+	line-height: 1.15;
+	font-size: 8rem;
+}
+
+.title,
+.description {
+	text-align: center;
+}
+
+.description {
+	line-height: 1.5;
+	font-size: 2rem;
+	font-weight: 500;
+}

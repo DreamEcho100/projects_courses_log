@@ -1,0 +1,59 @@
+.grid {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	/* max-width: 90%; */
+	margin: auto;
+	margin-top: 3rem;
+}
+
+.card {
+	margin: 0.5em auto;
+	min-width: min(41rem, 99%);
+	max-width: 65rem;
+	flex-basis: 45%;
+	padding: 0.5em;
+	text-align: left;
+	color: inherit;
+	text-decoration: none;
+	border: 0.1rem solid #eaeaea;
+	border-radius: 1rem;
+	transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+	color: var(--main-special-color);
+	border-color: var(--main-special-color);
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+	color: var(--main-special-color);
+	border-color: var(--main-special-color);
+}
+
+.card h3 {
+	margin: 0 0 1rem 0;
+	/* font-size: 1.5rem; */
+}
+
+.card p {
+	margin: 0;
+	/* font-size: 1.25rem; */
+	line-height: 1.5;
+}
+
+.logo {
+	height: 1em;
+}
+
+@media (max-width: 600px) {
+	.grid {
+		width: 100%;
+		flex-direction: column;
+	}
+}

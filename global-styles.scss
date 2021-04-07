@@ -5,8 +5,8 @@
 	font-size: 62.5%;
 	scroll-behavior: smooth;
 	--incerment-1: 0.5vw;
-	--header1: calc(9rem + var(--incerment-1));
-	--header2: calc(4rem + var(--incerment-1));
+	--header1: calc(4rem + var(--incerment-1));
+	--header2: calc(3.2rem + var(--incerment-1));
 	--header3: calc(2.6rem + var(--incerment-1));
 	--header4: calc(2.4rem + var(--incerment-1));
 	--header5: calc(2rem + var(--incerment-1));
@@ -49,6 +49,13 @@
 	color: var(--main-font-color);
 	background: var(--main-bg-color);
 
+	.current-theme {
+		--main-bg-color: var(--color-light-1);
+		--main-font-color: var(--color-dark-1);
+		color: var(--main-font-color);
+		background: var(--main-bg-color);
+	}
+
 	.reverse-theme {
 		--main-bg-color: var(--color-dark-1);
 		--main-font-color: var(--color-light-1);
@@ -63,6 +70,13 @@
 	color: var(--main-font-color);
 	background: var(--main-bg-color);
 
+	.current-theme {
+		--main-bg-color: var(--color-light-2);
+		--main-font-color: var(--color-dark-2);
+		color: var(--main-font-color);
+		background: var(--main-bg-color);
+	}
+
 	.reverse-theme {
 		--main-bg-color: var(--color-dark-2);
 		--main-font-color: var(--color-light-2);
@@ -76,6 +90,13 @@
 	--main-font-color: var(--color-dark-3);
 	color: var(--main-font-color);
 	background: var(--main-bg-color);
+
+	.current-theme {
+		--main-bg-color: var(--color-light-3);
+		--main-font-color: var(--color-dark-3);
+		color: var(--main-font-color);
+		background: var(--main-bg-color);
+	}
 
 	.reverse-theme {
 		--main-bg-color: var(--color-dark-3);
@@ -92,6 +113,13 @@
 	color: var(--main-font-color);
 	background: var(--main-bg-color);
 
+	.current-theme {
+		--main-bg-color: var(--color-dark-1);
+		--main-font-color: var(--color-light-1);
+		color: var(--main-font-color);
+		background: var(--main-bg-color);
+	}
+
 	.reverse-theme {
 		--main-bg-color: var(--color-light-1);
 		--main-font-color: var(--color-dark-1);
@@ -106,6 +134,13 @@
 	color: var(--main-font-color);
 	background: var(--main-bg-color);
 
+	.current-theme {
+		--main-bg-color: var(--color-dark-2);
+		--main-font-color: var(--color-light-2);
+		color: var(--main-font-color);
+		background: var(--main-bg-color);
+	}
+
 	.reverse-theme {
 		--main-bg-color: var(--color-light-2);
 		--main-font-color: var(--color-dark-2);
@@ -119,6 +154,13 @@
 	--main-font-color: var(--color-light-3);
 	color: var(--main-font-color);
 	background: var(--main-bg-color);
+
+	.current-theme {
+		--main-bg-color: var(--color-dark-3);
+		--main-font-color: var(--color-light-3);
+		color: var(--main-font-color);
+		background: var(--main-bg-color);
+	}
 
 	.reverse-theme {
 		--main-bg-color: var(--color-light-3);
@@ -165,19 +207,36 @@ h5 {
 h6 {
 	font-size: var(--header6);
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	* {
+		font-size: inherit;
+	}
+}
+
+span {
+	font-size: inherit;
+}
+
 ul {
 	list-style: none;
 }
 
 a {
-	color: var(--main-font-color);
+	// color: var(--main-font-color);
+	color: inherit;
 	text-decoration: none;
 
 	&:hover,
 	&:active,
 	&:focus,
 	&:visited {
-		color: var(--main-font-color);
+		color: inherit;
 	}
 }
 
