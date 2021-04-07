@@ -20,14 +20,37 @@
   --big-size-text-1: calc(9rem + var(--incerment-1));
   --big-size-text-2: calc(11rem + var(--incerment-1));
   --big-size-text-3: calc(13rem + var(--incerment-1));
-  --color-light-1: #fff;
-  --color-light-2: #eee;
-  --color-light-3: #ddd;
-  --color-dark-1: #000;
-  --color-dark-2: #333;
-  --color-dark-3: #555;
+}
+
+:root {
   --main-font-color: black;
   --main-bg-color: white;
+  --main-special-color-1: black;
+  --main-special-color-2: white;
+  --theme-light-1-bg-color-1: #fff;
+  --theme-light-1-font-color-1: #000;
+  --theme-light-1-special-color-1: #c6541f;
+  --theme-light-1-special-color-2: #090b97;
+  --theme-light-2-bg-color-1: #eee;
+  --theme-light-2-font-color-1: #333;
+  --theme-light-2-special-color-1: #df2fc7;
+  --theme-light-2-special-color-2: #4f0011;
+  --theme-light-3-bg-color-1: #ddd;
+  --theme-light-3-font-color-1: #555;
+  --theme-light-3-special-color-1: #970900;
+  --theme-light-3-special-color-2: #c2ff15;
+  --theme-dark-1-bg-color-1: #000;
+  --theme-dark-1-font-color-1: #fff;
+  --theme-dark-1-special-color-1: #970928;
+  --theme-dark-1-special-color-2: #521c03;
+  --theme-dark-2-bg-color-1: #333;
+  --theme-dark-2-font-color-1: #eee;
+  --theme-dark-2-special-color-1: #9e3809;
+  --theme-dark-2-special-color-2: #4f0011;
+  --theme-dark-3-bg-color-1: #555;
+  --theme-dark-3-font-color-1: #ddd;
+  --theme-dark-3-special-color-1: #d94500;
+  --theme-dark-3-special-color-2: #5e0000;
 }
 
 *,
@@ -43,115 +66,127 @@
 }
 
 .theme-light-1 {
-  --main-bg-color: var(--color-light-1);
-  --main-font-color: var(--color-dark-1);
+  --main-special-color-1: var(--theme-light-1-special-color-1);
+  --main-special-color-2: var(--theme-light-1-special-color-2);
+  --main-bg-color: var(--theme-light-1-bg-color-1);
+  --main-font-color: var(--theme-light-1-font-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 .theme-light-1 .current-theme {
-  --main-bg-color: var(--color-light-1);
-  --main-font-color: var(--color-dark-1);
+  --main-bg-color: var(--theme-light-1-bg-color-1);
+  --main-font-color: var(--theme-light-1-font-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 .theme-light-1 .reverse-theme {
-  --main-bg-color: var(--color-dark-1);
-  --main-font-color: var(--color-light-1);
+  --main-bg-color: var(--theme-light-1-font-color-1);
+  --main-font-color: var(--theme-light-1-bg-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 
 .theme-light-2 {
-  --main-bg-color: var(--color-light-2);
-  --main-font-color: var(--color-dark-2);
+  --main-special-color-1: var(--theme-light-2-special-color-1);
+  --main-special-color-2: var(--theme-light-2-special-color-2);
+  --main-bg-color: var(--theme-light-2-bg-color-1);
+  --main-font-color: var(--theme-light-2-font-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 .theme-light-2 .current-theme {
-  --main-bg-color: var(--color-light-2);
-  --main-font-color: var(--color-dark-2);
+  --main-bg-color: var(--theme-light-2-bg-color-1);
+  --main-font-color: var(--theme-light-2-font-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 .theme-light-2 .reverse-theme {
-  --main-bg-color: var(--color-dark-2);
-  --main-font-color: var(--color-light-2);
+  --main-bg-color: var(--theme-light-2-font-color-1);
+  --main-font-color: var(--theme-light-2-bg-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 
 .theme-light-3 {
-  --main-bg-color: var(--color-light-3);
-  --main-font-color: var(--color-dark-3);
+  --main-special-color-1: var(--theme-light-3-special-color-1);
+  --main-special-color-2: var(--theme-light-3-special-color-2);
+  --main-bg-color: var(--theme-light-3-bg-color-1);
+  --main-font-color: var(--theme-light-3-font-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 .theme-light-3 .current-theme {
-  --main-bg-color: var(--color-light-3);
-  --main-font-color: var(--color-dark-3);
+  --main-bg-color: var(--theme-light-3-bg-color-1);
+  --main-font-color: var(--theme-light-3-font-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 .theme-light-3 .reverse-theme {
-  --main-bg-color: var(--color-dark-3);
-  --main-font-color: var(--color-light-3);
+  --main-bg-color: var(--theme-light-3-font-color-1);
+  --main-font-color: var(--theme-light-3-bg-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 
 .theme-dark-1 {
-  --main-bg-color: var(--color-dark-1);
-  --main-font-color: var(--color-light-1);
+  --main-special-color-1: var(--theme-dark-1-special-color-1);
+  --main-special-color-2: var(--theme-dark-1-special-color-2);
+  --main-bg-color: var(--theme-dark-1-bg-color-1);
+  --main-font-color: var(--theme-dark-1-font-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 .theme-dark-1 .current-theme {
-  --main-bg-color: var(--color-dark-1);
-  --main-font-color: var(--color-light-1);
+  --main-bg-color: var(--theme-dark-1-bg-color-1);
+  --main-font-color: var(--theme-dark-1-font-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 .theme-dark-1 .reverse-theme {
-  --main-bg-color: var(--color-light-1);
-  --main-font-color: var(--color-dark-1);
+  --main-bg-color: var(--theme-dark-1-font-color-1);
+  --main-font-color: var(--theme-dark-1-bg-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 
 .theme-dark-2 {
-  --main-bg-color: var(--color-dark-2);
-  --main-font-color: var(--color-light-2);
+  --main-special-color-1: var(--theme-dark-2-special-color-1);
+  --main-special-color-2: var(--theme-dark-2-special-color-2);
+  --main-bg-color: var(--theme-dark-2-bg-color-1);
+  --main-font-color: var(--theme-dark-2-font-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 .theme-dark-2 .current-theme {
-  --main-bg-color: var(--color-dark-2);
-  --main-font-color: var(--color-light-2);
+  --main-bg-color: var(--theme-dark-2-bg-color-1);
+  --main-font-color: var(--theme-dark-2-font-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 .theme-dark-2 .reverse-theme {
-  --main-bg-color: var(--color-light-2);
-  --main-font-color: var(--color-dark-2);
+  --main-bg-color: var(--theme-dark-2-font-color-1);
+  --main-font-color: var(--theme-dark-2-bg-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 
 .theme-dark-3 {
-  --main-bg-color: var(--color-dark-3);
-  --main-font-color: var(--color-light-3);
+  --main-special-color-1: var(--theme-dark-3-special-color-1);
+  --main-special-color-2: var(--theme-dark-3-special-color-2);
+  --main-bg-color: var(--theme-dark-3-bg-color-1);
+  --main-font-color: var(--theme-dark-3-font-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 .theme-dark-3 .current-theme {
-  --main-bg-color: var(--color-dark-3);
-  --main-font-color: var(--color-light-3);
+  --main-bg-color: var(--theme-dark-3-bg-color-1);
+  --main-font-color: var(--theme-dark-3-font-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }
 .theme-dark-3 .reverse-theme {
-  --main-bg-color: var(--color-light-3);
-  --main-font-color: var(--color-dark-3);
+  --main-bg-color: var(--theme-dark-3-font-color-1);
+  --main-font-color: var(--theme-dark-3-bg-color-1);
   color: var(--main-font-color);
   background: var(--main-bg-color);
 }

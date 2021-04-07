@@ -2,17 +2,24 @@
   min-width: calc(22rem + 11%);
   width: 40rem;
   max-width: calc(40rem + 1%);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin: 0.25em;
   padding: 0.5em;
   border: 1px solid black;
   border-radius: 5px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
 }
+
 .sign-in h2 {
   text-transform: capitalize;
   letter-spacing: 0.02em;
 }
-
 /*# sourceMappingURL=SignIn.css.map */

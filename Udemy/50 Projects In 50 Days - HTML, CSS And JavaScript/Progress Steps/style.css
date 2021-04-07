@@ -6,10 +6,16 @@
 
 body {
   background-color: #f6f7fb;
-  font-family: "Mulish", sans-serif;
+  font-family: 'Mulish', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100vh;
   overflow: hidden;
   margin: 0;
@@ -18,6 +24,7 @@ body {
 .container {
   text-align: center;
 }
+
 .container .btn {
   background-color: var(--line-border-fill);
   color: #fff;
@@ -29,61 +36,82 @@ body {
   margin: 0.5rem;
   font-size: 1.4rem;
 }
+
 .container .btn:active {
-  transform: scale(0.98);
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
+
 .container .btn:focus {
   outline: 0;
 }
+
 .container .btn:disabled {
   background-color: var(--line-border-empty);
   cursor: not-allowed;
 }
 
 .progress-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: relative;
   margin-bottom: 3rem;
   max-width: 100%;
   width: 35rem;
 }
+
 .progress-container::before {
-  content: "";
+  content: '';
   background-color: var(--line-border-empty);
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   height: 0.4rem;
   width: 100%;
   z-index: -1;
 }
+
 .progress-container .progress {
   background-color: var(--line-border-fill);
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   height: 0.4rem;
   width: 0%;
   z-index: -1;
+  -webkit-transition: 0.4s ease;
   transition: 0.4s ease;
 }
+
 .progress-container .circle {
   background-color: #fff;
   color: #999;
   border-radius: 50%;
   height: 3rem;
   width: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border: 0.3rem solid var(--line-border-empty);
+  -webkit-transition: 0.4s ease;
   transition: 0.4s ease;
 }
+
 .progress-container .circle.active {
   border-color: var(--line-border-fill);
 }
-
 /*# sourceMappingURL=style.css.map */

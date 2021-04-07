@@ -1,1 +1,9 @@
-{"version":3,"sourceRoot":"","sources":["SignInAndSignUp.scss"],"names":[],"mappings":"AAAA;EACC;EACA;EACA;EACA;EACA","file":"SignInAndSignUp.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,4BAA4B,CAAC;EAC5B,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,QAAQ;EAChB,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;EACf,eAAe,EAAE,YAAY;CAC7B",
+    "sources": [
+        "SignInAndSignUp.scss"
+    ],
+    "names": [],
+    "file": "SignInAndSignUp.css"
+}

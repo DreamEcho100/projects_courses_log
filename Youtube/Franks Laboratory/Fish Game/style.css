@@ -1,21 +1,32 @@
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-content: center;
-  justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .container {
   width: 100vw;
   height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-content: center;
-  justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 .container .canvas-1 {
   width: 80rem;
   height: 50rem;
   border: 0.4rem solid black;
+  background: -webkit-gradient(linear, left top, left bottom, from(lightblue), color-stop(darkblue), to(black));
   background: linear-gradient(to bottom, lightblue, darkblue, black);
 }
-
 /*# sourceMappingURL=style.css.map */

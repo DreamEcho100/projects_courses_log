@@ -1,1 +1,9 @@
-{"version":3,"sourceRoot":"","sources":["Collection.scss"],"names":[],"mappings":"AAAA;EACC;EACA;;AAEA;EACC;EACA;;AAGD;EACC;EACA;EACA;EACA;;AAEA;EACC","file":"Collection.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,CAAC;EAChB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;CAiBtB;;AAnBD,AAIC,gBAJe,CAIf,MAAM,CAAC;EACN,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,UAAU;CAClB;;AAPF,AASC,gBATe,CASf,MAAM,CAAC;EACN,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,qCAAqC;EAC5D,aAAa,EAAE,MAAM;EACrB,QAAQ,EAAE,IAAI;CAKd;;AAlBF,AAeE,gBAfc,CASf,MAAM,CAMH,gBAAgB,CAAC;EAClB,aAAa,EAAE,GAAG;CAClB",
+    "sources": [
+        "Collection.scss"
+    ],
+    "names": [],
+    "file": "Collection.css"
+}

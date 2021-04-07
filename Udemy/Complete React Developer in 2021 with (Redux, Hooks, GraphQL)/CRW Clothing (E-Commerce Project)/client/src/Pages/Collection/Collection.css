@@ -1,19 +1,28 @@
 .collection-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
 .collection-page .title {
   font-size: 3.8rem;
   margin: 0 auto 2em;
 }
+
 .collection-page .items {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 3fr));
+  -ms-grid-columns: (minmax(20rem, 3fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(20rem, 3fr));
   justify-items: center;
   grid-gap: 1rem;
 }
+
 .collection-page .items .collection-item {
   margin-bottom: 2em;
 }
-
 /*# sourceMappingURL=Collection.css.map */

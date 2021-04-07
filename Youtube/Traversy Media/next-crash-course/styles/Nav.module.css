@@ -19,9 +19,24 @@
 .nav ul li a {
 	margin: 0.1em 0.5em;
 	font-weight: 700;
+	text-shadow: 0rem 0rem var(--main-bg-color);
+	transition: text-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .nav ul li a:hover {
 	text-shadow: -0.5rem -0.5rem var(--main-bg-color);
-	transition: text-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.changeThemeHandler {
+	border-color: transparent;
+	color: var(--main-special-color-1);
+	background: var(--main-special-color-2);
+	font-weight: 700;
+	border-radius: 0.5rem;
+	transition: all 0.5s;
+}
+
+.changeThemeHandler:hover {
+	color: var(--main-special-color-2);
+	background: var(--main-special-color-1);
 }

@@ -1,1 +1,9 @@
-{"version":3,"sourceRoot":"","sources":["CollectionPreview.scss"],"names":[],"mappings":"AAAA;EACC;EACA;EACA;;AAEA;EACC;EACA;;AAGD;EACC;EACA;EACA;EACA","file":"CollectionPreview.css"}
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,mBAAmB,CAAC;EACnB,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;EACf,KAAK,EAAE,IAAI;CAaX;;AAhBD,AAKC,mBALkB,CAKlB,MAAM,CAAC;EACN,SAAS,EAAE,MAAM;EACjB,aAAa,EAAE,KAAK;CACpB;;AARF,AAUC,mBAVkB,CAUlB,QAAQ,CAAC;EACR,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;EACf,eAAe,EAAE,YAAY;EAC7B,KAAK,EAAE,IAAI;CACX",
+    "sources": [
+        "CollectionPreview.scss"
+    ],
+    "names": [],
+    "file": "CollectionPreview.css"
+}

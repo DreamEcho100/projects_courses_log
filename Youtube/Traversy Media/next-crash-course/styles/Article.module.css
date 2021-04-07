@@ -25,15 +25,15 @@
 .card:hover,
 .card:focus,
 .card:active {
-	color: var(--main-special-color);
-	border-color: var(--main-special-color);
+	color: var(--main-special-color-1);
+	border-color: var(--main-special-color-1);
 }
 
 .card:hover,
 .card:focus,
 .card:active {
-	color: var(--main-special-color);
-	border-color: var(--main-special-color);
+	color: var(--main-special-color-1);
+	border-color: var(--main-special-color-1);
 }
 
 .card h3 {

@@ -1,15 +1,95 @@
 export default `
-const handleMainSpecialColor = () => {
-  const body = document.body;
-  const forSpecialColor1 = ['theme-light-1', 'theme-light-2', 'theme-light-2'];
-  const forSpecialColor2 = ['theme-dark-1', 'theme-dark-2', 'theme-dark-2'];
+const body = document.body;
+const forSpecialColor1 = [
+	{
+		theme: 'theme-light-1',
+		colors: {
+      bgColor1: '--theme-light-1-bg-color-1',
+      fontColor1: '--theme-light-1-font-color-1',
+			specialColor1: '--theme-light-1-special-color-1',
+			specialColor2: '--theme-light-1-special-color-2',
+		},
+	},
+	{
+		theme: 'theme-light-2',
+		colors: {
+      bgColor1: '--theme-light-2-bg-color-1',
+      fontColor1: '--theme-light-2-font-color-1',
+			specialColor1: '--theme-light-2-special-color-1',
+			specialColor2: '--theme-light-2-special-color-2',
+		},
+	},
+	{
+		theme: 'theme-light-3',
+		colors: {
+      bgColor1: '--theme-light-3-bg-color-1',
+      fontColor1: '--theme-light-3-font-color-1',
+			specialColor1: '--theme-light-3-special-color-1',
+			specialColor2: '--theme-light-3-special-color-2',
+		},
+	},
+];
+const forSpecialColor2 = [
+	{
+		theme: 'theme-dark-1',
+		colors: {
+      bgColor1: '--theme-dark-1-bg-color-1',
+      fontColor1: '--theme-dark-1-font-color-1',
+			specialColor1: '--theme-dark-1-special-color-1',
+			specialColor2: '--theme-dark-1-special-color-2',
+		},
+	},
+	{
+		theme: 'theme-dark-2',
+		colors: {
+      bgColor1: '--theme-dark-2-bg-color-1',
+      fontColor1: '--theme-dark-2-font-color-1',
+			specialColor1: '--theme-dark-2-special-color-1',
+			specialColor2: '--theme-dark-2-special-color-2',
+		},
+	},
+	{
+		theme: 'theme-dark-3',
+		colors: {
+      bgColor1: '--theme-dark-3-bg-color-1',
+      fontColor1: '--theme-dark-3-font-color-1',
+			specialColor1: '--theme-dark-3-special-color-1',
+			specialColor2: '--theme-dark-3-special-color-2',
+		},
+	},
+];
+const currentThemes = [...forSpecialColor1, ...forSpecialColor2];
+let currentTheme =
+	JSON.parse(localStorage.getItem('WebDevNewsCurrentTheme')) &&
+	JSON.parse(localStorage.getItem('WebDevNewsCurrentTheme')).theme
+		? JSON.parse(localStorage.getItem('WebDevNewsCurrentTheme')).theme
+		: currentThemes.filter((obj) => body.classList.contains(obj.theme));
+let currentThemeIndex = currentThemes.findIndex((obj) =>
+  obj.theme === currentTheme
+);;
 
-  if (forSpecialColor1.some((theme) => body.classList.contains(theme))) {
-    body.style.setProperty('--main-special-color', 'var(--special-color-1)');
-  } else if (forSpecialColor2.some((theme) => body.classList.contains(theme))) {
-    body.style.setProperty('--main-special-color', 'var(--special-color-2)');
-  }
+const setMainThemeAndMainSpecialColor = () => {
+  body.classList.add(currentThemes[currentThemeIndex].theme);
+  
+  /*body.style.setProperty(
+    '--main-bg-color',
+    \`var(\${currentThemes[currentThemeIndex].colors.bgColor1})\`
+  );
+  body.style.setProperty(
+    '--main-font-color',
+    \`var(\${currentThemes[currentThemeIndex].colors.fontColor1})\`
+  );
+  body.style.setProperty(
+    '--main-special-color-1',
+    \`var(\${currentThemes[currentThemeIndex].colors.specialColor1})\`
+  );
+	body.style.setProperty(
+		'--main-special-color-2',
+		\`var(\${currentThemes[currentThemeIndex].colors.specialColor2})\`
+	);*/
+
+  localStorage.setItem('WebDevNewsCurrentTheme', JSON.stringify(currentThemes[currentThemeIndex]))
 };
 
-handleMainSpecialColor();
+setMainThemeAndMainSpecialColor();
 `;

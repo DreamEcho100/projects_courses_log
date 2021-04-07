@@ -11,7 +11,7 @@ class MyDocument extends Document {
 		return (
 			<Html lang='en'>
 				<Head></Head>
-				<body onLoad={() => handleMainSpecialColor()} className='theme-dark-2'>
+				<body onLoad={() => handleMainSpecialColor()} className='theme-light-2'>
 					<Main />
 					<NextScript />
 					<script

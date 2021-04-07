@@ -1,42 +1,71 @@
 .checkout-page {
   width: 55%;
   min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 2em auto 0;
 }
+
 .checkout-page .checkout-header {
   width: 100%;
   padding: 0.5em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   border-bottom: 1px solid darkgrey;
 }
+
 .checkout-page .checkout-header .header-block {
   text-transform: capitalize;
   width: 23%;
 }
+
 .checkout-page .checkout-header .header-block:not(:last-child) {
-  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: -webkit-transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .checkout-page .checkout-header .header-block:not(:last-child):hover, .checkout-page .checkout-header .header-block:not(:last-child):active {
-  transform: rotate(5deg);
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
 }
+
 .checkout-page .checkout-header .header-block:last-child {
   width: 8%;
-  transform: rotate(0deg) translate(-90%, 0%);
+  -webkit-transform: rotate(0deg) translate(-90%, 0%);
+          transform: rotate(0deg) translate(-90%, 0%);
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: -webkit-transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+
 .checkout-page .checkout-header .header-block:last-child:hover, .checkout-page .checkout-header .header-block:last-child:active {
-  transform: rotate(5deg) translate(-90%, 3%);
+  -webkit-transform: rotate(5deg) translate(-90%, 3%);
+          transform: rotate(5deg) translate(-90%, 3%);
 }
+
 .checkout-page .total {
   margin-top: 2em;
   margin-left: auto;
   font-size: 3.6rem;
 }
+
 .checkout-page .test-warning {
   text-align: center;
   margin-top: 4rem;
@@ -44,6 +73,7 @@
   color: red;
   letter-spacing: 0.3rem;
 }
+
 .checkout-page button.StripeCheckout {
   margin-left: auto;
   margin-top: 5rem;
@@ -55,6 +85,7 @@
     width: 75%;
   }
 }
+
 @media screen and (max-width: 700px) {
   .checkout-page {
     width: 75%;
@@ -63,5 +94,4 @@
     font-size: var(--small-size-text-3);
   }
 }
-
 /*# sourceMappingURL=Checkout.css.map */
