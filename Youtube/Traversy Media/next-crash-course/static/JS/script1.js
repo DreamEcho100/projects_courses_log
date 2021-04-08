@@ -59,14 +59,29 @@ const forSpecialColor2 = [
 	},
 ];
 const currentThemes = [...forSpecialColor1, ...forSpecialColor2];
+let currentThemeIndex;
 let currentTheme =
 	JSON.parse(localStorage.getItem('WebDevNewsCurrentTheme')) &&
 	JSON.parse(localStorage.getItem('WebDevNewsCurrentTheme')).theme
 		? JSON.parse(localStorage.getItem('WebDevNewsCurrentTheme')).theme
-		: currentThemes.filter((obj) => body.classList.contains(obj.theme));
-let currentThemeIndex = currentThemes.findIndex((obj) =>
-  obj.theme === currentTheme
-);;
+		: currentThemes.filter((obj, index) => {
+
+			if (body.classList.contains(obj.theme)) {
+				currentThemeIndex = index;
+				return true;
+			}
+		});
+
+if(!currentThemeIndex) {
+	currentThemeIndex = currentThemes.findIndex((obj) => {
+		if (currentTheme){
+			return obj.theme === currentTheme;
+		} else if (body.classList.contains(obj.theme)) {
+			currentTheme = obj.theme;
+			return true;
+		}
+	});;
+}
 
 const setMainThemeAndMainSpecialColor = () => {
   body.classList.add(currentThemes[currentThemeIndex].theme);
